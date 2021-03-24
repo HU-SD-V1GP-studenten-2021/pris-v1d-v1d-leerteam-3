@@ -15,9 +15,11 @@ public class LeerlingHoofdschermController {
     @FXML private TableView aanwezigheidsTabel;
     @FXML private PieChart rollCallAttendance;
 
+
+
     public void initialize() {
         String s = "";
-        naamLabel.setText(s);
+        naamLabel.setText(s);   // in de klasse Student de naam opvragen
     }
 
     public void loguitEnSluiten(ActionEvent actionEvent) {

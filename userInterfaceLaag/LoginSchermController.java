@@ -30,47 +30,47 @@ public class LoginSchermController {
         }
 
         else {
-        if (!docent.isSelected()){
-            naam += "@student.hu.nl";
-            wachtwoord = wachtwoordVeld.getText();
-            System.out.println("ingelogged als student. met naam: " + naam + " en wachtwoord: " + wachtwoord);
-            //* if(naam.equals() && wachtwoord.equals()){}
-            try{
+            if (!docent.isSelected()){
+                naam += "@student.hu.nl";
+                wachtwoord = wachtwoordVeld.getText();
+                System.out.println("ingelogd als student. met naam: " + naam + " en wachtwoord: " + wachtwoord);
+                //* if(naam.equals() && wachtwoord.equals()){}
+                try{
 
-                loginscherm.close();
+                    loginscherm.close();
 
-                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("LeerlingHoofdscherm.fxml"));
-                Parent root = (Parent) fxmlLoader.load();
-                Stage stage = new Stage();
-                stage.setTitle("Leerlingen scherm");
-                stage.setScene(new Scene(root));
-                stage.show();
+                    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("LeerlingHoofdscherm.fxml"));
+                    Parent root = (Parent) fxmlLoader.load();
+                    Stage stage = new Stage();
+                    stage.setTitle("Leerlingen scherm");
+                    stage.setScene(new Scene(root));
+                    stage.show();
 
-            }
-            catch (Exception ignored){
-                System.out.println(ignored);
-            }
-
-        }
-        else{
-            naam += "@hu.nl";
-            wachtwoord = wachtwoordVeld.getText();
-            //* if(naam.equals() && wachtwoord.equals()){}
-            System.out.println("ingelogged als docent. met naam: " + naam + " en wachtwoord: " + wachtwoord);
-            try{
-                loginscherm.close();
-                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("DocentenScherm.fxml"));
-                Parent root = (Parent) fxmlLoader.load();
-                Stage stage = new Stage();
-                stage.setTitle("Docenten scherm");
-                stage.setScene(new Scene(root));
-                stage.show();
+                }
+                catch (Exception ignored){
+                    System.out.println(ignored);
+                }
 
             }
-            catch (Exception ignored){
-                System.out.println(ignored);
+            else{
+                naam += "@hu.nl";
+                wachtwoord = wachtwoordVeld.getText();
+                //* if(naam.equals() && wachtwoord.equals()){}
+                System.out.println("ingelogd als docent. met naam: " + naam + " en wachtwoord: " + wachtwoord);
+                try{
+                    loginscherm.close();
+                    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("DocentenScherm.fxml"));
+                    Parent root = (Parent) fxmlLoader.load();
+                    Stage stage = new Stage();
+                    stage.setTitle("Docenten scherm");
+                    stage.setScene(new Scene(root));
+                    stage.show();
+
+                }
+                catch (Exception ignored){
+                    System.out.println(ignored);
+                }
             }
-        }
         }
 
 
