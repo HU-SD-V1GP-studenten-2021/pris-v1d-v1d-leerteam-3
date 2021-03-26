@@ -21,3 +21,4 @@ public class Magister200app extends Application {
     }
     Student s1 = new Student("Luca", 444,"luca.franken",0,100.00,0,"1234");
 }
+
