@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1870b15c-01a0-4397-a03e-47d933a7eef1" name="Default Changelist" comment="Test Ruben 26-03-2021" />
+    <list default="true" id="1870b15c-01a0-4397-a03e-47d933a7eef1" name="Default Changelist" comment="Merge pull request #4 from HU-SD-V1GP-studenten-2021/Ruben&#10;&#10;Ruben testen of het werkt" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -15,6 +15,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="Ruben &lt;74405662+rubiertje@users.noreply.github.com&gt;" />
+      </list>
+    </option>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
         <entry key="$PROJECT_DIR$" value="main" />
@@ -49,17 +54,6 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="Magister200app" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Magister200app" />
       <module name="Groepsproject" />
@@ -96,7 +90,28 @@
       <option name="project" value="LOCAL" />
       <updated>1616756891923</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Merge pull request #4 from HU-SD-V1GP-studenten-2021/Ruben&#10;&#10;Ruben testen of het werkt">
+      <created>1616760089998</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1616760089999</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Merge pull request #4 from HU-SD-V1GP-studenten-2021/Ruben&#10;&#10;Ruben testen of het werkt">
+      <created>1616760200586</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1616760200586</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Merge pull request #4 from HU-SD-V1GP-studenten-2021/Ruben&#10;&#10;Ruben testen of het werkt">
+      <created>1616760534708</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1616760534708</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -116,6 +131,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Test Ruben 26-03-2021" />
-    <option name="LAST_COMMIT_MESSAGE" value="Test Ruben 26-03-2021" />
+    <MESSAGE value="Merge pull request #4 from HU-SD-V1GP-studenten-2021/Ruben&#10;&#10;Ruben testen of het werkt" />
+    <option name="LAST_COMMIT_MESSAGE" value="Merge pull request #4 from HU-SD-V1GP-studenten-2021/Ruben&#10;&#10;Ruben testen of het werkt" />
   </component>
 </project>
