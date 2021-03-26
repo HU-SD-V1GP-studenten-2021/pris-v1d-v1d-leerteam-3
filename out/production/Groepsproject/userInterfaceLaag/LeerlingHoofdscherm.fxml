@@ -15,13 +15,15 @@
          </font>
       </Button>
       <Label fx:id="naamLabel" layoutX="500.0" layoutY="8.0" text="PLACEHOLDER VOOR NAAM" />
-      <TableView fx:id="aanwezigheidsTabel" layoutX="497.0" layoutY="191.0" prefHeight="295.0" prefWidth="289.0">
+      <TableView fx:id="aanwezigheidsTabel" layoutX="39.0" layoutY="82.0" prefHeight="343.0" prefWidth="450.0">
         <columns>
-          <TableColumn prefWidth="75.0" text="Les" />
-          <TableColumn prefWidth="95.0" text="Datum" />
-            <TableColumn prefWidth="118.0" text="Aanwezigheid" />
+          <TableColumn prefWidth="101.19998931884766" text="Les" />
+          <TableColumn prefWidth="86.80001831054688" text="Datum" />
+            <TableColumn prefWidth="104.20001220703125" text="Docent" />
+            <TableColumn prefWidth="62.4000244140625" text="Lokaal" />
+            <TableColumn prefWidth="93.5999755859375" text="Aanwezigheid" />
         </columns>
       </TableView>
-      <PieChart fx:id="rollCallAttendance" layoutX="560.0" layoutY="38.0" prefHeight="136.0" prefWidth="200.0" />
+      <PieChart fx:id="rollCallAttendance" layoutX="533.0" layoutY="109.0" prefHeight="136.0" prefWidth="200.0" title="Roll Call Attendance" />
    </children>
 </AnchorPane>
