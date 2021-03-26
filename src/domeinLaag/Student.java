@@ -1,7 +1,8 @@
 package domeinLaag;
 
-public class Student {
+import java.util.ArrayList;
 
+public class Student {
     private String naam;
     private int studentennummer;
     private String email;
@@ -9,8 +10,19 @@ public class Student {
     private double percentage;
     private int pogingen;
     private String wachtwoord;
+    private Klas klas;
 
-    public Student(String naam, int studentennummer, String email, int status, double percentage, int pogingen, String wachtwoord){
+    public static Student getAccount() {
+        return huidigeAccount;
+    }
+
+    public void setAccount(Student huidigeAccount) {
+        this.huidigeAccount = huidigeAccount;
+    }
+
+    private static Student huidigeAccount;
+
+    public Student(String naam, int studentennummer, String email, int status, double percentage, int pogingen, String wachtwoord, Klas klas){
         this.naam = naam;
         this.studentennummer = studentennummer;
         this.email = email;
@@ -18,16 +30,22 @@ public class Student {
         this.percentage = percentage;
         this.pogingen = pogingen;
         this.wachtwoord = wachtwoord;
+        this.klas = klas;
     }
 
-    private static Student account;
-
-    public static Student getAccount() {
-        return account;
+    public String getNaam() {
+        return naam;
     }
 
-    public void setAccount(Student account) {
-        this.account = account;
+    public int getStudentennummer() {
+        return studentennummer;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public Klas getKlas() {
+        return klas;
+    }
 }
