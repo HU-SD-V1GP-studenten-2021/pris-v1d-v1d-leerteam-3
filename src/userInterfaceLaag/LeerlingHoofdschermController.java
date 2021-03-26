@@ -18,7 +18,7 @@ public class LeerlingHoofdschermController {
 
     public void initialize() {
         String s = "";
-        naamLabel.setText(s);   // in de klasse Student de naam opvragen
+        naamLabel.setText(s);   // in de klasse domeinLaag.Student de naam opvragen
     }
 
     public void loguitEnSluiten(ActionEvent actionEvent) {
