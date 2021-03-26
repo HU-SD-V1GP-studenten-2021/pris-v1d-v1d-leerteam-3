@@ -1,5 +1,6 @@
 package domeinLaag;
 
 public class Test {
-    private String Luca;
+    private String ruben;
+    private String luca;
 }
