@@ -19,6 +19,7 @@ public class Magister200app extends Application {
         stage.setScene(new Scene(root));
         stage.show();
     }
+
     Student s1 = new Student("Luca", 444,"luca.franken",0,100.00,0,"1234");
 }
 
