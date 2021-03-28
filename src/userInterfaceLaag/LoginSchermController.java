@@ -15,7 +15,6 @@ import javafx.stage.Stage;
 public class LoginSchermController {
     @FXML private Button loginKnop;
     @FXML private PasswordField wachtwoordVeld;
-    @FXML private CheckBox docent;
     @FXML private TextField naamVeld;
     @FXML private Label Waarschuwing;
 
@@ -25,15 +24,15 @@ public class LoginSchermController {
         String naam = naamVeld.getText();
         String wachtwoord = wachtwoordVeld.getText();
         Stage loginscherm = (Stage) loginKnop.getScene().getWindow();
-        if(naam.equals("")){
-            Waarschuwing.setText("Naamveld is verplicht!");
+        if(!naam.contains("@student.hu.nl") &!naam.contains("@docent.hu.nl")){
+            Waarschuwing.setText("E-mailadres is onjuist.\nVolg het format: gebruiker@domein.nl");
         }
         else if(wachtwoord.equals("")){
-            Waarschuwing.setText("Wachtwoordveld is verplicht!");
+            Waarschuwing.setText("Wachtwoordveld is verplicht");
         }
 
         else {
-            if (!docent.isSelected()){
+            if (naam.contains("@student.hu.nl")){
                 naam += "@student.hu.nl";
                 wachtwoord = wachtwoordVeld.getText();
                 System.out.println("ingelogd als student. met naam: " + naam + " en wachtwoord: " + wachtwoord);
@@ -71,7 +70,7 @@ public class LoginSchermController {
 
             }
             else{
-                naam += "@hu.nl";
+                naam += "docent@hu.nl";
                 wachtwoord = wachtwoordVeld.getText();
                 //* if(naam.equals() && wachtwoord.equals()){}
                 System.out.println("ingelogd als docent. met naam: " + naam + " en wachtwoord: " + wachtwoord);
@@ -90,9 +89,6 @@ public class LoginSchermController {
                 }
             }
         }
-
-
-
     }
 
     public void setStatusDocent(ActionEvent actionEvent) {
