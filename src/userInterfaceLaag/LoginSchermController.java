@@ -43,21 +43,22 @@ public class LoginSchermController {
             if (naam.contains("@student.hu.nl")){
 
 
-                String url = "jdbc:postgresql://localhost/SDGP";
+                String url = "jdbc:postgresql://localhost:5433/GP";
                 Properties props = new Properties();
                 props.setProperty("user","postgres");
-                props.setProperty("password","united");
+                props.setProperty("password","ruben");
                 Connection conn = DriverManager.getConnection(url, props);
                 Statement stmt = conn.createStatement();
                 String SQL = "SELECT email, wachtwoord FROM student";
                 ResultSet rs = stmt.executeQuery(SQL);
 
                 while(rs.next()){
-                    if(rs.getString("email").equals(naam)){
-                        if(rs.getString("wachtwoord").equals(wachtwoord)){
-                            System.out.println("ingelogged");
-                        }
-                    }
+                    System.out.println(rs.getString("email"));
+//                    if(rs.getString("email").equals(naam)){
+//                        if(rs.getString("wachtwoord").equals(wachtwoord)){
+//                            System.out.println("ingelogged");
+//                        }
+//                    }
 
                 }
 
