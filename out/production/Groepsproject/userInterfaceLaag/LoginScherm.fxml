@@ -26,6 +26,6 @@
          </image>
       </ImageView>
       <Label layoutX="188.0" layoutY="235.0" text="Wachtwoord vergeten?" textFill="#2244ee" />
-      <Label fx:id="Waarschuwing" layoutX="189.0" layoutY="243.0" textFill="RED" />
+      <Label fx:id="Waarschuwing" layoutX="189.0" layoutY="243.0" textFill="RED" translateY="15.0" />
    </children>
 </AnchorPane>
