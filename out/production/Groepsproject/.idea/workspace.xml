@@ -2,9 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1870b15c-01a0-4397-a03e-47d933a7eef1" name="Default Changelist" comment="Test Ruben 26-03-2021...">
+      <change afterPath="$PROJECT_DIR$/lib/postgresql-42.2.19.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/447885ee-6457-4f36-9b6a-5d335bab93bc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/447885ee-6457-4f36-9b6a-5d335bab93bc/storage_v2/_src_/database/SDGP.-sImAA.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/447885ee-6457-4f36-9b6a-5d335bab93bc/storage_v2/_src_/database/SDGP.-sImAA/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/447885ee-6457-4f36-9b6a-5d335bab93bc/storage_v2/_src_/database/SDGP.-sImAA/schema/pg_catalog.0S1ZNQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/447885ee-6457-4f36-9b6a-5d335bab93bc/storage_v2/_src_/database/SDGP.-sImAA/schema/public.abK9xQ.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Groepsproject/.idea/dataSources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Groepsproject/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/userInterfaceLaag/LoginScherm.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/userInterfaceLaag/LoginScherm.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/domeinLaag/Test.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/src/userInterfaceLaag/LoginScherm.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Groepsproject/src/userInterfaceLaag/LoginScherm.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/userInterfaceLaag/LoginScherm.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Groepsproject/userInterfaceLaag/LoginScherm.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/userInterfaceLaag/LoginSchermController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/userInterfaceLaag/LoginSchermController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -58,17 +67,6 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="Magister200app" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Magister200app" />
       <module name="Groepsproject" />
@@ -98,6 +96,8 @@
       <workItem from="1616756149014" duration="477000" />
       <workItem from="1616756643700" duration="648000" />
       <workItem from="1616757306508" duration="2519000" />
+      <workItem from="1617015058072" duration="1619000" />
+      <workItem from="1617017963626" duration="954000" />
     </task>
     <task id="LOCAL-00001" summary="Test Ruben 26-03-2021">
       <created>1616756891923</created>

@@ -12,6 +12,11 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.util.Properties;
+
+
 public class LoginSchermController {
     @FXML private Button loginKnop;
     @FXML private PasswordField wachtwoordVeld;
@@ -33,7 +38,14 @@ public class LoginSchermController {
 
         else {
             if (naam.contains("@student.hu.nl")){
-                naam += "@student.hu.nl";
+
+                String url = "jdbc:postgresql://localhost/SDGP";
+                Properties props = new Properties();
+                props.setProperty("user","postgres");
+                props.setProperty("password","Galaxy");
+                Connection conn = DriverManager.getConnection(url, props);
+
+
                 wachtwoord = wachtwoordVeld.getText();
                 System.out.println("ingelogd als student. met naam: " + naam + " en wachtwoord: " + wachtwoord);
 
