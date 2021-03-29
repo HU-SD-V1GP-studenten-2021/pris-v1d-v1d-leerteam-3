@@ -43,10 +43,10 @@ public class LoginSchermController {
             if (naam.contains("@student.hu.nl")){
 
 
-                String url = "jdbc:postgresql://localhost/SDGP";
+                String url = "jdbc:postgresql://localhost/Project";
                 Properties props = new Properties();
                 props.setProperty("user","postgres");
-                props.setProperty("password","united");
+                props.setProperty("password","Password");
                 Connection conn = DriverManager.getConnection(url, props);
                 Statement stmt = conn.createStatement();
                 String SQL = "SELECT email, wachtwoord FROM student";
