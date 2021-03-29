@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1870b15c-01a0-4397-a03e-47d933a7eef1" name="Default Changelist" comment="Test Ruben 26-03-2021" />
+    <list default="true" id="1870b15c-01a0-4397-a03e-47d933a7eef1" name="Default Changelist" comment="Test idk Luuk 26/03/2021">
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Groepsproject/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -28,10 +33,12 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="postgresql" />
     <property name="Downloaded.Files.Path.Enabled" value="true" />
     <property name="Repository.Attach.Annotations" value="false" />
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="Repository.Attach.Sources" value="false" />
+    <property name="RunConfigurationTargetLRU" value="&#10;2864eebc-775f-4681-b314-178da5bc4bf1" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
@@ -48,7 +55,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.Magister200app">
     <configuration name="Magister200app" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Magister200app" />
       <module name="Groepsproject" />
@@ -68,9 +75,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="PostgreSQL___postgres_localhost-2021_03_26_13_53_08-dump.sql" type="DatabaseScript" editBeforeRun="true" temporary="true" nameIsGenerated="true">
+      <script-file value="$USER_HOME$/Downloads/PostgreSQL___postgres_localhost-2021_03_26_13_53_08-dump.sql" />
+      <script-mode>FILE</script-mode>
+      <method v="2" />
+    </configuration>
+    <configuration name="my_scrit.sql" type="DatabaseScript" editBeforeRun="true" temporary="true" nameIsGenerated="true">
+      <script-file value="$USER_HOME$/Downloads/my_scrit.sql" />
+      <script-mode>FILE</script-mode>
+      <data-source id="2864eebc-775f-4681-b314-178da5bc4bf1" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Magister200app" />
+        <item itemvalue="Database Script.my_scrit.sql" />
+        <item itemvalue="Database Script.PostgreSQL___postgres_localhost-2021_03_26_13_53_08-dump.sql" />
         <item itemvalue="Application.Magister200app" />
         <item itemvalue="Application.Magister200app" />
       </list>
@@ -88,6 +108,8 @@
       <workItem from="1616756131135" duration="6000" />
       <workItem from="1616756149014" duration="477000" />
       <workItem from="1616756643700" duration="648000" />
+      <workItem from="1616760404971" duration="1894000" />
+      <workItem from="1617007888387" duration="2049000" />
     </task>
     <task id="LOCAL-00001" summary="Test Ruben 26-03-2021">
       <created>1616756891923</created>
@@ -96,7 +118,14 @@
       <option name="project" value="LOCAL" />
       <updated>1616756891923</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Test idk Luuk 26/03/2021">
+      <created>1616760635325</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1616760635325</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -116,6 +145,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Test Ruben 26-03-2021" />
-    <option name="LAST_COMMIT_MESSAGE" value="Test Ruben 26-03-2021" />
+    <MESSAGE value="Test idk Luuk 26/03/2021" />
+    <option name="LAST_COMMIT_MESSAGE" value="Test idk Luuk 26/03/2021" />
   </component>
 </project>
