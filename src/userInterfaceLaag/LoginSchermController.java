@@ -14,6 +14,7 @@ import javafx.stage.Stage;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.SQLException;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.Properties;
@@ -30,8 +31,9 @@ public class LoginSchermController {
         String naam = naamVeld.getText();
         String wachtwoord = wachtwoordVeld.getText();
         Stage loginscherm = (Stage) loginKnop.getScene().getWindow();
-        if(!naam.contains("@student.hu.nl") &!naam.contains("@docent.hu.nl")){
-            Waarschuwing.setText("E-mailadres is onjuist.\nVolg het format: gebruiker@domein.nl");
+
+        if(!naam.contains("@student.hu.nl") &&!naam.contains("@docent.hu.nl")){
+            Waarschuwing.setText("E-mailadres is onjuist.\nVolg het format: gebruiker@domein.hu.nl");
         }
         else if(wachtwoord.equals("")){
             Waarschuwing.setText("Wachtwoordveld is verplicht");
@@ -39,24 +41,33 @@ public class LoginSchermController {
 
         else {
             if (naam.contains("@student.hu.nl")){
-                naam += "@student.hu.nl";
-                wachtwoord = wachtwoordVeld.getText();
-                System.out.println("ingelogd als student. met naam: " + naam + " en wachtwoord: " + wachtwoord);
 
-                //* if(naam.equals() && wachtwoord.equals()){}
-                // als het gecheckt is en het komt overeen met hetgeen in de database,
 
-                String url = "jdbc:postgresql://localhost/GP";
+                String url = "jdbc:postgresql://localhost:5433/GP";
                 Properties props = new Properties();
                 props.setProperty("user","postgres");
                 props.setProperty("password","ruben");
                 Connection conn = DriverManager.getConnection(url, props);
                 Statement stmt = conn.createStatement();
-                String SQL = "SELECT naam FROM student";
+                String SQL = "SELECT email, wachtwoord FROM student";
                 ResultSet rs = stmt.executeQuery(SQL);
+
                 while(rs.next()){
-                    System.out.println(rs);
+                    System.out.println(rs.getString("email"));
+//                    if(rs.getString("email").equals(naam)){
+//                        if(rs.getString("wachtwoord").equals(wachtwoord)){
+//                            System.out.println("ingelogged");
+//                        }
+//                    }
+
                 }
+
+                wachtwoord = wachtwoordVeld.getText();
+                System.out.println("ingelogd als student. met naam: " + naam + " en wachtwoord: " + wachtwoord);
+
+                // dsfsdfdsf@student.hu.nl
+                //* if(naam.equals() && wachtwoord.equals()){}
+                // als het gecheckt is en het komt overeen met hetgeen in de database,
                 // dan select * from student where email = 'naam' and wachtwoord = 'wachtwoord';
                 // dan heb je de gegevens van deze persoon en kan je een persoon object maken die je vervolgens
                 // BV: Student user = new Student(De juiste gegevens uit de database om een tijdelijke student aan te maken voor zn account);
