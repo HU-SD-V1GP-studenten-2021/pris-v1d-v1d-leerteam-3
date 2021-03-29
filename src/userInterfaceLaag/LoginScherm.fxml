@@ -9,13 +9,12 @@
    <children>
       <Button fx:id="loginKnop" layoutX="201.0" layoutY="352.0" mnemonicParsing="false" onAction="#loginAccount" prefHeight="25.0" prefWidth="71.0" text="Login" />
       <PasswordField fx:id="wachtwoordVeld" layoutX="175.0" layoutY="249.0" />
-      <CheckBox fx:id="docent" layoutX="176.0" layoutY="177.0" mnemonicParsing="false" onAction="#setStatusDocent" text="Docent" />
       <Label fx:id="wachtwoordLabel" layoutX="87.0" layoutY="253.0" text="Wachtwoord:">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
-      <Label fx:id="naamLabel" layoutX="122.0" layoutY="213.0" text="Naam:">
+      <Label fx:id="naamLabel" layoutX="83.0" layoutY="213.0" prefHeight="18.0" prefWidth="85.0" text="E-mailadres:">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
