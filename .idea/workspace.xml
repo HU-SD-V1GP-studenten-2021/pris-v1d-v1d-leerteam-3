@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1870b15c-01a0-4397-a03e-47d933a7eef1" name="Default Changelist" comment="Gehele klassen bij het inloggen voor student en ervoor gezorgd dat je de gegevens kunt ophalen vanuit een variabele in HoofdschermStudent">
+    <list default="true" id="1870b15c-01a0-4397-a03e-47d933a7eef1" name="Default Changelist" comment="Test Ruben 26-03-2021...">
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dbnavigator.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/userInterfaceLaag/LeerlingHoofdschermController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Groepsproject/userInterfaceLaag/LeerlingHoofdschermController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/userInterfaceLaag/LoginSchermController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/userInterfaceLaag/LoginSchermController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -32,6 +33,9 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1qI8wRB38e0i6ajf6yiCacfKjvG" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -47,19 +51,14 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="database.data.extractors.current.export.id" value="SQL Inserts" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Mr_Kaatjes\IdeaProjects\pris-v1d-v1d-leerteam-3\src" />
-      <recent name="C:\Users\Mr_Kaatjes\IdeaProjects\pris-v1d-v1d-leerteam-3" />
-    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="" />
     </key>
@@ -73,20 +72,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Magister200app" />
         <item itemvalue="Application.Magister200app" />
         <item itemvalue="Application.Magister200app" />
         <item itemvalue="Application.Magister200app" />
@@ -105,11 +92,9 @@
       <workItem from="1616756131135" duration="6000" />
       <workItem from="1616756149014" duration="477000" />
       <workItem from="1616756643700" duration="648000" />
-      <workItem from="1616761283441" duration="1755000" />
-      <workItem from="1617015007859" duration="7003000" />
-      <workItem from="1617029499125" duration="770000" />
-      <workItem from="1617052381672" duration="4450000" />
-      <workItem from="1617093575285" duration="897000" />
+      <workItem from="1616757306508" duration="2519000" />
+      <workItem from="1617006822136" duration="4330000" />
+      <workItem from="1617011442171" duration="1385000" />
     </task>
     <task id="LOCAL-00001" summary="Test Ruben 26-03-2021">
       <created>1616756891923</created>
@@ -132,42 +117,7 @@
       <option name="project" value="LOCAL" />
       <updated>1616760200586</updated>
     </task>
-    <task id="LOCAL-00004" summary="Luca test">
-      <created>1616761359409</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1616761359409</updated>
-    </task>
-    <task id="LOCAL-00005" summary="login update">
-      <created>1617019784445</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1617019784445</updated>
-    </task>
-    <task id="LOCAL-00006" summary="updates 30-03-2021">
-      <created>1617103949247</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1617103949247</updated>
-    </task>
-    <task id="LOCAL-00007" summary="Gehele klassen bij het inloggen voor student">
-      <created>1617111609358</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1617111609358</updated>
-    </task>
-    <task id="LOCAL-00008" summary="Gehele klassen bij het inloggen voor student en ervoor gezorgd dat je de gegevens kunt ophalen vanuit een variabele in HoofdschermStudent">
-      <created>1617113102211</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1617113102211</updated>
-    </task>
-    <option name="localTasksCounter" value="9" />
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -188,11 +138,6 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Test Ruben 26-03-2021" />
     <MESSAGE value="Merge pull request #4 from HU-SD-V1GP-studenten-2021/Ruben&#10;&#10;Ruben testen of het werkt" />
-    <MESSAGE value="Luca test" />
-    <MESSAGE value="login update" />
-    <MESSAGE value="updates 30-03-2021" />
-    <MESSAGE value="Gehele klassen bij het inloggen voor student" />
-    <MESSAGE value="Gehele klassen bij het inloggen voor student en ervoor gezorgd dat je de gegevens kunt ophalen vanuit een variabele in HoofdschermStudent" />
-    <option name="LAST_COMMIT_MESSAGE" value="Gehele klassen bij het inloggen voor student en ervoor gezorgd dat je de gegevens kunt ophalen vanuit een variabele in HoofdschermStudent" />
+    <option name="LAST_COMMIT_MESSAGE" value="Merge pull request #4 from HU-SD-V1GP-studenten-2021/Ruben&#10;&#10;Ruben testen of het werkt" />
   </component>
 </project>
