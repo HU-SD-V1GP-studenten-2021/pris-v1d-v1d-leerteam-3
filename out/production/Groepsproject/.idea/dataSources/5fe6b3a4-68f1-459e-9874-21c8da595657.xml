@@ -795,13 +795,13 @@ false Zulu
       <Owner>postgres</Owner>
     </database>
     <database id="4" parent="1" name="SDGP">
-      <ObjectId>25094</ObjectId>
+      <ObjectId>16841</ObjectId>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>789</IntrospectionStateNumber>
+      <IntrospectionStateNumber>775</IntrospectionStateNumber>
       <Current>1</Current>
-      <Relations>sequence|table|25095|25097|1
-sequence|table|25111|25113|1
-sequence|table|25119|25121|1
+      <Relations>sequence|table|25039|25033|1
+sequence|table|25053|25050|1
+sequence|table|25061|25055|1
 </Relations>
     </database>
     <database id="5" parent="1" name="fabriek">
@@ -881,7 +881,7 @@ UC/10
 </Acl>
       <StateNumber>287</StateNumber>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>790</IntrospectionStateNumber>
+      <IntrospectionStateNumber>776</IntrospectionStateNumber>
       <Current>1</Current>
     </schema>
     <extension id="21" parent="4" name="plpgsql">
@@ -981,132 +981,99 @@ UC/10
       <HandlerId>335</HandlerId>
       <Type>index</Type>
     </access-method>
-    <sequence id="33" parent="20" name="docent_docentnummer_seq">
-      <ObjectId>25095</ObjectId>
+    <sequence id="33" parent="20" name="docent_medewerkernummer_seq">
+      <ObjectId>25039</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>782</StateNumber>
+      <StateNumber>773</StateNumber>
       <DataType>integer|0s</DataType>
     </sequence>
-    <sequence id="34" parent="20" name="les_lesnummer_seq">
-      <ObjectId>25111</ObjectId>
+    <sequence id="34" parent="20" name="les_lescode_seq">
+      <ObjectId>25053</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>782</StateNumber>
+      <StateNumber>773</StateNumber>
       <DataType>integer|0s</DataType>
     </sequence>
     <sequence id="35" parent="20" name="student_studentnummer_seq">
-      <ObjectId>25119</ObjectId>
+      <ObjectId>25061</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>782</StateNumber>
+      <StateNumber>773</StateNumber>
       <DataType>integer|0s</DataType>
     </sequence>
     <table id="36" parent="20" name="docent">
-      <ObjectId>25097</ObjectId>
+      <ObjectId>25033</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>782</StateNumber>
+      <StateNumber>773</StateNumber>
     </table>
     <table id="37" parent="20" name="klas">
-      <ObjectId>25106</ObjectId>
+      <ObjectId>25041</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>782</StateNumber>
+      <StateNumber>773</StateNumber>
     </table>
-    <table id="38" parent="20" name="les">
-      <ObjectId>25113</ObjectId>
+    <table id="38" parent="20" name="klas_docent">
+      <ObjectId>25044</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>782</StateNumber>
+      <StateNumber>773</StateNumber>
     </table>
-    <table id="39" parent="20" name="student">
-      <ObjectId>25121</ObjectId>
+    <table id="39" parent="20" name="les">
+      <ObjectId>25050</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>782</StateNumber>
+      <StateNumber>773</StateNumber>
     </table>
-    <column id="40" parent="36" name="docentnummer">
+    <table id="40" parent="20" name="student">
+      <ObjectId>25055</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>773</StateNumber>
+    </table>
+    <column id="41" parent="36" name="medewerkernummer">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>782</StateNumber>
-      <DefaultExpression>nextval(&apos;docent_docentnummer_seq&apos;::regclass)</DefaultExpression>
+      <StateNumber>773</StateNumber>
+      <DefaultExpression>nextval(&apos;docent_medewerkernummer_seq&apos;::regclass)</DefaultExpression>
       <TypeId>23</TypeId>
     </column>
-    <column id="41" parent="36" name="naam">
+    <column id="42" parent="36" name="naam">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>782</StateNumber>
+      <StateNumber>773</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="42" parent="36" name="email">
+    <column id="43" parent="36" name="email">
       <Position>3</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>782</StateNumber>
+      <StateNumber>773</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="43" parent="36" name="status">
-      <Position>4</Position>
-      <DataType>boolean|0s</DataType>
-      <NotNull>1</NotNull>
-      <StateNumber>782</StateNumber>
-      <TypeId>16</TypeId>
-    </column>
-    <column id="44" parent="36" name="pogingen">
-      <Position>5</Position>
-      <DataType>integer|0s</DataType>
-      <NotNull>1</NotNull>
-      <StateNumber>782</StateNumber>
-      <TypeId>23</TypeId>
-    </column>
-    <column id="45" parent="36" name="wachtwoord">
-      <Position>6</Position>
-      <DataType>varchar(255)|0s</DataType>
-      <NotNull>1</NotNull>
-      <StateNumber>782</StateNumber>
-      <TypeId>1043</TypeId>
-    </column>
-    <column id="46" parent="36" name="lesnummer">
-      <Position>7</Position>
-      <DataType>integer|0s</DataType>
-      <NotNull>1</NotNull>
-      <StateNumber>782</StateNumber>
-      <TypeId>23</TypeId>
-    </column>
-    <index id="47" parent="36" name="docent_pkey">
-      <ObjectId>25104</ObjectId>
-      <StateNumber>782</StateNumber>
-      <ColNames>docentnummer</ColNames>
+    <index id="44" parent="36" name="docent_pkey">
+      <ObjectId>25066</ObjectId>
+      <StateNumber>773</StateNumber>
+      <ColNames>medewerkernummer</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
       <AccessMethodId>403</AccessMethodId>
       <CollationIds>0</CollationIds>
       <ClassIds>1978</ClassIds>
     </index>
-    <key id="48" parent="36" name="docent_pkey">
-      <ObjectId>25105</ObjectId>
-      <StateNumber>782</StateNumber>
-      <ColNames>docentnummer</ColNames>
+    <key id="45" parent="36" name="docent_pkey">
+      <ObjectId>25067</ObjectId>
+      <StateNumber>773</StateNumber>
+      <ColNames>medewerkernummer</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>docent_pkey</UnderlyingIndexName>
     </key>
-    <foreign-key id="49" parent="36" name="fkdocent326208">
-      <ObjectId>25140</ObjectId>
-      <StateNumber>782</StateNumber>
-      <ColNames>lesnummer</ColNames>
-      <RefTableId>25113</RefTableId>
-      <RefColPositions>1</RefColPositions>
-      <RefTableName>les</RefTableName>
-      <RefKeyName>les_pkey</RefKeyName>
-      <RefColNames>lesnummer</RefColNames>
-    </foreign-key>
-    <column id="50" parent="37" name="klasnaam">
+    <column id="46" parent="37" name="naam">
       <Position>1</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>782</StateNumber>
+      <StateNumber>773</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="51" parent="37" name="klas_pkey">
-      <ObjectId>25109</ObjectId>
-      <StateNumber>782</StateNumber>
-      <ColNames>klasnaam</ColNames>
+    <index id="47" parent="37" name="klas_pkey">
+      <ObjectId>25068</ObjectId>
+      <StateNumber>773</StateNumber>
+      <ColNames>naam</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
       <AccessMethodId>403</AccessMethodId>
@@ -1114,136 +1081,170 @@ UC/10
       <CollationNames>default</CollationNames>
       <ClassIds>3126</ClassIds>
     </index>
-    <key id="52" parent="37" name="klas_pkey">
-      <ObjectId>25110</ObjectId>
-      <StateNumber>782</StateNumber>
-      <ColNames>klasnaam</ColNames>
+    <key id="48" parent="37" name="klas_pkey">
+      <ObjectId>25069</ObjectId>
+      <StateNumber>773</StateNumber>
+      <ColNames>naam</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>klas_pkey</UnderlyingIndexName>
     </key>
-    <column id="53" parent="38" name="lesnummer">
+    <column id="49" parent="38" name="klas_naam">
+      <Position>1</Position>
+      <DataType>varchar|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>773</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="50" parent="38" name="docentmedewerkernummer">
+      <Position>2</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>773</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <foreign-key id="51" parent="38" name="klas_naam">
+      <ObjectId>25084</ObjectId>
+      <StateNumber>773</StateNumber>
+      <ColNames>klas_naam</ColNames>
+      <RefTableId>25041</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>klas</RefTableName>
+      <RefKeyName>klas_pkey</RefKeyName>
+      <RefColNames>naam</RefColNames>
+    </foreign-key>
+    <foreign-key id="52" parent="38" name="docentmedewerkernummer">
+      <ObjectId>25074</ObjectId>
+      <StateNumber>773</StateNumber>
+      <ColNames>docentmedewerkernummer</ColNames>
+      <RefTableId>25033</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>docent</RefTableName>
+      <RefKeyName>docent_pkey</RefKeyName>
+      <RefColNames>medewerkernummer</RefColNames>
+    </foreign-key>
+    <column id="53" parent="39" name="lescode">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>782</StateNumber>
-      <DefaultExpression>nextval(&apos;les_lesnummer_seq&apos;::regclass)</DefaultExpression>
+      <StateNumber>773</StateNumber>
+      <DefaultExpression>nextval(&apos;les_lescode_seq&apos;::regclass)</DefaultExpression>
       <TypeId>23</TypeId>
     </column>
-    <column id="54" parent="38" name="datum">
+    <column id="54" parent="39" name="klasnaam">
       <Position>2</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>773</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="55" parent="39" name="datum">
+      <Position>3</Position>
       <DataType>date|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>782</StateNumber>
+      <StateNumber>773</StateNumber>
       <TypeId>1082</TypeId>
     </column>
-    <column id="55" parent="38" name="begintijd">
-      <Position>3</Position>
-      <DataType>time(6)|0s</DataType>
-      <NotNull>1</NotNull>
-      <StateNumber>782</StateNumber>
-      <TypeId>1083</TypeId>
-    </column>
-    <column id="56" parent="38" name="eindtijd">
+    <column id="56" parent="39" name="begintijd">
       <Position>4</Position>
       <DataType>time(6)|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>782</StateNumber>
+      <StateNumber>773</StateNumber>
       <TypeId>1083</TypeId>
     </column>
-    <column id="57" parent="38" name="klasnaam">
+    <column id="57" parent="39" name="eindtijd">
       <Position>5</Position>
-      <DataType>varchar(255)|0s</DataType>
+      <DataType>time(6)|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>782</StateNumber>
-      <TypeId>1043</TypeId>
+      <StateNumber>773</StateNumber>
+      <TypeId>1083</TypeId>
     </column>
-    <index id="58" parent="38" name="les_pkey">
-      <ObjectId>25117</ObjectId>
-      <StateNumber>782</StateNumber>
-      <ColNames>lesnummer</ColNames>
+    <index id="58" parent="39" name="les_pkey">
+      <ObjectId>25070</ObjectId>
+      <StateNumber>773</StateNumber>
+      <ColNames>lescode</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
       <AccessMethodId>403</AccessMethodId>
       <CollationIds>0</CollationIds>
       <ClassIds>1978</ClassIds>
     </index>
-    <key id="59" parent="38" name="les_pkey">
-      <ObjectId>25118</ObjectId>
-      <StateNumber>782</StateNumber>
-      <ColNames>lesnummer</ColNames>
+    <key id="59" parent="39" name="les_pkey">
+      <ObjectId>25071</ObjectId>
+      <StateNumber>773</StateNumber>
+      <ColNames>lescode</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>les_pkey</UnderlyingIndexName>
     </key>
-    <foreign-key id="60" parent="38" name="fkles170855">
-      <ObjectId>25135</ObjectId>
-      <StateNumber>782</StateNumber>
+    <foreign-key id="60" parent="39" name="heeft">
+      <ObjectId>25079</ObjectId>
+      <StateNumber>773</StateNumber>
       <ColNames>klasnaam</ColNames>
-      <RefTableId>25106</RefTableId>
+      <RefTableId>25041</RefTableId>
       <RefColPositions>1</RefColPositions>
       <RefTableName>klas</RefTableName>
       <RefKeyName>klas_pkey</RefKeyName>
-      <RefColNames>klasnaam</RefColNames>
+      <RefColNames>naam</RefColNames>
     </foreign-key>
-    <column id="61" parent="39" name="studentnummer">
+    <column id="61" parent="40" name="studentnummer">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>782</StateNumber>
+      <StateNumber>773</StateNumber>
       <DefaultExpression>nextval(&apos;student_studentnummer_seq&apos;::regclass)</DefaultExpression>
       <TypeId>23</TypeId>
     </column>
-    <column id="62" parent="39" name="naam">
+    <column id="62" parent="40" name="klasnaam">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>782</StateNumber>
+      <StateNumber>773</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="63" parent="39" name="email">
+    <column id="63" parent="40" name="naam">
       <Position>3</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>782</StateNumber>
+      <StateNumber>773</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="64" parent="39" name="status">
+    <column id="64" parent="40" name="email">
       <Position>4</Position>
-      <DataType>boolean|0s</DataType>
+      <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>782</StateNumber>
-      <TypeId>16</TypeId>
+      <StateNumber>773</StateNumber>
+      <TypeId>1043</TypeId>
     </column>
-    <column id="65" parent="39" name="pogingen">
+    <column id="65" parent="40" name="status">
       <Position>5</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>782</StateNumber>
+      <StateNumber>773</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="66" parent="39" name="percentage">
+    <column id="66" parent="40" name="percentage">
       <Position>6</Position>
-      <DataType>varchar(255)|0s</DataType>
+      <DataType>double precision|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>782</StateNumber>
-      <TypeId>1043</TypeId>
+      <StateNumber>773</StateNumber>
+      <TypeId>701</TypeId>
     </column>
-    <column id="67" parent="39" name="wachtwoord">
+    <column id="67" parent="40" name="pogingen">
       <Position>7</Position>
-      <DataType>varchar(255)|0s</DataType>
+      <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>782</StateNumber>
-      <TypeId>1043</TypeId>
+      <StateNumber>773</StateNumber>
+      <TypeId>23</TypeId>
     </column>
-    <column id="68" parent="39" name="klasnaam">
+    <column id="68" parent="40" name="wachtwoord">
       <Position>8</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>782</StateNumber>
+      <StateNumber>773</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="69" parent="39" name="student_pkey">
-      <ObjectId>25128</ObjectId>
-      <StateNumber>782</StateNumber>
+    <index id="69" parent="40" name="student_pkey">
+      <ObjectId>25072</ObjectId>
+      <StateNumber>773</StateNumber>
       <ColNames>studentnummer</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
@@ -1251,22 +1252,22 @@ UC/10
       <CollationIds>0</CollationIds>
       <ClassIds>1978</ClassIds>
     </index>
-    <key id="70" parent="39" name="student_pkey">
-      <ObjectId>25129</ObjectId>
-      <StateNumber>782</StateNumber>
+    <key id="70" parent="40" name="student_pkey">
+      <ObjectId>25073</ObjectId>
+      <StateNumber>773</StateNumber>
       <ColNames>studentnummer</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>student_pkey</UnderlyingIndexName>
     </key>
-    <foreign-key id="71" parent="39" name="fkstudent739996">
-      <ObjectId>25130</ObjectId>
-      <StateNumber>782</StateNumber>
+    <foreign-key id="71" parent="40" name="zitin">
+      <ObjectId>25089</ObjectId>
+      <StateNumber>773</StateNumber>
       <ColNames>klasnaam</ColNames>
-      <RefTableId>25106</RefTableId>
+      <RefTableId>25041</RefTableId>
       <RefColPositions>1</RefColPositions>
       <RefTableName>klas</RefTableName>
       <RefKeyName>klas_pkey</RefKeyName>
-      <RefColNames>klasnaam</RefColNames>
+      <RefColNames>naam</RefColNames>
     </foreign-key>
   </database-model>
 </dataSource>
