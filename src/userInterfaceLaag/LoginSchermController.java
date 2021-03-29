@@ -1,5 +1,6 @@
 package userInterfaceLaag;
 
+import com.sun.jdi.connect.spi.Connection;
 import domeinLaag.Student;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -11,6 +12,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+
+import java.sql.DriverManager;
+import java.util.Properties;
 
 public class LoginSchermController {
     @FXML private Button loginKnop;
@@ -33,7 +37,13 @@ public class LoginSchermController {
 
         else {
             if (naam.contains("@student.hu.nl")){
-                naam += "@student.hu.nl";
+
+                String url = "jdbc:postgresql://localhost/Project";
+                Properties props = new Properties();
+                props.setProperty("user","postgres");
+                props.setProperty("password","united");
+                Connection conn = (Connection) DriverManager.getConnection(url, props);
+
                 wachtwoord = wachtwoordVeld.getText();
                 System.out.println("ingelogd als student. met naam: " + naam + " en wachtwoord: " + wachtwoord);
 
