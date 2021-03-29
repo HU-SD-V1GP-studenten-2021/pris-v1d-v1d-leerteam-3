@@ -12,6 +12,12 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.Properties;
+
 public class LoginSchermController {
     @FXML private Button loginKnop;
     @FXML private PasswordField wachtwoordVeld;
@@ -39,6 +45,18 @@ public class LoginSchermController {
 
                 //* if(naam.equals() && wachtwoord.equals()){}
                 // als het gecheckt is en het komt overeen met hetgeen in de database,
+
+                String url = "jdbc:postgresql://localhost/GP";
+                Properties props = new Properties();
+                props.setProperty("user","postgres");
+                props.setProperty("password","ruben");
+                Connection conn = DriverManager.getConnection(url, props);
+                Statement stmt = conn.createStatement();
+                String SQL = "SELECT naam FROM student";
+                ResultSet rs = stmt.executeQuery(SQL);
+                while(rs.next()){
+                    System.out.println(rs);
+                }
                 // dan select * from student where email = 'naam' and wachtwoord = 'wachtwoord';
                 // dan heb je de gegevens van deze persoon en kan je een persoon object maken die je vervolgens
                 // BV: Student user = new Student(De juiste gegevens uit de database om een tijdelijke student aan te maken voor zn account);
