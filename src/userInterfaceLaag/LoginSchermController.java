@@ -12,6 +12,13 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.Properties;
+
 public class LoginSchermController {
     @FXML private Button loginKnop;
     @FXML private PasswordField wachtwoordVeld;
@@ -24,8 +31,9 @@ public class LoginSchermController {
         String naam = naamVeld.getText();
         String wachtwoord = wachtwoordVeld.getText();
         Stage loginscherm = (Stage) loginKnop.getScene().getWindow();
-        if(!naam.contains("@student.hu.nl") &!naam.contains("@docent.hu.nl")){
-            Waarschuwing.setText("E-mailadres is onjuist.\nVolg het format: gebruiker@domein.nl");
+
+        if(!naam.contains("@student.hu.nl") &&!naam.contains("@docent.hu.nl")){
+            Waarschuwing.setText("E-mailadres is onjuist.\nVolg het format: gebruiker@domein.hu.nl");
         }
         else if(wachtwoord.equals("")){
             Waarschuwing.setText("Wachtwoordveld is verplicht");
@@ -33,10 +41,30 @@ public class LoginSchermController {
 
         else {
             if (naam.contains("@student.hu.nl")){
-                naam += "@student.hu.nl";
+
+
+                String url = "jdbc:postgresql://localhost/SDGP";
+                Properties props = new Properties();
+                props.setProperty("user","postgres");
+                props.setProperty("password","united");
+                Connection conn = DriverManager.getConnection(url, props);
+                Statement stmt = conn.createStatement();
+                String SQL = "SELECT email, wachtwoord FROM student";
+                ResultSet rs = stmt.executeQuery(SQL);
+
+                while(rs.next()){
+                    if(rs.getString("email").equals(naam)){
+                        if(rs.getString("wachtwoord").equals(wachtwoord)){
+                            System.out.println("ingelogged");
+                        }
+                    }
+
+                }
+
                 wachtwoord = wachtwoordVeld.getText();
                 System.out.println("ingelogd als student. met naam: " + naam + " en wachtwoord: " + wachtwoord);
 
+                // dsfsdfdsf@student.hu.nl
                 //* if(naam.equals() && wachtwoord.equals()){}
                 // als het gecheckt is en het komt overeen met hetgeen in de database,
                 // dan select * from student where email = 'naam' and wachtwoord = 'wachtwoord';

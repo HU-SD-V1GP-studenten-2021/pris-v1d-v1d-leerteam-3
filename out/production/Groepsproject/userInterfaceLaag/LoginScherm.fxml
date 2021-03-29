@@ -7,25 +7,25 @@
 
 <AnchorPane prefHeight="435.0" prefWidth="499.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="userInterfaceLaag.LoginSchermController">
    <children>
-      <Button fx:id="loginKnop" layoutX="201.0" layoutY="352.0" mnemonicParsing="false" onAction="#loginAccount" prefHeight="25.0" prefWidth="71.0" text="Login" />
-      <PasswordField fx:id="wachtwoordVeld" layoutX="175.0" layoutY="249.0" />
-      <Label fx:id="wachtwoordLabel" layoutX="87.0" layoutY="253.0" text="Wachtwoord:">
+      <Button fx:id="loginKnop" layoutX="215.0" layoutY="301.0" mnemonicParsing="false" onAction="#loginAccount" prefHeight="25.0" prefWidth="71.0" text="Login" />
+      <PasswordField fx:id="wachtwoordVeld" layoutX="189.0" layoutY="207.0" />
+      <Label fx:id="wachtwoordLabel" layoutX="102.0" layoutY="209.0" text="Wachtwoord:">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
-      <Label fx:id="naamLabel" layoutX="83.0" layoutY="213.0" prefHeight="18.0" prefWidth="85.0" text="E-mail adres:">
+      <Label fx:id="naamLabel" layoutX="98.0" layoutY="172.0" prefHeight="18.0" prefWidth="85.0" text="E-mailadres:">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
-      <TextField fx:id="naamVeld" layoutX="175.0" layoutY="209.0" />
-      <ImageView fx:id="huLogo" fitHeight="82.0" fitWidth="240.0" layoutX="163.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
+      <TextField fx:id="naamVeld" layoutX="189.0" layoutY="169.0" />
+      <ImageView fx:id="huLogo" fitHeight="82.0" fitWidth="240.0" layoutX="176.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../Pictures/hu-logo-nl.png" />
+            <Image url="@../hu-logo-nl.png" />
          </image>
       </ImageView>
-      <Label layoutX="176.0" layoutY="277.0" text="Wachtwoord vergeten?" textFill="#2244ee" />
-      <Label fx:id="Waarschuwing" layoutX="175.0" layoutY="294.0" textFill="RED" />
+      <Label layoutX="188.0" layoutY="235.0" text="Wachtwoord vergeten?" textFill="#2244ee" />
+      <Label fx:id="Waarschuwing" layoutX="189.0" layoutY="243.0" textFill="RED" />
    </children>
 </AnchorPane>
