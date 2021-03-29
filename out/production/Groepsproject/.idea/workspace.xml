@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1870b15c-01a0-4397-a03e-47d933a7eef1" name="Default Changelist" comment="Merge pull request #4 from HU-SD-V1GP-studenten-2021/Ruben&#10;&#10;Ruben testen of het werkt">
-      <change beforePath="$PROJECT_DIR$/src/Magister200app.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Magister200app.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/userInterfaceLaag/DocentenSchermController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/userInterfaceLaag/DocentenSchermController.java" afterDir="false" />
+    <list default="true" id="1870b15c-01a0-4397-a03e-47d933a7eef1" name="Default Changelist" comment="Test Ruben 26-03-2021...">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,17 +63,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Magister200app" />
@@ -96,6 +84,8 @@
       <workItem from="1616756149014" duration="477000" />
       <workItem from="1616756643700" duration="648000" />
       <workItem from="1616757306508" duration="2519000" />
+      <workItem from="1617006840935" duration="8000" />
+      <workItem from="1617007065933" duration="311000" />
     </task>
     <task id="LOCAL-00001" summary="Test Ruben 26-03-2021">
       <created>1616756891923</created>
