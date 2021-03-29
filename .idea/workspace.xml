@@ -1,13 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1870b15c-01a0-4397-a03e-47d933a7eef1" name="Default Changelist" comment="login update">
+    <list default="true" id="1870b15c-01a0-4397-a03e-47d933a7eef1" name="Default Changelist" comment="login update1">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/src/userInterfaceLaag/LoginScherm.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Groepsproject/src/userInterfaceLaag/LoginScherm.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/userInterfaceLaag/LoginScherm.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Groepsproject/userInterfaceLaag/LoginScherm.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/userInterfaceLaag/LoginSchermController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Groepsproject/userInterfaceLaag/LoginSchermController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/userInterfaceLaag/LoginScherm.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/userInterfaceLaag/LoginScherm.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/userInterfaceLaag/LoginSchermController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/userInterfaceLaag/LoginSchermController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,7 +93,8 @@
       <workItem from="1616756149014" duration="477000" />
       <workItem from="1616756643700" duration="648000" />
       <workItem from="1616761283441" duration="1755000" />
-      <workItem from="1617015007859" duration="7003000" />
+      <workItem from="1617015007859" duration="9884000" />
+      <workItem from="1617028233343" duration="400000" />
     </task>
     <task id="LOCAL-00001" summary="Test Ruben 26-03-2021">
       <created>1616756891923</created>
@@ -135,7 +131,14 @@
       <option name="project" value="LOCAL" />
       <updated>1617019784445</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="login update1">
+      <created>1617022534367</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1617022534367</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -158,6 +161,7 @@
     <MESSAGE value="Merge pull request #4 from HU-SD-V1GP-studenten-2021/Ruben&#10;&#10;Ruben testen of het werkt" />
     <MESSAGE value="Luca test" />
     <MESSAGE value="login update" />
-    <option name="LAST_COMMIT_MESSAGE" value="login update" />
+    <MESSAGE value="login update1" />
+    <option name="LAST_COMMIT_MESSAGE" value="login update1" />
   </component>
 </project>
