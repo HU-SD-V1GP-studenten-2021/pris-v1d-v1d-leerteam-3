@@ -12,11 +12,14 @@ public class Les {
     private Klas klas;
     private Docent docent;
 
-    public Les(int lesnummer, LocalDate datum, LocalTime begintijd, LocalTime eindtijd, Klas klas) {
+    public Les(int lesnummer, LocalDate datum, LocalTime begintijd, LocalTime eindtijd) {
         this.lesnummer = lesnummer;
         this.datum = datum;
         this.begintijd = begintijd;
         this.eindtijd = eindtijd;
+    }
+
+    public void setKlas(Klas klas) {
         this.klas = klas;
     }
 
