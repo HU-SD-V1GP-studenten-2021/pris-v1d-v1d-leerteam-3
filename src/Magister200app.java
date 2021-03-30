@@ -1,6 +1,4 @@
-import domeinLaag.Docent;
 import domeinLaag.Klas;
-import domeinLaag.Les;
 import domeinLaag.Student;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -8,14 +6,10 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-import javax.xml.stream.events.StartDocument;
-import java.time.LocalDate;
-import java.time.LocalTime;
-
 public class Magister200app extends Application {
     public static void main(String[] args) {
         launch(args);
-       }
+    }
 
     @Override
     public void start(Stage stage) throws Exception {
@@ -25,6 +19,9 @@ public class Magister200app extends Application {
         stage.setTitle("Login scherm");
         stage.setScene(new Scene(root));
         stage.show();
+
+        Klas k1 = new Klas("V1D");
+        Student s1 = new Student("Jens", 11, "jens@student.hu.nl" , false, 90 ,0 ,"jens", k1 );
     }
 
 
