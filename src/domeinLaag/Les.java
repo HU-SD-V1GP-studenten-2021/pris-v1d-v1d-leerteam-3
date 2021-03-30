@@ -1,38 +1,34 @@
 package domeinLaag;
 
+import java.sql.Time;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
 public class Les {
+    private int lesnummer;
     private LocalDate datum;
     private LocalTime begintijd;
     private LocalTime eindtijd;
     private Klas klas;
+    private Docent docent;
 
-    public Les(LocalDate datum, LocalTime begintijd, LocalTime eindtijd, Klas klas) {
+    public Les(int lesnummer, LocalDate datum, LocalTime begintijd, LocalTime eindtijd, Klas klas) {
+        this.lesnummer = lesnummer;
         this.datum = datum;
         this.begintijd = begintijd;
         this.eindtijd = eindtijd;
         this.klas = klas;
     }
 
-    public LocalDate getDatum() {
-        return datum;
+    public void setDocent(Docent docent) {
+        this.docent = docent;
     }
 
-    public LocalTime getBegintijd() {
-        return begintijd;
+    public int getLesnummer() {
+        return lesnummer;
     }
 
-    public LocalTime getEindtijd() {
-        return eindtijd;
-    }
-
-    public Klas getKlas() {
-        return klas;
-    }
-    public String toString(){
-
-        return datum.toString() + " " + begintijd.toString() + " " + eindtijd.toString();
+    public Docent getDocent() {
+        return docent;
     }
 }
