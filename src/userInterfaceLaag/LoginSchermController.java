@@ -40,10 +40,10 @@ public class LoginSchermController {
         }
 
         else {
-            String url = "jdbc:postgresql://localhost:5433/GP";
+            String url = "jdbc:postgresql://localhost/SDGP";
             Properties props = new Properties();
             props.setProperty("user","postgres");
-            props.setProperty("password","ruben");
+            props.setProperty("password","Galaxy");
             Connection conn = DriverManager.getConnection(url, props);
             if (naam.contains("@student.hu.nl")){
                 Statement stmt = conn.createStatement();

@@ -16,3 +16,4 @@ public class DocentenSchermController {
         System.exit(0);
     }
 }
+

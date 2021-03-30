@@ -13,7 +13,7 @@
             <Font size="9.0" />
          </font></Button>
       <Label fx:id="naamLabel" layoutX="500.0" layoutY="8.0" text="PLACEHOLDER VOOR NAAM" />
-      <TableView layoutX="251.0" layoutY="88.0" prefHeight="323.0" prefWidth="534.0">
+      <TableView fx:id="tableView" layoutX="251.0" layoutY="88.0" prefHeight="323.0" prefWidth="534.0">
          <columns>
             <TableColumn prefWidth="64.00000381469727" text="Naam" />
             <TableColumn prefWidth="102.0" text="Studentnummer" />
@@ -25,9 +25,9 @@
       </TableView>
       <TableView layoutX="21.0" layoutY="88.0" prefHeight="323.0" prefWidth="186.0">
          <columns>
-            <TableColumn prefWidth="68.19999504089355" text="Klas" />
-            <TableColumn prefWidth="58.400001525878906" text="Datum" />
-            <TableColumn prefWidth="58.0" text="Les" />
+            <TableColumn fx:id="Klas" prefWidth="68.19999504089355" text="Klas" />
+            <TableColumn fx:id="Datum" prefWidth="58.400001525878906" text="Datum" />
+            <TableColumn fx:id="Les" prefWidth="58.0" text="Les" />
          </columns>
       </TableView>
       <Button layoutX="579.0" layoutY="434.0" mnemonicParsing="false" text="Aanwijzigingen toepassen" />
