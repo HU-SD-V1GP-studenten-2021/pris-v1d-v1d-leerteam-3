@@ -19,6 +19,7 @@ import java.sql.*;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
+import java.util.Locale;
 import java.util.Properties;
 
 public class LoginSchermController {
@@ -34,10 +35,10 @@ public class LoginSchermController {
         String naam = naamVeld.getText();
         String wachtwoord = wachtwoordVeld.getText();
         Stage loginscherm = (Stage) loginKnop.getScene().getWindow();
-        String url = "jdbc:postgresql://localhost/SDGP";
+        String url = "jdbc:postgresql://localhost/GP";
         Properties props = new Properties();
         props.setProperty("user","postgres");
-        props.setProperty("password","united");
+        props.setProperty("password","ruben");
         Connection conn = DriverManager.getConnection(url, props);
 
         if(!naam.contains("@student.hu.nl") &&!naam.contains("@hu.nl")){
@@ -74,12 +75,11 @@ public class LoginSchermController {
 
                         Klas klas = new Klas(klasnaam);
                         Student user = new Student(usernaam, userstudentnummer, email, status, percentage, pogingen, userwachtwoord, klas);
-                        klas.voegLeerlingToe(user);
-                        System.out.println(klas);
+                        klas.voegStudentToe(user);
 
                         ResultSet lessen = stmt.executeQuery("SELECT l.lesnummer, l.datum, l.begintijd, l.eindtijd, l.docentdocentnummer " +
                                 "FROM les l JOIN klas k on k.klasnaam = l.klasnaam " +
-                                "WHERE k.klasnaam = 'V1D'");
+                                "WHERE k.klasnaam = '" + klasnaam + "'");
 
 
                         int docentnummer = 0;
@@ -95,25 +95,44 @@ public class LoginSchermController {
                             alleLessen.add(les);
 
                         }
-                        ResultSet docent = stmt.executeQuery("SELECT d.naam, lesnummer, datum from les " +
-                                "join docent d on d.docentnummer = les.docentdocentnummer WHERE klasnaam = '" + klasnaam + "'");
-                        System.out.println(alleLessen);
+
+                        ResultSet docent = stmt.executeQuery("SELECT docentnummer, naam, email, status, pogingen, wachtwoord from docent " +
+                                "join les l on docent.docentnummer = l.docentdocentnummer " +
+                                "WHERE l.klasnaam = '" + klasnaam + "'");
 
 
+                        int i = 0;
                         while (docent.next()) {
-                            System.out.println(docent.getString(1));
-//                            Les les = alleLessen.get(i);
-//                            String docentNaam = docent.getString(2);//docentnaam
-//                            String docentEmail = docent.getString(3);// docentemail
-//                            boolean docentStatus = docent.getBoolean(4); //docent status
-//                            int docentPogingen = docent.getInt(5); //docent pogingen
-//                            String docentWW = docent.getString(6); //docent wachtwoord
-//
-//                            Docent docentobject = new Docent(docentNaam, docentnummer, docentEmail, docentStatus, docentPogingen, docentWW);
-//
-//                            les.setDocent(docentobject);
-//                            klas.voegLesToe(les);
-//                            i ++;
+                            Les les = alleLessen.get(i);
+                            String docentNaam = docent.getString(2);//docentnaam
+                            String docentEmail = docent.getString(3);// docentemail
+                            boolean docentStatus = docent.getBoolean(4); //docent status
+                            int docentPogingen = docent.getInt(5); //docent pogingen
+                            String docentWW = docent.getString(6); //docent wachtwoord
+
+                            Docent docentobject = new Docent(docentNaam, docentnummer, docentEmail, docentStatus, docentPogingen, docentWW);
+
+                            les.setDocent(docentobject);
+                            klas.voegLesToe(les);
+                            i ++;
+                        }
+
+                        ResultSet alleStudenten = stmt.executeQuery("select studentnummer, naam, email, status, pogingen, percentage, wachtwoord from student " +
+                                "join klas k on k.klasnaam = student.klasnaam " +
+                                "where k.klasnaam = '" + klasnaam + "'");
+
+                        while (alleStudenten.next()){
+                            int studentnummerNu = alleStudenten.getInt("studentnummer");
+                            if (studentnummerNu != studentnummer){
+                                String naamNu = alleStudenten.getString("naam");
+                                String emailNu = alleStudenten.getString("email");
+                                boolean statusNu = alleStudenten.getBoolean(4);//status
+                                int pogingenNu = alleStudenten.getInt("pogingen");
+                                int percentageNu = alleStudenten.getInt("percentage");
+                                String wachtwoordNu = alleStudenten.getString("wachtwoord");
+
+                                klas.voegStudentToe(new Student(naamNu, studentnummerNu, emailNu, statusNu, pogingenNu, percentageNu,wachtwoordNu, klas));
+                            }
                         }
 
                         System.out.println(klas);
