@@ -1,5 +1,6 @@
 package userInterfaceLaag;
 
+import domeinLaag.Klas;
 import domeinLaag.Student;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -40,7 +41,7 @@ public class LoginSchermController {
         }
 
         else {
-            String url = "jdbc:postgresql://localhost:5433/GP";
+            String url = "jdbc:postgresql://localhost/GP";
             Properties props = new Properties();
             props.setProperty("user","postgres");
             props.setProperty("password","ruben");
@@ -51,7 +52,22 @@ public class LoginSchermController {
                 while(rs.next()){
                     int studentnummer = rs.getInt("studentnummer");
                     if(rs.getString("email").equals(naam) && rs.getString("wachtwoord").equals(wachtwoord) && !rs.getBoolean("status")){
+
+                        String usernaam = rs.getString("naam");
+                        String email = rs.getString("email");
+                        int userstudentnummer = rs.getInt("studentnummer");
+                        boolean status = rs.getBoolean("status");
+                        int pogingen = rs.getInt("pogingen");
+                        double percentage =  rs.getDouble("percentage");
+                        String userwachtwoord =  rs.getString("wachtwoord");
+                        Klas userklas = new Klas(rs.getString("klasnaam"));
                         stmt.executeUpdate("UPDATE student SET pogingen = 0 WHERE studentnummer = " + studentnummer);
+
+                        Student user = new Student(usernaam , userstudentnummer, email, status, percentage, pogingen, userwachtwoord, userklas);
+                        System.out.println("gebuikers email: " + user.getEmail());
+                        System.out.println("gebruikers klas: " + user.getKlas());
+                        System.out.println("gebruikers naam: " + user.getNaam());
+                        System.out.println("gebruikers studentnummer: " + user.getStudentennummer());
                         try{
                             ResultSet ophalenGegevens = stmt.executeQuery("SELECT email, wachtwoord, pogingen, status, studentnummer FROM student");
                             loginscherm.close();
@@ -144,6 +160,10 @@ public class LoginSchermController {
                 }
             }
         }
+    }
+
+    public void gegevensOphalen(){
+
     }
 
     public void setStatusDocent(ActionEvent actionEvent) {
