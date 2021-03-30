@@ -1,3 +1,4 @@
+import domeinLaag.Klas;
 import domeinLaag.Student;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -18,6 +19,9 @@ public class Magister200app extends Application {
         stage.setTitle("Login scherm");
         stage.setScene(new Scene(root));
         stage.show();
+
+        Klas k1 = new Klas("V1D");
+        Student s1 = new Student("Jens", 11, "jens@student.hu.nl" , false, 90 ,0 ,"jens", k1 );
     }
 
 
