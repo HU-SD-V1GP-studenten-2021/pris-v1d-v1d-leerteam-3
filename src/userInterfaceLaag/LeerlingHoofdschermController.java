@@ -1,5 +1,6 @@
 package userInterfaceLaag;
 
+import domeinLaag.Student;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.chart.PieChart;
@@ -15,10 +16,10 @@ public class LeerlingHoofdschermController {
     @FXML private TableView aanwezigheidsTabel;
     @FXML private PieChart rollCallAttendance;
 
-
+    private Student student = Student.getAccount();
 
     public void initialize() {
-        String s = "";
+        String s = student.getNaam();
         naamLabel.setText(s);   // in de klasse domeinLaag.Student de naam opvragen
     }
 
