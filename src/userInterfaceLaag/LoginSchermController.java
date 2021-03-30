@@ -34,10 +34,10 @@ public class LoginSchermController {
         String naam = naamVeld.getText();
         String wachtwoord = wachtwoordVeld.getText();
         Stage loginscherm = (Stage) loginKnop.getScene().getWindow();
-        String url = "jdbc:postgresql://localhost/GP";
+        String url = "jdbc:postgresql://localhost/SDGP";
         Properties props = new Properties();
         props.setProperty("user","postgres");
-        props.setProperty("password","ruben");
+        props.setProperty("password","united");
         Connection conn = DriverManager.getConnection(url, props);
 
         if(!naam.contains("@student.hu.nl") &&!naam.contains("@hu.nl")){
@@ -95,13 +95,11 @@ public class LoginSchermController {
                             alleLessen.add(les);
 
                         }
-                        System.out.println(klasnaam);
                         ResultSet docent = stmt.executeQuery("SELECT d.naam, lesnummer, datum from les " +
-                                "join docent d on d.docentnummer = les.docentdocentnummer WHERE klasnaam = " + klasnaam);
-
+                                "join docent d on d.docentnummer = les.docentdocentnummer WHERE klasnaam = '" + klasnaam + "'");
                         System.out.println(alleLessen);
 
-//                        int i = 0;
+
                         while (docent.next()) {
                             System.out.println(docent.getString(1));
 //                            Les les = alleLessen.get(i);

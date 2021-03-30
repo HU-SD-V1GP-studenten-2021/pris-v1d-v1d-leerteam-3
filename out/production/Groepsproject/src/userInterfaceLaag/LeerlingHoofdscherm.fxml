@@ -19,9 +19,8 @@
         <columns>
           <TableColumn prefWidth="101.19998931884766" text="Les" />
           <TableColumn prefWidth="86.80001831054688" text="Datum" />
-            <TableColumn prefWidth="104.20001220703125" text="Docent" />
-            <TableColumn prefWidth="62.4000244140625" text="Lokaal" />
-            <TableColumn prefWidth="93.5999755859375" text="Aanwezigheid" />
+            <TableColumn prefWidth="138.0" text="Docent" />
+            <TableColumn prefWidth="122.0" text="Aanwezigheid" />
         </columns>
       </TableView>
       <PieChart fx:id="rollCallAttendance" layoutX="533.0" layoutY="109.0" prefHeight="136.0" prefWidth="200.0" title="Roll Call Attendance" />
