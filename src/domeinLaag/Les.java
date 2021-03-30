@@ -15,4 +15,24 @@ public class Les {
         this.eindtijd = eindtijd;
         this.klas = klas;
     }
+
+    public LocalDate getDatum() {
+        return datum;
+    }
+
+    public LocalTime getBegintijd() {
+        return begintijd;
+    }
+
+    public LocalTime getEindtijd() {
+        return eindtijd;
+    }
+
+    public Klas getKlas() {
+        return klas;
+    }
+    public String toString(){
+
+        return datum.toString() + " " + begintijd.toString() + " " + eindtijd.toString();
+    }
 }
