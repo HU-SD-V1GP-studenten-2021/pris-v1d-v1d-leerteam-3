@@ -18,4 +18,9 @@ public class Docent {
         this.pogingen = pogingen;
         this.wachtwoord = wachtwoord;
     }
+
+    @Override
+    public String toString() {
+        return "Docent " + naam;
+    }
 }
