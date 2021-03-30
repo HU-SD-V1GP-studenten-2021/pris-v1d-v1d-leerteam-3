@@ -33,10 +33,10 @@ public class LoginSchermController {
         String naam = naamVeld.getText();
         String wachtwoord = wachtwoordVeld.getText();
         Stage loginscherm = (Stage) loginKnop.getScene().getWindow();
-        String url = "jdbc:postgresql://localhost/SDGP";
+        String url = "jdbc:postgresql://localhost/Project";
         Properties props = new Properties();
         props.setProperty("user","postgres");
-        props.setProperty("password","united");
+        props.setProperty("password","Password");
         Connection conn = DriverManager.getConnection(url, props);
 
         if(!naam.contains("@student.hu.nl") &&!naam.contains("@hu.nl")){
@@ -61,7 +61,7 @@ public class LoginSchermController {
                         int userstudentnummer = rs.getInt("studentnummer");
                         boolean status = rs.getBoolean("status");
                         int pogingen = rs.getInt("pogingen");
-                        double percentage =  rs.getDouble("percentage");
+                        int percentage =  rs.getInt("percentage");
                         String userwachtwoord =  rs.getString("wachtwoord");
                         Klas userklas = new Klas(rs.getString("klasnaam"));
                         stmt.executeUpdate("UPDATE student SET pogingen = 0 WHERE studentnummer = " + studentnummer);
@@ -115,7 +115,7 @@ public class LoginSchermController {
             else if(naam.contains("@hu.nl")){
                 wachtwoord = wachtwoordVeld.getText();
                 Statement stmt = conn.createStatement();
-                ResultSet rs = stmt.executeQuery("SELECT email, wachtwoord, pogingen, status, docentnummer, percentage FROM docent");
+                ResultSet rs = stmt.executeQuery("SELECT email, wachtwoord, pogingen, status, docentnummer FROM docent");
                 while(rs.next()){
                     int docentnummer = rs.getInt("docentnummer");
                     if(rs.getString("email").equals(naam) && rs.getString(2).equals(wachtwoord) && !rs.getBoolean("status")){
