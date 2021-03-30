@@ -48,4 +48,8 @@ public class Student {
     public Klas getKlas() {
         return klas;
     }
+
+    public String toString(){
+        return "Student " + naam;
+    }
 }

@@ -6,7 +6,6 @@ public class Klas {
     private String naam;
     private ArrayList<Les> lessen;
     private ArrayList<Student> studenten;
-    private ArrayList<Docent> docenten;
     private int aantalStudenten = 0;
     private int totaalAantalLessen = 0;
 
@@ -14,16 +13,11 @@ public class Klas {
         this.naam = naam;
         this.lessen = new ArrayList<>();
         this.studenten = new ArrayList<>();
-        this.docenten = new ArrayList<>();
     }
 
-    public void voegLeerlingToe(Student student){
+    public void voegStudentToe(Student student){
         studenten.add(student);
         aantalStudenten ++;
-    }
-
-    public void voegDocentToe(Docent docent){
-        docenten.add(docent);
     }
 
     public void voegLesToe(Les les){
@@ -43,10 +37,6 @@ public class Klas {
         return studenten;
     }
 
-    public ArrayList<Docent> getDocenten() {
-        return docenten;
-    }
-
     public int getAantalStudenten() {
         return aantalStudenten;
     }
@@ -60,7 +50,6 @@ public class Klas {
         return "Klas{" +
                 "lessen=" + getLessen() +
                 ", studenten=" + getStudenten() +
-                ", docenten=" + getDocenten() +
                 ", aantal studenten= " + getAantalStudenten() +
                 ", totaal aantal lessen= " + getTotaalAantalLessen() +
                 '}';

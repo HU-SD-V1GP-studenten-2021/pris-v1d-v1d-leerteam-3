@@ -31,4 +31,9 @@ public class Les {
     public Docent getDocent() {
         return docent;
     }
+
+//    @Override
+    public String toString() {
+        return "Les heeft als " + docent ;
+    }
 }
