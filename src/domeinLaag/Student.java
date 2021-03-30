@@ -6,7 +6,7 @@ public class Student {
     private String naam;
     private int studentennummer;
     private String email;
-    private int status;
+    private boolean status;
     private double percentage;
     private int pogingen;
     private String wachtwoord;
@@ -16,13 +16,13 @@ public class Student {
         return huidigeAccount;
     }
 
-    public void setAccount(Student huidigeAccount) {
-        this.huidigeAccount = huidigeAccount;
+    public static void setAccount(Student huidigeAccount) {
+        Student.huidigeAccount = huidigeAccount;
     }
 
     private static Student huidigeAccount;
 
-    public Student(String naam, int studentennummer, String email, int status, double percentage, int pogingen, String wachtwoord, Klas klas){
+    public Student(String naam, int studentennummer, String email, boolean status, double percentage, int pogingen, String wachtwoord){
         this.naam = naam;
         this.studentennummer = studentennummer;
         this.email = email;
@@ -30,6 +30,9 @@ public class Student {
         this.percentage = percentage;
         this.pogingen = pogingen;
         this.wachtwoord = wachtwoord;
+    }
+
+    public void setKlas(Klas klas) {
         this.klas = klas;
     }
 
@@ -47,5 +50,9 @@ public class Student {
 
     public Klas getKlas() {
         return klas;
+    }
+
+    public String toString(){
+        return "Student " + naam;
     }
 }
