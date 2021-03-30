@@ -3,8 +3,14 @@
   <component name="ChangeListManager">
     <list default="true" id="1870b15c-01a0-4397-a03e-47d933a7eef1" name="Default Changelist" comment="Gehele klassen bij het inloggen voor student">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/userInterfaceLaag/LeerlingHoofdschermController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Groepsproject/userInterfaceLaag/LeerlingHoofdschermController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/userInterfaceLaag/LeerlingHoofdschermController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/userInterfaceLaag/LeerlingHoofdschermController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/Magister200app.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Groepsproject/Magister200app.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/domeinLaag/Student.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Groepsproject/domeinLaag/Student.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/userInterfaceLaag/LoginSchermController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Groepsproject/userInterfaceLaag/LoginSchermController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Magister200app.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Magister200app.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/domeinLaag/Docent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/domeinLaag/Docent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/domeinLaag/Les.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/domeinLaag/Les.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/domeinLaag/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/domeinLaag/Student.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/userInterfaceLaag/DocentenSchermController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/userInterfaceLaag/DocentenSchermController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/userInterfaceLaag/LoginSchermController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/userInterfaceLaag/LoginSchermController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
