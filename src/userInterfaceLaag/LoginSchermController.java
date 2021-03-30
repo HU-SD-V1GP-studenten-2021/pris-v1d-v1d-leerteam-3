@@ -181,7 +181,7 @@ public class LoginSchermController {
             else if(naam.contains("@hu.nl")){
                 wachtwoord = wachtwoordVeld.getText();
                 Statement stmt = conn.createStatement();
-                ResultSet rs = stmt.executeQuery("SELECT email, wachtwoord, pogingen, status, docentnummer, percentage FROM docent");
+                ResultSet rs = stmt.executeQuery("SELECT email, wachtwoord, pogingen, status, docentnummer FROM docent");
                 while(rs.next()){
                     int docentnummer = rs.getInt("docentnummer");
                     if(rs.getString("email").equals(naam) && rs.getString(2).equals(wachtwoord) && !rs.getBoolean("status")){
