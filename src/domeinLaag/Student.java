@@ -16,8 +16,8 @@ public class Student {
         return huidigeAccount;
     }
 
-    public void setAccount(Student huidigeAccount) {
-        this.huidigeAccount = huidigeAccount;
+    public static void setAccount(Student huidigeAccount) {
+        Student.huidigeAccount = huidigeAccount;
     }
 
     private static Student huidigeAccount;
@@ -47,5 +47,9 @@ public class Student {
 
     public Klas getKlas() {
         return klas;
+    }
+
+    public String toString(){
+        return "Student " + naam;
     }
 }
