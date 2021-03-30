@@ -6,7 +6,7 @@ public class Student {
     private String naam;
     private int studentennummer;
     private String email;
-    private int status;
+    private boolean status;
     private double percentage;
     private int pogingen;
     private String wachtwoord;
@@ -22,7 +22,7 @@ public class Student {
 
     private static Student huidigeAccount;
 
-    public Student(String naam, int studentennummer, String email, int status, double percentage, int pogingen, String wachtwoord, Klas klas){
+    public Student(String naam, int studentennummer, String email, boolean status, double percentage, int pogingen, String wachtwoord, Klas klas){
         this.naam = naam;
         this.studentennummer = studentennummer;
         this.email = email;
@@ -47,5 +47,9 @@ public class Student {
 
     public Klas getKlas() {
         return klas;
+    }
+
+    public String toString(){
+        return "Student " + naam;
     }
 }
