@@ -28,5 +28,6 @@
         </columns>
       </TableView>
       <PieChart fx:id="rollCallAttendance" layoutX="533.0" layoutY="109.0" prefHeight="136.0" prefWidth="200.0" title="Roll Call Attendance" />
+      <CheckBox fx:id="checkBox" layoutX="420.0" layoutY="59.0" mnemonicParsing="false" text="CheckBox" />
    </children>
 </AnchorPane>

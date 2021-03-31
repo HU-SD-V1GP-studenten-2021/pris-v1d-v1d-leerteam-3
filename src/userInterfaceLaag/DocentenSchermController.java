@@ -45,12 +45,12 @@ public class DocentenSchermController {
 //        info.setCellValueFactory(new PropertyValueFactory<>("info"));
         email.setCellValueFactory(new  PropertyValueFactory<>("email"));
 
-        tablewiew1.setItems(getStudenten());
+//        tablewiew1.setItems(getStudenten());
 
     }
     public ObservableList<Student> getStudenten(){
         ObservableList<Student> students = FXCollections.observableArrayList();
-
+        System.out.println(student.getKlas().getStudenten());
         students.addAll(student.getKlas().getStudenten());
 
         return students;

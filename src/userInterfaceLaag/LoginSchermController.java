@@ -35,10 +35,10 @@ public class LoginSchermController {
         String naam = naamVeld.getText();
         String wachtwoord = wachtwoordVeld.getText();
         Stage loginscherm = (Stage) loginKnop.getScene().getWindow();
-        String url = "jdbc:postgresql://localhost/GP";
+        String url = "jdbc:postgresql://localhost/sdgp";
         Properties props = new Properties();
-        props.setProperty("user","postgres");
-        props.setProperty("password","ruben");
+        props.setProperty("user","omara");
+        props.setProperty("password","Omar1994");
         Connection conn = DriverManager.getConnection(url, props);
 
         if(!naam.contains("@student.hu.nl") &&!naam.contains("@hu.nl")){
