@@ -10,22 +10,13 @@ public class Klas {
     private ArrayList<Student> studenten;
     private int aantalStudenten = 0;
     private int totaalAantalLessen = 0;
-    private CheckBox aanwezigheid;
 
     public Klas(String naam) {
         this.naam = naam;
         this.lessen = new ArrayList<>();
         this.studenten = new ArrayList<>();
-        this.aanwezigheid = new CheckBox();
     }
 
-    public CheckBox getAanwezigheid() {
-        return aanwezigheid;
-    }
-
-    public void setAanwezigheid(CheckBox aanwezigheid) {
-        this.aanwezigheid = aanwezigheid;
-    }
 
     public void voegStudentToe(Student student){
         studenten.add(student);

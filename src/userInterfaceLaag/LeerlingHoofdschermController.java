@@ -1,5 +1,6 @@
 package userInterfaceLaag;
 
+import domeinLaag.AanwezigheidPerLesPerStudent;
 import domeinLaag.Klas;
 import domeinLaag.Les;
 import domeinLaag.Student;
@@ -11,14 +12,14 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.chart.PieChart;
+import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
+import java.awt.*;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
@@ -32,28 +33,36 @@ public class LeerlingHoofdschermController {
     @FXML private TableColumn<Klas, String> datumid;
     @FXML private TableColumn<Klas, String> docentid;
     @FXML private TableColumn<Klas, String> tijdid;
-    @FXML private TableColumn<Klas, String> aanwezigid;
+    @FXML private TableColumn<TableSetterGetter, CheckBox> aanwezigid;
     @FXML private PieChart rollCallAttendance;
+    @FXML private ObservableList<TableSetterGetter> list = FXCollections.observableArrayList();
 
     private Student student = Student.getAccount();
 
 
     public void initialize() {
+
+        for (int i = 0; i < 10; i++) {
+            Checkbox ch = new Checkbox("" + i);
+            list.add(new TableSetterGetter(ch));
+        }
+
         String s = student.getNaam();
         naamLabel.setText(s);   // in de klasse domeinLaag.Student de naam opvragen
-        lesid.setCellValueFactory(new PropertyValueFactory<>("lesnummer"));
-        datumid.setCellValueFactory(new PropertyValueFactory<>("datum"));
-        docentid.setCellValueFactory(new PropertyValueFactory<>("docent"));
-        tijdid.setCellValueFactory(new PropertyValueFactory<>("begintijd"));
-        aanwezigid.setCellValueFactory(new PropertyValueFactory<>("aanwezigheid"));
-
-        aanwezigheidsTabel.setItems(getLessen());
-
-    }
-    public ObservableList<Les> getLessen(){
-        ObservableList<Les> lessen = FXCollections.observableArrayList();
-        lessen.addAll(student.getKlas().getLessen());
-        return lessen;
+        aanwezigid.setCellValueFactory(new PropertyValueFactory<TableSetterGetter, CheckBox>("Aanwezigheid"));
+//        lesid.setCellValueFactory(new PropertyValueFactory<>("lesnummer"));
+//        datumid.setCellValueFactory(new PropertyValueFactory<>("datum"));
+//        docentid.setCellValueFactory(new PropertyValueFactory<>("docent"));
+//        tijdid.setCellValueFactory(new PropertyValueFactory<>("begintijd"));
+//
+//
+//        aanwezigheidsTabel.setItems(getLessen());
+//
+//    }
+//    public ObservableList<Les> getLessen(){
+//        ObservableList<Les> lessen = FXCollections.observableArrayList();
+//        lessen.addAll(student.getKlas().getLessen());
+//        return lessen;
     }
 
 
