@@ -31,27 +31,25 @@ public class DocentenSchermController {
     @FXML private Button loguitKnop;
     @FXML public Label naamLabel;
 
-    private Student student = Student.getAccount();
-
     private Docent docent = Docent.getAccount();
 
     public void initialize() {
         String s = docent.getNaam();
         naamLabel.setText(s);   // in de klasse domeinLaag.Student de naam opvragen
-        naam.setCellValueFactory(new PropertyValueFactory<>("naam"));
-        studentennummer.setCellValueFactory(new PropertyValueFactory<>("studentennumnmer"));
+//        naam.setCellValueFactory(new PropertyValueFactory<>("naam"));
+//        studentennummer.setCellValueFactory(new PropertyValueFactory<>("studentennumnmer"));
 //        rollcall.setCellValueFactory(new PropertyValueFactory<>("rollcall"));
 //        aanwezigheid.setCellValueFactory(new PropertyValueFactory<>("aanwizegheid"));
 //        info.setCellValueFactory(new PropertyValueFactory<>("info"));
-        email.setCellValueFactory(new  PropertyValueFactory<>("email"));
+//        email.setCellValueFactory(new  PropertyValueFactory<>("email"));
 
 //        tablewiew1.setItems(getStudenten());
 
     }
-    public ObservableList<Student> getStudenten(){
-        ObservableList<Student> students = FXCollections.observableArrayList();
-        System.out.println(student.getKlas().getStudenten());
-        students.addAll(student.getKlas().getStudenten());
+    public ObservableList<Docent> getDocenten(){
+        ObservableList<Docent> docents = FXCollections.observableArrayList();
+
+        docents.addAll(docent.getLessen());
 
         return students;
     }

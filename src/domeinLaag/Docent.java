@@ -1,6 +1,5 @@
 package domeinLaag;
 
-import javax.print.Doc;
 import java.util.ArrayList;
 
 public class Docent {
@@ -10,6 +9,7 @@ public class Docent {
     private boolean status;
     private int pogingen;
     private String wachtwoord;
+    private ArrayList<Les> lessen = new ArrayList<>();
 
     public static Docent getAccount() {
         return huidigeAccount;
@@ -40,6 +40,14 @@ public class Docent {
 
     public String getEmail() {
         return email;
+    }
+
+    public ArrayList<Les> getLessen() {
+        return lessen;
+    }
+
+    public void addLes(Les les){
+        lessen.add(les);
     }
 
     @Override

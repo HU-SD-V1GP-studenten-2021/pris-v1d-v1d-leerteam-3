@@ -1,7 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1870b15c-01a0-4397-a03e-47d933a7eef1" name="Default Changelist" comment="Merge remote-tracking branch 'origin/main' into main" />
+    <list default="true" id="1870b15c-01a0-4397-a03e-47d933a7eef1" name="Default Changelist" comment="update">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/.idea/dataSources/5f977aa2-59d3-4fde-bf28-cf96c9571e88.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/.idea/dataSources/5f977aa2-59d3-4fde-bf28-cf96c9571e88/storage_v2/_src_/database/SDGP.-sImAA.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/.idea/dataSources/5f977aa2-59d3-4fde-bf28-cf96c9571e88/storage_v2/_src_/database/SDGP.-sImAA/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/.idea/dataSources/5f977aa2-59d3-4fde-bf28-cf96c9571e88/storage_v2/_src_/database/SDGP.-sImAA/schema/information_schema.FNRwLQ.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/.idea/dataSources/5f977aa2-59d3-4fde-bf28-cf96c9571e88/storage_v2/_src_/database/SDGP.-sImAA/schema/pg_catalog.0S1ZNQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/.idea/dataSources/5f977aa2-59d3-4fde-bf28-cf96c9571e88/storage_v2/_src_/database/SDGP.-sImAA/schema/pg_catalog.0S1ZNQ.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/.idea/dataSources/5f977aa2-59d3-4fde-bf28-cf96c9571e88/storage_v2/_src_/database/SDGP.-sImAA/schema/public.abK9xQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/.idea/dataSources/fdd6480e-7f70-48da-b81d-3cb6fee6fac8.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/.idea/dataSources/fdd6480e-7f70-48da-b81d-3cb6fee6fac8/storage_v2/_src_/database/SDGP.-sImAA.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/.idea/dataSources/fdd6480e-7f70-48da-b81d-3cb6fee6fac8/storage_v2/_src_/database/SDGP.-sImAA/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/.idea/dataSources/fdd6480e-7f70-48da-b81d-3cb6fee6fac8/storage_v2/_src_/database/SDGP.-sImAA/schema/pg_catalog.0S1ZNQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/.idea/dataSources/fdd6480e-7f70-48da-b81d-3cb6fee6fac8/storage_v2/_src_/database/SDGP.-sImAA/schema/public.abK9xQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/domeinLaag/Docent.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Groepsproject/domeinLaag/Docent.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/src/userInterfaceLaag/LoginScherm.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Groepsproject/src/userInterfaceLaag/LoginScherm.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/userInterfaceLaag/DocentenSchermController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Groepsproject/userInterfaceLaag/DocentenSchermController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/userInterfaceLaag/LoginScherm.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Groepsproject/userInterfaceLaag/LoginScherm.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/userInterfaceLaag/LoginSchermController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Groepsproject/userInterfaceLaag/LoginSchermController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/domeinLaag/Docent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/domeinLaag/Docent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/userInterfaceLaag/DocentenSchermController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/userInterfaceLaag/DocentenSchermController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/userInterfaceLaag/LoginScherm.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/userInterfaceLaag/LoginScherm.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/userInterfaceLaag/LoginSchermController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/userInterfaceLaag/LoginSchermController.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -72,6 +95,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Magister200app" />
@@ -99,7 +135,6 @@
       <workItem from="1617052381672" duration="4450000" />
       <workItem from="1617093575285" duration="897000" />
       <workItem from="1617175553031" duration="8243000" />
-      <workItem from="1617205595219" duration="43000" />
     </task>
     <task id="LOCAL-00001" summary="Test Ruben 26-03-2021">
       <created>1616756891923</created>
@@ -157,42 +192,14 @@
       <option name="project" value="LOCAL" />
       <updated>1617182667727</updated>
     </task>
-    <task id="LOCAL-00009" summary="Merge remote-tracking branch 'origin/main' into main">
-      <created>1617195317363</created>
+    <task id="LOCAL-00009" summary="update">
+      <created>1617198667195</created>
       <option name="number" value="00009" />
       <option name="presentableId" value="LOCAL-00009" />
       <option name="project" value="LOCAL" />
-      <updated>1617195317363</updated>
+      <updated>1617198667195</updated>
     </task>
-    <task id="LOCAL-00010" summary="Merge remote-tracking branch 'origin/main' into main">
-      <created>1617198797500</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1617198797501</updated>
-    </task>
-    <task id="LOCAL-00011" summary="Merge remote-tracking branch 'origin/main' into main">
-      <created>1617205489340</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1617205489340</updated>
-    </task>
-    <task id="LOCAL-00012" summary="Merge remote-tracking branch 'origin/main' into main">
-      <created>1617205546413</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1617205546413</updated>
-    </task>
-    <task id="LOCAL-00013" summary="Merge remote-tracking branch 'origin/main' into main">
-      <created>1617205604544</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1617205604544</updated>
-    </task>
-    <option name="localTasksCounter" value="14" />
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -218,7 +225,7 @@
     <MESSAGE value="updates 30-03-2021" />
     <MESSAGE value="TableView LeerlingHoofdscherm" />
     <MESSAGE value="TableView LeerlingHoofdscherm ++" />
-    <MESSAGE value="Merge remote-tracking branch 'origin/main' into main" />
-    <option name="LAST_COMMIT_MESSAGE" value="Merge remote-tracking branch 'origin/main' into main" />
+    <MESSAGE value="update" />
+    <option name="LAST_COMMIT_MESSAGE" value="update" />
   </component>
 </project>
