@@ -31,6 +31,26 @@ public class Les {
         return lesnummer;
     }
 
+    public void setLesnummer(int lesnummer) {
+        this.lesnummer = lesnummer;
+    }
+
+    public LocalDate getDatum() {
+        return datum;
+    }
+
+    public LocalTime getBegintijd() {
+        return begintijd;
+    }
+
+    public void setBegintijd(LocalTime begintijd) {
+        this.begintijd = begintijd;
+    }
+
+    public void setDatum(LocalDate datum) {
+        this.datum = datum;
+    }
+
     public Docent getDocent() {
         return docent;
     }

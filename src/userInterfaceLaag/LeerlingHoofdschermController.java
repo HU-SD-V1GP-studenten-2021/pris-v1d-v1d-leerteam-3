@@ -1,7 +1,10 @@
 package userInterfaceLaag;
 
+import domeinLaag.Klas;
 import domeinLaag.Les;
 import domeinLaag.Student;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -10,25 +13,51 @@ import javafx.scene.Scene;
 import javafx.scene.chart.PieChart;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
-import java.util.ArrayList;
+import java.time.LocalDate;
+import java.time.LocalTime;
 
 public class LeerlingHoofdschermController {
+
 
     @FXML private Button loguitKnop;
     @FXML private Label naamLabel;
     @FXML private TableView aanwezigheidsTabel;
+    @FXML private TableColumn<Les, String> lesid;
+    @FXML private TableColumn<Klas, String> datumid;
+    @FXML private TableColumn<Klas, String> docentid;
+    @FXML private TableColumn<Klas, String> tijdid;
+    @FXML private TableColumn<Klas, String> aanwezigid;
     @FXML private PieChart rollCallAttendance;
 
     private Student student = Student.getAccount();
 
+
     public void initialize() {
         String s = student.getNaam();
         naamLabel.setText(s);   // in de klasse domeinLaag.Student de naam opvragen
+        lesid.setCellValueFactory(new PropertyValueFactory<>("lesnummer"));
+        datumid.setCellValueFactory(new PropertyValueFactory<>("datum"));
+        docentid.setCellValueFactory(new PropertyValueFactory<>("docent"));
+        tijdid.setCellValueFactory(new PropertyValueFactory<>("begintijd"));
+        aanwezigid.setCellValueFactory(new PropertyValueFactory<>("aanwezigheid"));
+
+        aanwezigheidsTabel.setItems(getLessen());
+
     }
+    public ObservableList<Les> getLessen(){
+        ObservableList<Les> lessen = FXCollections.observableArrayList();
+        lessen.addAll(student.getKlas().getLessen());
+        return lessen;
+    }
+
+
+
 
     public void loguitEnSluiten(ActionEvent actionEvent) {
         try {
