@@ -20,8 +20,10 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
 
 public class LeerlingHoofdschermController {
+
 
     @FXML private Button loguitKnop;
     @FXML private Label naamLabel;
@@ -29,6 +31,8 @@ public class LeerlingHoofdschermController {
     @FXML private TableColumn<Les, String> lesid;
     @FXML private TableColumn<Klas, String> datumid;
     @FXML private TableColumn<Klas, String> docentid;
+    @FXML private TableColumn<Klas, String> tijdid;
+    @FXML private TableColumn<Klas, String> aanwezigid;
     @FXML private PieChart rollCallAttendance;
 
     private Student student = Student.getAccount();
@@ -40,6 +44,8 @@ public class LeerlingHoofdschermController {
         lesid.setCellValueFactory(new PropertyValueFactory<>("lesnummer"));
         datumid.setCellValueFactory(new PropertyValueFactory<>("datum"));
         docentid.setCellValueFactory(new PropertyValueFactory<>("docent"));
+        tijdid.setCellValueFactory(new PropertyValueFactory<>("begintijd"));
+        aanwezigid.setCellValueFactory(new PropertyValueFactory<>("aanwezigheid"));
 
         aanwezigheidsTabel.setItems(getLessen());
 
