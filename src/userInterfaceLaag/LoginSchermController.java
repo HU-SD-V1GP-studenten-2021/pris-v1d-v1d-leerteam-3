@@ -74,8 +74,11 @@ public class LoginSchermController {
                         String klasnaam = userGegevens.getString("klasnaam");
 
                         Klas klas = new Klas(klasnaam);
-                        Student user = new Student(usernaam, userstudentnummer, email, status, percentage, pogingen, userwachtwoord, klas);
+                        Student user = new Student(usernaam, userstudentnummer, email, status, percentage, pogingen, userwachtwoord);
+                        user.setKlas(klas);
                         klas.voegStudentToe(user);
+
+                        Student.setAccount(user);
 
                         ResultSet lessen = stmt.executeQuery("SELECT l.lesnummer, l.datum, l.begintijd, l.eindtijd, l.docentdocentnummer " +
                                 "FROM les l JOIN klas k on k.klasnaam = l.klasnaam " +
@@ -91,7 +94,8 @@ public class LoginSchermController {
                             LocalTime eindtijd = lessen.getTime(4).toLocalTime(); //eindtijd
                             docentnummer = lessen.getInt(5); //docent nummer
 
-                            Les les = new Les(lesnummer, datum, begintijd, eindtijd, klas);
+                            Les les = new Les(lesnummer, datum, begintijd, eindtijd);
+                            les.setKlas(klas);
                             alleLessen.add(les);
 
                         }
@@ -131,7 +135,10 @@ public class LoginSchermController {
                                 int percentageNu = alleStudenten.getInt("percentage");
                                 String wachtwoordNu = alleStudenten.getString("wachtwoord");
 
-                                klas.voegStudentToe(new Student(naamNu, studentnummerNu, emailNu, statusNu, pogingenNu, percentageNu,wachtwoordNu, klas));
+                                Student s1 = new Student(naamNu, studentnummerNu, emailNu, statusNu, pogingenNu, percentageNu,wachtwoordNu);
+                                s1.setKlas(klas);
+                                klas.voegStudentToe(s1);
+
                             }
                         }
 
@@ -179,11 +186,95 @@ public class LoginSchermController {
             else if(naam.contains("@hu.nl")){
                 wachtwoord = wachtwoordVeld.getText();
                 Statement stmt = conn.createStatement();
-                ResultSet rs = stmt.executeQuery("SELECT email, wachtwoord, pogingen, status, docentnummer, percentage FROM docent");
+                ResultSet rs = stmt.executeQuery("SELECT email, wachtwoord, pogingen, status, docentnummer FROM docent");
                 while(rs.next()){
                     int docentnummer = rs.getInt("docentnummer");
                     if(rs.getString("email").equals(naam) && rs.getString(2).equals(wachtwoord) && !rs.getBoolean("status")){
                         stmt.executeUpdate("UPDATE docent SET pogingen = 0 WHERE docentnummer = " + docentnummer);
+
+                        ResultSet userGegevens = stmt.executeQuery("select docentnummer, naam, email, status, pogingen, wachtwoord, l.klasnaam from docent " +
+                                "join les l on docent.docentnummer = l.docentdocentnummer " +
+                                "where docentnummer = " + docentnummer);
+
+
+                        Klas klas = null;
+                        Docent docent = null;
+                        String klasnaam = null;
+                        while (userGegevens.next()) {
+                            String usernaam = userGegevens.getString("naam");
+                            String email = userGegevens.getString("email");
+                            boolean status = userGegevens.getBoolean("status");
+                            int pogingen = userGegevens.getInt("pogingen");
+                            String userwachtwoord = userGegevens.getString("wachtwoord");
+                            klasnaam = userGegevens.getString("klasnaam");
+                            docent = new Docent(usernaam, docentnummer, email, status, pogingen,userwachtwoord);
+                            klas = new Klas(klasnaam);
+                        }
+
+                        Docent.setAccount(docent);
+
+
+
+                        ResultSet lessen = stmt.executeQuery("SELECT l.lesnummer, l.datum, l.begintijd, l.eindtijd, l.docentdocentnummer " +
+                                "FROM les l JOIN klas k on k.klasnaam = l.klasnaam " +
+                                "WHERE k.klasnaam = '" + klasnaam + "'");
+
+
+                        ArrayList<Les> alleLessen = new ArrayList<>();
+                        while (lessen.next()){
+                            int lesnummer = lessen.getInt(1); //lesnummer
+                            LocalDate datum = lessen.getDate(2).toLocalDate(); //datum
+                            LocalTime begintijd = lessen.getTime(3).toLocalTime(); //begintijd
+                            LocalTime eindtijd = lessen.getTime(4).toLocalTime(); //eindtijd
+                            docentnummer = lessen.getInt(5); //docent nummer
+
+                            Les les = new Les(lesnummer, datum, begintijd, eindtijd);
+                            les.setKlas(klas);
+                            alleLessen.add(les);
+                        }
+
+                        ResultSet docentles = stmt.executeQuery("SELECT docentnummer, naam, email, status, pogingen, wachtwoord from docent " +
+                                "join les l on docent.docentnummer = l.docentdocentnummer " +
+                                "WHERE l.klasnaam = '" + klasnaam + "'");
+
+
+                        int i = 0;
+                        while (docentles.next()) {
+                            Les les = alleLessen.get(i);
+                            String docentNaam = docentles.getString(2);//docentnaam
+                            String docentEmail = docentles.getString(3);// docentemail
+                            boolean docentStatus = docentles.getBoolean(4); //docent status
+                            int docentPogingen = docentles.getInt(5); //docent pogingen
+                            String docentWW = docentles.getString(6); //docent wachtwoord
+
+                            Docent docentobject = new Docent(docentNaam, docentnummer, docentEmail, docentStatus, docentPogingen, docentWW);
+
+                            les.setDocent(docentobject);
+                            klas.voegLesToe(les);
+                            i ++;
+                        }
+
+                        ResultSet alleStudenten = stmt.executeQuery("select studentnummer, naam, email, status, pogingen, percentage, wachtwoord from student " +
+                                "join klas k on k.klasnaam = student.klasnaam " +
+                                "where k.klasnaam = '" + klasnaam + "'");
+
+                        while (alleStudenten.next()){
+                            int studentnummerNu = alleStudenten.getInt("studentnummer");
+                            String naamNu = alleStudenten.getString("naam");
+                            String emailNu = alleStudenten.getString("email");
+                            boolean statusNu = alleStudenten.getBoolean(4);//status
+                            int pogingenNu = alleStudenten.getInt("pogingen");
+                            int percentageNu = alleStudenten.getInt("percentage");
+                            String wachtwoordNu = alleStudenten.getString("wachtwoord");
+
+                            Student student = new Student(naamNu, studentnummerNu, emailNu, statusNu, pogingenNu, percentageNu,wachtwoordNu);
+                            student.setKlas(klas);
+                            klas.voegStudentToe(student);
+
+                        }
+
+                        System.out.println(klas);
+
                         try{
 
                             loginscherm.close();
@@ -222,10 +313,6 @@ public class LoginSchermController {
                         Waarschuwing.setText("Email of wachtwoord onjuist!");
 
                     }
-
-
-
-
                 }
             }
         }
@@ -234,18 +321,3 @@ public class LoginSchermController {
     public void setStatusDocent(ActionEvent actionEvent) {
     }
 }
-//* if(naam.equals() && wachtwoord.equals()){}
-// als het gecheckt is en het komt overeen met hetgeen in de database,
-// dan select * from student where email = 'naam' and wachtwoord = 'wachtwoord';
-// dan heb je de gegevens van deze persoon en kan je een persoon object maken die je vervolgens
-// BV: Student user = new Student(De juiste gegevens uit de database om een tijdelijke student aan te maken voor zn account);
-// met account.setAccount(Persoon persoon); maakt.
-// om dan de persoon aan de juiste dingen te koppelen haal je alle gegevens op
-// en aan de hand daarvan maak je nieuwe klas, les(sen) en docent(en)(arraylisten toevoegen met een for loop).
-// BV: Klas klas = new Klas("de naam van de klas van de leerling uit de database);
-// BV: (dit moet in een for loop omdat er meerdere lessen per klas zijn en de leerling zit in die klas)
-// Les les = new Les(Alle gegevens van 1 les);
-// BV: (dit moet in een for loop omdat het kan zijn dat de lessen verschillende docenten hebben)
-// Docent docent = new Docent(gegevens van de Docent opgehaald via de les, via de klas van de leerling);
-// Alle gegevens zoals een docent, les en leerling moeten aan de klas gekoppeld worden in de for loop.
-// Hierin maak en koppel je dus eigenlijk de objecten voor het volgende scherm.
