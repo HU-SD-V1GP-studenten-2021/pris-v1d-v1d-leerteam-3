@@ -205,6 +205,7 @@ public class LoginSchermController {
                                 "where docentnummer = " + docentnummer);
 
 
+                        Klas klas = null;
                         Docent docent = null;
                         String klasnaam = null;
                         while (userGegevens.next()) {
@@ -215,6 +216,7 @@ public class LoginSchermController {
                             String userwachtwoord = userGegevens.getString("wachtwoord");
                             klasnaam = userGegevens.getString("klasnaam");
                             docent = new Docent(usernaam, docentnummer, email, status, pogingen,userwachtwoord);
+                            klas = new Klas(klasnaam);
                         }
 
                         Docent.setAccount(docent);
@@ -236,6 +238,7 @@ public class LoginSchermController {
                             docentnummer = lessen.getInt(5); //docent nummer
 
                             Les les = new Les(lesnummer, datum, begintijd, eindtijd);
+                            les.setKlas(klas);
                             alleLessen.add(les);
                         }
 
