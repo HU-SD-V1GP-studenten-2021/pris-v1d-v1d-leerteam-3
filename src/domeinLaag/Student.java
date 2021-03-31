@@ -18,6 +18,8 @@ public class Student {
 
 
 
+
+
     public static Student getAccount() {
         return huidigeAccount;
     }
@@ -36,6 +38,7 @@ public class Student {
         this.rollCall = rollCall;
         this.pogingen = pogingen;
         this.wachtwoord = wachtwoord;
+
     }
 
     public String getAfwezigheid() {
