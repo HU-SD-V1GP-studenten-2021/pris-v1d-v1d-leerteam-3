@@ -1,5 +1,6 @@
 package userInterfaceLaag;
 
+import domeinLaag.Les;
 import domeinLaag.Student;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -12,6 +13,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableView;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+
+import java.util.ArrayList;
 
 public class LeerlingHoofdschermController {
 
