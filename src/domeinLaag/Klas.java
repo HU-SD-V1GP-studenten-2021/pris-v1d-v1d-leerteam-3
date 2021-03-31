@@ -52,11 +52,6 @@ public class Klas {
 
     @Override
     public String toString() {
-        return "Klas{" +
-                "lessen=" + getLessen() +
-                ", studenten=" + getStudenten() +
-                ", aantal studenten= " + getAantalStudenten() +
-                ", totaal aantal lessen= " + getTotaalAantalLessen() +
-                '}';
+        return naam;
     }
 }

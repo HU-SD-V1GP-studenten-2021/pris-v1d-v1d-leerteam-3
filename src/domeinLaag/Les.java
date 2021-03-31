@@ -12,7 +12,7 @@ public class Les {
     private LocalTime eindtijd;
     private Klas klas;
     private Docent docent;
-    private AanwezigheidPerLesPerStudent aanwezigheidPerLesPerStudent;
+    private ArrayList<AanwezigheidPerLesPerStudent> afwezigeVanDezeLes;
 
     public Les(int lesnummer, LocalDate datum, LocalTime begintijd, LocalTime eindtijd) {
         this.lesnummer = lesnummer;
@@ -57,16 +57,12 @@ public class Les {
         return docent;
     }
 
-    public AanwezigheidPerLesPerStudent getAanwezigheidPerLesPerStudent() {
-        return aanwezigheidPerLesPerStudent;
+    public Klas getKlas() {
+        return klas;
     }
 
-    public void setAanwezigheidPerLesPerStudent(AanwezigheidPerLesPerStudent aanwezigheidPerLesPerStudent) {
-        this.aanwezigheidPerLesPerStudent = aanwezigheidPerLesPerStudent;
-    }
-
-    //    @Override
+        @Override
     public String toString() {
-        return "Les heeft als " + docent ;
+        return "Les heeft als " + docent + " " + klas.getNaam() ;
     }
 }

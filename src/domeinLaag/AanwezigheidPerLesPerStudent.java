@@ -1,10 +1,8 @@
 package domeinLaag;
 
 import java.awt.*;
-import java.util.ArrayList;
 
 public class AanwezigheidPerLesPerStudent {
-
     private int lesnummer;
     private int studentStudentnummer;
     private boolean aanwezigheid;
@@ -45,5 +43,4 @@ public class AanwezigheidPerLesPerStudent {
     public void setAanwezigheid(boolean aanwezigheid) {
         this.aanwezigheid = aanwezigheid;
     }
-
 }
