@@ -7,16 +7,23 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.chart.PieChart;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
 
 public class LeerlingHoofdschermController {
+
 
     @FXML private Button loguitKnop;
     @FXML private Label naamLabel;
@@ -24,6 +31,8 @@ public class LeerlingHoofdschermController {
     @FXML private TableColumn<Les, String> lesid;
     @FXML private TableColumn<Klas, String> datumid;
     @FXML private TableColumn<Klas, String> docentid;
+    @FXML private TableColumn<Klas, String> tijdid;
+    @FXML private TableColumn<Klas, String> aanwezigid;
     @FXML private PieChart rollCallAttendance;
 
     private Student student = Student.getAccount();
@@ -35,6 +44,8 @@ public class LeerlingHoofdschermController {
         lesid.setCellValueFactory(new PropertyValueFactory<>("lesnummer"));
         datumid.setCellValueFactory(new PropertyValueFactory<>("datum"));
         docentid.setCellValueFactory(new PropertyValueFactory<>("docent"));
+        tijdid.setCellValueFactory(new PropertyValueFactory<>("begintijd"));
+        aanwezigid.setCellValueFactory(new PropertyValueFactory<>("aanwezigheid"));
 
         aanwezigheidsTabel.setItems(getLessen());
 
@@ -49,6 +60,18 @@ public class LeerlingHoofdschermController {
 
 
     public void loguitEnSluiten(ActionEvent actionEvent) {
-        System.exit(0);
+        try {
+            ((Node)actionEvent.getSource()).getScene().getWindow().hide();
+            Stage primaryStage = new Stage();
+            FXMLLoader loader = new FXMLLoader();
+            Pane root = loader.load(getClass().getResource("/userInterfaceLaag/LoginScherm.fxml"));
+
+            Scene scene = new Scene(root);
+            primaryStage.setScene(scene);
+            primaryStage.show();
+
+        } catch (Exception e) {
+            System.out.println(e);
+        }
     }
 }
