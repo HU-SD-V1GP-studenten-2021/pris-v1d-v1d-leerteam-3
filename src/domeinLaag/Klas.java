@@ -1,5 +1,7 @@
 package domeinLaag;
 
+import javafx.scene.control.CheckBox;
+
 import java.util.ArrayList;
 
 public class Klas {
@@ -8,11 +10,21 @@ public class Klas {
     private ArrayList<Student> studenten;
     private int aantalStudenten = 0;
     private int totaalAantalLessen = 0;
+    private CheckBox aanwezigheid;
 
     public Klas(String naam) {
         this.naam = naam;
         this.lessen = new ArrayList<>();
         this.studenten = new ArrayList<>();
+        this.aanwezigheid = new CheckBox();
+    }
+
+    public CheckBox getAanwezigheid() {
+        return aanwezigheid;
+    }
+
+    public void setAanwezigheid(CheckBox aanwezigheid) {
+        this.aanwezigheid = aanwezigheid;
     }
 
     public void voegStudentToe(Student student){
@@ -28,6 +40,8 @@ public class Klas {
     public String getNaam() {
         return naam;
     }
+
+
 
     public ArrayList<Les> getLessen() {
         return lessen;
@@ -47,11 +61,6 @@ public class Klas {
 
     @Override
     public String toString() {
-        return "Klas{" +
-                "lessen=" + getLessen() +
-                ", studenten=" + getStudenten() +
-                ", aantal studenten= " + getAantalStudenten() +
-                ", totaal aantal lessen= " + getTotaalAantalLessen() +
-                '}';
+        return naam;
     }
 }

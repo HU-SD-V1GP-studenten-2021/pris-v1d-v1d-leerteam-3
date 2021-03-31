@@ -14,14 +14,17 @@
             <Font size="9.0" />
          </font>
       </Button>
-      <Label fx:id="naamLabel" layoutX="500.0" layoutY="8.0" text="PLACEHOLDER VOOR NAAM" />
-      <TableView fx:id="aanwezigheidsTabel" layoutX="39.0" layoutY="82.0" prefHeight="343.0" prefWidth="450.0">
+      <Label fx:id="naamLabel" alignment="CENTER_RIGHT" contentDisplay="CENTER" ellipsisString="" layoutX="539.0" layoutY="5.0" prefHeight="17.0" prefWidth="182.0">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font></Label>
+      <TableView fx:id="aanwezigheidsTabel" layoutX="39.0" layoutY="82.0" prefHeight="343.0" prefWidth="472.0">
         <columns>
-          <TableColumn prefWidth="101.19998931884766" text="Les" />
-          <TableColumn prefWidth="86.80001831054688" text="Datum" />
-            <TableColumn prefWidth="104.20001220703125" text="Docent" />
-            <TableColumn prefWidth="62.4000244140625" text="Lokaal" />
-            <TableColumn prefWidth="93.5999755859375" text="Aanwezigheid" />
+          <TableColumn fx:id="lesid" prefWidth="74.0" text="Les" />
+          <TableColumn fx:id="datumid" prefWidth="96.0" text="Datum" />
+            <TableColumn fx:id="tijdid" prefWidth="61.0" text="Begin tijd" />
+            <TableColumn fx:id="docentid" prefWidth="134.0" text="Docent" />
+            <TableColumn fx:id="aanwezigid" prefWidth="106.0" text="Aanwezigheid" />
         </columns>
       </TableView>
       <PieChart fx:id="rollCallAttendance" layoutX="533.0" layoutY="109.0" prefHeight="136.0" prefWidth="200.0" title="Roll Call Attendance" />

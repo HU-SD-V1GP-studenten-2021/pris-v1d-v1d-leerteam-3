@@ -1,7 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1870b15c-01a0-4397-a03e-47d933a7eef1" name="Default Changelist" comment="login update1">
+    <list default="true" id="1870b15c-01a0-4397-a03e-47d933a7eef1" name="Default Changelist" comment="update">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/1431e9bf-a892-4af3-8af9-58d64e6d40e1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/1431e9bf-a892-4af3-8af9-58d64e6d40e1/storage_v2/_src_/database/GP.6QgAAA.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/1431e9bf-a892-4af3-8af9-58d64e6d40e1/storage_v2/_src_/database/GP.6QgAAA/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/1431e9bf-a892-4af3-8af9-58d64e6d40e1/storage_v2/_src_/database/GP.6QgAAA/schema/pg_catalog.0S1ZNQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/1431e9bf-a892-4af3-8af9-58d64e6d40e1/storage_v2/_src_/database/GP.6QgAAA/schema/public.abK9xQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Groepsproject/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/.idea/dataSources/1431e9bf-a892-4af3-8af9-58d64e6d40e1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/.idea/dataSources/1431e9bf-a892-4af3-8af9-58d64e6d40e1/storage_v2/_src_/database/GP.6QgAAA.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/.idea/dataSources/1431e9bf-a892-4af3-8af9-58d64e6d40e1/storage_v2/_src_/database/GP.6QgAAA/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/.idea/dataSources/1431e9bf-a892-4af3-8af9-58d64e6d40e1/storage_v2/_src_/database/GP.6QgAAA/schema/pg_catalog.0S1ZNQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/.idea/dataSources/1431e9bf-a892-4af3-8af9-58d64e6d40e1/storage_v2/_src_/database/GP.6QgAAA/schema/public.abK9xQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Groepsproject/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/userInterfaceLaag/LoginSchermController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Groepsproject/userInterfaceLaag/LoginSchermController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/userInterfaceLaag/LoginSchermController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/userInterfaceLaag/LoginSchermController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -74,6 +88,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Magister200app" />
@@ -100,6 +127,7 @@
       <workItem from="1617029499125" duration="770000" />
       <workItem from="1617052381672" duration="4450000" />
       <workItem from="1617093575285" duration="897000" />
+      <workItem from="1617175553031" duration="8243000" />
     </task>
     <task id="LOCAL-00001" summary="Test Ruben 26-03-2021">
       <created>1616756891923</created>
@@ -136,7 +164,28 @@
       <option name="project" value="LOCAL" />
       <updated>1617019784445</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="updates 30-03-2021">
+      <created>1617103949247</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1617103949247</updated>
+    </task>
+    <task id="LOCAL-00007" summary="TableView LeerlingHoofdscherm">
+      <created>1617182459304</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1617182459304</updated>
+    </task>
+    <task id="LOCAL-00008" summary="TableView LeerlingHoofdscherm ++">
+      <created>1617182667727</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1617182667727</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -159,7 +208,9 @@
     <MESSAGE value="Merge pull request #4 from HU-SD-V1GP-studenten-2021/Ruben&#10;&#10;Ruben testen of het werkt" />
     <MESSAGE value="Luca test" />
     <MESSAGE value="login update" />
-    <MESSAGE value="Commit 30-03" />
-    <option name="LAST_COMMIT_MESSAGE" value="Commit 30-03" />
+    <MESSAGE value="updates 30-03-2021" />
+    <MESSAGE value="TableView LeerlingHoofdscherm" />
+    <MESSAGE value="TableView LeerlingHoofdscherm ++" />
+    <option name="LAST_COMMIT_MESSAGE" value="TableView LeerlingHoofdscherm ++" />
   </component>
 </project>
