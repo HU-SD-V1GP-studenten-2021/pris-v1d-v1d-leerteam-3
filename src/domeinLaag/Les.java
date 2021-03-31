@@ -55,8 +55,12 @@ public class Les {
         return docent;
     }
 
-//    @Override
+    public Klas getKlas() {
+        return klas;
+    }
+
+        @Override
     public String toString() {
-        return "Les heeft als " + docent ;
+        return "Les heeft als " + docent + " " + klas.getNaam() ;
     }
 }
