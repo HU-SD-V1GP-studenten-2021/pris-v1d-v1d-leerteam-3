@@ -1,5 +1,7 @@
 package domeinLaag;
 
+import javafx.scene.control.CheckBox;
+
 import java.util.ArrayList;
 
 public class Student {
@@ -11,6 +13,8 @@ public class Student {
     private int pogingen;
     private String wachtwoord;
     private Klas klas;
+
+
 
     public static Student getAccount() {
         return huidigeAccount;
@@ -30,6 +34,7 @@ public class Student {
         this.percentage = percentage;
         this.pogingen = pogingen;
         this.wachtwoord = wachtwoord;
+
     }
 
     public void setKlas(Klas klas) {

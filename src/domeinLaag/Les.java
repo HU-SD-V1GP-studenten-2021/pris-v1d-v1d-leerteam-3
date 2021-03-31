@@ -1,8 +1,11 @@
 package domeinLaag;
 
+import javafx.scene.control.CheckBox;
+
 import java.sql.Time;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.ArrayList;
 
 public class Les {
     private int lesnummer;
