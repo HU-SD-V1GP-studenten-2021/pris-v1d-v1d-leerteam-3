@@ -7,7 +7,7 @@ public class Student {
     private int studentennummer;
     private String email;
     private boolean status;
-    private double percentage;
+    private String rollCall;
     private int pogingen;
     private String wachtwoord;
     private Klas klas;
@@ -22,12 +22,12 @@ public class Student {
 
     private static Student huidigeAccount;
 
-    public Student(String naam, int studentennummer, String email, boolean status, double percentage, int pogingen, String wachtwoord){
+    public Student(String naam, int studentennummer, String email, boolean status, int pogingen, String rollCall, String wachtwoord){
         this.naam = naam;
         this.studentennummer = studentennummer;
         this.email = email;
         this.status = status;
-        this.percentage = percentage;
+        this.rollCall = rollCall + "%";
         this.pogingen = pogingen;
         this.wachtwoord = wachtwoord;
     }
@@ -50,6 +50,14 @@ public class Student {
 
     public Klas getKlas() {
         return klas;
+    }
+
+    public String getRollCall() {
+        return rollCall;
+    }
+
+    public void setRollCall(String rollCall) {
+        this.rollCall = rollCall;
     }
 
     public String toString(){

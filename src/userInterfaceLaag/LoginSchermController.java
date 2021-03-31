@@ -69,12 +69,12 @@ public class LoginSchermController {
                         String email = userGegevens.getString("email");
                         boolean status = userGegevens.getBoolean("status");
                         int pogingen = userGegevens.getInt("pogingen");
-                        double percentage = userGegevens.getDouble("percentage");
+                        String percentage = userGegevens.getString("percentage");
                         String userwachtwoord = userGegevens.getString("wachtwoord");
                         String klasnaam = userGegevens.getString("klasnaam");
 
                         Klas klas = new Klas(klasnaam);
-                        Student user = new Student(usernaam, userstudentnummer, email, status, percentage, pogingen, userwachtwoord);
+                        Student user = new Student(usernaam, userstudentnummer, email, status, pogingen, percentage, userwachtwoord);
                         user.setKlas(klas);
                         klas.voegStudentToe(user);
 
@@ -132,10 +132,12 @@ public class LoginSchermController {
                                 String emailNu = alleStudenten.getString("email");
                                 boolean statusNu = alleStudenten.getBoolean(4);//status
                                 int pogingenNu = alleStudenten.getInt("pogingen");
-                                int percentageNu = alleStudenten.getInt("percentage");
+                                String percentageNu = alleStudenten.getString("percentage");
                                 String wachtwoordNu = alleStudenten.getString("wachtwoord");
+                                System.out.println(percentageNu);
 
                                 Student s1 = new Student(naamNu, studentnummerNu, emailNu, statusNu, pogingenNu, percentageNu,wachtwoordNu);
+                                System.out.println(s1.getRollCall());
                                 s1.setKlas(klas);
                                 klas.voegStudentToe(s1);
 
@@ -287,7 +289,7 @@ public class LoginSchermController {
                                 String email = alleStudenten.getString("email");
                                 boolean status = alleStudenten.getBoolean(4);//status
                                 int pogingen = alleStudenten.getInt("pogingen");
-                                int percentage = alleStudenten.getInt("percentage");
+                                String percentage = alleStudenten.getString("percentage");
                                 String wachtwoordStudent = alleStudenten.getString("wachtwoord");
 
                                 Student student = new Student(naamStudent, studentnummer, email, status, pogingen, percentage, wachtwoordStudent);
