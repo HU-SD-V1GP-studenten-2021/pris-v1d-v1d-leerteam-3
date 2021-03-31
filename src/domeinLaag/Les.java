@@ -39,6 +39,14 @@ public class Les {
         return datum;
     }
 
+    public LocalTime getBegintijd() {
+        return begintijd;
+    }
+
+    public void setBegintijd(LocalTime begintijd) {
+        this.begintijd = begintijd;
+    }
+
     public void setDatum(LocalDate datum) {
         this.datum = datum;
     }
