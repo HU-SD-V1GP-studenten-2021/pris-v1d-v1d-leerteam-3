@@ -258,8 +258,10 @@ public class LoginSchermController {
                             les.setDocent(docent);
                             les.setKlas(klas1);
                             klas1.voegLesToe(les);
+                            docent.addLes(les);
                             i++;
                         }
+                        System.out.println(docent.getLessen());
 
 
 

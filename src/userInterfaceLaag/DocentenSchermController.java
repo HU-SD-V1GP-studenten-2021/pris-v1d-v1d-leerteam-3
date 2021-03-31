@@ -1,23 +1,32 @@
 package userInterfaceLaag;
 
 import domeinLaag.Docent;
+import domeinLaag.Les;
 import domeinLaag.Student;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 
-import javax.print.Doc;
-import java.io.IOException;
-
 public class DocentenSchermController {
+    @FXML private TableColumn<Student, String> naam;
+    @FXML private TableColumn<Student, Integer> studentennummer;
+    @FXML private TableColumn<Student, Integer> rollcall;
+    @FXML private TableColumn<Student, Boolean> aanwezigheid;
+    @FXML private TableColumn<Student, String> info;
+    @FXML private TableColumn<Student, String> email;
+    @FXML private TableView<Student> tablewiew1;
     @FXML private Rectangle rectangleBoven;
     @FXML private Button loguitKnop;
     @FXML public Label naamLabel;
@@ -27,6 +36,22 @@ public class DocentenSchermController {
     public void initialize() {
         String s = docent.getNaam();
         naamLabel.setText(s);   // in de klasse domeinLaag.Student de naam opvragen
+//        naam.setCellValueFactory(new PropertyValueFactory<>("naam"));
+//        studentennummer.setCellValueFactory(new PropertyValueFactory<>("studentennumnmer"));
+//        rollcall.setCellValueFactory(new PropertyValueFactory<>("rollcall"));
+//        aanwezigheid.setCellValueFactory(new PropertyValueFactory<>("aanwizegheid"));
+//        info.setCellValueFactory(new PropertyValueFactory<>("info"));
+//        email.setCellValueFactory(new  PropertyValueFactory<>("email"));
+
+//        tablewiew1.setItems(getStudenten());
+
+    }
+    public ObservableList<Docent> getDocenten(){
+        ObservableList<Docent> docents = FXCollections.observableArrayList();
+
+        docents.addAll(docent.getLessen());
+
+        return students;
     }
 
     public void loguitEnAfsluiten(ActionEvent actionEvent){
