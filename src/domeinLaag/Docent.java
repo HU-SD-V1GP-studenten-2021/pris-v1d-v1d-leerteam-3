@@ -1,5 +1,6 @@
 package domeinLaag;
 
+import javax.print.Doc;
 import java.util.ArrayList;
 
 public class Docent {
@@ -10,6 +11,16 @@ public class Docent {
     private int pogingen;
     private String wachtwoord;
 
+    public static Docent getAccount() {
+        return huidigeAccount;
+    }
+
+    public static void setAccount(Docent huidigeAccount) {
+        Docent.huidigeAccount = huidigeAccount;
+    }
+
+    private static Docent huidigeAccount;
+
     public Docent(String naam, int medewerkersnummer, String email, boolean status, int pogingen, String wachtwoord) {
         this.naam = naam;
         this.medewerkersnummer = medewerkersnummer;
@@ -19,8 +30,20 @@ public class Docent {
         this.wachtwoord = wachtwoord;
     }
 
+    public String getNaam() {
+        return naam;
+    }
+
+    public int getMedewerkersnummer() {
+        return medewerkersnummer;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
     @Override
     public String toString() {
-        return "Docent " + naam;
+        return naam;
     }
 }

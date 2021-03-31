@@ -22,7 +22,7 @@ public class Student {
 
     private static Student huidigeAccount;
 
-    public Student(String naam, int studentennummer, String email, boolean status, double percentage, int pogingen, String wachtwoord, Klas klas){
+    public Student(String naam, int studentennummer, String email, boolean status, double percentage, int pogingen, String wachtwoord){
         this.naam = naam;
         this.studentennummer = studentennummer;
         this.email = email;
@@ -30,6 +30,9 @@ public class Student {
         this.percentage = percentage;
         this.pogingen = pogingen;
         this.wachtwoord = wachtwoord;
+    }
+
+    public void setKlas(Klas klas) {
         this.klas = klas;
     }
 
