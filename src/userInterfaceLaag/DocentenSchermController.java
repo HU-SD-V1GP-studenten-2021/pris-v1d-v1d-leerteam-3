@@ -10,20 +10,19 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 
-import java.lang.reflect.InvocationTargetException;
-import java.sql.*;
 import java.util.ArrayList;
-import java.util.Properties;
 
 public class DocentenSchermController {
-    public Label waarschuwingid;
     @FXML private Rectangle rectangleBoven;
     @FXML private Button loguitKnop;
     @FXML public Label naamLabel;
@@ -37,26 +36,22 @@ public class DocentenSchermController {
     @FXML private TableColumn<Student, String> studentid;
     @FXML private TableColumn<Student, String> emailid;
     @FXML private TableColumn<Student, String> rollcall;
-    @FXML private TableColumn<Student, String> aanwezigid;
 
 
     private Docent docent = Docent.getAccount();
-    public Les les;
 
     public void initialize() throws Exception {
         String s = docent.getNaam();
         naamLabel.setText(s);
-        tableView1.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+
         klasid.setCellValueFactory(new PropertyValueFactory<>("klas"));
         datumid.setCellValueFactory(new PropertyValueFactory<>("datum"));
-        lesid.setCellValueFactory(new PropertyValueFactory<>("lesnaam"));
+        lesid.setCellValueFactory(new PropertyValueFactory<>("lesnummer"));
 
         naamid.setCellValueFactory(new PropertyValueFactory<>("naam"));
         studentid.setCellValueFactory(new PropertyValueFactory<>("studentennummer"));
         emailid.setCellValueFactory(new  PropertyValueFactory<>("email"));
         rollcall.setCellValueFactory(new PropertyValueFactory<>("rollCall"));
-        aanwezigid.setCellValueFactory(new PropertyValueFactory<>("afwezigheid"));
-
 
 
         tableView2.setItems(getLessen());
@@ -70,38 +65,12 @@ public class DocentenSchermController {
     }
 
 
-    public ObservableList<Student> getStudenten() throws SQLException {
-        String url = "jdbc:postgresql://localhost/SDGP";
-        Properties props = new Properties();
-        props.setProperty("user","postgres");
-        props.setProperty("password","united");
-        Connection con = DriverManager.getConnection(url, props);
-        Statement stmt = con.createStatement();
+    public ObservableList<Student> getStudenten(){
         ObservableList<Student> students = FXCollections.observableArrayList();
 
         Les les = docent.getLessen().get(0);
-        this.les = les;
-        for (Student student : les.getKlas().getStudenten()){
-            boolean afwezig = false; // hiermee zet je de afwezigheid standaard op false (dus aanwezig).
-            ResultSet rs = stmt.executeQuery("SELECT afwezig FROM afwezigheid WHERE studentnummer = " +
-                    student.getStudentennummer() + " AND lesnummer = " + les.getLesnummer()); //hiermee haal je voor elke
-            //leerling (de for loop) de afwezigheid op, als deze niet bestaat is de leerling dus aanwezig.
-            while(rs.next()){
-                boolean afwezigbool = rs.getBoolean("afwezig"); //hier zet je mits je in de lijst voorkomt
-                // (dus in de while loop komt) wordt er een boolean aan toegekend.
-                if (afwezigbool){
-                    afwezig = true;
-                }
-            }
-            student.setAfwezigheid("Aanwezig");
-            if (afwezig){
-                student.setAfwezigheid("Afwezig");
-            }
-            students.add(student);
-        }
-        System.out.println(les);
 
-//        students.addAll(les.getKlas().getStudenten());
+        students.addAll(les.getKlas().getStudenten());
         return students;
     }
 
@@ -127,114 +96,22 @@ public class DocentenSchermController {
     public void loadDataPerLes(MouseEvent mouseEvent){
         try {
             Les les = (Les) tableView2.getSelectionModel().getSelectedItem();
-            System.out.println(les);
-            System.out.println(les.getLesnummer());
-            tableView1.setItems(getStudentenLoad(les));
-            System.out.println("hoi" +les);
-            this.les = les;
+            int lesnummer = les.getLesnummer();
+            System.out.println(lesnummer);
+            tableView1.setItems(getStudentenLoad(lesnummer));
         }
-        catch (NullPointerException | SQLException ignored){
+        catch (NullPointerException ignored){
         }
     }
-    public ObservableList<Student> getStudentenLoad(Les les) throws SQLException {
-        tableView1.refresh();
-        waarschuwingid.setText("");
-        String url = "jdbc:postgresql://localhost/SDGP";
-        Properties props = new Properties();
-        props.setProperty("user","postgres");
-        props.setProperty("password","united");
-        Connection con = DriverManager.getConnection(url, props);
-        Statement stmt = con.createStatement();
+    public ObservableList<Student> getStudentenLoad(int lesnummer){
         ObservableList<Student> students = FXCollections.observableArrayList();
-        System.out.println("jkjsdl" + les);
-        for (Student student : les.getKlas().getStudenten()){
-            boolean afwezig = false;
-            ResultSet rs = stmt.executeQuery("SELECT afwezig FROM afwezigheid WHERE studentnummer = " +
-                    student.getStudentennummer() + " AND lesnummer = " + les.getLesnummer());
-            while(rs.next()){
-                boolean afwezigbool = rs.getBoolean("afwezig");
-                if (afwezigbool){
-                    afwezig = true;
-                }
+        ArrayList<Les> lessen = docent.getLessen();
+        for (Les lesUitDeLijst : lessen){
+            if (lesUitDeLijst.getLesnummer() == lesnummer){
+                students.addAll(lesUitDeLijst.getKlas().getStudenten());
             }
-            student.setAfwezigheid("Aanwezig");
-            if (afwezig){
-                student.setAfwezigheid("Afwezig");
-            }
-            students.add(student);
         }
-
-//        students.addAll(les.getKlas().getStudenten());
         return students;
-    }
-    public void handleButtonAfmelden(ActionEvent actionEvent) throws SQLException {
-        ObservableList<ObservableList> namen = FXCollections.observableArrayList();
-
-        String url = "jdbc:postgresql://localhost/SDGP";
-        Properties props = new Properties();
-        props.setProperty("user","postgres");
-        props.setProperty("password","united");
-        Connection con = DriverManager.getConnection(url, props);
-        Statement stmt = con.createStatement();
-
-        try {
-            ObservableList<Student> student = tableView1.getSelectionModel().getSelectedItems();
-            namen.addAll(student);
-
-
-            for (Student i : student) {
-                int studentnummerNu = i.getStudentennummer();
-
-
-                int lesnummerNu = this.les.getLesnummer();
-
-                stmt.executeUpdate("INSERT INTO afwezigheid (lesnummer, studentnummer, afwezig) " +
-                        "VALUES ("+ lesnummerNu + ", " + studentnummerNu + ", true )");
-
-            }
-            getStudentenLoad(this.les);
-        }
-        catch (NullPointerException e){
-            System.out.println(e);
-        }
-        catch (Exception duplicateKey){
-            waarschuwingid.setText("Deze student(en) zijn al afwezig gemeld!");
-        }
-
-    }
-
-
-    public void handleButtonAanmelden(ActionEvent actionEvent) throws SQLException {
-        ObservableList<ObservableList> namen = FXCollections.observableArrayList();
-
-        String url = "jdbc:postgresql://localhost/SDGP";
-        Properties props = new Properties();
-        props.setProperty("user","postgres");
-        props.setProperty("password","united");
-        Connection con = DriverManager.getConnection(url, props);
-        Statement stmt = con.createStatement();
-
-        try {
-            ObservableList<Student> student = tableView1.getSelectionModel().getSelectedItems();
-            namen.addAll(student);
-            System.out.println(student);
-
-            for (Student i : student) {
-                int studentnummerNu = i.getStudentennummer();
-
-
-                int lesnummerNu = this.les.getLesnummer();
-
-                stmt.executeUpdate("DELETE FROM afwezigheid " +
-                        "WHERE studentnummer = " + studentnummerNu + " AND lesnummer = " + lesnummerNu);
-
-            }
-            getStudentenLoad(this.les);
-
-        }
-        catch (NullPointerException e){
-            System.out.println(e);
-        }
     }
 
 }

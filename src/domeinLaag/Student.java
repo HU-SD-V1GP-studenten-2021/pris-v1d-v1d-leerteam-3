@@ -5,18 +5,15 @@ import javafx.scene.control.CheckBox;
 import java.util.ArrayList;
 
 public class Student {
-    private int studentennummer;
     private String naam;
+    private int studentennummer;
     private String email;
     private boolean status;
-    private int pogingen;
     private double rollCall;
+    private int pogingen;
     private String wachtwoord;
     private Klas klas;
-    private ArrayList<AanwezigheidPerLesPerStudent> presentie = new ArrayList<>();
-    private String afwezigheid;
-
-
+    private ArrayList<AanwezigheidPerLesPerStudent> presentie;
 
 
 
@@ -39,22 +36,6 @@ public class Student {
         this.pogingen = pogingen;
         this.wachtwoord = wachtwoord;
 
-    }
-
-    public String getAfwezigheid() {
-        return afwezigheid;
-    }
-
-    public void setAfwezigheid(String afwezigheid) {
-        this.afwezigheid = afwezigheid;
-    }
-
-    public ArrayList<AanwezigheidPerLesPerStudent> getPresentie() {
-        return presentie;
-    }
-
-    public void voegPresentieToe(AanwezigheidPerLesPerStudent enkeleLes){
-        presentie.add(enkeleLes);
     }
 
     public void setKlas(Klas klas) {
