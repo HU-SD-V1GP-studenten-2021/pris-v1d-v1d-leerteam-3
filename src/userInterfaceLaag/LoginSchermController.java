@@ -35,10 +35,10 @@ public class LoginSchermController {
         String naam = naamVeld.getText();
         String wachtwoord = wachtwoordVeld.getText();
         Stage loginscherm = (Stage) loginKnop.getScene().getWindow();
-        String url = "jdbc:postgresql://localhost/GP";
+        String url = "jdbc:postgresql://localhost/SDGP";
         Properties props = new Properties();
         props.setProperty("user","postgres");
-        props.setProperty("password","ruben");
+        props.setProperty("password","united");
         Connection conn = DriverManager.getConnection(url, props);
 
         if(!naam.contains("@student.hu.nl") &&!naam.contains("@hu.nl")){
@@ -69,7 +69,7 @@ public class LoginSchermController {
                         String email = userGegevens.getString("email");
                         boolean status = userGegevens.getBoolean("status");
                         int pogingen = userGegevens.getInt("pogingen");
-                        String percentage = userGegevens.getString("percentage");
+                        double percentage = userGegevens.getDouble("percentage");
                         String userwachtwoord = userGegevens.getString("wachtwoord");
                         String klasnaam = userGegevens.getString("klasnaam");
 
@@ -132,18 +132,15 @@ public class LoginSchermController {
                                 String emailNu = alleStudenten.getString("email");
                                 boolean statusNu = alleStudenten.getBoolean(4);//status
                                 int pogingenNu = alleStudenten.getInt("pogingen");
-                                String percentageNu = alleStudenten.getString("percentage");
+                                double percentageNu = alleStudenten.getDouble("percentage");
                                 String wachtwoordNu = alleStudenten.getString("wachtwoord");
-                                System.out.println(percentageNu);
-
                                 Student s1 = new Student(naamNu, studentnummerNu, emailNu, statusNu, pogingenNu, percentageNu,wachtwoordNu);
-                                System.out.println(s1.getRollCall());
                                 s1.setKlas(klas);
                                 klas.voegStudentToe(s1);
 
                             }
                         }
-                        System.out.println(klas);
+
 
                         try{
                             loginscherm.close();
@@ -289,7 +286,7 @@ public class LoginSchermController {
                                 String email = alleStudenten.getString("email");
                                 boolean status = alleStudenten.getBoolean(4);//status
                                 int pogingen = alleStudenten.getInt("pogingen");
-                                String percentage = alleStudenten.getString("percentage");
+                                double percentage = alleStudenten.getDouble("percentage");
                                 String wachtwoordStudent = alleStudenten.getString("wachtwoord");
 
                                 Student student = new Student(naamStudent, studentnummer, email, status, pogingen, percentage, wachtwoordStudent);
