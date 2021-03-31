@@ -7,11 +7,16 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.chart.PieChart;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
 
 import java.time.LocalDate;
 
@@ -48,6 +53,18 @@ public class LeerlingHoofdschermController {
 
 
     public void loguitEnSluiten(ActionEvent actionEvent) {
-        System.exit(0);
+        try {
+            ((Node)actionEvent.getSource()).getScene().getWindow().hide();
+            Stage primaryStage = new Stage();
+            FXMLLoader loader = new FXMLLoader();
+            Pane root = loader.load(getClass().getResource("/userInterfaceLaag/LoginScherm.fxml"));
+
+            Scene scene = new Scene(root);
+            primaryStage.setScene(scene);
+            primaryStage.show();
+
+        } catch (Exception e) {
+            System.out.println(e);
+        }
     }
 }
