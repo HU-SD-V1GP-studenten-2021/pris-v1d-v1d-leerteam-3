@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1870b15c-01a0-4397-a03e-47d933a7eef1" name="Default Changelist" comment="TableView LeerlingHoofdscherm +++">
+    <list default="true" id="1870b15c-01a0-4397-a03e-47d933a7eef1" name="Default Changelist" comment="update">
+      <change afterPath="$PROJECT_DIR$/src/domeinLaag/AanwezigheidPerLesPerStudent.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/domeinLaag/Klas.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Groepsproject/domeinLaag/Klas.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/domeinLaag/Les.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Groepsproject/domeinLaag/Les.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/domeinLaag/Student.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Groepsproject/domeinLaag/Student.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/src/userInterfaceLaag/DocentenScherm.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Groepsproject/src/userInterfaceLaag/DocentenScherm.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/userInterfaceLaag/DocentenScherm.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Groepsproject/userInterfaceLaag/DocentenScherm.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/userInterfaceLaag/LeerlingHoofdschermController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Groepsproject/userInterfaceLaag/LeerlingHoofdschermController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/domeinLaag/Klas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/domeinLaag/Klas.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/domeinLaag/Les.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/domeinLaag/Les.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/domeinLaag/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/domeinLaag/Student.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/userInterfaceLaag/LeerlingHoofdschermController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/userInterfaceLaag/LeerlingHoofdschermController.java" afterDir="false" />
@@ -38,6 +39,9 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1qI8wRB38e0i6ajf6yiCacfKjvG" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -79,13 +83,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -116,7 +122,7 @@
       <workItem from="1617029499125" duration="770000" />
       <workItem from="1617052381672" duration="4450000" />
       <workItem from="1617093575285" duration="897000" />
-      <workItem from="1617175553031" duration="20776000" />
+      <workItem from="1617175553031" duration="8243000" />
     </task>
     <task id="LOCAL-00001" summary="Test Ruben 26-03-2021">
       <created>1616756891923</created>
@@ -174,14 +180,35 @@
       <option name="project" value="LOCAL" />
       <updated>1617182667727</updated>
     </task>
-    <task id="LOCAL-00009" summary="TableView LeerlingHoofdscherm +++">
-      <created>1617185605038</created>
+    <task id="LOCAL-00009" summary="update">
+      <created>1617198667195</created>
       <option name="number" value="00009" />
       <option name="presentableId" value="LOCAL-00009" />
       <option name="project" value="LOCAL" />
-      <updated>1617185605038</updated>
+      <updated>1617198667195</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="update">
+      <created>1617199837675</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1617199837675</updated>
+    </task>
+    <task id="LOCAL-00011" summary="update">
+      <created>1617199857325</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1617199857325</updated>
+    </task>
+    <task id="LOCAL-00012" summary="update">
+      <created>1617204324234</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1617204324234</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -207,7 +234,7 @@
     <MESSAGE value="updates 30-03-2021" />
     <MESSAGE value="TableView LeerlingHoofdscherm" />
     <MESSAGE value="TableView LeerlingHoofdscherm ++" />
-    <MESSAGE value="TableView LeerlingHoofdscherm +++" />
-    <option name="LAST_COMMIT_MESSAGE" value="TableView LeerlingHoofdscherm +++" />
+    <MESSAGE value="update" />
+    <option name="LAST_COMMIT_MESSAGE" value="update" />
   </component>
 </project>

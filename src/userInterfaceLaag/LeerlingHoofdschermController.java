@@ -11,7 +11,10 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.chart.PieChart;
-import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
@@ -29,7 +32,7 @@ public class LeerlingHoofdschermController {
     @FXML private TableColumn<Klas, String> datumid;
     @FXML private TableColumn<Klas, String> docentid;
     @FXML private TableColumn<Klas, String> tijdid;
-    @FXML private TableColumn<Klas, CheckBox> aanwezigid;
+    @FXML private TableColumn<Klas, String> aanwezigid;
     @FXML private PieChart rollCallAttendance;
 
     private Student student = Student.getAccount();
@@ -38,12 +41,11 @@ public class LeerlingHoofdschermController {
     public void initialize() {
         String s = student.getNaam();
         naamLabel.setText(s);   // in de klasse domeinLaag.Student de naam opvragen
-
         lesid.setCellValueFactory(new PropertyValueFactory<>("lesnummer"));
         datumid.setCellValueFactory(new PropertyValueFactory<>("datum"));
         docentid.setCellValueFactory(new PropertyValueFactory<>("docent"));
         tijdid.setCellValueFactory(new PropertyValueFactory<>("begintijd"));
-        aanwezigid.setCellValueFactory(new PropertyValueFactory<>("check"));
+//        aanwezigid.setCellValueFactory(new PropertyValueFactory<>("aanwezigheid"));
 
         aanwezigheidsTabel.setItems(getLessen());
 
@@ -51,7 +53,6 @@ public class LeerlingHoofdschermController {
     public ObservableList<Les> getLessen(){
         ObservableList<Les> lessen = FXCollections.observableArrayList();
         lessen.addAll(student.getKlas().getLessen());
-        System.out.println(lessen);
         return lessen;
     }
 
