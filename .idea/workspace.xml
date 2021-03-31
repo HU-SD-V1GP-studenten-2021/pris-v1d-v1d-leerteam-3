@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1870b15c-01a0-4397-a03e-47d933a7eef1" name="Default Changelist" comment="Gehele klassen bij het inloggen voor student">
+    <list default="true" id="1870b15c-01a0-4397-a03e-47d933a7eef1" name="Default Changelist" comment="User aanmaken1">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/userInterfaceLaag/LoginSchermController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/userInterfaceLaag/LoginSchermController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -111,6 +112,7 @@
       <workItem from="1617029499125" duration="770000" />
       <workItem from="1617052381672" duration="4450000" />
       <workItem from="1617093575285" duration="897000" />
+      <workItem from="1617175553031" duration="5239000" />
     </task>
     <task id="LOCAL-00001" summary="Test Ruben 26-03-2021">
       <created>1616756891923</created>
@@ -154,28 +156,7 @@
       <option name="project" value="LOCAL" />
       <updated>1617103949247</updated>
     </task>
-    <task id="LOCAL-00007" summary="Gehele klassen bij het inloggen voor student">
-      <created>1617111609358</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1617111609358</updated>
-    </task>
-    <task id="LOCAL-00008" summary="Login werkt via pull jens">
-      <created>1617113647652</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1617113647652</updated>
-    </task>
-    <task id="LOCAL-00009" summary="Login werkt via pull jens">
-      <created>1617113661275</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1617113661275</updated>
-    </task>
-    <option name="localTasksCounter" value="10" />
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -199,8 +180,6 @@
     <MESSAGE value="Luca test" />
     <MESSAGE value="login update" />
     <MESSAGE value="updates 30-03-2021" />
-    <MESSAGE value="Gehele klassen bij het inloggen voor student" />
-    <MESSAGE value="Login werkt via pull jens" />
-    <option name="LAST_COMMIT_MESSAGE" value="Login werkt via pull jens" />
+    <option name="LAST_COMMIT_MESSAGE" value="updates 30-03-2021" />
   </component>
 </project>
