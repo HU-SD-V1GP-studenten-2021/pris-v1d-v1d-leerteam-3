@@ -3,8 +3,6 @@ package userInterfaceLaag;
 import domeinLaag.Klas;
 import domeinLaag.Les;
 import domeinLaag.Student;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -13,7 +11,10 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.chart.PieChart;
-import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
@@ -24,7 +25,6 @@ import java.time.LocalTime;
 public class LeerlingHoofdschermController {
 
 
-    public CheckBox checkBox;
     @FXML private Button loguitKnop;
     @FXML private Label naamLabel;
     @FXML private TableView aanwezigheidsTabel;
@@ -45,13 +45,8 @@ public class LeerlingHoofdschermController {
         datumid.setCellValueFactory(new PropertyValueFactory<>("datum"));
         docentid.setCellValueFactory(new PropertyValueFactory<>("docent"));
         tijdid.setCellValueFactory(new PropertyValueFactory<>("begintijd"));
-        aanwezigid.setCellValueFactory(new PropertyValueFactory<>("aanwezigheid"));
-        checkBox.selectedProperty(new ChangeListener<>() {
-            @Override
-            public void changed(ObservableValue<?> observableValue, Object o, Object t1) {
+//        aanwezigid.setCellValueFactory(new PropertyValueFactory<>("aanwezigheid"));
 
-            }
-        });
         aanwezigheidsTabel.setItems(getLessen());
 
     }

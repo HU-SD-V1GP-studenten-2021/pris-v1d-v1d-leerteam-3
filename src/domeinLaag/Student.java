@@ -11,6 +11,7 @@ public class Student {
     private int pogingen;
     private String wachtwoord;
     private Klas klas;
+    private ArrayList<AanwezigheidPerLesPerStudent> presentie;
 
     public static Student getAccount() {
         return huidigeAccount;
