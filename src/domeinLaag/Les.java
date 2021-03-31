@@ -3,6 +3,7 @@ package domeinLaag;
 import java.sql.Time;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.ArrayList;
 
 public class Les {
     private int lesnummer;
@@ -11,6 +12,7 @@ public class Les {
     private LocalTime eindtijd;
     private Klas klas;
     private Docent docent;
+    private ArrayList<AanwezigheidPerLesPerStudent> afwezigeVanDezeLes;
 
     public Les(int lesnummer, LocalDate datum, LocalTime begintijd, LocalTime eindtijd) {
         this.lesnummer = lesnummer;

@@ -45,7 +45,7 @@ public class LeerlingHoofdschermController {
         datumid.setCellValueFactory(new PropertyValueFactory<>("datum"));
         docentid.setCellValueFactory(new PropertyValueFactory<>("docent"));
         tijdid.setCellValueFactory(new PropertyValueFactory<>("begintijd"));
-        aanwezigid.setCellValueFactory(new PropertyValueFactory<>("aanwezigheid"));
+//        aanwezigid.setCellValueFactory(new PropertyValueFactory<>("aanwezigheid"));
 
         aanwezigheidsTabel.setItems(getLessen());
 
