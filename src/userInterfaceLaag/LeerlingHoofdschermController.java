@@ -37,6 +37,7 @@ public class LeerlingHoofdschermController {
     @FXML private PieChart rollCallAttendance;
     @FXML private ObservableList<TableSetterGetter> list = FXCollections.observableArrayList();
 
+
     private Student student = Student.getAccount();
 
 
@@ -49,20 +50,27 @@ public class LeerlingHoofdschermController {
 
         String s = student.getNaam();
         naamLabel.setText(s);   // in de klasse domeinLaag.Student de naam opvragen
-        aanwezigid.setCellValueFactory(new PropertyValueFactory<TableSetterGetter, CheckBox>("Aanwezigheid"));
-//        lesid.setCellValueFactory(new PropertyValueFactory<>("lesnummer"));
-//        datumid.setCellValueFactory(new PropertyValueFactory<>("datum"));
-//        docentid.setCellValueFactory(new PropertyValueFactory<>("docent"));
-//        tijdid.setCellValueFactory(new PropertyValueFactory<>("begintijd"));
-//
-//
-//        aanwezigheidsTabel.setItems(getLessen());
-//
-//    }
-//    public ObservableList<Les> getLessen(){
-//        ObservableList<Les> lessen = FXCollections.observableArrayList();
-//        lessen.addAll(student.getKlas().getLessen());
-//        return lessen;
+        lesid.setCellValueFactory(new PropertyValueFactory<>("lesnummer"));
+        datumid.setCellValueFactory(new PropertyValueFactory<>("datum"));
+        docentid.setCellValueFactory(new PropertyValueFactory<>("docent"));
+        tijdid.setCellValueFactory(new PropertyValueFactory<>("begintijd"));
+        aanwezigid.setCellValueFactory(new PropertyValueFactory<TableSetterGetter, CheckBox>("checkbox"));
+
+
+        aanwezigheidsTabel.setItems(getLessen());
+
+    }
+
+    public ObservableList<AanwezigheidPerLesPerStudent> isAanwezigheid(){
+        ObservableList<AanwezigheidPerLesPerStudent> presentie = FXCollections.observableArrayList();
+        presentie.addAll();
+        return presentie;
+    }
+
+    public ObservableList<Les> getLessen(){
+        ObservableList<Les> lessen = FXCollections.observableArrayList();
+        lessen.addAll(student.getKlas().getLessen());
+        return lessen;
     }
 
 

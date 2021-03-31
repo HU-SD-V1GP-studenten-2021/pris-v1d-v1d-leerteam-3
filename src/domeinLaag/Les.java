@@ -12,6 +12,7 @@ public class Les {
     private LocalTime eindtijd;
     private Klas klas;
     private Docent docent;
+    private AanwezigheidPerLesPerStudent aanwezigheidPerLesPerStudent;
 
     public Les(int lesnummer, LocalDate datum, LocalTime begintijd, LocalTime eindtijd) {
         this.lesnummer = lesnummer;
@@ -54,6 +55,14 @@ public class Les {
 
     public Docent getDocent() {
         return docent;
+    }
+
+    public AanwezigheidPerLesPerStudent getAanwezigheidPerLesPerStudent() {
+        return aanwezigheidPerLesPerStudent;
+    }
+
+    public void setAanwezigheidPerLesPerStudent(AanwezigheidPerLesPerStudent aanwezigheidPerLesPerStudent) {
+        this.aanwezigheidPerLesPerStudent = aanwezigheidPerLesPerStudent;
     }
 
     //    @Override
