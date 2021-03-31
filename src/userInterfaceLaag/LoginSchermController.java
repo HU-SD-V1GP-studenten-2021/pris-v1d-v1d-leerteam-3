@@ -142,8 +142,6 @@ public class LoginSchermController {
                             }
                         }
 
-                        System.out.println(klas);
-
                         try{
                             loginscherm.close();
                             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("leerlingHoofdscherm.fxml"));
@@ -161,9 +159,7 @@ public class LoginSchermController {
                     }
                     else if (rsHuidigeStudent.getString("email").equals(naam)){
                         int i = rsHuidigeStudent.getInt("pogingen");
-                        System.out.println(i);
                         i ++;
-                        System.out.println(i);
                         stmt.executeUpdate("UPDATE student SET pogingen =" + i + " WHERE studentnummer = " + studentnummer);
                         if (i == 3 || i == 4){
                             Waarschuwing.setText("Let op, je zit op " + i + " pogingen!\n" +

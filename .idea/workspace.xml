@@ -1,16 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1870b15c-01a0-4397-a03e-47d933a7eef1" name="Default Changelist" comment="Merge remote-tracking branch 'origin/main' into main">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+    <list default="true" id="1870b15c-01a0-4397-a03e-47d933a7eef1" name="Default Changelist" comment="final version 30-03-2021&#10;Inloggen/Uitloggen als student en docent +&#10;Laden van gegevens uit database naar de klasses in java.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Groepsproject/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/src/userInterfaceLaag/DocentenScherm.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Groepsproject/src/userInterfaceLaag/DocentenScherm.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/userInterfaceLaag/DocentenScherm.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Groepsproject/userInterfaceLaag/DocentenScherm.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/userInterfaceLaag/DocentenSchermController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Groepsproject/userInterfaceLaag/DocentenSchermController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/userInterfaceLaag/DocentenScherm.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/userInterfaceLaag/DocentenScherm.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/userInterfaceLaag/DocentenSchermController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/userInterfaceLaag/DocentenSchermController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/userInterfaceLaag/LeerlingHoofdscherm.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/userInterfaceLaag/LeerlingHoofdscherm.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/userInterfaceLaag/LeerlingHoofdschermController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Groepsproject/userInterfaceLaag/LeerlingHoofdschermController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/userInterfaceLaag/LoginSchermController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Groepsproject/userInterfaceLaag/LoginSchermController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/userInterfaceLaag/LeerlingHoofdschermController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/userInterfaceLaag/LeerlingHoofdschermController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/userInterfaceLaag/LoginSchermController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/userInterfaceLaag/LoginSchermController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,7 +106,8 @@
       <workItem from="1617029499125" duration="770000" />
       <workItem from="1617052381672" duration="4450000" />
       <workItem from="1617093575285" duration="897000" />
-      <workItem from="1617175553031" duration="8243000" />
+      <workItem from="1617119601381" duration="577000" />
+      <workItem from="1617175788928" duration="4498000" />
     </task>
     <task id="LOCAL-00001" summary="Test Ruben 26-03-2021">
       <created>1616756891923</created>
@@ -152,28 +151,21 @@
       <option name="project" value="LOCAL" />
       <updated>1617103949247</updated>
     </task>
-    <task id="LOCAL-00007" summary="TableView LeerlingHoofdscherm">
-      <created>1617182459304</created>
+    <task id="LOCAL-00007" summary="Gehele klassen bij het inloggen voor student">
+      <created>1617111609358</created>
       <option name="number" value="00007" />
       <option name="presentableId" value="LOCAL-00007" />
       <option name="project" value="LOCAL" />
-      <updated>1617182459304</updated>
+      <updated>1617111609358</updated>
     </task>
-    <task id="LOCAL-00008" summary="TableView LeerlingHoofdscherm ++">
-      <created>1617182667727</created>
+    <task id="LOCAL-00008" summary="final version 30-03-2021&#10;Inloggen/Uitloggen als student en docent +&#10;Laden van gegevens uit database naar de klasses in java.">
+      <created>1617116241096</created>
       <option name="number" value="00008" />
       <option name="presentableId" value="LOCAL-00008" />
       <option name="project" value="LOCAL" />
-      <updated>1617182667727</updated>
+      <updated>1617116241096</updated>
     </task>
-    <task id="LOCAL-00009" summary="Merge remote-tracking branch 'origin/main' into main">
-      <created>1617195317363</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1617195317363</updated>
-    </task>
-    <option name="localTasksCounter" value="10" />
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -197,9 +189,8 @@
     <MESSAGE value="Luca test" />
     <MESSAGE value="login update" />
     <MESSAGE value="updates 30-03-2021" />
-    <MESSAGE value="TableView LeerlingHoofdscherm" />
-    <MESSAGE value="TableView LeerlingHoofdscherm ++" />
-    <MESSAGE value="Merge remote-tracking branch 'origin/main' into main" />
-    <option name="LAST_COMMIT_MESSAGE" value="Merge remote-tracking branch 'origin/main' into main" />
+    <MESSAGE value="Gehele klassen bij het inloggen voor student" />
+    <MESSAGE value="final version 30-03-2021&#10;Inloggen/Uitloggen als student en docent +&#10;Laden van gegevens uit database naar de klasses in java." />
+    <option name="LAST_COMMIT_MESSAGE" value="final version 30-03-2021&#10;Inloggen/Uitloggen als student en docent +&#10;Laden van gegevens uit database naar de klasses in java." />
   </component>
 </project>
