@@ -44,7 +44,7 @@ public class DocentenSchermController {
 
         String s = docent.getNaam();
         naamLabel.setText(s);
-
+        tableView1.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
         klasid.setCellValueFactory(new PropertyValueFactory<>("klas"));
         datumid.setCellValueFactory(new PropertyValueFactory<>("datum"));
         lesid.setCellValueFactory(new PropertyValueFactory<>("lesnummer"));
@@ -98,7 +98,6 @@ public class DocentenSchermController {
         try {
             Les les = (Les) tableView2.getSelectionModel().getSelectedItem();
             int lesnummer = les.getLesnummer();
-            System.out.println(lesnummer);
             tableView1.setItems(getStudentenLoad(lesnummer));
         }
         catch (NullPointerException ignored){
@@ -114,6 +113,38 @@ public class DocentenSchermController {
             }
         }
         return students;
+    }
+    public void handleButtonAfmelden(ActionEvent actionEvent) {
+        ObservableList<ObservableList> namen = FXCollections.observableArrayList();
+
+        try {
+            namen.addAll(tableView1.getSelectionModel().getSelectedItems());
+            System.out.println(namen);
+
+        }
+        catch (NullPointerException e){
+            System.out.println(e);
+        }
+    }
+
+
+    public void handleButtonAanmelden(ActionEvent actionEvent) {
+        ObservableList<ObservableList> namen = FXCollections.observableArrayList();
+
+        try {
+            ObservableList<Student> stuNummer = tableView1.getSelectionModel().getSelectedItems();
+            namen.addAll(tableView1.getSelectionModel().getSelectedItems());
+            for (Student i : stuNummer) {
+                System.out.println(i.getStudentennummer());
+            }
+//           System.out.println(namen);
+//           System.out.println(stuNummer);
+
+
+        }
+        catch (NullPointerException e){
+            System.out.println(e);
+        }
     }
 
     public void loadDataPerStudentPerLes(MouseEvent mouseEvent){

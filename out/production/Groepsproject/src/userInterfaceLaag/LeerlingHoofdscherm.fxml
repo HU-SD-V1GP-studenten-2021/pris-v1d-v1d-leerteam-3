@@ -18,13 +18,13 @@
          <font>
             <Font name="System Bold" size="14.0" />
          </font></Label>
-      <TableView fx:id="aanwezigheidsTabel" layoutX="39.0" layoutY="82.0" onMouseClicked="#popUpScherm" prefHeight="343.0" prefWidth="472.0">
+      <TableView fx:id="aanwezigheidsTabel" layoutX="39.0" layoutY="82.0" onMouseClicked="#popUpScherm" prefHeight="343.0" prefWidth="472.0" style="-fx-background-color: light grey;">
         <columns>
           <TableColumn fx:id="lesid" prefWidth="74.0" text="Les" />
           <TableColumn fx:id="datumid" prefWidth="96.0" text="Datum" />
             <TableColumn fx:id="tijdid" prefWidth="61.0" text="Begin tijd" />
             <TableColumn fx:id="docentid" prefWidth="134.0" text="Docent" />
-            <TableColumn fx:id="aanwezigid" prefWidth="106.0" text="Aanwezigheid" />
+            <TableColumn fx:id="aanwezigid" prefWidth="106.0" text="Afwezig" />
         </columns>
       </TableView>
       <PieChart fx:id="rollCallAttendance" cache="true" cacheShape="false" centerShape="false" focusTraversable="true" layoutX="533.0" layoutY="82.0" prefHeight="232.0" prefWidth="241.0" scaleShape="false" title="Roll Call Attendance" />
