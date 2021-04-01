@@ -72,7 +72,11 @@ public class LeerlingHoofdschermController {
     }
     public ObservableList<Les> getLessen(){
         ObservableList<Les> lessen = FXCollections.observableArrayList();
-        lessen.addAll(student.getKlas().getLessen());
+        for(Les les : student.getKlas().getLessen()){
+            if (les.getDatum().isAfter(datepickerid.getValue()) || les.getDatum().isEqual(datepickerid.getValue())){
+                lessen.add(les);
+            }
+        }
         return lessen;
     }
 
@@ -121,7 +125,7 @@ public class LeerlingHoofdschermController {
     public ObservableList<Les> setLessen(LocalDate datum){
         ObservableList<Les> lessen = FXCollections.observableArrayList();
         for(Les les : student.getKlas().getLessen()){
-            if (les.getDatum().isAfter(datepickerid.getValue())){
+            if (les.getDatum().isAfter(datepickerid.getValue()) || les.getDatum().isEqual(datepickerid.getValue())){
                 lessen.add(les);
             }
         }
