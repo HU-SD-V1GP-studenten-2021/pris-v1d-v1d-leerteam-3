@@ -97,7 +97,6 @@ public class DocentenSchermController {
         try {
             Les les = (Les) tableView2.getSelectionModel().getSelectedItem();
             int lesnummer = les.getLesnummer();
-            System.out.println(lesnummer);
             tableView1.setItems(getStudentenLoad(lesnummer));
         }
         catch (NullPointerException ignored){
