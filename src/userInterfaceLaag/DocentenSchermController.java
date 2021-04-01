@@ -10,10 +10,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
@@ -36,11 +33,15 @@ public class DocentenSchermController {
     @FXML private TableColumn<Student, String> studentid;
     @FXML private TableColumn<Student, String> emailid;
     @FXML private TableColumn<Student, String> rollcall;
+    @FXML private Button handleButtonAfmelden;
+    @FXML private Button handleButtonAanmelden;
 
 
     private Docent docent = Docent.getAccount();
 
     public void initialize() throws Exception {
+        tableView1.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+
         String s = docent.getNaam();
         naamLabel.setText(s);
 
@@ -103,6 +104,7 @@ public class DocentenSchermController {
         catch (NullPointerException ignored){
         }
     }
+
     public ObservableList<Student> getStudentenLoad(int lesnummer){
         ObservableList<Student> students = FXCollections.observableArrayList();
         ArrayList<Les> lessen = docent.getLessen();
@@ -114,5 +116,47 @@ public class DocentenSchermController {
         return students;
     }
 
+    public void loadDataPerStudentPerLes(MouseEvent mouseEvent){
+        try {
+            Student student = (Student) tableView1.getSelectionModel().getSelectedItem();
+            int studentNummer = student.getStudentennummer();
+            System.out.println(studentNummer);
+        }
+        catch (NullPointerException ignored){
+        }
+    }
+
+    public void handleButtonAfmelden(ActionEvent actionEvent) {
+        ObservableList<ObservableList> namen = FXCollections.observableArrayList();
+
+        try {
+            namen.addAll(tableView1.getSelectionModel().getSelectedItems());
+            System.out.println(namen);
+
+        }
+        catch (NullPointerException e){
+            System.out.println(e);
+        }
+    }
+
+
+    public void handleButtonAanmelden(ActionEvent actionEvent) {
+        ObservableList<ObservableList> namen = FXCollections.observableArrayList();
+
+       try {
+           ObservableList<Student> stuNummer = tableView1.getSelectionModel().getSelectedItems();
+           namen.addAll(tableView1.getSelectionModel().getSelectedItems());
+           for (Student i : stuNummer) {
+               System.out.println(i.getStudentennummer());
+           }
+//           System.out.println(namen);
+//           System.out.println(stuNummer);
+
+
+        }
+        catch (NullPointerException e){
+            System.out.println(e);
+        }
+    }
 }
 
