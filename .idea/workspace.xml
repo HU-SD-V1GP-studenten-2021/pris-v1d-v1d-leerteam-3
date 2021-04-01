@@ -1,23 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e25cbfa4-a5fd-4568-bc7c-515a345c2314" name="Default Changelist" comment="Commit 01-04">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/1fe57a6c-ebd8-4847-93f0-21068ed09cc3.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/1fe57a6c-ebd8-4847-93f0-21068ed09cc3/storage_v2/_src_/database/SDGP.-sImAA.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/1fe57a6c-ebd8-4847-93f0-21068ed09cc3/storage_v2/_src_/database/SDGP.-sImAA/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/1fe57a6c-ebd8-4847-93f0-21068ed09cc3/storage_v2/_src_/database/SDGP.-sImAA/schema/pg_catalog.0S1ZNQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/1fe57a6c-ebd8-4847-93f0-21068ed09cc3/storage_v2/_src_/database/SDGP.-sImAA/schema/public.abK9xQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/21b105fb-680d-409b-bba2-88ac42ec5e63.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/21b105fb-680d-409b-bba2-88ac42ec5e63.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/21b105fb-680d-409b-bba2-88ac42ec5e63/storage_v2/_src_/database/SDGP.-sImAA/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/21b105fb-680d-409b-bba2-88ac42ec5e63/storage_v2/_src_/database/SDGP.-sImAA/schema/pg_catalog.0S1ZNQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/21b105fb-680d-409b-bba2-88ac42ec5e63/storage_v2/_src_/database/SDGP.-sImAA/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/21b105fb-680d-409b-bba2-88ac42ec5e63/storage_v2/_src_/database/SDGP.-sImAA/schema/public.abK9xQ.meta" afterDir="false" />
+    <list default="true" id="e25cbfa4-a5fd-4568-bc7c-515a345c2314" name="Default Changelist" comment="Commit 01-04 Select rows">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Groepsproject/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/userInterfaceLaag/LoginSchermController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Groepsproject/userInterfaceLaag/LoginSchermController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/userInterfaceLaag/DocentenScherm.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/userInterfaceLaag/DocentenScherm.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/userInterfaceLaag/DocentenSchermController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/userInterfaceLaag/DocentenSchermController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/userInterfaceLaag/LoginSchermController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/userInterfaceLaag/LoginSchermController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/userInterfaceLaag/TableSetterGetter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/src/userInterfaceLaag/DocentenScherm.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Groepsproject/src/userInterfaceLaag/DocentenScherm.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/userInterfaceLaag/DocentenScherm.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Groepsproject/userInterfaceLaag/DocentenScherm.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/userInterfaceLaag/DocentenSchermController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Groepsproject/userInterfaceLaag/DocentenSchermController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/userInterfaceLaag/TableSetterGetter.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -237,7 +226,14 @@
       <option name="project" value="LOCAL" />
       <updated>1617270320356</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Commit 01-04 Select rows">
+      <created>1617278254811</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1617278254811</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -265,7 +261,8 @@
     <MESSAGE value="TableView LeerlingHoofdscherm ++" />
     <MESSAGE value="update" />
     <MESSAGE value="Update database" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update database" />
+    <MESSAGE value="Commit 01-04 Select rows" />
+    <option name="LAST_COMMIT_MESSAGE" value="Commit 01-04 Select rows" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
