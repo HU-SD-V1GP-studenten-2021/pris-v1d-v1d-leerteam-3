@@ -308,17 +308,7 @@ public class LoginSchermController {
 
                             }
                         }
-
-
-                        System.out.println(alleKlassen);
-                        for (Klas klasoe : alleKlassen){
-                            System.out.println(klasoe.getStudenten());
-                            System.out.println(klasoe.getNaam());
-                            for (Les les : klasoe.getLessen()){
-                                Docent docent1 = les.getDocent();
-                                System.out.println(docent1);
-                            }
-                        }
+                        
 
                         try{
 
