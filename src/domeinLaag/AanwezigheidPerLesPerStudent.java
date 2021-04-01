@@ -42,8 +42,4 @@ public class AanwezigheidPerLesPerStudent {
     public String getReden() {
         return reden;
     }
-
-    public String toString(){
-        return les.getLesnaam() + " " + student.getNaam() + " " + afwezigheid + " " + reden;
-    }
 }

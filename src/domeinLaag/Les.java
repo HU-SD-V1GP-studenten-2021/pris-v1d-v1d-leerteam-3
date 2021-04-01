@@ -15,8 +15,7 @@ public class Les {
     private LocalTime eindtijd;
     private Docent docent;
     private Klas klas;
-    private ArrayList<AanwezigheidPerLesPerStudent> afwezigeVanDezeLes = new ArrayList<>();
-    private String afwezigheid;
+    private ArrayList<AanwezigheidPerLesPerStudent> afwezigeVanDezeLes;
 
     public Les(int lesnummer, String lesnaam, LocalDate datum, LocalTime begintijd, LocalTime eindtijd) {
         this.lesnummer = lesnummer;
@@ -30,14 +29,6 @@ public class Les {
         afwezigeVanDezeLes.add(enkeleStudent);
     }
 
-    public String getAfwezigheid() {
-        return afwezigheid;
-    }
-
-    public void setAfwezigheid(String afwezigheid) {
-        this.afwezigheid = afwezigheid;
-    }
-
     public void setKlas(Klas klas) {
         this.klas = klas;
     }
@@ -46,7 +37,7 @@ public class Les {
         this.docent = docent;
     }
 
-    public int getLesnummer(){
+    public int getLesnummer() {
         return lesnummer;
     }
 
@@ -78,11 +69,7 @@ public class Les {
         return klas;
     }
 
-    public String getLesnaam() {
-        return lesnaam;
-    }
-
-    @Override
+        @Override
     public String toString() {
         return "Les heeft als " + docent + " " + klas.getNaam() ;
     }
