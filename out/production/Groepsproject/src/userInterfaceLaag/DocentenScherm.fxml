@@ -35,5 +35,15 @@
       </TableView>
       <Button layoutX="439.0" layoutY="434.0" mnemonicParsing="false" onAction="#handleButtonAfmelden" prefHeight="32.0" prefWidth="78.0" text="Afmelden" AnchorPane.leftAnchor="430.0" />
       <Button layoutX="527.0" layoutY="434.0" mnemonicParsing="false" onAction="#handleButtonAanmelden" prefHeight="32.0" prefWidth="78.0" text="Aanmelden" AnchorPane.rightAnchor="200.0" />
+      <Label layoutX="21.0" layoutY="56.0" prefHeight="32.0" prefWidth="209.0" text="Lessen">
+         <font>
+            <Font name="System Bold" size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="251.0" layoutY="59.0" text="Studenten">
+         <font>
+            <Font name="System Bold" size="17.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

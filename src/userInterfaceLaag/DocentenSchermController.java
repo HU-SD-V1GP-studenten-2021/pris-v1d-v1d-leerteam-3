@@ -17,7 +17,12 @@ import javafx.scene.layout.Pane;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Properties;
 
 public class DocentenSchermController {
     @FXML private Rectangle rectangleBoven;
@@ -123,14 +128,27 @@ public class DocentenSchermController {
     }
 
 
-    public void handleButtonAanmelden(ActionEvent actionEvent) {
+    public void handleButtonAanmelden(ActionEvent actionEvent) throws SQLException {
         ObservableList<ObservableList> namen = FXCollections.observableArrayList();
+
+        String url = "jdbc:postgresql://localhost/SDGP";
+        Properties props = new Properties();
+        props.setProperty("user","postgres");
+        props.setProperty("password","ruben");
+        Connection con = DriverManager.getConnection(url, props);
+        Statement stmt = con.createStatement();
 
         try {
             ObservableList<Student> stuNummer = tableView1.getSelectionModel().getSelectedItems();
             namen.addAll(tableView1.getSelectionModel().getSelectedItems());
             for (Student i : stuNummer) {
+                int sudentennum = i.getStudentennummer();
                 System.out.println(i.getStudentennummer());
+
+                ObservableList<Les> lessen = FXCollections.observableArrayList();
+//                ResultSet afwezig = stmt.executeQuery("DELETE  from afwezigheid WHERE studentnummer = " + sudentennum +
+//                        " AND lesnummer  "); // hier moeten we nog de les ophalen net zoals in de student scherm!!!
+
             }
 //           System.out.println(namen);
 //           System.out.println(stuNummer);
