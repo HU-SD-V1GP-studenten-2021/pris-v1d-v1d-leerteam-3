@@ -1,15 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1870b15c-01a0-4397-a03e-47d933a7eef1" name="Default Changelist" comment="Update ofzo">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/5fe6b3a4-68f1-459e-9874-21c8da595657.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/5fe6b3a4-68f1-459e-9874-21c8da595657/storage_v2/_src_/database/SDGP.-sImAA.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/5fe6b3a4-68f1-459e-9874-21c8da595657/storage_v2/_src_/database/SDGP.-sImAA/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/5fe6b3a4-68f1-459e-9874-21c8da595657/storage_v2/_src_/database/SDGP.-sImAA/schema/pg_catalog.0S1ZNQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/5fe6b3a4-68f1-459e-9874-21c8da595657/storage_v2/_src_/database/SDGP.-sImAA/schema/public.abK9xQ.meta" beforeDir="false" />
+    <list default="true" id="1870b15c-01a0-4397-a03e-47d933a7eef1" name="Default Changelist" comment="Merge remote-tracking branch 'origin/main' into main">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Groepsproject/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/userInterfaceLaag/LoginSchermController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Groepsproject/userInterfaceLaag/LoginSchermController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/userInterfaceLaag/LoginSchermController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/userInterfaceLaag/LoginSchermController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,6 +32,9 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1qI8wRB38e0i6ajf6yiCacfKjvG" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -101,7 +99,10 @@
       <workItem from="1616756643700" duration="648000" />
       <workItem from="1616761283441" duration="1755000" />
       <workItem from="1617015007859" duration="7003000" />
-      <workItem from="1617103466613" duration="1631000" />
+      <workItem from="1617029499125" duration="770000" />
+      <workItem from="1617052381672" duration="4450000" />
+      <workItem from="1617093575285" duration="897000" />
+      <workItem from="1617175553031" duration="8243000" />
     </task>
     <task id="LOCAL-00001" summary="Test Ruben 26-03-2021">
       <created>1616756891923</created>
@@ -138,7 +139,56 @@
       <option name="project" value="LOCAL" />
       <updated>1617019784445</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="updates 30-03-2021">
+      <created>1617103949247</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1617103949247</updated>
+    </task>
+    <task id="LOCAL-00007" summary="TableView LeerlingHoofdscherm">
+      <created>1617182459304</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1617182459304</updated>
+    </task>
+    <task id="LOCAL-00008" summary="TableView LeerlingHoofdscherm ++">
+      <created>1617182667727</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1617182667727</updated>
+    </task>
+    <task id="LOCAL-00009" summary="update">
+      <created>1617198667195</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1617198667195</updated>
+    </task>
+    <task id="LOCAL-00010" summary="update">
+      <created>1617199837675</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1617199837675</updated>
+    </task>
+    <task id="LOCAL-00011" summary="update">
+      <created>1617199857325</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1617199857325</updated>
+    </task>
+    <task id="LOCAL-00012" summary="update">
+      <created>1617204324234</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1617204324234</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -161,6 +211,10 @@
     <MESSAGE value="Merge pull request #4 from HU-SD-V1GP-studenten-2021/Ruben&#10;&#10;Ruben testen of het werkt" />
     <MESSAGE value="Luca test" />
     <MESSAGE value="login update" />
-    <option name="LAST_COMMIT_MESSAGE" value="login update" />
+    <MESSAGE value="updates 30-03-2021" />
+    <MESSAGE value="TableView LeerlingHoofdscherm" />
+    <MESSAGE value="TableView LeerlingHoofdscherm ++" />
+    <MESSAGE value="update" />
+    <option name="LAST_COMMIT_MESSAGE" value="update" />
   </component>
 </project>
