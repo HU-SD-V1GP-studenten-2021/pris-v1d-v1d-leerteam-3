@@ -59,7 +59,7 @@ public class LeerlingHoofdschermController {
         datumid.setCellValueFactory(new PropertyValueFactory<>("datum"));
         docentid.setCellValueFactory(new PropertyValueFactory<>("docent"));
         tijdid.setCellValueFactory(new PropertyValueFactory<>("begintijd"));
-//        aanwezigid.setCellValueFactory(new PropertyValueFactory<>("aanwezig"));
+//        aanwezigid.setCellValueFactory(new PropertyValueFactory<>(""));
         aanwezigheidsTabel.setEditable(true);
 
         aanwezigheidsTabel.setItems(getLessen());
@@ -81,7 +81,7 @@ public class LeerlingHoofdschermController {
         String url = "jdbc:postgresql://localhost/SDGP";
         Properties props = new Properties();
         props.setProperty("user","postgres");
-        props.setProperty("password","ruben");
+        props.setProperty("password","united");
         Connection con = DriverManager.getConnection(url, props);
         Statement stmt = con.createStatement();
         ObservableList<Les> lessen = FXCollections.observableArrayList();
@@ -152,7 +152,7 @@ public class LeerlingHoofdschermController {
         String url = "jdbc:postgresql://localhost/SDGP";
         Properties props = new Properties();
         props.setProperty("user","postgres");
-        props.setProperty("password","ruben");
+        props.setProperty("password","united");
         Connection con = DriverManager.getConnection(url, props);
         Statement stmt = con.createStatement();
         ObservableList<Les> lessen = FXCollections.observableArrayList();
@@ -172,7 +172,10 @@ public class LeerlingHoofdschermController {
                 }
             }
         }
-        System.out.println(lessen);
         return lessen;
     }
 }
+/** alle lessen van een student voor localdate.now
+ *  van die lessen wil je de aanwezigheid van de student
+ *  dan 100 / lessen.size()
+ */
