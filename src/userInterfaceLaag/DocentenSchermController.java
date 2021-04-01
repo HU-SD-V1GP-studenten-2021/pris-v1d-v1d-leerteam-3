@@ -115,36 +115,37 @@ public class DocentenSchermController {
         ObservableList<ObservableList> namen = FXCollections.observableArrayList();
 
         try {
-
-//            String url = "jdbc:postgresql://localhost/SDGP";
-//            Properties props = new Properties();
-//            props.setProperty("user","omara");
-//            props.setProperty("password","Omar1994");
-//            Connection conn = DriverManager.getConnection(url, props);
-//            Statement stmt = conn.createStatement();
-//            ResultSet userGegevens = stmt.executeQuery("SELECT  FROM student " +
-//
-//                    "WHERE studentnummer = " + userstudentnummer);
-
             namen.addAll(tableView1.getSelectionModel().getSelectedItems());
             System.out.println(namen);
 
         }
-        catch (NullPointerException  e){
+        catch (NullPointerException e){
             System.out.println(e);
         }
     }
 
 
-    public void handleButtonAanmelden(ActionEvent actionEvent) {
+    public void handleButtonAanmelden(ActionEvent actionEvent) throws SQLException {
         ObservableList<ObservableList> namen = FXCollections.observableArrayList();
 
-        try {
+        String url = "jdbc:postgresql://localhost/SDGP";
+        Properties props = new Properties();
+        props.setProperty("user","omara");
+        props.setProperty("password","Omar1994");
+        Connection con = DriverManager.getConnection(url, props);
+        Statement stmt = con.createStatement();
 
+        try {
             ObservableList<Student> stuNummer = tableView1.getSelectionModel().getSelectedItems();
             namen.addAll(tableView1.getSelectionModel().getSelectedItems());
             for (Student i : stuNummer) {
+                int sudentennum = i.getStudentennummer();
                 System.out.println(i.getStudentennummer());
+
+                ObservableList<Les> lessen = FXCollections.observableArrayList();
+//                ResultSet afwezig = stmt.executeQuery("DELETE  from afwezigheid WHERE studentnummer = " + sudentennum +
+//                        " AND lesnummer  ");
+
             }
 //           System.out.println(namen);
 //           System.out.println(stuNummer);

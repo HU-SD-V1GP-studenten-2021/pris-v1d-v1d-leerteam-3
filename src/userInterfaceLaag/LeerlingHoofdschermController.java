@@ -59,7 +59,7 @@ public class LeerlingHoofdschermController {
         datumid.setCellValueFactory(new PropertyValueFactory<>("datum"));
         docentid.setCellValueFactory(new PropertyValueFactory<>("docent"));
         tijdid.setCellValueFactory(new PropertyValueFactory<>("begintijd"));
-        aanwezigid.setCellValueFactory(new PropertyValueFactory<>("aanwezi"));
+//        aanwezigid.setCellValueFactory(new PropertyValueFactory<>("aanwezi"));
         aanwezigheidsTabel.setEditable(true);
 
         aanwezigheidsTabel.setItems(getLessen());
@@ -80,8 +80,8 @@ public class LeerlingHoofdschermController {
     public ObservableList<Les> getLessen() throws SQLException {
         String url = "jdbc:postgresql://localhost/SDGP";
         Properties props = new Properties();
-        props.setProperty("user","postgres");
-        props.setProperty("password","united");
+        props.setProperty("user","omara");
+        props.setProperty("password","Omar1994");
         Connection con = DriverManager.getConnection(url, props);
         Statement stmt = con.createStatement();
         ObservableList<Les> lessen = FXCollections.observableArrayList();
@@ -151,8 +151,8 @@ public class LeerlingHoofdschermController {
     public ObservableList<Les> setLessen(LocalDate datum) throws SQLException {
         String url = "jdbc:postgresql://localhost/SDGP";
         Properties props = new Properties();
-        props.setProperty("user","postgres");
-        props.setProperty("password","united");
+        props.setProperty("user","omara");
+        props.setProperty("password","Omar1994");
         Connection con = DriverManager.getConnection(url, props);
         Statement stmt = con.createStatement();
         ObservableList<Les> lessen = FXCollections.observableArrayList();
