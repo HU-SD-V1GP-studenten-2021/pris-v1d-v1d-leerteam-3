@@ -1,5 +1,7 @@
 package userInterfaceLaag;
 
+import domeinLaag.AanwezigheidPerLesPerStudent;
+import domeinLaag.Les;
 import domeinLaag.Student;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -21,23 +23,39 @@ public class AfmeldenSchermController {
     public TextArea redenid;
     private Student account = Student.getAccount();
 
-
     public void annuleren(ActionEvent actionEvent) {
         Button source = (Button)actionEvent.getSource();
         Stage stage = (Stage)source.getScene().getWindow();
         stage.close();
     }
 
-    public void afmelden(ActionEvent actionEvent) throws SQLException {
-        String reden = redenid.getText();
 
-//        String url = "jdbc:postgresql://localhost/SDGP";
-//        Properties props = new Properties();
-//        props.setProperty("user","postgres");
-//        props.setProperty("password","united");
-//        Connection conn = DriverManager.getConnection(url, props);
-//        Statement stmt = conn.createStatement();
-//        stmt.executeUpdate("INSERT INTO afwezig, reden FROM Afwezigheid VALUES(true, reden) WHERE studentstudentnummer = " + account.getStudentennummer() +  " AND Lesnummer =");
+
+
+    public void afmelden(ActionEvent actionEvent) throws SQLException {
+
+        String reden = redenid.getText();
+        int studentnummer = account.getStudentennummer();
+        Les les = LeerlingHoofdschermController.les;
+
+
+        int lesnummer = LeerlingHoofdschermController.lesnummer;
+        System.out.println(lesnummer);
+
+        String url = "jdbc:postgresql://localhost/SDGP";
+        Properties props = new Properties();
+        props.setProperty("user","postgres");
+        props.setProperty("password","united");
+        Connection conn = DriverManager.getConnection(url, props);
+        Statement stmt = conn.createStatement();
+//        AanwezigheidPerLesPerStudent afwezig = new AanwezigheidPerLesPerStudent(les,account,true,reden);
+//        account.voegPresentieToe(afwezig);
+//        les.voegafwezigeVanDezeLesToe(afwezig);
+//        System.out.println(account.getPresentie());
+        stmt.executeUpdate("INSERT INTO afwezigheid (lesnummer, studentnummer, afwezig, reden) VALUES (" + lesnummer + ", " + studentnummer + ", true, '"
+                + reden + "')");
+
+
 
         Button source = (Button)actionEvent.getSource();
         Stage stage = (Stage)source.getScene().getWindow();

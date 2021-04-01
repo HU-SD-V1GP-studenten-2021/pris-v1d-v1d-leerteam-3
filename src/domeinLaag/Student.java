@@ -37,6 +37,10 @@ public class Student {
         this.wachtwoord = wachtwoord;
     }
 
+    public ArrayList<AanwezigheidPerLesPerStudent> getPresentie() {
+        return presentie;
+    }
+
     public void voegPresentieToe(AanwezigheidPerLesPerStudent enkeleLes){
         presentie.add(enkeleLes);
     }
