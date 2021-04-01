@@ -3,8 +3,8 @@ package domeinLaag;
 import java.util.ArrayList;
 
 public class Docent {
+    private int docentnummer;
     private String naam;
-    private int medewerkersnummer;
     private String email;
     private boolean status;
     private int pogingen;
@@ -21,9 +21,9 @@ public class Docent {
 
     private static Docent huidigeAccount;
 
-    public Docent(String naam, int medewerkersnummer, String email, boolean status, int pogingen, String wachtwoord) {
+    public Docent(String naam, int docentnummer, String email, boolean status, int pogingen, String wachtwoord) {
         this.naam = naam;
-        this.medewerkersnummer = medewerkersnummer;
+        this.docentnummer = docentnummer;
         this.email = email;
         this.status = status;
         this.pogingen = pogingen;
@@ -35,7 +35,7 @@ public class Docent {
     }
 
     public int getMedewerkersnummer() {
-        return medewerkersnummer;
+        return docentnummer;
     }
 
     public String getEmail() {

@@ -3,44 +3,43 @@ package domeinLaag;
 import java.awt.*;
 
 public class AanwezigheidPerLesPerStudent {
-    private int lesnummer;
-    private int studentStudentnummer;
-    private boolean aanwezigheid;
-    private String reden;
     private Les les;
     private Student student;
+    private boolean afwezigheid;
+    private String reden;
 
-    public AanwezigheidPerLesPerStudent(int lesnummer, int studentStudentnummer, boolean aanwezigheid, String reden) {
-        this.lesnummer = lesnummer;
-        this.studentStudentnummer = studentStudentnummer;
-        this.aanwezigheid = aanwezigheid;
+
+    public AanwezigheidPerLesPerStudent(Les les, Student student, boolean afwezigheid, String reden) {
+        this.les = les;
+        this.student = student;
+        this.afwezigheid = afwezigheid;
         this.reden = reden;
     }
 
-    public AanwezigheidPerLesPerStudent(int i, int studentStudentnummer, Checkbox ch) {
+    public AanwezigheidPerLesPerStudent(Les les, Student student, boolean afwezigheid) {
+        this.les = les;
+        this.student = student;
+        this.afwezigheid = afwezigheid;
     }
 
     public Student getStudent() {
         return student;
     }
 
-    public void setStudent(Student student) {
-        this.student = student;
-    }
 
     public Les getLes() {
         return les;
     }
 
-    public void setLes(Les les) {
-        this.les = les;
+    public boolean isAfwezigheid() {
+        return afwezigheid;
     }
 
-    public boolean isAanwezigheid() {
-        return aanwezigheid;
+    public void setAfwezigheid(boolean afwezigheid) {
+        this.afwezigheid = afwezigheid;
     }
 
-    public void setAanwezigheid(boolean aanwezigheid) {
-        this.aanwezigheid = aanwezigheid;
+    public String getReden() {
+        return reden;
     }
 }
