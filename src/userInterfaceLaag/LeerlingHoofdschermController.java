@@ -24,13 +24,17 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.sql.*;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.Date;
+import java.util.Properties;
 
 public class LeerlingHoofdschermController {
 
 
+    public static int lesnummer;
+    public static Les les;
     public DatePicker datepickerid;
     @FXML private Button loguitKnop;
     @FXML private Label naamLabel;
@@ -41,11 +45,13 @@ public class LeerlingHoofdschermController {
     @FXML private TableColumn<Klas, String> tijdid;
     @FXML private TableColumn<Klas, String> aanwezigid;
     @FXML private PieChart rollCallAttendance;
-
     private Student student = Student.getAccount();
 
 
-    public void initialize() {
+    public void initialize() throws SQLException {
+
+
+
         datepickerid.setValue(LocalDate.now());
         String s = student.getNaam();
         naamLabel.setText(s);   // in de klasse domeinLaag.Student de naam opvragen
@@ -53,15 +59,15 @@ public class LeerlingHoofdschermController {
         datumid.setCellValueFactory(new PropertyValueFactory<>("datum"));
         docentid.setCellValueFactory(new PropertyValueFactory<>("docent"));
         tijdid.setCellValueFactory(new PropertyValueFactory<>("begintijd"));
-//        aanwezigid.setCellValueFactory(new PropertyValueFactory<>("aanwezigheid"));
+//        aanwezigid.setCellValueFactory(new PropertyValueFactory<>(""));
         aanwezigheidsTabel.setEditable(true);
 
         aanwezigheidsTabel.setItems(getLessen());
 
 
         ObservableList<PieChart.Data> pieChartData = FXCollections.observableArrayList(
-        new PieChart.Data("Aanwezig " + student.getRollCall() + "%", student.getRollCall()),
-        new PieChart.Data("Afwezig " + (100 - student.getRollCall()) + "%", 100 - student.getRollCall()));
+                new PieChart.Data("Aanwezig " + student.getRollCall() + "%", student.getRollCall()),
+                new PieChart.Data("Afwezig " + (100 - student.getRollCall()) + "%", 100 - student.getRollCall()));
         rollCallAttendance.setData(pieChartData);
         rollCallAttendance.setLabelsVisible(false);
         rollCallAttendance.setLegendVisible(true);
@@ -70,16 +76,33 @@ public class LeerlingHoofdschermController {
 
 
     }
-    public ObservableList<Les> getLessen(){
+
+    public ObservableList<Les> getLessen() throws SQLException {
+        String url = "jdbc:postgresql://localhost/SDGP";
+        Properties props = new Properties();
+        props.setProperty("user","postgres");
+        props.setProperty("password","united");
+        Connection con = DriverManager.getConnection(url, props);
+        Statement stmt = con.createStatement();
         ObservableList<Les> lessen = FXCollections.observableArrayList();
         for(Les les : student.getKlas().getLessen()){
+            boolean tikker = false;
             if (les.getDatum().isAfter(datepickerid.getValue()) || les.getDatum().isEqual(datepickerid.getValue())){
-                lessen.add(les);
+                ResultSet rs = stmt.executeQuery("SELECT afwezig FROM afwezigheid WHERE studentnummer = " +
+                        student.getStudentennummer() + " AND lesnummer = " + les.getLesnummer());
+                while(rs.next()){
+                    boolean afwezigbool = rs.getBoolean("afwezig");
+                    if (afwezigbool){
+                        tikker = true;
+                    }
+                }
+                if(!tikker){
+                    lessen.add(les);
+                }
             }
         }
         return lessen;
     }
-
 
 
 
@@ -99,36 +122,60 @@ public class LeerlingHoofdschermController {
         }
     }
 
-    public void popUpScherm(MouseEvent mouseEvent) throws IOException {
-
-
-        Les les = (Les) aanwezigheidsTabel.getSelectionModel().getSelectedItem();
-        int lesnummer = les.getLesnummer();
-        if(!les.getDatum().isBefore(LocalDate.now())){
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("AfmeldenScherm.fxml"));
-            Parent root = loader.load();
-            Stage newStage = new Stage();
-            newStage.setTitle("Afmelden");
-            newStage.setScene(new Scene(root));
-            newStage.initModality(Modality.APPLICATION_MODAL);
-            newStage.showAndWait();
-            initialize();
+    public void popUpScherm(MouseEvent mouseEvent) throws IOException, SQLException{
+        try{
+            Les les = (Les) aanwezigheidsTabel.getSelectionModel().getSelectedItem();
+            this.lesnummer = les.getLesnummer();
+            this.les = les;
+            if(!les.getDatum().isBefore(LocalDate.now())){
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("AfmeldenScherm.fxml"));
+                Parent root = loader.load();
+                Stage newStage = new Stage();
+                newStage.setTitle("Afmelden");
+                newStage.setScene(new Scene(root));
+                newStage.initModality(Modality.APPLICATION_MODAL);
+                newStage.showAndWait();
+                initialize();
+            }
+        }
+        catch(Exception ignored){
         }
     }
 
-    public void getdatum(Event event) throws NullPointerException {
+    public void getdatum(Event event) throws NullPointerException, SQLException {
         LocalDate datum = datepickerid.getValue();
         aanwezigheidsTabel.setItems(setLessen(datum));
 
     }
 
-    public ObservableList<Les> setLessen(LocalDate datum){
+    public ObservableList<Les> setLessen(LocalDate datum) throws SQLException {
+        String url = "jdbc:postgresql://localhost/SDGP";
+        Properties props = new Properties();
+        props.setProperty("user","postgres");
+        props.setProperty("password","united");
+        Connection con = DriverManager.getConnection(url, props);
+        Statement stmt = con.createStatement();
         ObservableList<Les> lessen = FXCollections.observableArrayList();
         for(Les les : student.getKlas().getLessen()){
+            boolean tikker = false;
             if (les.getDatum().isAfter(datepickerid.getValue()) || les.getDatum().isEqual(datepickerid.getValue())){
-                lessen.add(les);
+                ResultSet rs = stmt.executeQuery("SELECT afwezig FROM afwezigheid WHERE studentnummer = " +
+                        student.getStudentennummer() + " AND lesnummer = " + les.getLesnummer());
+                while(rs.next()){
+                    boolean afwezigbool = rs.getBoolean("afwezig");
+                    if (afwezigbool){
+                        tikker = true;
+                     }
+                }
+                if(!tikker){
+                    lessen.add(les);
+                }
             }
         }
         return lessen;
     }
 }
+/** alle lessen van een student voor localdate.now
+ *  van die lessen wil je de aanwezigheid van de student
+ *  dan 100 / lessen.size()
+ */
