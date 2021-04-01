@@ -143,11 +143,7 @@ public class LoginSchermController {
                                 klas.voegStudentToe(s1);
 
                             }
-                        }
-                        System.out.println(klas.getLessen());
-                        System.out.println(klas.getStudenten());
-                        for (Les les : klas.getLessen()){
-                            System.out.println(les.getDocent());
+
                         }
 
 
@@ -278,14 +274,6 @@ public class LoginSchermController {
                         }
 
 
-
-//                      System.out.println(alleLessen);
-
-//                      System.out.println(alleKlassen);
-//                      System.out.println("klas 1: " + alleKlassen.get(0).getNaam());
-//                      System.out.println("klas 2: " + alleKlassen.get(1).getNaam());
-
-
                         for (Klas k : alleKlassen) {
                             ResultSet alleStudenten = stmt.executeQuery("select studentnummer, naam, email, status, pogingen, rollcall, wachtwoord from student " +
                                     "    join klas k on k.klasnummer = student.klasnummer " +
@@ -310,15 +298,6 @@ public class LoginSchermController {
                         }
 
 
-                        System.out.println(alleKlassen);
-                        for (Klas klasoe : alleKlassen){
-                            System.out.println(klasoe.getStudenten());
-                            System.out.println(klasoe.getNaam());
-                            for (Les les : klasoe.getLessen()){
-                                Docent docent1 = les.getDocent();
-                                System.out.println(docent1);
-                            }
-                        }
 
                         try{
 

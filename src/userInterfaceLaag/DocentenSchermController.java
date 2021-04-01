@@ -10,17 +10,16 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 
+import java.sql.*;
 import java.util.ArrayList;
+import java.util.Properties;
 
 public class DocentenSchermController {
     @FXML private Rectangle rectangleBoven;
@@ -43,7 +42,7 @@ public class DocentenSchermController {
     public void initialize() throws Exception {
         String s = docent.getNaam();
         naamLabel.setText(s);
-
+        tableView1.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
         klasid.setCellValueFactory(new PropertyValueFactory<>("klas"));
         datumid.setCellValueFactory(new PropertyValueFactory<>("datum"));
         lesid.setCellValueFactory(new PropertyValueFactory<>("lesnummer"));
@@ -52,7 +51,6 @@ public class DocentenSchermController {
         studentid.setCellValueFactory(new PropertyValueFactory<>("studentennummer"));
         emailid.setCellValueFactory(new  PropertyValueFactory<>("email"));
         rollcall.setCellValueFactory(new PropertyValueFactory<>("rollCall"));
-
 
 
         tableView2.setItems(getLessen());
@@ -98,7 +96,6 @@ public class DocentenSchermController {
         try {
             Les les = (Les) tableView2.getSelectionModel().getSelectedItem();
             int lesnummer = les.getLesnummer();
-            System.out.println(lesnummer);
             tableView1.setItems(getStudentenLoad(lesnummer));
         }
         catch (NullPointerException ignored){
@@ -114,16 +111,26 @@ public class DocentenSchermController {
         }
         return students;
     }
-
     public void handleButtonAfmelden(ActionEvent actionEvent) {
         ObservableList<ObservableList> namen = FXCollections.observableArrayList();
 
         try {
+
+//            String url = "jdbc:postgresql://localhost/SDGP";
+//            Properties props = new Properties();
+//            props.setProperty("user","omara");
+//            props.setProperty("password","Omar1994");
+//            Connection conn = DriverManager.getConnection(url, props);
+//            Statement stmt = conn.createStatement();
+//            ResultSet userGegevens = stmt.executeQuery("SELECT  FROM student " +
+//
+//                    "WHERE studentnummer = " + userstudentnummer);
+
             namen.addAll(tableView1.getSelectionModel().getSelectedItems());
             System.out.println(namen);
 
         }
-        catch (NullPointerException e){
+        catch (NullPointerException  e){
             System.out.println(e);
         }
     }
@@ -133,6 +140,7 @@ public class DocentenSchermController {
         ObservableList<ObservableList> namen = FXCollections.observableArrayList();
 
         try {
+
             ObservableList<Student> stuNummer = tableView1.getSelectionModel().getSelectedItems();
             namen.addAll(tableView1.getSelectionModel().getSelectedItems());
             for (Student i : stuNummer) {
