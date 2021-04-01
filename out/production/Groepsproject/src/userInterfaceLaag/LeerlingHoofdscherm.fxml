@@ -6,7 +6,7 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="userInterfaceLaag.LeerlingHoofdschermController">
+<AnchorPane onMouseReleased="#getdatum" prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="userInterfaceLaag.LeerlingHoofdschermController">
    <children>
       <Rectangle fx:id="rectangleBoven" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="32.0" stroke="BLACK" strokeType="INSIDE" width="800.0" />
       <Button fx:id="loguitKnop" cache="true" layoutX="733.0" layoutY="7.0" mnemonicParsing="false" onAction="#loguitEnSluiten" prefHeight="17.0" prefWidth="60.0" text="Loguit">
@@ -18,7 +18,7 @@
          <font>
             <Font name="System Bold" size="14.0" />
          </font></Label>
-      <TableView fx:id="aanwezigheidsTabel" layoutX="39.0" layoutY="82.0" prefHeight="343.0" prefWidth="472.0">
+      <TableView fx:id="aanwezigheidsTabel" layoutX="39.0" layoutY="82.0" onMouseClicked="#popUpScherm" prefHeight="343.0" prefWidth="472.0">
         <columns>
           <TableColumn fx:id="lesid" prefWidth="74.0" text="Les" />
           <TableColumn fx:id="datumid" prefWidth="96.0" text="Datum" />
@@ -27,6 +27,7 @@
             <TableColumn fx:id="aanwezigid" prefWidth="106.0" text="Aanwezigheid" />
         </columns>
       </TableView>
-      <PieChart fx:id="rollCallAttendance" layoutX="533.0" layoutY="109.0" prefHeight="136.0" prefWidth="200.0" title="Roll Call Attendance" />
+      <PieChart fx:id="rollCallAttendance" cache="true" cacheShape="false" centerShape="false" focusTraversable="true" layoutX="533.0" layoutY="82.0" prefHeight="232.0" prefWidth="241.0" scaleShape="false" title="Roll Call Attendance" />
+      <DatePicker fx:id="datepickerid" layoutX="39.0" layoutY="50.0" onAction="#getdatum" />
    </children>
 </AnchorPane>
