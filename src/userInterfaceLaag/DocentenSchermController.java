@@ -147,7 +147,7 @@ public class DocentenSchermController {
 
                 ObservableList<Les> lessen = FXCollections.observableArrayList();
 //                ResultSet afwezig = stmt.executeQuery("DELETE  from afwezigheid WHERE studentnummer = " + sudentennum +
-//                        " AND lesnummer  ");
+//                        " AND lesnummer  "); // hier moeten we nog de les ophalen net zoals in de student scherm!!!
 
             }
 //           System.out.println(namen);
