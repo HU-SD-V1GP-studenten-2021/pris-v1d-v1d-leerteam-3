@@ -1,17 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1870b15c-01a0-4397-a03e-47d933a7eef1" name="Default Changelist" comment="update">
-      <change afterPath="$PROJECT_DIR$/src/domeinLaag/AanwezigheidPerLesPerStudent.java" afterDir="false" />
+    <list default="true" id="1870b15c-01a0-4397-a03e-47d933a7eef1" name="Default Changelist" comment="FINAL VERSION&#10;Docent scherm gegevens inladen en verschillende lessen selecteren.&#10;Student scherm gegevens inladen.&#10;31-03-2021">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/domeinLaag/Les.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Groepsproject/domeinLaag/Les.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/domeinLaag/Student.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Groepsproject/domeinLaag/Student.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/src/userInterfaceLaag/DocentenScherm.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Groepsproject/src/userInterfaceLaag/DocentenScherm.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/userInterfaceLaag/DocentenScherm.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Groepsproject/userInterfaceLaag/DocentenScherm.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/userInterfaceLaag/LeerlingHoofdschermController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Groepsproject/userInterfaceLaag/LeerlingHoofdschermController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/domeinLaag/Les.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/domeinLaag/Les.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/domeinLaag/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/domeinLaag/Student.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/userInterfaceLaag/LeerlingHoofdschermController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/userInterfaceLaag/LeerlingHoofdschermController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,19 +70,6 @@
       <option name="MAIN_CLASS_NAME" value="Magister200app" />
       <module name="Groepsproject" />
       <option name="VM_PARAMETERS" value="--module-path lib --add-modules javafx.controls,javafx.fxml " />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -208,7 +186,14 @@
       <option name="project" value="LOCAL" />
       <updated>1617204324234</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="FINAL VERSION&#10;Docent scherm gegevens inladen en verschillende lessen selecteren.&#10;Student scherm gegevens inladen.&#10;31-03-2021">
+      <created>1617205321233</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1617205321233</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -235,6 +220,8 @@
     <MESSAGE value="TableView LeerlingHoofdscherm" />
     <MESSAGE value="TableView LeerlingHoofdscherm ++" />
     <MESSAGE value="update" />
-    <option name="LAST_COMMIT_MESSAGE" value="update" />
+    <MESSAGE value="FINAL VERSION&#10;31-03-2021" />
+    <MESSAGE value="FINAL VERSION&#10;Docent scherm gegevens inladen en verschillende lessen selecteren.&#10;Student scherm gegevens inladen.&#10;31-03-2021" />
+    <option name="LAST_COMMIT_MESSAGE" value="FINAL VERSION&#10;Docent scherm gegevens inladen en verschillende lessen selecteren.&#10;Student scherm gegevens inladen.&#10;31-03-2021" />
   </component>
 </project>
