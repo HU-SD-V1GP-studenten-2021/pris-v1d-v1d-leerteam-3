@@ -93,11 +93,15 @@ public class DocentenSchermController {
         }
     }
 
-    public void loadDataPerLes(MouseEvent mouseEvent) {
-        Les les = (Les) tableView2.getSelectionModel().getSelectedItem();
-        int lesnummer = les.getLesnummer();
-        System.out.println(lesnummer);
-        tableView1.setItems(getStudentenLoad(lesnummer));
+    public void loadDataPerLes(MouseEvent mouseEvent){
+        try {
+            Les les = (Les) tableView2.getSelectionModel().getSelectedItem();
+            int lesnummer = les.getLesnummer();
+            System.out.println(lesnummer);
+            tableView1.setItems(getStudentenLoad(lesnummer));
+        }
+        catch (NullPointerException ignored){
+        }
     }
     public ObservableList<Student> getStudentenLoad(int lesnummer){
         ObservableList<Student> students = FXCollections.observableArrayList();

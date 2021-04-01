@@ -18,7 +18,7 @@
          <font>
             <Font name="System Bold" size="14.0" />
          </font></Label>
-      <TableView fx:id="aanwezigheidsTabel" layoutX="39.0" layoutY="82.0" prefHeight="343.0" prefWidth="472.0">
+      <TableView fx:id="aanwezigheidsTabel" layoutX="39.0" layoutY="82.0" onMouseClicked="#popUpScherm" prefHeight="343.0" prefWidth="472.0">
         <columns>
           <TableColumn fx:id="lesid" prefWidth="74.0" text="Les" />
           <TableColumn fx:id="datumid" prefWidth="96.0" text="Datum" />
@@ -27,7 +27,6 @@
             <TableColumn fx:id="aanwezigid" prefWidth="106.0" text="Aanwezigheid" />
         </columns>
       </TableView>
-      <PieChart fx:id="rollCallAttendance" layoutX="533.0" layoutY="109.0" prefHeight="136.0" prefWidth="200.0" title="Roll Call Attendance" />
-      <CheckBox fx:id="checkBox" layoutX="420.0" layoutY="59.0" mnemonicParsing="false" text="CheckBox" />
+      <PieChart fx:id="rollCallAttendance" cache="true" cacheShape="false" centerShape="false" focusTraversable="true" layoutX="533.0" layoutY="82.0" prefHeight="232.0" prefWidth="241.0" scaleShape="false" title="Roll Call Attendance" />
    </children>
 </AnchorPane>
