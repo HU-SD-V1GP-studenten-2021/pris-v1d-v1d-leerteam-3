@@ -54,6 +54,7 @@ public class DocentenSchermController {
         rollcall.setCellValueFactory(new PropertyValueFactory<>("rollCall"));
 
 
+
         tableView2.setItems(getLessen());
         tableView1.setItems(getStudenten());
     }
@@ -112,6 +113,39 @@ public class DocentenSchermController {
             }
         }
         return students;
+    }
+
+    public void handleButtonAfmelden(ActionEvent actionEvent) {
+        ObservableList<ObservableList> namen = FXCollections.observableArrayList();
+
+        try {
+            namen.addAll(tableView1.getSelectionModel().getSelectedItems());
+            System.out.println(namen);
+
+        }
+        catch (NullPointerException e){
+            System.out.println(e);
+        }
+    }
+
+
+    public void handleButtonAanmelden(ActionEvent actionEvent) {
+        ObservableList<ObservableList> namen = FXCollections.observableArrayList();
+
+        try {
+            ObservableList<Student> stuNummer = tableView1.getSelectionModel().getSelectedItems();
+            namen.addAll(tableView1.getSelectionModel().getSelectedItems());
+            for (Student i : stuNummer) {
+                System.out.println(i.getStudentennummer());
+            }
+//           System.out.println(namen);
+//           System.out.println(stuNummer);
+
+
+        }
+        catch (NullPointerException e){
+            System.out.println(e);
+        }
     }
 
 }
