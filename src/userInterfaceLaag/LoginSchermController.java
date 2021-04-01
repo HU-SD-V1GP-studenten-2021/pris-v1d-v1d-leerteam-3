@@ -276,7 +276,6 @@ public class LoginSchermController {
                             docent.addLes(les);
                             i++;
                         }
-                        System.out.println(docent.getLessen());
 
 
 
@@ -316,7 +315,8 @@ public class LoginSchermController {
                             System.out.println(klasoe.getStudenten());
                             System.out.println(klasoe.getNaam());
                             for (Les les : klasoe.getLessen()){
-                                les.getDocent();
+                                Docent docent1 = les.getDocent();
+                                System.out.println(docent1);
                             }
                         }
 
