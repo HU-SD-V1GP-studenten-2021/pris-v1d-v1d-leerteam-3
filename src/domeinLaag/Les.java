@@ -3,6 +3,7 @@ package domeinLaag;
 import java.sql.Time;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.ArrayList;
 
 public class Les {
     private int lesnummer;
@@ -11,6 +12,7 @@ public class Les {
     private LocalTime eindtijd;
     private Klas klas;
     private Docent docent;
+    private ArrayList<AanwezigheidPerLesPerStudent> afwezigeVanDezeLes;
 
     public Les(int lesnummer, LocalDate datum, LocalTime begintijd, LocalTime eindtijd) {
         this.lesnummer = lesnummer;
@@ -55,8 +57,12 @@ public class Les {
         return docent;
     }
 
-//    @Override
+    public Klas getKlas() {
+        return klas;
+    }
+
+        @Override
     public String toString() {
-        return "Les heeft als " + docent ;
+        return "Les heeft als " + docent + " " + klas.getNaam() ;
     }
 }
