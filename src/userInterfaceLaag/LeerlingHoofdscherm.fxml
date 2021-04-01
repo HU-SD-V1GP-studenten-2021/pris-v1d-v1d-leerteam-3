@@ -24,10 +24,15 @@
           <TableColumn fx:id="datumid" prefWidth="96.0" text="Datum" />
             <TableColumn fx:id="tijdid" prefWidth="61.0" text="Begin tijd" />
             <TableColumn fx:id="docentid" prefWidth="134.0" text="Docent" />
-            <TableColumn fx:id="aanwezigid" prefWidth="106.0" text="Aanwezigheid" />
+            <TableColumn fx:id="aanwezigid" prefWidth="106.0" text="Afwezig" />
         </columns>
       </TableView>
       <PieChart fx:id="rollCallAttendance" cache="true" cacheShape="false" centerShape="false" focusTraversable="true" layoutX="533.0" layoutY="82.0" prefHeight="232.0" prefWidth="241.0" scaleShape="false" title="Roll Call Attendance" />
-      <DatePicker fx:id="datepickerid" layoutX="39.0" layoutY="50.0" onAction="#getdatum" />
+      <DatePicker fx:id="datepickerid" layoutX="93.0" layoutY="51.0" onAction="#getdatum" />
+      <Label layoutX="39.0" layoutY="51.0" text="Vanaf:">
+         <font>
+            <Font name="System Bold" size="17.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
