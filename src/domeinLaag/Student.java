@@ -1,17 +1,21 @@
 package domeinLaag;
 
+import javafx.scene.control.CheckBox;
+
 import java.util.ArrayList;
 
 public class Student {
-    private String naam;
     private int studentennummer;
+    private String naam;
     private String email;
     private boolean status;
-    private String rollCall;
     private int pogingen;
+    private double rollCall;
     private String wachtwoord;
     private Klas klas;
-    private ArrayList<AanwezigheidPerLesPerStudent> presentie;
+    private ArrayList<AanwezigheidPerLesPerStudent> presentie = new ArrayList<>();
+
+
 
     public static Student getAccount() {
         return huidigeAccount;
@@ -23,14 +27,22 @@ public class Student {
 
     private static Student huidigeAccount;
 
-    public Student(String naam, int studentennummer, String email, boolean status, int pogingen, String rollCall, String wachtwoord){
+    public Student(String naam, int studentennummer, String email, boolean status, int pogingen, double rollCall, String wachtwoord){
         this.naam = naam;
         this.studentennummer = studentennummer;
         this.email = email;
         this.status = status;
-        this.rollCall = rollCall + "%";
+        this.rollCall = rollCall;
         this.pogingen = pogingen;
         this.wachtwoord = wachtwoord;
+    }
+
+    public ArrayList<AanwezigheidPerLesPerStudent> getPresentie() {
+        return presentie;
+    }
+
+    public void voegPresentieToe(AanwezigheidPerLesPerStudent enkeleLes){
+        presentie.add(enkeleLes);
     }
 
     public void setKlas(Klas klas) {
@@ -53,11 +65,11 @@ public class Student {
         return klas;
     }
 
-    public String getRollCall() {
+    public double getRollCall() {
         return rollCall;
     }
 
-    public void setRollCall(String rollCall) {
+    public void setRollCall(double rollCall) {
         this.rollCall = rollCall;
     }
 

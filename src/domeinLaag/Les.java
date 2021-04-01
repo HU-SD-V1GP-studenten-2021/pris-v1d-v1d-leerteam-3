@@ -1,5 +1,7 @@
 package domeinLaag;
 
+import javafx.scene.control.CheckBox;
+
 import java.sql.Time;
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -7,18 +9,24 @@ import java.util.ArrayList;
 
 public class Les {
     private int lesnummer;
+    private String lesnaam;
     private LocalDate datum;
     private LocalTime begintijd;
     private LocalTime eindtijd;
-    private Klas klas;
     private Docent docent;
-    private ArrayList<AanwezigheidPerLesPerStudent> afwezigeVanDezeLes;
+    private Klas klas;
+    private ArrayList<AanwezigheidPerLesPerStudent> afwezigeVanDezeLes = new ArrayList<>();
 
-    public Les(int lesnummer, LocalDate datum, LocalTime begintijd, LocalTime eindtijd) {
+    public Les(int lesnummer, String lesnaam, LocalDate datum, LocalTime begintijd, LocalTime eindtijd) {
         this.lesnummer = lesnummer;
+        this.lesnaam = lesnaam;
         this.datum = datum;
         this.begintijd = begintijd;
         this.eindtijd = eindtijd;
+    }
+
+    public void voegafwezigeVanDezeLesToe(AanwezigheidPerLesPerStudent enkeleStudent){
+        afwezigeVanDezeLes.add(enkeleStudent);
     }
 
     public void setKlas(Klas klas) {
@@ -29,7 +37,7 @@ public class Les {
         this.docent = docent;
     }
 
-    public int getLesnummer() {
+    public int getLesnummer(){
         return lesnummer;
     }
 
@@ -61,7 +69,11 @@ public class Les {
         return klas;
     }
 
-        @Override
+    public String getLesnaam() {
+        return lesnaam;
+    }
+
+    @Override
     public String toString() {
         return "Les heeft als " + docent + " " + klas.getNaam() ;
     }

@@ -12,11 +12,14 @@
          <font>
             <Font size="9.0" />
          </font></Button>
-      <Label fx:id="naamLabel" layoutX="500.0" layoutY="8.0" text="PLACEHOLDER VOOR NAAM" />
+      <Label fx:id="naamLabel" layoutX="572.0" layoutY="8.0" prefHeight="17.0" prefWidth="158.0">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font></Label>
       <TableView fx:id="tableView1" layoutX="251.0" layoutY="88.0" prefHeight="323.0" prefWidth="534.0">
          <columns>
-            <TableColumn fx:id="naamid" prefWidth="92.4000244140625" text="Naam" />
             <TableColumn fx:id="studentid" prefWidth="114.0" text="Studentnummer" />
+            <TableColumn fx:id="naamid" prefWidth="92.4000244140625" text="Naam" />
             <TableColumn fx:id="emailid" prefWidth="146.79998779296875" text="E-mail" />
             <TableColumn fx:id="rollcall" prefWidth="52.800048828125" text="Roll Call" />
             <TableColumn fx:id="aanwezigid" prefWidth="88.4000244140625" text="Aanwezigheid" />
@@ -30,6 +33,7 @@
             <TableColumn fx:id="lesid" prefWidth="56.0" text="Les" />
          </columns>
       </TableView>
-      <Button layoutX="579.0" layoutY="434.0" mnemonicParsing="false" text="Aanwijzigingen toepassen" />
+      <Button layoutX="439.0" layoutY="434.0" mnemonicParsing="false" onAction="#handleButtonAfmelden" prefHeight="32.0" prefWidth="78.0" text="Afmelden" AnchorPane.leftAnchor="430.0" />
+      <Button layoutX="527.0" layoutY="434.0" mnemonicParsing="false" onAction="#handleButtonAanmelden" prefHeight="32.0" prefWidth="78.0" text="Aanmelden" AnchorPane.rightAnchor="200.0" />
    </children>
 </AnchorPane>
