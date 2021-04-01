@@ -10,16 +10,14 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 
+import java.sql.SQLOutput;
 import java.util.ArrayList;
 
 public class DocentenSchermController {
@@ -37,10 +35,10 @@ public class DocentenSchermController {
     @FXML private TableColumn<Student, String> emailid;
     @FXML private TableColumn<Student, String> rollcall;
 
-
     private Docent docent = Docent.getAccount();
 
     public void initialize() throws Exception {
+        tableView1.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
         String s = docent.getNaam();
         naamLabel.setText(s);
 
@@ -113,6 +111,5 @@ public class DocentenSchermController {
         }
         return students;
     }
-
 }
 
