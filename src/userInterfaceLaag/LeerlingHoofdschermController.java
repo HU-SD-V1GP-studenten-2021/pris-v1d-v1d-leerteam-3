@@ -67,7 +67,6 @@ public class LeerlingHoofdschermController {
 
         aanwezigheidsTabel.setItems(getLessen());
 
-
         ObservableList<PieChart.Data> pieChartData = FXCollections.observableArrayList(
                 new PieChart.Data("Aanwezig " + student.getRollCall() + "%", student.getRollCall()),
                 new PieChart.Data("Afwezig " + (100 - student.getRollCall()) + "%", 100 - student.getRollCall()));
@@ -134,6 +133,7 @@ public class LeerlingHoofdschermController {
             Les les = (Les) aanwezigheidsTabel.getSelectionModel().getSelectedItem();
             this.lesnummer = les.getLesnummer();
             this.les = les;
+            System.out.println(les.getAfwezigheid());
             if(!les.getDatum().isBefore(LocalDate.now())){
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("AfmeldenScherm.fxml"));
                 Parent root = loader.load();
