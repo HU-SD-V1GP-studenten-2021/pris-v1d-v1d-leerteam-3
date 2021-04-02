@@ -5,6 +5,7 @@ import domeinLaag.Klas;
 import domeinLaag.Les;
 import domeinLaag.Student;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -13,7 +14,10 @@ import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 import java.sql.*;
 import java.time.LocalDate;
@@ -21,6 +25,10 @@ import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Locale;
 import java.util.Properties;
+import java.util.*;
+import javax.mail.*;
+import javax.mail.internet.*;
+import javax.activation.*;
 
 public class LoginSchermController {
     @FXML private Button loginKnop;
@@ -30,6 +38,52 @@ public class LoginSchermController {
 
     private Student account = Student.getAccount();
     private Object Klas;
+
+    public class SendEmail {
+
+        public static void main(String [] args) {
+            // Recipient's email ID needs to be mentioned.
+            String to = "abcd@gmail.com";
+
+            // Sender's email ID needs to be mentioned
+            String from = "web@gmail.com";
+
+            // Assuming you are sending email from localhost
+            String host = "localhost";
+
+            // Get system properties
+            Properties properties = System.getProperties();
+
+            // Setup mail server
+            properties.setProperty("mail.smtp.host", host);
+
+            // Get the default Session object.
+            Session session = Session.getDefaultInstance(properties);
+
+            try {
+                // Create a default MimeMessage object.
+                MimeMessage message = new MimeMessage(session);
+
+                // Set From: header field of the header.
+                message.setFrom(new InternetAddress(from));
+
+                // Set To: header field of the header.
+                message.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
+
+                // Set Subject: header field
+                message.setSubject("This is the Subject Line!");
+
+                // Now set the actual message
+                message.setText("This is actual message");
+
+                // Send message
+                Transport.send(message);
+                System.out.println("Sent message successfully....");
+            } catch (MessagingException mex) {
+                mex.printStackTrace();
+            }
+        }
+    }
 
     public void loginAccount(ActionEvent actionEvent) throws Exception  {
         String naam = naamVeld.getText();
@@ -152,7 +206,8 @@ public class LoginSchermController {
                             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("leerlingHoofdscherm.fxml"));
                             Parent root = (Parent) fxmlLoader.load();
                             Stage stage = new Stage();
-                            stage.setTitle("Leerling scherm");
+                            stage.setTitle("Lessen");
+                            stage.getIcons().add(new Image("src/LogoManufactra500pxBeeldmerk.png"));
                             stage.setScene(new Scene(root));
                             stage.show();
                         }
@@ -305,8 +360,9 @@ public class LoginSchermController {
                             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("DocentenScherm.fxml"));
                             Parent root = (Parent) fxmlLoader.load();
                             Stage stage = new Stage();
-                            stage.setTitle("Docenten scherm");
+                            stage.setTitle("Les presentie");
                             stage.setScene(new Scene(root));
+                            stage.getIcons().add(new Image("src/LogoManufactra500pxBeeldmerk.png"));
                             stage.show();
                         }
                         catch (Exception ignored){

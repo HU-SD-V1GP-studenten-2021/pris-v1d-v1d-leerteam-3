@@ -14,6 +14,7 @@ public class Student {
     private String wachtwoord;
     private Klas klas;
     private ArrayList<AanwezigheidPerLesPerStudent> presentie = new ArrayList<>();
+    private String afwezigheid;
 
 
 
@@ -35,6 +36,14 @@ public class Student {
         this.rollCall = rollCall;
         this.pogingen = pogingen;
         this.wachtwoord = wachtwoord;
+    }
+
+    public String getAfwezigheid() {
+        return afwezigheid;
+    }
+
+    public void setAfwezigheid(String afwezigheid) {
+        this.afwezigheid = afwezigheid;
     }
 
     public ArrayList<AanwezigheidPerLesPerStudent> getPresentie() {
