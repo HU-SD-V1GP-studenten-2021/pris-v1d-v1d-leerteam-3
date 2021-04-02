@@ -47,7 +47,7 @@ public class DocentenSchermController {
         tableView1.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
         klasid.setCellValueFactory(new PropertyValueFactory<>("klas"));
         datumid.setCellValueFactory(new PropertyValueFactory<>("datum"));
-        lesid.setCellValueFactory(new PropertyValueFactory<>("lesnummer"));
+        lesid.setCellValueFactory(new PropertyValueFactory<>("lesnaam"));
 
         naamid.setCellValueFactory(new PropertyValueFactory<>("naam"));
         studentid.setCellValueFactory(new PropertyValueFactory<>("studentennummer"));
