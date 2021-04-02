@@ -41,6 +41,7 @@ public class LeerlingHoofdschermController {
     public DatePicker datepickerid;
     public Button volgendeDagButton;
     public Button toonVorigeDagButton;
+    public Label waarschuwingid;
     @FXML private Button loguitKnop;
     @FXML private Label naamLabel;
     @FXML private TableView aanwezigheidsTabel;
@@ -83,8 +84,8 @@ public class LeerlingHoofdschermController {
     public ObservableList<Les> getLessen() throws SQLException {
         String url = "jdbc:postgresql://localhost/SDGP";
         Properties props = new Properties();
-        props.setProperty("user","omara");
-        props.setProperty("password","Omar1994");
+        props.setProperty("user","postgres");
+        props.setProperty("password","united");
         Connection con = DriverManager.getConnection(url, props);
         Statement stmt = con.createStatement();
         ObservableList<Les> lessen = FXCollections.observableArrayList();
@@ -160,8 +161,8 @@ public class LeerlingHoofdschermController {
     public ObservableList<Les> setLessen(LocalDate datum) throws SQLException {
         String url = "jdbc:postgresql://localhost/SDGP";
         Properties props = new Properties();
-        props.setProperty("user","omara");
-        props.setProperty("password","Omar1994");
+        props.setProperty("user","postgres");
+        props.setProperty("password","united");
         Connection con = DriverManager.getConnection(url, props);
         Statement stmt = con.createStatement();
         ObservableList<Les> lessen = FXCollections.observableArrayList();

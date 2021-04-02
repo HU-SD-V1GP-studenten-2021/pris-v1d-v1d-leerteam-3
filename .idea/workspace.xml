@@ -1,50 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0b191512-30ba-4dda-83c1-1f32a0238d20" name="Default Changelist" comment="selfupdate">
-      <change afterPath="$PROJECT_DIR$/out/production/Groepsproject/.idea/dataSources/25600afb-d0ef-44fc-847d-d3c868762ab4/storage_v2/_src_/database/SDGP.-sImAA/schema/public.abK9xQ.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/LogoManufactra500pxBeeldmerk.png" afterDir="false" />
+    <list default="true" id="0b191512-30ba-4dda-83c1-1f32a0238d20" name="Default Changelist" comment="UI updates">
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9fdb6a41-0c59-41ba-86a9-eae5ed50ba6d.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9fdb6a41-0c59-41ba-86a9-eae5ed50ba6d/storage_v2/_src_/database/SDGP.-sImAA.meta" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Groepsproject/.idea/dataSources/25600afb-d0ef-44fc-847d-d3c868762ab4/storage_v2/_src_/database/SDGP.-sImAA.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9fdb6a41-0c59-41ba-86a9-eae5ed50ba6d/storage_v2/_src_/database/SDGP.-sImAA/schema/information_schema.FNRwLQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Groepsproject/.idea/dataSources/25600afb-d0ef-44fc-847d-d3c868762ab4/storage_v2/_src_/database/SDGP.-sImAA/schema/information_schema.FNRwLQ.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9fdb6a41-0c59-41ba-86a9-eae5ed50ba6d/storage_v2/_src_/database/SDGP.-sImAA/schema/pg_catalog.0S1ZNQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Groepsproject/.idea/dataSources/25600afb-d0ef-44fc-847d-d3c868762ab4/storage_v2/_src_/database/SDGP.-sImAA/schema/pg_catalog.0S1ZNQ.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9fdb6a41-0c59-41ba-86a9-eae5ed50ba6d/storage_v2/_src_/database/SDGP.-sImAA/schema/public.abK9xQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/d4a8c1f9-f3f4-4609-8272-a2bd53a005c7.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/d4a8c1f9-f3f4-4609-8272-a2bd53a005c7.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/d4a8c1f9-f3f4-4609-8272-a2bd53a005c7/storage_v2/_src_/database/SDGP.-sImAA.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/d4a8c1f9-f3f4-4609-8272-a2bd53a005c7/storage_v2/_src_/database/SDGP.-sImAA.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/2940f022-1d75-4fcf-9866-eb8cb55c1d21.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/2940f022-1d75-4fcf-9866-eb8cb55c1d21/storage_v2/_src_/database/SDGP.-sImAA.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/2940f022-1d75-4fcf-9866-eb8cb55c1d21/storage_v2/_src_/database/SDGP.-sImAA/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/2940f022-1d75-4fcf-9866-eb8cb55c1d21/storage_v2/_src_/database/SDGP.-sImAA/schema/pg_catalog.0S1ZNQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/2940f022-1d75-4fcf-9866-eb8cb55c1d21/storage_v2/_src_/database/SDGP.-sImAA/schema/public.abK9xQ.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/d4a8c1f9-f3f4-4609-8272-a2bd53a005c7/storage_v2/_src_/database/SDGP.-sImAA/schema/information_schema.FNRwLQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/d4a8c1f9-f3f4-4609-8272-a2bd53a005c7/storage_v2/_src_/database/SDGP.-sImAA/schema/information_schema.FNRwLQ.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/d4a8c1f9-f3f4-4609-8272-a2bd53a005c7/storage_v2/_src_/database/SDGP.-sImAA/schema/pg_catalog.0S1ZNQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/d4a8c1f9-f3f4-4609-8272-a2bd53a005c7/storage_v2/_src_/database/SDGP.-sImAA/schema/pg_catalog.0S1ZNQ.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Groepsproject/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/.idea/dataSources/10062050-dbef-4add-8209-6e7196f27d17.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Groepsproject/.idea/dataSources/25600afb-d0ef-44fc-847d-d3c868762ab4.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/.idea/dataSources/10062050-dbef-4add-8209-6e7196f27d17/storage_v2/_src_/database/SDGP.-sImAA.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/.idea/dataSources/10062050-dbef-4add-8209-6e7196f27d17/storage_v2/_src_/database/SDGP.-sImAA/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/.idea/dataSources/10062050-dbef-4add-8209-6e7196f27d17/storage_v2/_src_/database/SDGP.-sImAA/schema/pg_catalog.0S1ZNQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Groepsproject/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/domeinLaag/Les.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Groepsproject/domeinLaag/Les.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/domeinLaag/Student.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Groepsproject/domeinLaag/Student.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/.idea/dataSources/1fe57a6c-ebd8-4847-93f0-21068ed09cc3/storage_v2/_src_/database/SDGP.-sImAA/schema/information_schema.FNRwLQ.meta~merged" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/.idea/dataSources/1fe57a6c-ebd8-4847-93f0-21068ed09cc3/storage_v2/_src_/database/SDGP.-sImAA/schema/pg_catalog.0S1ZNQ.meta~merged" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/src/userInterfaceLaag/AfmeldenScherm.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Groepsproject/src/userInterfaceLaag/AfmeldenScherm.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/src/userInterfaceLaag/DocentenScherm.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Groepsproject/src/userInterfaceLaag/DocentenScherm.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/src/userInterfaceLaag/LeerlingHoofdscherm.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Groepsproject/src/userInterfaceLaag/LeerlingHoofdscherm.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/src/userInterfaceLaag/LoginScherm.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Groepsproject/src/userInterfaceLaag/LoginScherm.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/userInterfaceLaag/AfmeldenScherm.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Groepsproject/userInterfaceLaag/AfmeldenScherm.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/userInterfaceLaag/AfmeldenSchermController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Groepsproject/userInterfaceLaag/AfmeldenSchermController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/userInterfaceLaag/DocentenScherm.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Groepsproject/userInterfaceLaag/DocentenScherm.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/userInterfaceLaag/DocentenSchermController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Groepsproject/userInterfaceLaag/DocentenSchermController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/userInterfaceLaag/LeerlingHoofdscherm.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Groepsproject/userInterfaceLaag/LeerlingHoofdscherm.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/userInterfaceLaag/LeerlingHoofdschermController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Groepsproject/userInterfaceLaag/LeerlingHoofdschermController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/userInterfaceLaag/LoginScherm.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Groepsproject/userInterfaceLaag/LoginScherm.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/userInterfaceLaag/LoginSchermController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Groepsproject/userInterfaceLaag/LoginSchermController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Magister200app.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Magister200app.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/domeinLaag/Les.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/domeinLaag/Les.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/domeinLaag/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/domeinLaag/Student.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/userInterfaceLaag/AfmeldenScherm.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/userInterfaceLaag/AfmeldenScherm.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/userInterfaceLaag/AfmeldenSchermController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/userInterfaceLaag/AfmeldenSchermController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/userInterfaceLaag/DocentenScherm.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/userInterfaceLaag/DocentenScherm.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/userInterfaceLaag/DocentenSchermController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/userInterfaceLaag/DocentenSchermController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/userInterfaceLaag/LeerlingHoofdscherm.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/userInterfaceLaag/LeerlingHoofdscherm.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/userInterfaceLaag/LeerlingHoofdschermController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/userInterfaceLaag/LeerlingHoofdschermController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/userInterfaceLaag/LoginScherm.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/userInterfaceLaag/LoginScherm.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/userInterfaceLaag/LoginSchermController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/userInterfaceLaag/LoginSchermController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -277,7 +260,21 @@
       <option name="project" value="LOCAL" />
       <updated>1617349706447</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Merge remote-tracking branch 'origin/main' into main">
+      <created>1617362546082</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1617362546083</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Merge remote-tracking branch 'origin/main' into main">
+      <created>1617362553118</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1617362553118</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -307,7 +304,8 @@
     <MESSAGE value="Update database" />
     <MESSAGE value="selfupdate" />
     <MESSAGE value="Versie mvp HELEMAAL KLAAR" />
-    <option name="LAST_COMMIT_MESSAGE" value="Versie mvp HELEMAAL KLAAR" />
+    <MESSAGE value="UI updates" />
+    <option name="LAST_COMMIT_MESSAGE" value="UI updates" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
