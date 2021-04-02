@@ -352,4 +352,11 @@ public class LoginSchermController {
 
     public void setStatusDocent(ActionEvent actionEvent) {
     }
+
+    public void handleMousClickWachtwoordVergeten(MouseEvent mouseEvent) {
+        new EmailSender("jens.rijks@student.hu.nl","Wachtwoord vergeten","Geachte " + "student" + ", \n \nU heeft geklikt op 'wachtwoord vergeten', dit is uw wachtwoord :\n" + "wachtwoord" + ".");
+
+
+
+    }
 }
