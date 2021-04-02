@@ -1,18 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.*?>
-<?import javafx.scene.effect.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
 <AnchorPane prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="userInterfaceLaag.DocentenSchermController">
    <children>
-      <Rectangle fx:id="rectangleBoven" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="32.0" stroke="#007bee" strokeType="OUTSIDE" width="800.0">
-         <effect>
-            <DropShadow />
-         </effect></Rectangle>
-      <Button fx:id="loguitKnop" layoutX="733.0" layoutY="7.0" mnemonicParsing="false" onAction="#loguitEnAfsluiten" prefHeight="17.0" prefWidth="60.0" text="Loguit">
+      <Rectangle fx:id="rectangleBoven" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="32.0" stroke="BLACK" strokeType="INSIDE" width="800.0" />
+      <Button fx:id="loguitKnop" layoutX="733.0" layoutY="7.0" minHeight="17.0" minWidth="60.0" mnemonicParsing="false" onAction="#loguitEnAfsluiten" prefHeight="17.0" prefWidth="60.0" text="Loguit">
          <font>
             <Font size="9.0" />
          </font></Button>
@@ -20,20 +16,21 @@
          <font>
             <Font name="System Bold" size="14.0" />
          </font></Label>
-      <TableView fx:id="tableView1" layoutX="281.0" layoutY="88.0" prefHeight="323.0" prefWidth="497.0">
+      <TableView fx:id="tableView1" layoutX="251.0" layoutY="88.0" prefHeight="323.0" prefWidth="534.0">
          <columns>
             <TableColumn fx:id="studentid" prefWidth="114.0" text="Studentnummer" />
             <TableColumn fx:id="naamid" prefWidth="92.4000244140625" text="Naam" />
             <TableColumn fx:id="emailid" prefWidth="146.79998779296875" text="E-mail" />
             <TableColumn fx:id="rollcall" prefWidth="52.800048828125" text="Roll Call" />
             <TableColumn fx:id="aanwezigid" prefWidth="88.4000244140625" text="Aanwezigheid" />
+            <TableColumn fx:id="infoid" prefWidth="41.20001220703125" text="Info" />
          </columns>
       </TableView>
-      <TableView fx:id="tableView2" layoutX="21.0" layoutY="88.0" onMouseClicked="#loadDataPerLes" prefHeight="323.0" prefWidth="250.0">
+      <TableView fx:id="tableView2" layoutX="21.0" layoutY="88.0" onMouseClicked="#loadDataPerLes" prefHeight="323.0" prefWidth="209.0">
          <columns>
             <TableColumn fx:id="klasid" prefWidth="58.799983978271484" text="Klas" />
             <TableColumn fx:id="datumid" prefWidth="93.60000610351562" text="Datum" />
-            <TableColumn fx:id="lesid" prefWidth="96.0" text="Les" />
+            <TableColumn fx:id="lesid" prefWidth="56.0" text="Les" />
          </columns>
       </TableView>
       <Button layoutX="439.0" layoutY="434.0" mnemonicParsing="false" onAction="#handleButtonAfmelden" prefHeight="32.0" prefWidth="78.0" text="Afmelden" AnchorPane.leftAnchor="430.0" />
@@ -43,7 +40,7 @@
             <Font name="System Bold" size="17.0" />
          </font>
       </Label>
-      <Label layoutX="281.0" layoutY="59.0" text="Studenten">
+      <Label layoutX="251.0" layoutY="59.0" text="Studenten">
          <font>
             <Font name="System Bold" size="17.0" />
          </font>
