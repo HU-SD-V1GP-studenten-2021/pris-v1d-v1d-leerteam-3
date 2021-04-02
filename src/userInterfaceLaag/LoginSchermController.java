@@ -5,6 +5,7 @@ import domeinLaag.Klas;
 import domeinLaag.Les;
 import domeinLaag.Student;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -13,7 +14,10 @@ import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 import java.sql.*;
 import java.time.LocalDate;
@@ -38,7 +42,7 @@ public class LoginSchermController {
         String url = "jdbc:postgresql://localhost/SDGP";
         Properties props = new Properties();
         props.setProperty("user","postgres");
-        props.setProperty("password","ruben");
+        props.setProperty("password","united");
         Connection conn = DriverManager.getConnection(url, props);
 
         if(!naam.contains("@student.hu.nl") &&!naam.contains("@hu.nl")){
@@ -152,7 +156,8 @@ public class LoginSchermController {
                             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("leerlingHoofdscherm.fxml"));
                             Parent root = (Parent) fxmlLoader.load();
                             Stage stage = new Stage();
-                            stage.setTitle("Leerling scherm");
+                            stage.setTitle("Lessen");
+                            stage.getIcons().add(new Image("src/LogoManufactra500pxBeeldmerk.png"));
                             stage.setScene(new Scene(root));
                             stage.show();
                         }
@@ -305,8 +310,9 @@ public class LoginSchermController {
                             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("DocentenScherm.fxml"));
                             Parent root = (Parent) fxmlLoader.load();
                             Stage stage = new Stage();
-                            stage.setTitle("Docenten scherm");
+                            stage.setTitle("Les presentie");
                             stage.setScene(new Scene(root));
+                            stage.getIcons().add(new Image("src/LogoManufactra500pxBeeldmerk.png"));
                             stage.show();
                         }
                         catch (Exception ignored){
