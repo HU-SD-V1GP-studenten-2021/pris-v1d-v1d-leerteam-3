@@ -56,6 +56,13 @@ public class LeerlingHoofdschermController {
     private double yOffset;
 
     public void initialize() throws SQLException {
+        String url = "jdbc:postgresql://localhost/SDGP";
+        Properties props = new Properties();
+        props.setProperty("user","postgres");
+        props.setProperty("password","ruben");
+        Connection con = DriverManager.getConnection(url, props);
+        Statement stmt = con.createStatement();
+
         datepickerid.setValue(LocalDate.now());
         String s = student.getNaam();
         naamLabel.setText(s);   // in de klasse domeinLaag.Student de naam opvragen
@@ -67,7 +74,6 @@ public class LeerlingHoofdschermController {
         aanwezigheidsTabel.setEditable(true);
 
         aanwezigheidsTabel.setItems(getLessen());
-
 
         ObservableList<PieChart.Data> pieChartData = FXCollections.observableArrayList(
                 new PieChart.Data("Aanwezig " + student.getRollCall() + "%", student.getRollCall()),
@@ -85,7 +91,7 @@ public class LeerlingHoofdschermController {
         String url = "jdbc:postgresql://localhost/SDGP";
         Properties props = new Properties();
         props.setProperty("user","postgres");
-        props.setProperty("password","united");
+        props.setProperty("password","ruben");
         Connection con = DriverManager.getConnection(url, props);
         Statement stmt = con.createStatement();
         ObservableList<Les> lessen = FXCollections.observableArrayList();
@@ -135,6 +141,7 @@ public class LeerlingHoofdschermController {
             Les les = (Les) aanwezigheidsTabel.getSelectionModel().getSelectedItem();
             this.lesnummer = les.getLesnummer();
             this.les = les;
+            System.out.println(les.getAfwezigheid());
             if(!les.getDatum().isBefore(LocalDate.now())){
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("AfmeldenScherm.fxml"));
                 Parent root = loader.load();
@@ -162,7 +169,7 @@ public class LeerlingHoofdschermController {
         String url = "jdbc:postgresql://localhost/SDGP";
         Properties props = new Properties();
         props.setProperty("user","postgres");
-        props.setProperty("password","united");
+        props.setProperty("password","ruben");
         Connection con = DriverManager.getConnection(url, props);
         Statement stmt = con.createStatement();
         ObservableList<Les> lessen = FXCollections.observableArrayList();
