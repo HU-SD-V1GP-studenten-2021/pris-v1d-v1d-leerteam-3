@@ -7,7 +7,7 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="userInterfaceLaag.DocentenSchermController">
+<AnchorPane prefHeight="500.0" prefWidth="800.0" style="-fx-background-color: #ebe8e8;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="userInterfaceLaag.DocentenSchermController">
    <children>
       <Rectangle fx:id="rectangleBoven" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="32.0" stroke="#007bee" strokeType="OUTSIDE" width="800.0">
          <effect>

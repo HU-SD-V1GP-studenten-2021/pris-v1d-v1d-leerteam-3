@@ -38,7 +38,7 @@ public class AfmeldenSchermController {
         int studentnummer = account.getStudentennummer();
         Les les = LeerlingHoofdschermController.les;
 
-        LoginSchermController.this.
+
         int lesnummer = LeerlingHoofdschermController.lesnummer;
 
         String url = "jdbc:postgresql://localhost/SDGP";
