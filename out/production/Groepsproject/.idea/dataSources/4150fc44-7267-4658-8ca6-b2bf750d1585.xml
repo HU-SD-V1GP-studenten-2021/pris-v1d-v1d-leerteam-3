@@ -2,8 +2,8 @@
 <dataSource name="SDGP@localhost">
   <database-model serializer="dbm" dbms="POSTGRES" family-id="POSTGRES" format-version="4.20">
     <root id="1">
-      <ServerVersion>12.4</ServerVersion>
-      <DateStyle>mdy</DateStyle>
+      <ServerVersion>13.0</ServerVersion>
+      <DateStyle>dmy</DateStyle>
       <TimeZones>true ACDT
 true ACSST
 false ACST
@@ -783,62 +783,72 @@ true YEKST
 false YEKT
 false Z
 false Zulu
-true posixrules
 </TimeZones>
-      <StartupTime>1617212042</StartupTime>
+      <StartupTime>1617210699</StartupTime>
     </root>
-    <database id="2" parent="1" name="Fabriek">
-      <ObjectId>16393</ObjectId>
+    <database id="2" parent="1" name="Alberthein">
+      <ObjectId>17358</ObjectId>
       <Owner>postgres</Owner>
     </database>
-    <database id="3" parent="1" name="NS twitter zuil">
-      <ObjectId>16576</ObjectId>
+    <database id="3" parent="1" name="NSS">
+      <ObjectId>17459</ObjectId>
       <Owner>postgres</Owner>
     </database>
     <database id="4" parent="1" name="SDGP">
-      <ObjectId>16780</ObjectId>
+      <ObjectId>25832</ObjectId>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>1545</IntrospectionStateNumber>
+      <IntrospectionStateNumber>2124</IntrospectionStateNumber>
       <Current>1</Current>
-      <Relations>sequence|table|16835|16837|1
-sequence|table|16851|16853|1
-sequence|table|16859|16861|1
+      <Relations>sequence|table|25838|25840|1
+sequence|table|25849|25851|1
+sequence|table|25857|25859|1
+sequence|table|25865|25867|1
 </Relations>
     </database>
-    <database id="5" parent="1" name="ah casus fa4">
-      <ObjectId>16512</ObjectId>
-      <Owner>postgres</Owner>
-    </database>
-    <database id="6" parent="1" name="postgres">
-      <ObjectId>13318</ObjectId>
+    <database id="5" parent="1" name="postgres">
+      <ObjectId>13442</ObjectId>
       <Comment>default administrative connection database</Comment>
       <Owner>postgres</Owner>
     </database>
-    <role id="7" parent="1" name="pg_execute_server_program">
+    <database id="6" parent="1" name="sdgp">
+      <ObjectId>17581</ObjectId>
+      <Owner>postgres</Owner>
+    </database>
+    <role id="7" parent="1" name="omar">
+      <ObjectId>17457</ObjectId>
+      <SuperRole>1</SuperRole>
+      <CanLogin>1</CanLogin>
+    </role>
+    <role id="8" parent="1" name="omara">
+      <ObjectId>17458</ObjectId>
+      <SuperRole>1</SuperRole>
+      <CanLogin>1</CanLogin>
+    </role>
+    <role id="9" parent="1" name="pg_execute_server_program">
       <ObjectId>4571</ObjectId>
     </role>
-    <role id="8" parent="1" name="pg_monitor">
+    <role id="10" parent="1" name="pg_monitor">
       <ObjectId>3373</ObjectId>
     </role>
-    <role id="9" parent="1" name="pg_read_all_settings">
+    <role id="11" parent="1" name="pg_read_all_settings">
       <ObjectId>3374</ObjectId>
     </role>
-    <role id="10" parent="1" name="pg_read_all_stats">
+    <role id="12" parent="1" name="pg_read_all_stats">
       <ObjectId>3375</ObjectId>
     </role>
-    <role id="11" parent="1" name="pg_read_server_files">
+    <role id="13" parent="1" name="pg_read_server_files">
       <ObjectId>4569</ObjectId>
     </role>
-    <role id="12" parent="1" name="pg_signal_backend">
+    <role id="14" parent="1" name="pg_signal_backend">
       <ObjectId>4200</ObjectId>
     </role>
-    <role id="13" parent="1" name="pg_stat_scan_tables">
+    <role id="15" parent="1" name="pg_stat_scan_tables">
       <ObjectId>3377</ObjectId>
     </role>
-    <role id="14" parent="1" name="pg_write_server_files">
+    <role id="16" parent="1" name="pg_write_server_files">
       <ObjectId>4570</ObjectId>
     </role>
-    <role id="15" parent="1" name="postgres">
+    <role id="17" parent="1" name="postgres">
       <ObjectId>10</ObjectId>
       <SuperRole>1</SuperRole>
       <CreateDb>1</CreateDb>
@@ -847,70 +857,75 @@ sequence|table|16859|16861|1
       <Replication>1</Replication>
       <BypassRls>1</BypassRls>
     </role>
-    <tablespace id="16" parent="1" name="pg_default">
+    <role id="18" parent="1" name="yourname">
+      <ObjectId>17456</ObjectId>
+      <SuperRole>1</SuperRole>
+      <CanLogin>1</CanLogin>
+    </role>
+    <tablespace id="19" parent="1" name="pg_default">
       <ObjectId>1663</ObjectId>
       <Owner>postgres</Owner>
       <StateNumber>1</StateNumber>
     </tablespace>
-    <tablespace id="17" parent="1" name="pg_global">
+    <tablespace id="20" parent="1" name="pg_global">
       <ObjectId>1664</ObjectId>
       <Owner>postgres</Owner>
       <StateNumber>1</StateNumber>
     </tablespace>
-    <schema id="18" parent="4" name="information_schema">
-      <ObjectId>13018</ObjectId>
+    <schema id="21" parent="4" name="information_schema">
+      <ObjectId>13158</ObjectId>
       <Acl>10=UC/10
 U/10
 </Acl>
-      <StateNumber>282</StateNumber>
+      <StateNumber>293</StateNumber>
       <Owner>postgres</Owner>
     </schema>
-    <schema id="19" parent="4" name="pg_catalog">
+    <schema id="22" parent="4" name="pg_catalog">
       <ObjectId>11</ObjectId>
       <Comment>system catalog schema</Comment>
       <Acl>10=UC/10
 U/10
 </Acl>
-      <StateNumber>275</StateNumber>
+      <StateNumber>286</StateNumber>
       <Owner>postgres</Owner>
     </schema>
-    <schema id="20" parent="4" name="public">
+    <schema id="23" parent="4" name="public">
       <ObjectId>2200</ObjectId>
       <Comment>standard public schema</Comment>
       <Acl>10=UC/10
 UC/10
 </Acl>
-      <StateNumber>276</StateNumber>
+      <StateNumber>287</StateNumber>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>1546</IntrospectionStateNumber>
+      <IntrospectionStateNumber>2125</IntrospectionStateNumber>
       <Current>1</Current>
     </schema>
-    <extension id="21" parent="4" name="plpgsql">
-      <ObjectId>13304</ObjectId>
+    <extension id="24" parent="4" name="plpgsql">
+      <ObjectId>13428</ObjectId>
       <Comment>PL/pgSQL procedural language</Comment>
-      <StateNumber>437</StateNumber>
+      <StateNumber>439</StateNumber>
       <Version>1.0</Version>
       <SchemaName>pg_catalog</SchemaName>
       <SchemaId>11</SchemaId>
     </extension>
-    <language id="22" parent="4" name="c">
+    <language id="25" parent="4" name="c">
       <ObjectId>13</ObjectId>
       <Comment>dynamically-loaded C functions</Comment>
       <StateNumber>1</StateNumber>
       <ValidatorName>fmgr_c_validator</ValidatorName>
       <ValidatorSchema>pg_catalog</ValidatorSchema>
     </language>
-    <language id="23" parent="4" name="internal">
+    <language id="26" parent="4" name="internal">
       <ObjectId>12</ObjectId>
       <Comment>built-in functions</Comment>
       <StateNumber>1</StateNumber>
       <ValidatorName>fmgr_internal_validator</ValidatorName>
       <ValidatorSchema>pg_catalog</ValidatorSchema>
     </language>
-    <language id="24" parent="4" name="plpgsql">
-      <ObjectId>13308</ObjectId>
+    <language id="27" parent="4" name="plpgsql">
+      <ObjectId>13432</ObjectId>
       <Comment>PL/pgSQL procedural language</Comment>
-      <StateNumber>437</StateNumber>
+      <StateNumber>439</StateNumber>
       <Trusted>1</Trusted>
       <HandlerName>plpgsql_call_handler</HandlerName>
       <HandlerSchema>pg_catalog</HandlerSchema>
@@ -919,7 +934,7 @@ UC/10
       <ValidatorName>plpgsql_validator</ValidatorName>
       <ValidatorSchema>pg_catalog</ValidatorSchema>
     </language>
-    <language id="25" parent="4" name="sql">
+    <language id="28" parent="4" name="sql">
       <ObjectId>14</ObjectId>
       <Comment>SQL-language functions</Comment>
       <StateNumber>1</StateNumber>
@@ -927,14 +942,14 @@ UC/10
       <ValidatorName>fmgr_sql_validator</ValidatorName>
       <ValidatorSchema>pg_catalog</ValidatorSchema>
     </language>
-    <access-method id="26" parent="4" name="heap">
+    <access-method id="29" parent="4" name="heap">
       <ObjectId>2</ObjectId>
       <Comment>heap table access method</Comment>
       <StateNumber>1</StateNumber>
       <Handler>pg_catalog.heap_tableam_handler</Handler>
       <HandlerId>3</HandlerId>
     </access-method>
-    <access-method id="27" parent="4" name="btree">
+    <access-method id="30" parent="4" name="btree">
       <ObjectId>403</ObjectId>
       <Comment>b-tree index access method</Comment>
       <StateNumber>1</StateNumber>
@@ -942,7 +957,7 @@ UC/10
       <HandlerId>330</HandlerId>
       <Type>index</Type>
     </access-method>
-    <access-method id="28" parent="4" name="hash">
+    <access-method id="31" parent="4" name="hash">
       <ObjectId>405</ObjectId>
       <Comment>hash index access method</Comment>
       <StateNumber>1</StateNumber>
@@ -950,7 +965,7 @@ UC/10
       <HandlerId>331</HandlerId>
       <Type>index</Type>
     </access-method>
-    <access-method id="29" parent="4" name="gist">
+    <access-method id="32" parent="4" name="gist">
       <ObjectId>783</ObjectId>
       <Comment>GiST index access method</Comment>
       <StateNumber>1</StateNumber>
@@ -958,7 +973,7 @@ UC/10
       <HandlerId>332</HandlerId>
       <Type>index</Type>
     </access-method>
-    <access-method id="30" parent="4" name="gin">
+    <access-method id="33" parent="4" name="gin">
       <ObjectId>2742</ObjectId>
       <Comment>GIN index access method</Comment>
       <StateNumber>1</StateNumber>
@@ -966,7 +981,7 @@ UC/10
       <HandlerId>333</HandlerId>
       <Type>index</Type>
     </access-method>
-    <access-method id="31" parent="4" name="spgist">
+    <access-method id="34" parent="4" name="spgist">
       <ObjectId>4000</ObjectId>
       <Comment>SP-GiST index access method</Comment>
       <StateNumber>1</StateNumber>
@@ -974,7 +989,7 @@ UC/10
       <HandlerId>334</HandlerId>
       <Type>index</Type>
     </access-method>
-    <access-method id="32" parent="4" name="brin">
+    <access-method id="35" parent="4" name="brin">
       <ObjectId>3580</ObjectId>
       <Comment>block range index (BRIN) access method</Comment>
       <StateNumber>1</StateNumber>
@@ -982,90 +997,167 @@ UC/10
       <HandlerId>335</HandlerId>
       <Type>index</Type>
     </access-method>
-    <sequence id="33" parent="20" name="docent_docentnummer_seq">
-      <ObjectId>16835</ObjectId>
+    <sequence id="36" parent="23" name="docent_docentnummer_seq">
+      <ObjectId>25838</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>1347</StateNumber>
+      <StateNumber>2074</StateNumber>
       <DataType>integer|0s</DataType>
     </sequence>
-    <sequence id="34" parent="20" name="les_lesnummer_seq">
-      <ObjectId>16851</ObjectId>
+    <sequence id="37" parent="23" name="klas_klasnummer_seq">
+      <ObjectId>25849</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>1347</StateNumber>
+      <StateNumber>2074</StateNumber>
       <DataType>integer|0s</DataType>
     </sequence>
-    <sequence id="35" parent="20" name="student_studentnummer_seq">
-      <ObjectId>16859</ObjectId>
+    <sequence id="38" parent="23" name="les_lesnummer_seq">
+      <ObjectId>25857</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>1347</StateNumber>
+      <StateNumber>2074</StateNumber>
       <DataType>integer|0s</DataType>
     </sequence>
-    <table id="36" parent="20" name="docent">
-      <ObjectId>16837</ObjectId>
+    <sequence id="39" parent="23" name="student_studentnummer_seq">
+      <ObjectId>25865</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>1347</StateNumber>
-    </table>
-    <table id="37" parent="20" name="klas">
-      <ObjectId>16846</ObjectId>
+      <StateNumber>2074</StateNumber>
+      <DataType>integer|0s</DataType>
+    </sequence>
+    <table id="40" parent="23" name="afwezigheid">
+      <ObjectId>25833</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>1347</StateNumber>
+      <StateNumber>2074</StateNumber>
     </table>
-    <table id="38" parent="20" name="les">
-      <ObjectId>16853</ObjectId>
+    <table id="41" parent="23" name="docent">
+      <ObjectId>25840</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>1347</StateNumber>
+      <StateNumber>2074</StateNumber>
     </table>
-    <table id="39" parent="20" name="student">
-      <ObjectId>16861</ObjectId>
+    <table id="42" parent="23" name="klas">
+      <ObjectId>25851</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>1421</StateNumber>
+      <StateNumber>2074</StateNumber>
     </table>
-    <column id="40" parent="36" name="docentnummer">
+    <table id="43" parent="23" name="les">
+      <ObjectId>25859</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>2074</StateNumber>
+    </table>
+    <table id="44" parent="23" name="student">
+      <ObjectId>25867</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>2074</StateNumber>
+    </table>
+    <column id="45" parent="40" name="lesnummer">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>1347</StateNumber>
+      <StateNumber>2074</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="46" parent="40" name="studentnummer">
+      <Position>2</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>2074</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="47" parent="40" name="afwezig">
+      <Position>3</Position>
+      <DataType>boolean|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>2074</StateNumber>
+      <TypeId>16</TypeId>
+    </column>
+    <column id="48" parent="40" name="reden">
+      <Position>4</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <StateNumber>2074</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <index id="49" parent="40" name="afwezigheid_pkey">
+      <ObjectId>25836</ObjectId>
+      <StateNumber>2074</StateNumber>
+      <ColNames>lesnummer
+studentnummer</ColNames>
+      <Unique>1</Unique>
+      <Primary>1</Primary>
+      <AccessMethodId>403</AccessMethodId>
+      <CollationIds>0,0</CollationIds>
+      <ClassIds>1978,1978</ClassIds>
+    </index>
+    <key id="50" parent="40" name="afwezigheid_pkey">
+      <ObjectId>25837</ObjectId>
+      <StateNumber>2074</StateNumber>
+      <ColNames>lesnummer
+studentnummer</ColNames>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>afwezigheid_pkey</UnderlyingIndexName>
+    </key>
+    <foreign-key id="51" parent="40" name="fkafwezighei870287">
+      <ObjectId>25891</ObjectId>
+      <StateNumber>2074</StateNumber>
+      <ColNames>lesnummer</ColNames>
+      <RefTableId>25859</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>les</RefTableName>
+      <RefKeyName>les_pkey</RefKeyName>
+      <RefColNames>lesnummer</RefColNames>
+    </foreign-key>
+    <foreign-key id="52" parent="40" name="fkafwezighei899383">
+      <ObjectId>25896</ObjectId>
+      <StateNumber>2074</StateNumber>
+      <ColNames>studentnummer</ColNames>
+      <RefTableId>25867</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>student</RefTableName>
+      <RefKeyName>student_pkey</RefKeyName>
+      <RefColNames>studentnummer</RefColNames>
+    </foreign-key>
+    <column id="53" parent="41" name="docentnummer">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>2074</StateNumber>
       <DefaultExpression>nextval(&apos;docent_docentnummer_seq&apos;::regclass)</DefaultExpression>
       <TypeId>23</TypeId>
     </column>
-    <column id="41" parent="36" name="naam">
+    <column id="54" parent="41" name="naam">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>1347</StateNumber>
+      <StateNumber>2074</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="42" parent="36" name="email">
+    <column id="55" parent="41" name="email">
       <Position>3</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>1347</StateNumber>
+      <StateNumber>2074</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="43" parent="36" name="status">
+    <column id="56" parent="41" name="status">
       <Position>4</Position>
       <DataType>boolean|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>1347</StateNumber>
+      <StateNumber>2074</StateNumber>
       <TypeId>16</TypeId>
     </column>
-    <column id="44" parent="36" name="pogingen">
+    <column id="57" parent="41" name="pogingen">
       <Position>5</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>1347</StateNumber>
+      <StateNumber>2074</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="45" parent="36" name="wachtwoord">
+    <column id="58" parent="41" name="wachtwoord">
       <Position>6</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>1347</StateNumber>
+      <StateNumber>2074</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="46" parent="36" name="docent_pkey">
-      <ObjectId>16844</ObjectId>
-      <StateNumber>1347</StateNumber>
+    <index id="59" parent="41" name="docent_pkey">
+      <ObjectId>25847</ObjectId>
+      <StateNumber>2074</StateNumber>
       <ColNames>docentnummer</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
@@ -1073,84 +1165,98 @@ UC/10
       <CollationIds>0</CollationIds>
       <ClassIds>1978</ClassIds>
     </index>
-    <key id="47" parent="36" name="docent_pkey">
-      <ObjectId>16845</ObjectId>
-      <StateNumber>1347</StateNumber>
+    <key id="60" parent="41" name="docent_pkey">
+      <ObjectId>25848</ObjectId>
+      <StateNumber>2074</StateNumber>
       <ColNames>docentnummer</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>docent_pkey</UnderlyingIndexName>
     </key>
-    <column id="48" parent="37" name="klasnaam">
+    <column id="61" parent="42" name="klasnummer">
       <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>2074</StateNumber>
+      <DefaultExpression>nextval(&apos;klas_klasnummer_seq&apos;::regclass)</DefaultExpression>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="62" parent="42" name="klasnaam">
+      <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>1347</StateNumber>
+      <StateNumber>2074</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="49" parent="37" name="klas_pkey">
-      <ObjectId>16849</ObjectId>
-      <StateNumber>1347</StateNumber>
-      <ColNames>klasnaam</ColNames>
+    <index id="63" parent="42" name="klas_pkey">
+      <ObjectId>25855</ObjectId>
+      <StateNumber>2074</StateNumber>
+      <ColNames>klasnummer</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
       <AccessMethodId>403</AccessMethodId>
-      <CollationIds>100</CollationIds>
-      <CollationNames>default</CollationNames>
-      <ClassIds>3126</ClassIds>
+      <CollationIds>0</CollationIds>
+      <ClassIds>1978</ClassIds>
     </index>
-    <key id="50" parent="37" name="klas_pkey">
-      <ObjectId>16850</ObjectId>
-      <StateNumber>1347</StateNumber>
-      <ColNames>klasnaam</ColNames>
+    <key id="64" parent="42" name="klas_pkey">
+      <ObjectId>25856</ObjectId>
+      <StateNumber>2074</StateNumber>
+      <ColNames>klasnummer</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>klas_pkey</UnderlyingIndexName>
     </key>
-    <column id="51" parent="38" name="lesnummer">
+    <column id="65" parent="43" name="lesnummer">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>1347</StateNumber>
+      <StateNumber>2074</StateNumber>
       <DefaultExpression>nextval(&apos;les_lesnummer_seq&apos;::regclass)</DefaultExpression>
       <TypeId>23</TypeId>
     </column>
-    <column id="52" parent="38" name="datum">
+    <column id="66" parent="43" name="lesnaam">
       <Position>2</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>2074</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="67" parent="43" name="datum">
+      <Position>3</Position>
       <DataType>date|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>1347</StateNumber>
+      <StateNumber>2074</StateNumber>
       <TypeId>1082</TypeId>
     </column>
-    <column id="53" parent="38" name="begintijd">
-      <Position>3</Position>
-      <DataType>time(6)|0s</DataType>
-      <NotNull>1</NotNull>
-      <StateNumber>1347</StateNumber>
-      <TypeId>1083</TypeId>
-    </column>
-    <column id="54" parent="38" name="eindtijd">
+    <column id="68" parent="43" name="begintijd">
       <Position>4</Position>
       <DataType>time(6)|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>1347</StateNumber>
+      <StateNumber>2074</StateNumber>
       <TypeId>1083</TypeId>
     </column>
-    <column id="55" parent="38" name="klasnaam">
+    <column id="69" parent="43" name="eindtijd">
       <Position>5</Position>
-      <DataType>varchar(255)|0s</DataType>
+      <DataType>time(6)|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>1347</StateNumber>
-      <TypeId>1043</TypeId>
+      <StateNumber>2074</StateNumber>
+      <TypeId>1083</TypeId>
     </column>
-    <column id="56" parent="38" name="docentdocentnummer">
+    <column id="70" parent="43" name="docentnummer">
       <Position>6</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>1347</StateNumber>
+      <StateNumber>2074</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <index id="57" parent="38" name="les_pkey">
-      <ObjectId>16857</ObjectId>
-      <StateNumber>1347</StateNumber>
+    <column id="71" parent="43" name="klasnummer">
+      <Position>7</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>2074</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <index id="72" parent="43" name="les_pkey">
+      <ObjectId>25863</ObjectId>
+      <StateNumber>2074</StateNumber>
       <ColNames>lesnummer</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
@@ -1158,93 +1264,93 @@ UC/10
       <CollationIds>0</CollationIds>
       <ClassIds>1978</ClassIds>
     </index>
-    <key id="58" parent="38" name="les_pkey">
-      <ObjectId>16858</ObjectId>
-      <StateNumber>1347</StateNumber>
+    <key id="73" parent="43" name="les_pkey">
+      <ObjectId>25864</ObjectId>
+      <StateNumber>2074</StateNumber>
       <ColNames>lesnummer</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>les_pkey</UnderlyingIndexName>
     </key>
-    <foreign-key id="59" parent="38" name="fkles170855">
-      <ObjectId>16875</ObjectId>
-      <StateNumber>1347</StateNumber>
-      <ColNames>klasnaam</ColNames>
-      <RefTableId>16846</RefTableId>
-      <RefColPositions>1</RefColPositions>
-      <RefTableName>klas</RefTableName>
-      <RefKeyName>klas_pkey</RefKeyName>
-      <RefColNames>klasnaam</RefColNames>
-    </foreign-key>
-    <foreign-key id="60" parent="38" name="fkles96182">
-      <ObjectId>16880</ObjectId>
-      <StateNumber>1347</StateNumber>
-      <ColNames>docentdocentnummer</ColNames>
-      <RefTableId>16837</RefTableId>
+    <foreign-key id="74" parent="43" name="fkles268706">
+      <ObjectId>25886</ObjectId>
+      <StateNumber>2074</StateNumber>
+      <ColNames>docentnummer</ColNames>
+      <RefTableId>25840</RefTableId>
       <RefColPositions>1</RefColPositions>
       <RefTableName>docent</RefTableName>
       <RefKeyName>docent_pkey</RefKeyName>
       <RefColNames>docentnummer</RefColNames>
     </foreign-key>
-    <column id="61" parent="39" name="studentnummer">
+    <foreign-key id="75" parent="43" name="fkles525953">
+      <ObjectId>25881</ObjectId>
+      <StateNumber>2074</StateNumber>
+      <ColNames>klasnummer</ColNames>
+      <RefTableId>25851</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>klas</RefTableName>
+      <RefKeyName>klas_pkey</RefKeyName>
+      <RefColNames>klasnummer</RefColNames>
+    </foreign-key>
+    <column id="76" parent="44" name="studentnummer">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>1347</StateNumber>
+      <StateNumber>2074</StateNumber>
       <DefaultExpression>nextval(&apos;student_studentnummer_seq&apos;::regclass)</DefaultExpression>
       <TypeId>23</TypeId>
     </column>
-    <column id="62" parent="39" name="naam">
+    <column id="77" parent="44" name="naam">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>1347</StateNumber>
+      <StateNumber>2074</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="63" parent="39" name="email">
+    <column id="78" parent="44" name="email">
       <Position>3</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>1347</StateNumber>
+      <StateNumber>2074</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="64" parent="39" name="status">
+    <column id="79" parent="44" name="status">
       <Position>4</Position>
       <DataType>boolean|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>1347</StateNumber>
+      <StateNumber>2074</StateNumber>
       <TypeId>16</TypeId>
     </column>
-    <column id="65" parent="39" name="pogingen">
+    <column id="80" parent="44" name="pogingen">
       <Position>5</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>1347</StateNumber>
+      <StateNumber>2074</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="66" parent="39" name="percentage">
+    <column id="81" parent="44" name="rollcall">
       <Position>6</Position>
-      <DataType>integer|0s</DataType>
+      <DataType>double precision|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>1421</StateNumber>
-      <TypeId>23</TypeId>
+      <StateNumber>2074</StateNumber>
+      <TypeId>701</TypeId>
     </column>
-    <column id="67" parent="39" name="wachtwoord">
+    <column id="82" parent="44" name="wachtwoord">
       <Position>7</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>1347</StateNumber>
+      <StateNumber>2074</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="68" parent="39" name="klasnaam">
+    <column id="83" parent="44" name="klasnummer">
       <Position>8</Position>
-      <DataType>varchar(255)|0s</DataType>
+      <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>1347</StateNumber>
-      <TypeId>1043</TypeId>
+      <StateNumber>2074</StateNumber>
+      <TypeId>23</TypeId>
     </column>
-    <index id="69" parent="39" name="student_pkey">
-      <ObjectId>16868</ObjectId>
-      <StateNumber>1421</StateNumber>
+    <index id="84" parent="44" name="student_pkey">
+      <ObjectId>25874</ObjectId>
+      <StateNumber>2074</StateNumber>
       <ColNames>studentnummer</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
@@ -1252,22 +1358,22 @@ UC/10
       <CollationIds>0</CollationIds>
       <ClassIds>1978</ClassIds>
     </index>
-    <key id="70" parent="39" name="student_pkey">
-      <ObjectId>16869</ObjectId>
-      <StateNumber>1347</StateNumber>
+    <key id="85" parent="44" name="student_pkey">
+      <ObjectId>25875</ObjectId>
+      <StateNumber>2074</StateNumber>
       <ColNames>studentnummer</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>student_pkey</UnderlyingIndexName>
     </key>
-    <foreign-key id="71" parent="39" name="fkstudent739996">
-      <ObjectId>16870</ObjectId>
-      <StateNumber>1347</StateNumber>
-      <ColNames>klasnaam</ColNames>
-      <RefTableId>16846</RefTableId>
+    <foreign-key id="86" parent="44" name="fkstudent423669">
+      <ObjectId>25876</ObjectId>
+      <StateNumber>2074</StateNumber>
+      <ColNames>klasnummer</ColNames>
+      <RefTableId>25851</RefTableId>
       <RefColPositions>1</RefColPositions>
       <RefTableName>klas</RefTableName>
       <RefKeyName>klas_pkey</RefKeyName>
-      <RefColNames>klasnaam</RefColNames>
+      <RefColNames>klasnummer</RefColNames>
     </foreign-key>
   </database-model>
 </dataSource>
