@@ -150,7 +150,6 @@ public class LoginSchermController {
 
                         }
 
-
                         try{
                             loginscherm.close();
                             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("leerlingHoofdscherm.fxml"));
