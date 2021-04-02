@@ -20,21 +20,35 @@ import javafx.stage.Stage;
 import java.util.ArrayList;
 
 public class DocentenSchermController {
-    @FXML private Rectangle rectangleBoven;
-    @FXML private Button loguitKnop;
-    @FXML public Label naamLabel;
-    @FXML private TableView tableView2;
-    @FXML private TableColumn<Les, String> klasid;
-    @FXML private TableColumn<Les, String> datumid;
-    @FXML private TableColumn<Les, String> lesid;
+    @FXML
+    private Rectangle rectangleBoven;
+    @FXML
+    private Button loguitKnop;
+    @FXML
+    public Label naamLabel;
+    @FXML
+    private TableView tableView2;
+    @FXML
+    private TableColumn<Les, String> klasid;
+    @FXML
+    private TableColumn<Les, String> datumid;
+    @FXML
+    private TableColumn<Les, String> lesid;
 
-    @FXML private TableView tableView1;
-    @FXML private TableColumn<Student, String> naamid;
-    @FXML private TableColumn<Student, String> studentid;
-    @FXML private TableColumn<Student, String> emailid;
-    @FXML private TableColumn<Student, String> rollcall;
-    @FXML private Button handleButtonAfmelden;
-    @FXML private Button handleButtonAanmelden;
+    @FXML
+    private TableView tableView1;
+    @FXML
+    private TableColumn<Student, String> naamid;
+    @FXML
+    private TableColumn<Student, String> studentid;
+    @FXML
+    private TableColumn<Student, String> emailid;
+    @FXML
+    private TableColumn<Student, String> rollcall;
+    @FXML
+    private Button handleButtonAfmelden;
+    @FXML
+    private Button handleButtonAanmelden;
 
 
     private Docent docent = Docent.getAccount();
@@ -51,7 +65,7 @@ public class DocentenSchermController {
 
         naamid.setCellValueFactory(new PropertyValueFactory<>("naam"));
         studentid.setCellValueFactory(new PropertyValueFactory<>("studentennummer"));
-        emailid.setCellValueFactory(new  PropertyValueFactory<>("email"));
+        emailid.setCellValueFactory(new PropertyValueFactory<>("email"));
         rollcall.setCellValueFactory(new PropertyValueFactory<>("rollCall"));
 
 
@@ -59,14 +73,14 @@ public class DocentenSchermController {
         tableView1.setItems(getStudenten());
     }
 
-    public ObservableList<Les> getLessen(){
+    public ObservableList<Les> getLessen() {
         ObservableList<Les> lessen = FXCollections.observableArrayList();
         lessen.addAll(docent.getLessen());
         return lessen;
     }
 
 
-    public ObservableList<Student> getStudenten(){
+    public ObservableList<Student> getStudenten() {
         ObservableList<Student> students = FXCollections.observableArrayList();
 
         Les les = docent.getLessen().get(0);
@@ -76,11 +90,9 @@ public class DocentenSchermController {
     }
 
 
-
-
-    public void loguitEnAfsluiten(ActionEvent actionEvent){
+    public void loguitEnAfsluiten(ActionEvent actionEvent) {
         try {
-            ((Node)actionEvent.getSource()).getScene().getWindow().hide();
+            ((Node) actionEvent.getSource()).getScene().getWindow().hide();
             Stage primaryStage = new Stage();
             FXMLLoader loader = new FXMLLoader();
             Pane root = loader.load(getClass().getResource("/userInterfaceLaag/LoginScherm.fxml"));
@@ -94,26 +106,26 @@ public class DocentenSchermController {
         }
     }
 
-    public void loadDataPerLes(MouseEvent mouseEvent){
+    public void loadDataPerLes(MouseEvent mouseEvent) {
         try {
             Les les = (Les) tableView2.getSelectionModel().getSelectedItem();
             int lesnummer = les.getLesnummer();
             tableView1.setItems(getStudentenLoad(lesnummer));
-        }
-        catch (NullPointerException ignored){
+        } catch (NullPointerException ignored) {
         }
     }
 
-    public ObservableList<Student> getStudentenLoad(int lesnummer){
+    public ObservableList<Student> getStudentenLoad(int lesnummer) {
         ObservableList<Student> students = FXCollections.observableArrayList();
         ArrayList<Les> lessen = docent.getLessen();
-        for (Les lesUitDeLijst : lessen){
-            if (lesUitDeLijst.getLesnummer() == lesnummer){
+        for (Les lesUitDeLijst : lessen) {
+            if (lesUitDeLijst.getLesnummer() == lesnummer) {
                 students.addAll(lesUitDeLijst.getKlas().getStudenten());
             }
         }
         return students;
     }
+
     public void handleButtonAfmelden(ActionEvent actionEvent) {
         ObservableList<ObservableList> namen = FXCollections.observableArrayList();
 
@@ -121,8 +133,7 @@ public class DocentenSchermController {
             namen.addAll(tableView1.getSelectionModel().getSelectedItems());
             System.out.println(namen);
 
-        }
-        catch (NullPointerException e){
+        } catch (NullPointerException e) {
             System.out.println(e);
         }
     }
@@ -141,52 +152,17 @@ public class DocentenSchermController {
 //           System.out.println(stuNummer);
 
 
-        }
-        catch (NullPointerException e){
+        } catch (NullPointerException e) {
             System.out.println(e);
         }
     }
 
-    public void loadDataPerStudentPerLes(MouseEvent mouseEvent){
+    public void loadDataPerStudentPerLes(MouseEvent mouseEvent) {
         try {
             Student student = (Student) tableView1.getSelectionModel().getSelectedItem();
             int studentNummer = student.getStudentennummer();
             System.out.println(studentNummer);
-        }
-        catch (NullPointerException ignored){
-        }
-    }
-
-    public void handleButtonAfmelden(ActionEvent actionEvent) {
-        ObservableList<ObservableList> namen = FXCollections.observableArrayList();
-
-        try {
-            namen.addAll(tableView1.getSelectionModel().getSelectedItems());
-            System.out.println(namen);
-
-        }
-        catch (NullPointerException e){
-            System.out.println(e);
-        }
-    }
-
-
-    public void handleButtonAanmelden(ActionEvent actionEvent) {
-        ObservableList<ObservableList> namen = FXCollections.observableArrayList();
-
-       try {
-           ObservableList<Student> stuNummer = tableView1.getSelectionModel().getSelectedItems();
-           namen.addAll(tableView1.getSelectionModel().getSelectedItems());
-           for (Student i : stuNummer) {
-               System.out.println(i.getStudentennummer());
-           }
-//           System.out.println(namen);
-//           System.out.println(stuNummer);
-
-
-        }
-        catch (NullPointerException e){
-            System.out.println(e);
+        } catch (NullPointerException ignored) {
         }
     }
 }
