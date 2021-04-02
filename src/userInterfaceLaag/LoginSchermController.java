@@ -42,7 +42,7 @@ public class LoginSchermController {
         String url = "jdbc:postgresql://localhost/SDGP";
         Properties props = new Properties();
         props.setProperty("user","postgres");
-        props.setProperty("password","united");
+        props.setProperty("password","ruben");
         Connection conn = DriverManager.getConnection(url, props);
 
         if(!naam.contains("@student.hu.nl") &&!naam.contains("@hu.nl")){
@@ -80,10 +80,12 @@ public class LoginSchermController {
                         int klasnummer = userGegevens.getInt("klasnummer");
                         String klasnaam = userGegevens.getString("klasnaam");
 
+
                         Klas klas = new Klas(klasnummer, klasnaam);
                         Student user = new Student(usernaam, userstudentnummer, email, status, pogingen, rollcall, userwachtwoord);
                         user.setKlas(klas);
                         klas.voegStudentToe(user);
+
 
                         Student.setAccount(user);
 
@@ -107,6 +109,7 @@ public class LoginSchermController {
                             alleLessen.add(les);
 
                         }
+
 
                         ResultSet docent = stmt.executeQuery("SELECT docent.docentnummer, naam, email, status, pogingen, wachtwoord from docent " +
                                 "join les l on docent.docentnummer = l.docentnummer " +
@@ -147,8 +150,22 @@ public class LoginSchermController {
                                 klas.voegStudentToe(s1);
 
                             }
-
                         }
+ //                        ResultSet rollcallMaken = stmt.executeQuery("SELECT count(*) FROM afwezigheid " +
+//                                "WHERE studentnummer = " + studentnummer);
+
+                        ResultSet rollcallMaken = stmt.executeQuery("SELECT count(*) FROM afwezigheid " +
+                                "WHERE studentnummer = " + studentnummer);
+
+                        int aantal = 0;
+                        while(rollcallMaken.next()){
+                            aantal ++;
+                        }
+                        System.out.println(aantal);
+                        System.out.println(user.getKlas().getTotaalAantalLessen());
+                        double bereken = 100 - (100 / user.getKlas().getTotaalAantalLessen() * aantal);
+                        System.out.println("roll call: " + bereken);
+                        user.setRollCall(bereken);
 
 
                         try{
