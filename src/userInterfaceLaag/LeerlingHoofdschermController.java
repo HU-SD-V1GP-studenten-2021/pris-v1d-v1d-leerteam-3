@@ -55,17 +55,14 @@ public class LeerlingHoofdschermController {
     private double yOffset;
 
     public void initialize() throws SQLException {
-
-
-
         datepickerid.setValue(LocalDate.now());
         String s = student.getNaam();
         naamLabel.setText(s);   // in de klasse domeinLaag.Student de naam opvragen
-        lesid.setCellValueFactory(new PropertyValueFactory<>("lesnummer"));
+        lesid.setCellValueFactory(new PropertyValueFactory<>("lesnaam"));
         datumid.setCellValueFactory(new PropertyValueFactory<>("datum"));
         docentid.setCellValueFactory(new PropertyValueFactory<>("docent"));
         tijdid.setCellValueFactory(new PropertyValueFactory<>("begintijd"));
-//        aanwezigid.setCellValueFactory(new PropertyValueFactory<>(""));
+        aanwezigid.setCellValueFactory(new PropertyValueFactory<>("afwezigheid"));
         aanwezigheidsTabel.setEditable(true);
 
         aanwezigheidsTabel.setItems(getLessen());
@@ -80,14 +77,14 @@ public class LeerlingHoofdschermController {
         rollCallAttendance.setStartAngle(90);
 
 
-
+        aanwezigheidsTabel.refresh();
     }
 
     public ObservableList<Les> getLessen() throws SQLException {
         String url = "jdbc:postgresql://localhost/SDGP";
         Properties props = new Properties();
         props.setProperty("user","postgres");
-        props.setProperty("password","united");
+        props.setProperty("password","ruben");
         Connection con = DriverManager.getConnection(url, props);
         Statement stmt = con.createStatement();
         ObservableList<Les> lessen = FXCollections.observableArrayList();
@@ -102,9 +99,12 @@ public class LeerlingHoofdschermController {
                         tikker = true;
                     }
                 }
-                if(!tikker){
-                    lessen.add(les);
+                if (tikker){
+                    les.setAfwezigheid("Afwezig");
+                }else{
+                    les.setAfwezigheid("Aanwezig");
                 }
+                lessen.add(les);
             }
         }
         return lessen;
@@ -154,14 +154,14 @@ public class LeerlingHoofdschermController {
     public void getdatum(Event event) throws NullPointerException, SQLException {
         LocalDate datum = datepickerid.getValue();
         aanwezigheidsTabel.setItems(setLessen(datum));
-
+        aanwezigheidsTabel.refresh();
     }
 
     public ObservableList<Les> setLessen(LocalDate datum) throws SQLException {
         String url = "jdbc:postgresql://localhost/SDGP";
         Properties props = new Properties();
         props.setProperty("user","postgres");
-        props.setProperty("password","united");
+        props.setProperty("password","ruben");
         Connection con = DriverManager.getConnection(url, props);
         Statement stmt = con.createStatement();
         ObservableList<Les> lessen = FXCollections.observableArrayList();
@@ -176,9 +176,12 @@ public class LeerlingHoofdschermController {
                         tikker = true;
                      }
                 }
-                if(!tikker){
-                    lessen.add(les);
+                if (tikker){
+                    les.setAfwezigheid("Afwezig");
+                }else{
+                    les.setAfwezigheid("Aanwezig");
                 }
+                lessen.add(les);
             }
         }
         return lessen;
