@@ -59,7 +59,7 @@ public class LeerlingHoofdschermController {
         datumid.setCellValueFactory(new PropertyValueFactory<>("datum"));
         docentid.setCellValueFactory(new PropertyValueFactory<>("docent"));
         tijdid.setCellValueFactory(new PropertyValueFactory<>("begintijd"));
-//        aanwezigid.setCellValueFactory(new PropertyValueFactory<>("aanwezi"));
+//        aanwezigid.setCellValueFactory(new PropertyValueFactory<>(""));
         aanwezigheidsTabel.setEditable(true);
 
         aanwezigheidsTabel.setItems(getLessen());
@@ -172,7 +172,10 @@ public class LeerlingHoofdschermController {
                 }
             }
         }
-        System.out.println(lessen);
         return lessen;
     }
 }
+/** alle lessen van een student voor localdate.now
+ *  van die lessen wil je de aanwezigheid van de student
+ *  dan 100 / lessen.size()
+ */

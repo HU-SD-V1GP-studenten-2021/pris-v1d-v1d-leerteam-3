@@ -1,5 +1,6 @@
 package userInterfaceLaag;
 
+import domeinLaag.AanwezigheidPerLesPerStudent;
 import domeinLaag.Docent;
 import domeinLaag.Les;
 import domeinLaag.Student;
@@ -73,6 +74,10 @@ public class DocentenSchermController {
         return students;
     }
 
+//    public ObservableList<AanwezigheidPerLesPerStudent> getafwezigestudenten(){
+//        AanwezigheidPerLesPerStudent aanwezigheidPerLesPerStudent =
+//    }
+
 
 
 
@@ -111,12 +116,30 @@ public class DocentenSchermController {
         }
         return students;
     }
-    public void handleButtonAfmelden(ActionEvent actionEvent) {
+    public void handleButtonAfmelden(ActionEvent actionEvent) throws SQLException {
         ObservableList<ObservableList> namen = FXCollections.observableArrayList();
 
+        String url = "jdbc:postgresql://localhost/SDGP";
+        Properties props = new Properties();
+        props.setProperty("user","omara");
+        props.setProperty("password","Omar1994");
+        Connection con = DriverManager.getConnection(url, props);
+        Statement stmt = con.createStatement();
+
         try {
+            ObservableList<Student> stuNummer = tableView1.getSelectionModel().getSelectedItems();
             namen.addAll(tableView1.getSelectionModel().getSelectedItems());
-            System.out.println(namen);
+            for (Student i : stuNummer) {
+                int studentennum = i.getStudentennummer();
+                System.out.println(i.getStudentennummer());
+
+                ObservableList<Les> lessen = FXCollections.observableArrayList();
+                ResultSet afwezig = stmt.executeQuery(("INSERT afwezigheid (afwezig) Va WHERE studentnummer = " +
+                        studentennum )); // hier moeten we nog de les ophalen net zoals in de student scherm!!!
+
+            }
+//
+
 
         }
         catch (NullPointerException e){
@@ -143,13 +166,9 @@ public class DocentenSchermController {
                 System.out.println(i.getStudentennummer());
 
                 ObservableList<Les> lessen = FXCollections.observableArrayList();
-//                ResultSet afwezig = stmt.executeQuery("DELETE  from afwezigheid WHERE studentnummer = " + sudentennum +
-//                        " AND lesnummer  ");
+                ResultSet afwezig = stmt.executeQuery("DELETE  from afwezigheid WHERE studentnummer = " + sudentennum ); // hier moeten we nog de les ophalen net zoals in de student scherm!!!
 
             }
-//           System.out.println(namen);
-//           System.out.println(stuNummer);
-
 
         }
         catch (NullPointerException e){
