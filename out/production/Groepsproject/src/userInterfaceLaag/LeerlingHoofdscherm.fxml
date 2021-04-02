@@ -3,11 +3,12 @@
 <?import javafx.scene.chart.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane onMouseReleased="#getdatum" prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="userInterfaceLaag.LeerlingHoofdschermController">
+<AnchorPane onMouseReleased="#getdatum" prefHeight="500.0" prefWidth="800.0" style="-fx-background-color: #ffe3e3;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="userInterfaceLaag.LeerlingHoofdschermController">
    <children>
       <Rectangle fx:id="rectangleBoven" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="32.0" smooth="false" stroke="#007bee" strokeType="OUTSIDE" width="800.0">
          <effect>
@@ -18,7 +19,7 @@
             <Font size="9.0" />
          </font>
       </Button>
-      <Label fx:id="naamLabel" alignment="CENTER_RIGHT" contentDisplay="CENTER" ellipsisString="" layoutX="539.0" layoutY="5.0" prefHeight="17.0" prefWidth="182.0">
+      <Label fx:id="naamLabel" alignment="CENTER_RIGHT" contentDisplay="CENTER" ellipsisString="" layoutX="539.0" layoutY="7.0" prefHeight="17.0" prefWidth="182.0">
          <font>
             <Font name="System Bold" size="14.0" />
          </font></Label>
@@ -31,7 +32,7 @@
             <TableColumn fx:id="aanwezigid" prefWidth="106.0" text="Afwezig" />
         </columns>
       </TableView>
-      <PieChart fx:id="rollCallAttendance" cache="true" cacheShape="false" centerShape="false" focusTraversable="true" layoutX="533.0" layoutY="82.0" prefHeight="232.0" prefWidth="241.0" scaleShape="false" title="Roll Call Attendance" />
+      <PieChart fx:id="rollCallAttendance" cache="true" cacheShape="false" centerShape="false" focusTraversable="true" layoutX="533.0" layoutY="82.0" prefHeight="232.0" prefWidth="241.0" scaleShape="false" stylesheets="@../mystyle.css" title="Roll Call Attendance" />
       <DatePicker fx:id="datepickerid" layoutX="188.0" layoutY="82.0" onAction="#getdatum" />
       <Label layoutX="136.0" layoutY="82.0" text="Vanaf:">
          <font>
@@ -40,5 +41,14 @@
       </Label>
       <Button fx:id="volgendeDagButton" layoutX="373.0" layoutY="82.0" mnemonicParsing="false" onAction="#toonVolgendeDag" text="&gt; &gt;" />
       <Button fx:id="toonVorigeDagButton" layoutX="94.0" layoutY="82.0" mnemonicParsing="false" onAction="#toonVorigeDag" text="&lt; &lt;" />
+       <ImageView fx:id="magister200id" fitHeight="25.0" fitWidth="252.0" layoutX="9.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+           <image>
+               <Image url="@../magister.png" />
+           </image></ImageView>
+      <Label layoutX="347.0" layoutY="7.0" text="Student">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

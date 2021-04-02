@@ -59,10 +59,9 @@ public class LeerlingHoofdschermController {
         String url = "jdbc:postgresql://localhost/SDGP";
         Properties props = new Properties();
         props.setProperty("user","postgres");
-        props.setProperty("password","ruben");
+        props.setProperty("password","united");
         Connection con = DriverManager.getConnection(url, props);
         Statement stmt = con.createStatement();
-
         datepickerid.setValue(LocalDate.now());
         String s = student.getNaam();
         naamLabel.setText(s);   // in de klasse domeinLaag.Student de naam opvragen
@@ -91,7 +90,7 @@ public class LeerlingHoofdschermController {
         String url = "jdbc:postgresql://localhost/SDGP";
         Properties props = new Properties();
         props.setProperty("user","postgres");
-        props.setProperty("password","ruben");
+        props.setProperty("password","united");
         Connection con = DriverManager.getConnection(url, props);
         Statement stmt = con.createStatement();
         ObservableList<Les> lessen = FXCollections.observableArrayList();
@@ -117,8 +116,6 @@ public class LeerlingHoofdschermController {
         return lessen;
     }
 
-
-
     public void loguitEnSluiten(ActionEvent actionEvent) {
         try {
             ((Node)actionEvent.getSource()).getScene().getWindow().hide();
@@ -128,7 +125,7 @@ public class LeerlingHoofdschermController {
             Scene scene = new Scene(root);
             stage.setTitle("Login");
             stage.setScene(scene);
-            stage.getIcons().add(new Image("src/LogoManufactra500pxBeeldmerk.png"));
+            stage.getIcons().add(new Image("HU.png"));
             stage.show();
 
         } catch (Exception e) {
@@ -148,7 +145,7 @@ public class LeerlingHoofdschermController {
                 Stage newStage = new Stage();
                 newStage.setTitle("Afmelden");
                 newStage.setScene(new Scene(root));
-                newStage.getIcons().add(new Image("src/LogoManufactra500pxBeeldmerk.png"));
+                newStage.getIcons().add(new Image("HU.png"));
                 newStage.initStyle(StageStyle.UNDECORATED);
                 newStage.initModality(Modality.APPLICATION_MODAL);
                 newStage.showAndWait();
@@ -169,7 +166,7 @@ public class LeerlingHoofdschermController {
         String url = "jdbc:postgresql://localhost/SDGP";
         Properties props = new Properties();
         props.setProperty("user","postgres");
-        props.setProperty("password","ruben");
+        props.setProperty("password","united");
         Connection con = DriverManager.getConnection(url, props);
         Statement stmt = con.createStatement();
         ObservableList<Les> lessen = FXCollections.observableArrayList();

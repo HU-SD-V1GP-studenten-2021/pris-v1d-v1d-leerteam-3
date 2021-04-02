@@ -42,7 +42,7 @@ public class LoginSchermController {
         String url = "jdbc:postgresql://localhost/SDGP";
         Properties props = new Properties();
         props.setProperty("user","postgres");
-        props.setProperty("password","ruben");
+        props.setProperty("password","united");
         Connection conn = DriverManager.getConnection(url, props);
 
         if(!naam.contains("@student.hu.nl") &&!naam.contains("@hu.nl")){
@@ -151,21 +151,14 @@ public class LoginSchermController {
 
                             }
                         }
- //                        ResultSet rollcallMaken = stmt.executeQuery("SELECT count(*) FROM afwezigheid " +
-//                                "WHERE studentnummer = " + studentnummer);
 
-                        ResultSet rollcallMaken = stmt.executeQuery("SELECT count(*) FROM afwezigheid " +
+                        ResultSet rollcallMaken = stmt.executeQuery("SELECT count(*) AS total FROM afwezigheid " +
                                 "WHERE studentnummer = " + studentnummer);
+                        rollcallMaken.next();
+                        int aantal = rollcallMaken.getInt("total");
+                        double totaal = 100 - (100 / user.getKlas().getTotaalAantalLessen()) * aantal;
 
-                        int aantal = 0;
-                        while(rollcallMaken.next()){
-                            aantal ++;
-                        }
-                        System.out.println(aantal);
-                        System.out.println(user.getKlas().getTotaalAantalLessen());
-                        double bereken = 100 - (100 / user.getKlas().getTotaalAantalLessen() * aantal);
-                        System.out.println("roll call: " + bereken);
-                        user.setRollCall(bereken);
+                        user.setRollCall(totaal);
 
                         try{
                             loginscherm.close();
@@ -173,7 +166,7 @@ public class LoginSchermController {
                             Parent root = (Parent) fxmlLoader.load();
                             Stage stage = new Stage();
                             stage.setTitle("Lessen");
-                            stage.getIcons().add(new Image("src/LogoManufactra500pxBeeldmerk.png"));
+                            stage.getIcons().add(new Image("HU.png"));
                             stage.setScene(new Scene(root));
                             stage.show();
                         }
@@ -328,7 +321,7 @@ public class LoginSchermController {
                             Stage stage = new Stage();
                             stage.setTitle("Les presentie");
                             stage.setScene(new Scene(root));
-                            stage.getIcons().add(new Image("src/LogoManufactra500pxBeeldmerk.png"));
+                            stage.getIcons().add(new Image("HU.png"));
                             stage.show();
                         }
                         catch (Exception ignored){
