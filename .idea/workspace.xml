@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="0b191512-30ba-4dda-83c1-1f32a0238d20" name="Default Changelist" comment="Merge remote-tracking branch 'origin/main' into main">
       <change afterPath="$PROJECT_DIR$/src/userInterfaceLaag/BevestigingAanmelden.fxml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/userInterfaceLaag/BevestigingAanmeldenController.java" afterDir="false" />
@@ -19,6 +20,9 @@
       <change beforePath="$PROJECT_DIR$/src/userInterfaceLaag/LeerlingHoofdschermController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/userInterfaceLaag/LeerlingHoofdschermController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/userInterfaceLaag/LoginSchermController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/userInterfaceLaag/LoginSchermController.java" afterDir="false" />
     </list>
+=======
+    <list default="true" id="1870b15c-01a0-4397-a03e-47d933a7eef1" name="Default Changelist" comment="Merge pull request #4 from HU-SD-V1GP-studenten-2021/Ruben&#10;&#10;Ruben testen of het werkt" />
+>>>>>>> 26ffd12ac22c936f9a9778c71296b22b25e98676
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -169,6 +173,7 @@
       <option name="project" value="LOCAL" />
       <updated>1616760200586</updated>
     </task>
+<<<<<<< HEAD
     <task id="LOCAL-00004" summary="Luca test">
       <created>1616761359409</created>
       <option name="number" value="00004" />
@@ -275,6 +280,16 @@
       <updated>1617349706447</updated>
     </task>
     <option name="localTasksCounter" value="19" />
+=======
+    <task id="LOCAL-00004" summary="Merge pull request #4 from HU-SD-V1GP-studenten-2021/Ruben&#10;&#10;Ruben testen of het werkt">
+      <created>1616760534708</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1616760534708</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
+>>>>>>> 26ffd12ac22c936f9a9778c71296b22b25e98676
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
