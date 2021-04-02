@@ -80,10 +80,12 @@ public class LoginSchermController {
                         int klasnummer = userGegevens.getInt("klasnummer");
                         String klasnaam = userGegevens.getString("klasnaam");
 
+
                         Klas klas = new Klas(klasnummer, klasnaam);
                         Student user = new Student(usernaam, userstudentnummer, email, status, pogingen, rollcall, userwachtwoord);
                         user.setKlas(klas);
                         klas.voegStudentToe(user);
+
 
                         Student.setAccount(user);
 
@@ -107,6 +109,7 @@ public class LoginSchermController {
                             alleLessen.add(les);
 
                         }
+
 
                         ResultSet docent = stmt.executeQuery("SELECT docent.docentnummer, naam, email, status, pogingen, wachtwoord from docent " +
                                 "join les l on docent.docentnummer = l.docentnummer " +
@@ -147,9 +150,15 @@ public class LoginSchermController {
                                 klas.voegStudentToe(s1);
 
                             }
-
                         }
 
+                        ResultSet rollcallMaken = stmt.executeQuery("SELECT count(*) AS total FROM afwezigheid " +
+                                "WHERE studentnummer = " + studentnummer);
+                        rollcallMaken.next();
+                        int aantal = rollcallMaken.getInt("total");
+                        double totaal = 100 - (100 / user.getKlas().getTotaalAantalLessen()) * aantal;
+
+                        user.setRollCall(totaal);
 
                         try{
                             loginscherm.close();
@@ -157,7 +166,7 @@ public class LoginSchermController {
                             Parent root = (Parent) fxmlLoader.load();
                             Stage stage = new Stage();
                             stage.setTitle("Lessen");
-                            stage.getIcons().add(new Image("src/LogoManufactra500pxBeeldmerk.png"));
+                            stage.getIcons().add(new Image("HU.png"));
                             stage.setScene(new Scene(root));
                             stage.show();
                         }
@@ -312,7 +321,7 @@ public class LoginSchermController {
                             Stage stage = new Stage();
                             stage.setTitle("Les presentie");
                             stage.setScene(new Scene(root));
-                            stage.getIcons().add(new Image("src/LogoManufactra500pxBeeldmerk.png"));
+                            stage.getIcons().add(new Image("HU.png"));
                             stage.show();
                         }
                         catch (Exception ignored){

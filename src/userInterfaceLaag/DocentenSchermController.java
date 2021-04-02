@@ -12,16 +12,20 @@ import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 
+import java.lang.reflect.InvocationTargetException;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.Properties;
 
 public class DocentenSchermController {
+    public Label waarschuwingid;
+    public ImageView magister200id;
     @FXML private Rectangle rectangleBoven;
     @FXML private Button loguitKnop;
     @FXML public Label naamLabel;
@@ -47,7 +51,7 @@ public class DocentenSchermController {
         tableView1.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
         klasid.setCellValueFactory(new PropertyValueFactory<>("klas"));
         datumid.setCellValueFactory(new PropertyValueFactory<>("datum"));
-        lesid.setCellValueFactory(new PropertyValueFactory<>("lesnummer"));
+        lesid.setCellValueFactory(new PropertyValueFactory<>("lesnaam"));
 
         naamid.setCellValueFactory(new PropertyValueFactory<>("naam"));
         studentid.setCellValueFactory(new PropertyValueFactory<>("studentennummer"));
@@ -72,7 +76,7 @@ public class DocentenSchermController {
         String url = "jdbc:postgresql://localhost/SDGP";
         Properties props = new Properties();
         props.setProperty("user","postgres");
-        props.setProperty("password","ruben");
+        props.setProperty("password","united");
         Connection con = DriverManager.getConnection(url, props);
         Statement stmt = con.createStatement();
         ObservableList<Student> students = FXCollections.observableArrayList();
@@ -136,10 +140,11 @@ public class DocentenSchermController {
     }
     public ObservableList<Student> getStudentenLoad(Les les) throws SQLException {
         tableView1.refresh();
+        waarschuwingid.setText("");
         String url = "jdbc:postgresql://localhost/SDGP";
         Properties props = new Properties();
         props.setProperty("user","postgres");
-        props.setProperty("password","ruben");
+        props.setProperty("password","united");
         Connection con = DriverManager.getConnection(url, props);
         Statement stmt = con.createStatement();
         ObservableList<Student> students = FXCollections.observableArrayList();
@@ -170,21 +175,18 @@ public class DocentenSchermController {
         String url = "jdbc:postgresql://localhost/SDGP";
         Properties props = new Properties();
         props.setProperty("user","postgres");
-        props.setProperty("password","ruben");
+        props.setProperty("password","united");
         Connection con = DriverManager.getConnection(url, props);
         Statement stmt = con.createStatement();
 
         try {
             ObservableList<Student> student = tableView1.getSelectionModel().getSelectedItems();
             namen.addAll(student);
-            System.out.println(student);
+
 
             for (Student i : student) {
                 int studentnummerNu = i.getStudentennummer();
-                System.out.println(studentnummerNu);
-
                 int lesnummerNu = this.les.getLesnummer();
-                System.out.println(lesnummerNu);
                 stmt.executeUpdate("INSERT INTO afwezigheid (lesnummer, studentnummer, afwezig) " +
                         "VALUES ("+ lesnummerNu + ", " + studentnummerNu + ", true )");
 
@@ -194,6 +196,10 @@ public class DocentenSchermController {
         catch (NullPointerException e){
             System.out.println(e);
         }
+        catch (Exception duplicateKey){
+            waarschuwingid.setText("Deze student(en) zijn al afwezig gemeld!");
+        }
+
     }
 
 
@@ -203,7 +209,7 @@ public class DocentenSchermController {
         String url = "jdbc:postgresql://localhost/SDGP";
         Properties props = new Properties();
         props.setProperty("user","postgres");
-        props.setProperty("password","ruben");
+        props.setProperty("password","united");
         Connection con = DriverManager.getConnection(url, props);
         Statement stmt = con.createStatement();
 
@@ -214,10 +220,10 @@ public class DocentenSchermController {
 
             for (Student i : student) {
                 int studentnummerNu = i.getStudentennummer();
-                System.out.println(studentnummerNu);
+
 
                 int lesnummerNu = this.les.getLesnummer();
-                System.out.println(lesnummerNu);
+
                 stmt.executeUpdate("DELETE FROM afwezigheid " +
                         "WHERE studentnummer = " + studentnummerNu + " AND lesnummer = " + lesnummerNu);
 
