@@ -2,63 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0b191512-30ba-4dda-83c1-1f32a0238d20" name="Default Changelist" comment="Commit 02-04">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Java_EE_6_Java_EE_6.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javax.annotation.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javax.ejb.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javax.jms.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javax.mail.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javax.persistence.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javax.resource.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javax.servlet.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javax.servlet.jsp.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javax.servlet.jsp.jstl.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javax.transaction.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/Groepsproject/.idea/dataSources/25600afb-d0ef-44fc-847d-d3c868762ab4/storage_v2/_src_/database/SDGP.-sImAA/schema/public.abK9xQ.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/LogoManufactra500pxBeeldmerk.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/21b105fb-680d-409b-bba2-88ac42ec5e63/storage_v2/_src_/database/SDGP.-sImAA.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/21b105fb-680d-409b-bba2-88ac42ec5e63/storage_v2/_src_/database/SDGP.-sImAA.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/63aaf5c9-3f44-410b-bd8e-839882b2565f.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/63aaf5c9-3f44-410b-bd8e-839882b2565f/storage_v2/_src_/database/SDGP.-sImAA.meta" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Groepsproject/.idea/dataSources/25600afb-d0ef-44fc-847d-d3c868762ab4/storage_v2/_src_/database/SDGP.-sImAA.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/63aaf5c9-3f44-410b-bd8e-839882b2565f/storage_v2/_src_/database/SDGP.-sImAA/schema/information_schema.FNRwLQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Groepsproject/.idea/dataSources/25600afb-d0ef-44fc-847d-d3c868762ab4/storage_v2/_src_/database/SDGP.-sImAA/schema/information_schema.FNRwLQ.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/63aaf5c9-3f44-410b-bd8e-839882b2565f/storage_v2/_src_/database/SDGP.-sImAA/schema/pg_catalog.0S1ZNQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Groepsproject/.idea/dataSources/25600afb-d0ef-44fc-847d-d3c868762ab4/storage_v2/_src_/database/SDGP.-sImAA/schema/pg_catalog.0S1ZNQ.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Groepsproject.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Groepsproject.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Groepsproject/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/.idea/dataSources/1fe57a6c-ebd8-4847-93f0-21068ed09cc3.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Groepsproject/.idea/dataSources/25600afb-d0ef-44fc-847d-d3c868762ab4.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/.idea/dataSources/1fe57a6c-ebd8-4847-93f0-21068ed09cc3/storage_v2/_src_/database/SDGP.-sImAA.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/.idea/dataSources/1fe57a6c-ebd8-4847-93f0-21068ed09cc3/storage_v2/_src_/database/SDGP.-sImAA/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/.idea/dataSources/1fe57a6c-ebd8-4847-93f0-21068ed09cc3/storage_v2/_src_/database/SDGP.-sImAA/schema/pg_catalog.0S1ZNQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/.idea/dataSources/1fe57a6c-ebd8-4847-93f0-21068ed09cc3/storage_v2/_src_/database/SDGP.-sImAA/schema/public.abK9xQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/.idea/dataSources/63aaf5c9-3f44-410b-bd8e-839882b2565f.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/.idea/dataSources/63aaf5c9-3f44-410b-bd8e-839882b2565f/storage_v2/_src_/database/SDGP.-sImAA.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/.idea/dataSources/63aaf5c9-3f44-410b-bd8e-839882b2565f/storage_v2/_src_/database/SDGP.-sImAA/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/.idea/dataSources/63aaf5c9-3f44-410b-bd8e-839882b2565f/storage_v2/_src_/database/SDGP.-sImAA/schema/pg_catalog.0S1ZNQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Groepsproject/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/Magister200app.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Groepsproject/Magister200app.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/domeinLaag/Les.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Groepsproject/domeinLaag/Les.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/domeinLaag/Student.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Groepsproject/domeinLaag/Student.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/src/userInterfaceLaag/AfmeldenScherm.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Groepsproject/src/userInterfaceLaag/AfmeldenScherm.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/src/userInterfaceLaag/DocentenScherm.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Groepsproject/src/userInterfaceLaag/DocentenScherm.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/src/userInterfaceLaag/LeerlingHoofdscherm.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Groepsproject/src/userInterfaceLaag/LeerlingHoofdscherm.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/src/userInterfaceLaag/LoginScherm.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Groepsproject/src/userInterfaceLaag/LoginScherm.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/userInterfaceLaag/AfmeldenScherm.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Groepsproject/userInterfaceLaag/AfmeldenScherm.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/userInterfaceLaag/AfmeldenSchermController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Groepsproject/userInterfaceLaag/AfmeldenSchermController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/userInterfaceLaag/DocentenScherm.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Groepsproject/userInterfaceLaag/DocentenScherm.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/userInterfaceLaag/DocentenSchermController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Groepsproject/userInterfaceLaag/DocentenSchermController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/userInterfaceLaag/LeerlingHoofdscherm.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Groepsproject/userInterfaceLaag/LeerlingHoofdscherm.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/userInterfaceLaag/LeerlingHoofdschermController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Groepsproject/userInterfaceLaag/LeerlingHoofdschermController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/userInterfaceLaag/LoginScherm.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Groepsproject/userInterfaceLaag/LoginScherm.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/javax.mail.jar" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/userInterfaceLaag/LoginSchermController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Groepsproject/userInterfaceLaag/LoginSchermController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Magister200app.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Magister200app.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/domeinLaag/Les.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/domeinLaag/Les.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/domeinLaag/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/domeinLaag/Student.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/userInterfaceLaag/AfmeldenScherm.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/userInterfaceLaag/AfmeldenScherm.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/userInterfaceLaag/AfmeldenSchermController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/userInterfaceLaag/AfmeldenSchermController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/userInterfaceLaag/DocentenScherm.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/userInterfaceLaag/DocentenScherm.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/userInterfaceLaag/DocentenSchermController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/userInterfaceLaag/DocentenSchermController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/userInterfaceLaag/LeerlingHoofdscherm.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/userInterfaceLaag/LeerlingHoofdscherm.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/userInterfaceLaag/LeerlingHoofdschermController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/userInterfaceLaag/LeerlingHoofdschermController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/userInterfaceLaag/LoginScherm.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/userInterfaceLaag/LoginScherm.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/userInterfaceLaag/LoginSchermController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/userInterfaceLaag/LoginSchermController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
