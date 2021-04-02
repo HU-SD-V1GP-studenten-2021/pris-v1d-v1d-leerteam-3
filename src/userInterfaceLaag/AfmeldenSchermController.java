@@ -10,10 +10,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.stage.Stage;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
@@ -35,9 +32,6 @@ public class AfmeldenSchermController {
         stage.close();
     }
 
-
-
-
     public void afmelden(ActionEvent actionEvent) throws SQLException, InterruptedException {
 
         String reden = redenid.getText();
@@ -46,12 +40,11 @@ public class AfmeldenSchermController {
 
 
         int lesnummer = LeerlingHoofdschermController.lesnummer;
-        System.out.println(lesnummer);
 
         String url = "jdbc:postgresql://localhost/SDGP";
         Properties props = new Properties();
         props.setProperty("user","postgres");
-        props.setProperty("password","ruben");
+        props.setProperty("password","united");
         Connection conn = DriverManager.getConnection(url, props);
         try{
         Statement stmt = conn.createStatement();
@@ -64,9 +57,17 @@ public class AfmeldenSchermController {
                     "WHERE studentnummer = " + studentnummer + " AND lesnummer = " + lesnummer);
         }
 
+
+        Statement stmt1 = conn.createStatement();
+        ResultSet rollcallMaken = stmt1.executeQuery("SELECT count(*) AS total FROM afwezigheid " +
+                "WHERE studentnummer = " + studentnummer);
+        rollcallMaken.next();
+        int aantal = rollcallMaken.getInt("total");
+        double totaal = 100 - (100 / account.getKlas().getTotaalAantalLessen()) * aantal;
+        account.setRollCall(totaal);
+
         Button source = (Button)actionEvent.getSource();
         Stage stage = (Stage)source.getScene().getWindow();
-
         stage.close();
     }
 }

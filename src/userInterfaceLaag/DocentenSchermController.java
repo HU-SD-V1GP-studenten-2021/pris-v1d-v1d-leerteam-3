@@ -12,6 +12,7 @@ import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Rectangle;
@@ -24,6 +25,7 @@ import java.util.Properties;
 
 public class DocentenSchermController {
     public Label waarschuwingid;
+    public ImageView magister200id;
     @FXML private Rectangle rectangleBoven;
     @FXML private Button loguitKnop;
     @FXML public Label naamLabel;
@@ -74,7 +76,7 @@ public class DocentenSchermController {
         String url = "jdbc:postgresql://localhost/SDGP";
         Properties props = new Properties();
         props.setProperty("user","postgres");
-        props.setProperty("password","ruben");
+        props.setProperty("password","united");
         Connection con = DriverManager.getConnection(url, props);
         Statement stmt = con.createStatement();
         ObservableList<Student> students = FXCollections.observableArrayList();
@@ -142,7 +144,7 @@ public class DocentenSchermController {
         String url = "jdbc:postgresql://localhost/SDGP";
         Properties props = new Properties();
         props.setProperty("user","postgres");
-        props.setProperty("password","ruben");
+        props.setProperty("password","united");
         Connection con = DriverManager.getConnection(url, props);
         Statement stmt = con.createStatement();
         ObservableList<Student> students = FXCollections.observableArrayList();
@@ -173,7 +175,7 @@ public class DocentenSchermController {
         String url = "jdbc:postgresql://localhost/SDGP";
         Properties props = new Properties();
         props.setProperty("user","postgres");
-        props.setProperty("password","ruben");
+        props.setProperty("password","united");
         Connection con = DriverManager.getConnection(url, props);
         Statement stmt = con.createStatement();
 
@@ -184,10 +186,7 @@ public class DocentenSchermController {
 
             for (Student i : student) {
                 int studentnummerNu = i.getStudentennummer();
-
-
                 int lesnummerNu = this.les.getLesnummer();
-
                 stmt.executeUpdate("INSERT INTO afwezigheid (lesnummer, studentnummer, afwezig) " +
                         "VALUES ("+ lesnummerNu + ", " + studentnummerNu + ", true )");
 
@@ -210,7 +209,7 @@ public class DocentenSchermController {
         String url = "jdbc:postgresql://localhost/SDGP";
         Properties props = new Properties();
         props.setProperty("user","postgres");
-        props.setProperty("password","ruben");
+        props.setProperty("password","united");
         Connection con = DriverManager.getConnection(url, props);
         Statement stmt = con.createStatement();
 
