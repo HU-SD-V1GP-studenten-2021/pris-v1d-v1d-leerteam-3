@@ -44,7 +44,7 @@ public class AfmeldenSchermController {
         String url = "jdbc:postgresql://localhost/SDGP";
         Properties props = new Properties();
         props.setProperty("user","postgres");
-        props.setProperty("password","united");
+        props.setProperty("password","ruben");
         Connection conn = DriverManager.getConnection(url, props);
         try{
         Statement stmt = conn.createStatement();
