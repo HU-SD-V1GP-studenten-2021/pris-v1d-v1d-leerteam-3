@@ -7,6 +7,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Side;
@@ -16,12 +17,14 @@ import javafx.scene.Scene;
 import javafx.scene.chart.PieChart;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.Border;
 import javafx.scene.layout.Pane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 import java.io.IOException;
 import java.sql.*;
@@ -36,6 +39,8 @@ public class LeerlingHoofdschermController {
     public static int lesnummer;
     public static Les les;
     public DatePicker datepickerid;
+    public Button volgendeDagButton;
+    public Button toonVorigeDagButton;
     @FXML private Button loguitKnop;
     @FXML private Label naamLabel;
     @FXML private TableView aanwezigheidsTabel;
@@ -46,7 +51,8 @@ public class LeerlingHoofdschermController {
     @FXML private TableColumn<Klas, String> aanwezigid;
     @FXML private PieChart rollCallAttendance;
     private Student student = Student.getAccount();
-
+    private double xOffset;
+    private double yOffset;
 
     public void initialize() throws SQLException {
 
@@ -81,7 +87,7 @@ public class LeerlingHoofdschermController {
         String url = "jdbc:postgresql://localhost/SDGP";
         Properties props = new Properties();
         props.setProperty("user","postgres");
-        props.setProperty("password","ruben");
+        props.setProperty("password","united");
         Connection con = DriverManager.getConnection(url, props);
         Statement stmt = con.createStatement();
         ObservableList<Les> lessen = FXCollections.observableArrayList();
@@ -113,8 +119,9 @@ public class LeerlingHoofdschermController {
             FXMLLoader loader = new FXMLLoader();
             Pane root = loader.load(getClass().getResource("/userInterfaceLaag/LoginScherm.fxml"));
             Scene scene = new Scene(root);
-            stage.setTitle("iets");
+            stage.setTitle("Login");
             stage.setScene(scene);
+            stage.getIcons().add(new Image("src/LogoManufactra500pxBeeldmerk.png"));
             stage.show();
 
         } catch (Exception e) {
@@ -133,6 +140,8 @@ public class LeerlingHoofdschermController {
                 Stage newStage = new Stage();
                 newStage.setTitle("Afmelden");
                 newStage.setScene(new Scene(root));
+                newStage.getIcons().add(new Image("src/LogoManufactra500pxBeeldmerk.png"));
+                newStage.initStyle(StageStyle.UNDECORATED);
                 newStage.initModality(Modality.APPLICATION_MODAL);
                 newStage.showAndWait();
                 initialize();
@@ -152,7 +161,7 @@ public class LeerlingHoofdschermController {
         String url = "jdbc:postgresql://localhost/SDGP";
         Properties props = new Properties();
         props.setProperty("user","postgres");
-        props.setProperty("password","ruben");
+        props.setProperty("password","united");
         Connection con = DriverManager.getConnection(url, props);
         Statement stmt = con.createStatement();
         ObservableList<Les> lessen = FXCollections.observableArrayList();
@@ -174,8 +183,15 @@ public class LeerlingHoofdschermController {
         }
         return lessen;
     }
+
+    public void toonVorigeDag(ActionEvent actionEvent) {
+        LocalDate dagEerder = datepickerid.getValue().minusDays(1);
+        datepickerid.setValue(dagEerder);
+    }
+
+    public void toonVolgendeDag(ActionEvent actionEvent) {
+        LocalDate dagLater = datepickerid.getValue().plusDays(1);
+        datepickerid.setValue(dagLater);
+    }
 }
-/** alle lessen van een student voor localdate.now
- *  van die lessen wil je de aanwezigheid van de student
- *  dan 100 / lessen.size()
- */
+
