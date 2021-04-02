@@ -48,10 +48,6 @@ public class AfmeldenSchermController {
         props.setProperty("password","Omar1994");
         Connection conn = DriverManager.getConnection(url, props);
         Statement stmt = conn.createStatement();
-//        AanwezigheidPerLesPerStudent afwezig = new AanwezigheidPerLesPerStudent(les,account,true,reden);
-//        account.voegPresentieToe(afwezig);
-//        les.voegafwezigeVanDezeLesToe(afwezig);
-//        System.out.println(account.getPresentie());
         stmt.executeUpdate("INSERT INTO afwezigheid (lesnummer, studentnummer, afwezig, reden) VALUES (" + lesnummer + ", " + studentnummer + ", true, '"
                 + reden + "')");
 

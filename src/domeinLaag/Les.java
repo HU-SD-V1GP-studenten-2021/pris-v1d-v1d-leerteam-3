@@ -16,6 +16,7 @@ public class Les {
     private Docent docent;
     private Klas klas;
     private ArrayList<AanwezigheidPerLesPerStudent> afwezigeVanDezeLes = new ArrayList<>();
+    private String afwezigheid;
 
     public Les(int lesnummer, String lesnaam, LocalDate datum, LocalTime begintijd, LocalTime eindtijd) {
         this.lesnummer = lesnummer;
@@ -27,6 +28,14 @@ public class Les {
 
     public void voegafwezigeVanDezeLesToe(AanwezigheidPerLesPerStudent enkeleStudent){
         afwezigeVanDezeLes.add(enkeleStudent);
+    }
+
+    public String getAfwezigheid() {
+        return afwezigheid;
+    }
+
+    public void setAfwezigheid(String afwezigheid) {
+        this.afwezigheid = afwezigheid;
     }
 
     public void setKlas(Klas klas) {
