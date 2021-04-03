@@ -45,7 +45,7 @@ public class AfmeldenSchermController {
         String url = "jdbc:postgresql://localhost/SDGP";
         Properties props = new Properties();
         props.setProperty("user","postgres");
-        props.setProperty("password","Password");
+        props.setProperty("password","ruben");
         Connection conn = DriverManager.getConnection(url, props);
         Statement stmt = conn.createStatement();
         stmt.executeUpdate("INSERT INTO afwezigheid (lesnummer, studentnummer, afwezig, reden) VALUES (" + lesnummer + ", " + studentnummer + ", true, '"
