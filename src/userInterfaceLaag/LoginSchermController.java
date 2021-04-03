@@ -19,6 +19,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
+import java.beans.ExceptionListener;
 import java.sql.*;
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -56,7 +57,7 @@ public class LoginSchermController {
 
         else {
 
-
+            // Student
             if (naam.contains("@student.hu.nl")){
                 Statement stmt = conn.createStatement();
                 ResultSet rsHuidigeStudent = stmt.executeQuery("SELECT email, wachtwoord, pogingen, status, studentnummer, naam, pogingen, rollcall FROM student");
@@ -93,7 +94,6 @@ public class LoginSchermController {
                                 "FROM les l JOIN klas k on k.klasnummer = l.klasnummer " +
                                 "WHERE k.klasnummer = '" + klasnummer + "'");
 
-
                         int docentnummer = 0;
                         ArrayList<Les> alleLessen = new ArrayList<>();
                         while (lessen.next()){
@@ -113,7 +113,6 @@ public class LoginSchermController {
                         ResultSet docent = stmt.executeQuery("SELECT docent.docentnummer, naam, email, status, pogingen, wachtwoord from docent " +
                                 "join les l on docent.docentnummer = l.docentnummer " +
                                 "WHERE l.klasnummer = '" + klasnummer + "'");
-
 
                         int i = 0;
                         while (docent.next()) {
@@ -152,7 +151,6 @@ public class LoginSchermController {
 
                         }
 
-
                         try{
                             loginscherm.close();
                             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("leerlingHoofdscherm.fxml"));
@@ -187,10 +185,11 @@ public class LoginSchermController {
                     }
                     else {
                         Waarschuwing.setText("Email of wachtwoord onjuist!");
-
                     }
                 }
             }
+
+            // Docent
             else if(naam.contains("@hu.nl")){
                 wachtwoord = wachtwoordVeld.getText();
                 Statement stmt = conn.createStatement();
@@ -219,7 +218,6 @@ public class LoginSchermController {
                                 "    join klas k on k.klasnummer = l.klasnummer " +
                                 "where docent.docentnummer = " + docentnummer);
 
-
                         Klas klas = null;
                         Docent docent = null;
                         while (userGegevens.next()) {
@@ -235,8 +233,6 @@ public class LoginSchermController {
                         }
 
                         Docent.setAccount(docent);
-
-
 
                         ResultSet lessen = stmt.executeQuery("SELECT l.lesnummer, l.datum, l.begintijd, l.eindtijd, l.lesnaam FROM les l " +
                                 "    JOIN klas k on k.klasnummer = l.klasnummer " +
@@ -257,16 +253,10 @@ public class LoginSchermController {
                             alleLessen.add(les);
                         }
 
-
-
-//                        }
-
-
                         ResultSet docentles = stmt.executeQuery("select docent.docentnummer, naam, email, status, pogingen, wachtwoord from docent" +
                                 "    join les l on docent.docentnummer = l.docentnummer " +
                                 "    join klas k on k.klasnummer = l.klasnummer " +
                                 "where docent.docentnummer = '" + docentnummer + "'");
-
 
                         int i = 0;
                         while (docentles.next()) {
@@ -280,14 +270,12 @@ public class LoginSchermController {
                             i++;
                         }
 
-
                         for (Klas k : alleKlassen) {
                             ResultSet alleStudenten = stmt.executeQuery("select studentnummer, naam, email, status, pogingen, rollcall, wachtwoord from student " +
                                     "    join klas k on k.klasnummer = student.klasnummer " +
                                     "where k.klasnummer = '" + k.getKlasnummer() + "'");
 
                             while (alleStudenten.next()) {
-//                                System.out.println(alleStudenten.getString("naam"));
                                 int studentnummer = alleStudenten.getInt("studentnummer");
                                 String naamStudent = alleStudenten.getString("naam");
                                 String email = alleStudenten.getString("email");
@@ -303,8 +291,6 @@ public class LoginSchermController {
 
                             }
                         }
-
-
 
                         try{
 
@@ -343,7 +329,6 @@ public class LoginSchermController {
                     }
                     else {
                         Waarschuwing.setText("Email of wachtwoord onjuist!");
-
                     }
                 }
             }
@@ -353,10 +338,57 @@ public class LoginSchermController {
     public void setStatusDocent(ActionEvent actionEvent) {
     }
 
-    public void handleMousClickWachtwoordVergeten(MouseEvent mouseEvent) {
-        new EmailSender("jens.rijks@student.hu.nl","Wachtwoord vergeten","Geachte " + "student" + ", \n \nU heeft geklikt op 'wachtwoord vergeten', dit is uw wachtwoord :\n" + "wachtwoord" + ".");
+    public void handleMousClickWachtwoordVergeten(MouseEvent mouseEvent) throws Exception {
+        String naam = naamVeld.getText();
+        String wachtwoord = wachtwoordVeld.getText();
+        Stage loginscherm = (Stage) loginKnop.getScene().getWindow();
+        String url = "jdbc:postgresql://localhost/SDGP";
+        Properties props = new Properties();
+        props.setProperty("user","postgres");
+        props.setProperty("password","Password");
+        Connection conn = DriverManager.getConnection(url, props);
 
+        // Student
+        try {
+            if (naam.contains("@student.hu.nl")){
+                Statement stmt = conn.createStatement();
+                ResultSet rsHuidigeStudent = stmt.executeQuery("SELECT email, wachtwoord, pogingen, status, studentnummer, naam, pogingen, rollcall FROM student");
+                while(rsHuidigeStudent.next()){
+                    if(rsHuidigeStudent.getString("email").equals(naam)){
+                        int userstudentnummer = rsHuidigeStudent.getInt("studentnummer");
 
+                        ResultSet userGegevens = stmt.executeQuery("SELECT studentnummer, naam, email, status, pogingen, rollcall, wachtwoord FROM student " +
+                                "WHERE studentnummer = " + userstudentnummer);
 
+                        userGegevens.next();
+
+                        String usernaam = userGegevens.getString("naam");
+                        String userwachtwoord = userGegevens.getString("wachtwoord");
+
+                        new EmailSender(naam, "Wachtwoord vergeten", "Geachte " + usernaam + ", \n \nU heeft geklikt op 'wachtwoord vergeten', dit is uw wachtwoord :\n" + userwachtwoord);
+                    }
+                }
+            }
+        // Docent
+        else if (naam.contains("@hu.nl")) {
+                Statement stmt = conn.createStatement();
+                ResultSet rs = stmt.executeQuery("SELECT email, wachtwoord, pogingen, status, docentnummer FROM docent");
+                while (rs.next()) {
+                    int userdocentnummer = rs.getInt("docentnummer");
+                    if (rs.getString("email").equals(naam)) {
+
+                        ResultSet userGegevens = stmt.executeQuery("select docentnummer, naam, email, status, pogingen, wachtwoord from docent " +
+                                "where docentnummer = " + userdocentnummer);
+
+                        userGegevens.next();
+                        String usernaam = userGegevens.getString("naam");
+                        String userwachtwoord = userGegevens.getString("wachtwoord");
+
+                        new EmailSender(naam, "Wachtwoord vergeten", "Geachte " + usernaam + ", \n \nU heeft geklikt op 'wachtwoord vergeten', dit is uw wachtwoord :\n" + userwachtwoord);
+                    }
+                }
+            }
+        }catch (Exception e) {
+        }
     }
 }
