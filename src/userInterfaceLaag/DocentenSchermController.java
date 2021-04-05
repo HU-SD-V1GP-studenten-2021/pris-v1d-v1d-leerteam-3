@@ -9,6 +9,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -16,8 +17,10 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Rectangle;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.sql.*;
 import java.util.ArrayList;
@@ -75,8 +78,8 @@ public class DocentenSchermController {
     public ObservableList<Student> getStudenten() throws SQLException {
         String url = "jdbc:postgresql://localhost/SDGP";
         Properties props = new Properties();
-        props.setProperty("user","postgres");
-        props.setProperty("password","united");
+        props.setProperty("user","omara");
+        props.setProperty("password","Omar1994");
         Connection con = DriverManager.getConnection(url, props);
         Statement stmt = con.createStatement();
         ObservableList<Student> students = FXCollections.observableArrayList();
@@ -143,8 +146,8 @@ public class DocentenSchermController {
         waarschuwingid.setText("");
         String url = "jdbc:postgresql://localhost/SDGP";
         Properties props = new Properties();
-        props.setProperty("user","postgres");
-        props.setProperty("password","united");
+        props.setProperty("user","omara");
+        props.setProperty("password","Omar1994");
         Connection con = DriverManager.getConnection(url, props);
         Statement stmt = con.createStatement();
         ObservableList<Student> students = FXCollections.observableArrayList();
@@ -169,13 +172,21 @@ public class DocentenSchermController {
 //        students.addAll(les.getKlas().getStudenten());
         return students;
     }
-    public void handleButtonAfmelden(ActionEvent actionEvent) throws SQLException {
+    public void handleButtonAfmelden(ActionEvent actionEvent) throws SQLException, IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("BevestigingAfmelden.fxml"));
+        Parent root = loader.load();
+        Stage newStage = new Stage();
+        newStage.setScene(new Scene(root));
+        newStage.initModality(Modality.APPLICATION_MODAL);
+        newStage.showAndWait();
+
+
         ObservableList<ObservableList> namen = FXCollections.observableArrayList();
 
         String url = "jdbc:postgresql://localhost/SDGP";
         Properties props = new Properties();
-        props.setProperty("user","postgres");
-        props.setProperty("password","united");
+        props.setProperty("user","omara");
+        props.setProperty("password","Omar1994");
         Connection con = DriverManager.getConnection(url, props);
         Statement stmt = con.createStatement();
 
@@ -203,13 +214,22 @@ public class DocentenSchermController {
     }
 
 
-    public void handleButtonAanmelden(ActionEvent actionEvent) throws SQLException {
+    public void handleButtonAanmelden(ActionEvent actionEvent) throws SQLException, IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("BevestigingAanmelden.fxml"));
+        Parent root = loader.load();
+        Stage newStage = new Stage();
+        newStage.setScene(new Scene(root));
+        newStage.initModality(Modality.APPLICATION_MODAL);
+        newStage.showAndWait();
+
+
+
         ObservableList<ObservableList> namen = FXCollections.observableArrayList();
 
         String url = "jdbc:postgresql://localhost/SDGP";
         Properties props = new Properties();
-        props.setProperty("user","postgres");
-        props.setProperty("password","united");
+        props.setProperty("user","omara");
+        props.setProperty("password","Omar1994");
         Connection con = DriverManager.getConnection(url, props);
         Statement stmt = con.createStatement();
 
