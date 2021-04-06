@@ -37,8 +37,6 @@ public class BevestigingAanmeldenController {
         try {
             ObservableList<Student> student = DocentenSchermController.view1.getSelectionModel().getSelectedItems();
             namen.addAll(student);
-
-
             for (Student i : student) {
                 int studentnummerNu = i.getStudentennummer();
 

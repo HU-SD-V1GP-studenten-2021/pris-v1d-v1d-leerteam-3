@@ -219,5 +219,14 @@ public class LeerlingHoofdschermController {
         LocalDate dagLater = datepickerid.getValue().plusDays(1);
         datepickerid.setValue(dagLater);
     }
+    public void toonVolgendeWeek(ActionEvent actionEvent) {
+        LocalDate weekLater = datepickerid.getValue().plusDays(7);
+        datepickerid.setValue(weekLater);
+    }
+
+    public void toonVorigeWeek(ActionEvent actionEvent) {
+        LocalDate weekEerder = datepickerid.getValue().minusDays(7);
+        datepickerid.setValue(weekEerder);
+    }
 }
 

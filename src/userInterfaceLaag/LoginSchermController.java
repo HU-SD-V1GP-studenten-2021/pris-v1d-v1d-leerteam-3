@@ -56,13 +56,12 @@ public class LoginSchermController {
                 while(rsHuidigeStudent.next()){
                     int studentnummer = rsHuidigeStudent.getInt("studentnummer");
                     if(rsHuidigeStudent.getString("email").equalsIgnoreCase(naam) && rsHuidigeStudent.getString("wachtwoord").equals(wachtwoord) && !rsHuidigeStudent.getBoolean("status")){
-                        int userstudentnummer = rsHuidigeStudent.getInt("studentnummer");
 
                         stmt.executeUpdate("UPDATE student SET pogingen = 0 WHERE studentnummer = " + studentnummer);
 
                         ResultSet userGegevens = stmt.executeQuery("SELECT studentnummer, naam, email, status, pogingen, rollcall, wachtwoord, k.klasnummer, k.klasnaam FROM student " +
                                 "join klas k on k.klasnummer = student.klasnummer " +
-                                "WHERE studentnummer = " + userstudentnummer);
+                                "WHERE studentnummer = " + studentnummer);
 
                         userGegevens.next();
 
@@ -77,7 +76,7 @@ public class LoginSchermController {
 
 
                         Klas klas = new Klas(klasnummer, klasnaam);
-                        Student user = new Student(usernaam, userstudentnummer, email, status, pogingen, rollcall, userwachtwoord);
+                        Student user = new Student(usernaam, studentnummer, email, status, pogingen, rollcall, userwachtwoord);
                         user.setKlas(klas);
                         klas.voegStudentToe(user);
 

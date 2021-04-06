@@ -63,6 +63,18 @@ public class DocentenSchermController {
         rollcall.setCellValueFactory(new PropertyValueFactory<>("rollCall"));
         aanwezigid.setCellValueFactory(new PropertyValueFactory<>("afwezigheid"));
 
+        tableView1.setRowFactory(tv -> new TableRow<Student>() {
+            @Override
+            protected void updateItem(Student    item, boolean empty) {
+                super.updateItem(item, empty);
+                if (item == null || item.getAfwezigheid() == null)
+                    setStyle("");
+                else if (item.getAfwezigheid().equals("Afwezig"))
+                    setStyle("-fx-background-color: #ffd7d1;");
+                else
+                    setStyle("");
+            }
+        });
 
 
         tableView2.setItems(getLessen());
