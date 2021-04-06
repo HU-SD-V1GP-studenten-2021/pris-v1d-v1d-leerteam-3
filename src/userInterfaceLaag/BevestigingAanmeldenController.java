@@ -29,21 +29,14 @@ public class BevestigingAanmeldenController {
 
         String url = "jdbc:postgresql://localhost/SDGP";
         Properties props = new Properties();
-        props.setProperty("user","omara");
-        props.setProperty("password","Omar1994");
+        props.setProperty("user","postgres");
+        props.setProperty("password","ruben");
         Connection con = DriverManager.getConnection(url, props);
         Statement stmt = con.createStatement();
 
         try {
-
-
-
-
             ObservableList<Student> student = DocentenSchermController.view1.getSelectionModel().getSelectedItems();
-            System.out.println(student);
             namen.addAll(student);
-            System.out.println(student);
-
             for (Student i : student) {
                 int studentnummerNu = i.getStudentennummer();
 
@@ -54,7 +47,6 @@ public class BevestigingAanmeldenController {
                         "WHERE studentnummer = " + studentnummerNu + " AND lesnummer = " + lesnummerNu);
 
             }
-            docentenSchermController.getStudentenLoad(this.docentenSchermController.les);
 
         }
         catch (NullPointerException e){

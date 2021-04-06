@@ -20,7 +20,6 @@ import javafx.scene.shape.Rectangle;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
-import javax.swing.*;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.sql.*;
@@ -30,35 +29,30 @@ import java.util.Properties;
 public class DocentenSchermController {
     public Label waarschuwingid;
     public ImageView magister200id;
-
     @FXML private Rectangle rectangleBoven;
     @FXML private Button loguitKnop;
     @FXML public Label naamLabel;
-    @FXML public TableView tableView2;
+    @FXML private TableView tableView2;
     @FXML private TableColumn<Les, String> klasid;
     @FXML private TableColumn<Les, String> datumid;
     @FXML private TableColumn<Les, String> lesid;
 
-    @FXML public TableView tableView1;
+    @FXML private TableView tableView1;
     @FXML private TableColumn<Student, String> naamid;
     @FXML private TableColumn<Student, String> studentid;
     @FXML private TableColumn<Student, String> emailid;
     @FXML private TableColumn<Student, String> rollcall;
     @FXML private TableColumn<Student, String> aanwezigid;
 
-
     private Docent docent = Docent.getAccount();
     public static Les les;
     public static TableView view1;
     public TableView view2;
 
-
-
     public void initialize() throws Exception {
         String s = docent.getNaam();
         naamLabel.setText(s);
         tableView1.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
-
         klasid.setCellValueFactory(new PropertyValueFactory<>("klas"));
         datumid.setCellValueFactory(new PropertyValueFactory<>("datum"));
         lesid.setCellValueFactory(new PropertyValueFactory<>("lesnaam"));
@@ -69,17 +63,24 @@ public class DocentenSchermController {
         rollcall.setCellValueFactory(new PropertyValueFactory<>("rollCall"));
         aanwezigid.setCellValueFactory(new PropertyValueFactory<>("afwezigheid"));
 
-
-
+        tableView1.setRowFactory(tv -> new TableRow<Student>() {
+            @Override
+            protected void updateItem(Student    item, boolean empty) {
+                super.updateItem(item, empty);
+                if (item == null || item.getAfwezigheid() == null)
+                    setStyle("");
+                else if (item.getAfwezigheid().equals("Afwezig"))
+                    setStyle("-fx-background-color: #ffd7d1;");
+                else
+                    setStyle("");
+            }
+        });
 
 
         tableView2.setItems(getLessen());
         tableView1.setItems(getStudenten());
-
         this.view1 = tableView1;
     }
-
-
 
     public ObservableList<Les> getLessen(){
         ObservableList<Les> lessen = FXCollections.observableArrayList();
@@ -91,8 +92,8 @@ public class DocentenSchermController {
     public ObservableList<Student> getStudenten() throws SQLException {
         String url = "jdbc:postgresql://localhost/SDGP";
         Properties props = new Properties();
-        props.setProperty("user","omara");
-        props.setProperty("password","Omar1994");
+        props.setProperty("user","postgres");
+        props.setProperty("password","ruben");
         Connection con = DriverManager.getConnection(url, props);
         Statement stmt = con.createStatement();
         ObservableList<Student> students = FXCollections.observableArrayList();
@@ -159,12 +160,11 @@ public class DocentenSchermController {
         waarschuwingid.setText("");
         String url = "jdbc:postgresql://localhost/SDGP";
         Properties props = new Properties();
-        props.setProperty("user","omara");
-        props.setProperty("password","Omar1994");
+        props.setProperty("user","postgres");
+        props.setProperty("password","ruben");
         Connection con = DriverManager.getConnection(url, props);
         Statement stmt = con.createStatement();
         ObservableList<Student> students = FXCollections.observableArrayList();
-        System.out.println("jkjsdl" + les);
         for (Student student : les.getKlas().getStudenten()){
             boolean afwezig = false;
             ResultSet rs = stmt.executeQuery("SELECT afwezig FROM afwezigheid WHERE studentnummer = " +
@@ -185,33 +185,58 @@ public class DocentenSchermController {
 //        students.addAll(les.getKlas().getStudenten());
         return students;
     }
+
     public void handleButtonAfmelden(ActionEvent actionEvent) throws Exception {
+        String url = "jdbc:postgresql://localhost/SDGP";
+        Properties props = new Properties();
+        props.setProperty("user","postgres");
+        props.setProperty("password","ruben");
+        Connection con = DriverManager.getConnection(url, props);
+        Statement stmt = con.createStatement();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("BevestigingAfmelden.fxml"));
         Parent root = loader.load();
         Stage newStage = new Stage();
         newStage.setScene(new Scene(root));
         newStage.initModality(Modality.APPLICATION_MODAL);
         newStage.showAndWait();
+
+        ObservableList<Student> student = tableView1.getSelectionModel().getSelectedItems();
+        for (Student studentUpdate : student){
+            ResultSet rollcallMaken = stmt.executeQuery("SELECT count(*) AS total FROM afwezigheid " +
+                    "WHERE studentnummer = " + studentUpdate.getStudentennummer());
+            rollcallMaken.next();
+            int aantal = rollcallMaken.getInt("total");
+            double totaal = 100 - (100 / studentUpdate.getKlas().getTotaalAantalLessen()) * aantal;
+            studentUpdate.setRollCall(totaal);
+        }
         getStudentenLoad(les);
-
-
-
     }
 
 
-    public void handleButtonAanmelden(ActionEvent actionEvent) throws Exception {
+    public void handleButtonAanmelden(ActionEvent actionEvent) throws SQLException, IOException {
+        String url = "jdbc:postgresql://localhost/SDGP";
+        Properties props = new Properties();
+        props.setProperty("user","postgres");
+        props.setProperty("password","ruben");
+        Connection con = DriverManager.getConnection(url, props);
+        Statement stmt = con.createStatement();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("BevestigingAanmelden.fxml"));
         Parent root = loader.load();
         Stage newStage = new Stage();
         newStage.setScene(new Scene(root));
         newStage.initModality(Modality.APPLICATION_MODAL);
         newStage.showAndWait();
+
+        ObservableList<Student> student = tableView1.getSelectionModel().getSelectedItems();
+        for (Student studentUpdate : student){
+            ResultSet rollcallMaken = stmt.executeQuery("SELECT count(*) AS total FROM afwezigheid " +
+                    "WHERE studentnummer = " + studentUpdate.getStudentennummer());
+            rollcallMaken.next();
+            int aantal = rollcallMaken.getInt("total");
+            double totaal = 100 - (100 / studentUpdate.getKlas().getTotaalAantalLessen()) * aantal;
+            studentUpdate.setRollCall(totaal);
+        }
         getStudentenLoad(les);
-
-
-
     }
 
-
 }
-

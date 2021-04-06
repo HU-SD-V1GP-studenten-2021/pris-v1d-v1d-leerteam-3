@@ -1,11 +1,7 @@
 package userInterfaceLaag;
 
-import domeinLaag.Docent;
-import domeinLaag.Klas;
-import domeinLaag.Les;
-import domeinLaag.Student;
+import domeinLaag.*;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -17,13 +13,11 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 
 import java.sql.*;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
-import java.util.Locale;
 import java.util.Properties;
 
 public class LoginSchermController {
@@ -31,6 +25,7 @@ public class LoginSchermController {
     @FXML private PasswordField wachtwoordVeld;
     @FXML private TextField naamVeld;
     @FXML private Label Waarschuwing;
+    @FXML private Label wachtwoordVerzonden;
 
     private Student account = Student.getAccount();
     private Object Klas;
@@ -46,7 +41,7 @@ public class LoginSchermController {
         Connection conn = DriverManager.getConnection(url, props);
 
         if(!naam.contains("@student.hu.nl") &&!naam.contains("@hu.nl")){
-            Waarschuwing.setText("E-mailadres is onjuist.\nVolg het format: gebruiker@student.hu.nl");
+            Waarschuwing.setText("E-mailadres is onjuist.\nVolg het format: gebruiker@(student.)hu.nl");
         }
         else if(wachtwoord.equals("")){
             Waarschuwing.setText("Wachtwoordveld is verplicht");
@@ -60,14 +55,13 @@ public class LoginSchermController {
                 ResultSet rsHuidigeStudent = stmt.executeQuery("SELECT email, wachtwoord, pogingen, status, studentnummer, naam, pogingen, rollcall FROM student");
                 while(rsHuidigeStudent.next()){
                     int studentnummer = rsHuidigeStudent.getInt("studentnummer");
-                    if(rsHuidigeStudent.getString("email").equals(naam) && rsHuidigeStudent.getString("wachtwoord").equals(wachtwoord) && !rsHuidigeStudent.getBoolean("status")){
-                        int userstudentnummer = rsHuidigeStudent.getInt("studentnummer");
+                    if(rsHuidigeStudent.getString("email").equalsIgnoreCase(naam) && rsHuidigeStudent.getString("wachtwoord").equals(wachtwoord) && !rsHuidigeStudent.getBoolean("status")){
 
                         stmt.executeUpdate("UPDATE student SET pogingen = 0 WHERE studentnummer = " + studentnummer);
 
                         ResultSet userGegevens = stmt.executeQuery("SELECT studentnummer, naam, email, status, pogingen, rollcall, wachtwoord, k.klasnummer, k.klasnaam FROM student " +
                                 "join klas k on k.klasnummer = student.klasnummer " +
-                                "WHERE studentnummer = " + userstudentnummer);
+                                "WHERE studentnummer = " + studentnummer);
 
                         userGegevens.next();
 
@@ -82,7 +76,7 @@ public class LoginSchermController {
 
 
                         Klas klas = new Klas(klasnummer, klasnaam);
-                        Student user = new Student(usernaam, userstudentnummer, email, status, pogingen, rollcall, userwachtwoord);
+                        Student user = new Student(usernaam, studentnummer, email, status, pogingen, rollcall, userwachtwoord);
                         user.setKlas(klas);
                         klas.voegStudentToe(user);
 
@@ -183,18 +177,21 @@ public class LoginSchermController {
                         if (i == 3 || i == 4){
                             Waarschuwing.setText("Let op, je zit op " + i + " pogingen!\n" +
                                     "bij 5 wordt je geblokkerd!");
+                            wachtwoordVerzonden.setText("");
                         }
                         else if (i >= 5){
                             stmt.executeUpdate("UPDATE student SET status = true WHERE studentnummer = " + studentnummer);
                             Waarschuwing.setText("Je bent geblokkeerd!\nStuur een mailtje naar de administrator!");
+                            wachtwoordVerzonden.setText("");
                         }else{
                             Waarschuwing.setText("Email of wachtwoord onjuist!");
+                            wachtwoordVerzonden.setText("");
                         }
                         break;
                     }
                     else {
                         Waarschuwing.setText("Email of wachtwoord onjuist!");
-
+                        wachtwoordVerzonden.setText("");
                     }
                 }
             }
@@ -204,7 +201,7 @@ public class LoginSchermController {
                 ResultSet rs = stmt.executeQuery("SELECT email, wachtwoord, pogingen, status, docentnummer FROM docent");
                 while(rs.next()){
                     int docentnummer = rs.getInt("docentnummer");
-                    if(rs.getString("email").equals(naam) && rs.getString(2).equals(wachtwoord) && !rs.getBoolean("status")){
+                    if(rs.getString("email").equalsIgnoreCase(naam) && rs.getString(2).equals(wachtwoord) && !rs.getBoolean("status")){
                         stmt.executeUpdate("UPDATE docent SET pogingen = 0 WHERE docentnummer = " + docentnummer);
 
 
@@ -218,7 +215,15 @@ public class LoginSchermController {
                             String klasnaam = klassengegevens.getString("klasnaam");
                             int klasnummer = klassengegevens.getInt("klasnummer");
                             Klas k10 = new Klas(klasnummer, klasnaam);
-                            alleKlassen.add(k10);
+                            boolean boool = false;
+                            for (Klas k : alleKlassen){
+                                if (k.getKlasnummer() == k10.getKlasnummer()){
+                                    boool = true;
+                                }
+                            }
+                            if (!boool){
+                                alleKlassen.add(k10);
+                            }
                         }
 
                         ResultSet userGegevens = stmt.executeQuery("select docent.docentnummer, naam, email, status, pogingen, wachtwoord, k.klasnummer, k.klasnaam from docent " +
@@ -227,7 +232,6 @@ public class LoginSchermController {
                                 "where docent.docentnummer = " + docentnummer);
 
 
-                        Klas klas = null;
                         Docent docent = null;
                         while (userGegevens.next()) {
                             String usernaam = userGegevens.getString("naam");
@@ -235,17 +239,14 @@ public class LoginSchermController {
                             boolean status = userGegevens.getBoolean("status");
                             int pogingen = userGegevens.getInt("pogingen");
                             String userwachtwoord = userGegevens.getString("wachtwoord");
-                            int klasnummer = userGegevens.getInt("klasnummer");
-                            String klasnaam = userGegevens.getString("klasnaam");
                             docent = new Docent(usernaam, docentnummer, email, status, pogingen,userwachtwoord);
-                            klas = new Klas(klasnummer, klasnaam);
                         }
 
                         Docent.setAccount(docent);
 
 
 
-                        ResultSet lessen = stmt.executeQuery("SELECT l.lesnummer, l.datum, l.begintijd, l.eindtijd, l.lesnaam FROM les l " +
+                        ResultSet lessen = stmt.executeQuery("SELECT l.lesnummer, l.datum, l.begintijd, l.eindtijd, l.lesnaam, l.klasnummer FROM les l " +
                                 "    JOIN klas k on k.klasnummer = l.klasnummer " +
                                 "    join docent d on d.docentnummer = l.docentnummer " +
                                 "WHERE l.docentnummer = '" + docentnummer + "'");
@@ -258,9 +259,14 @@ public class LoginSchermController {
                             LocalDate datum = lessen.getDate(2).toLocalDate(); //datum
                             LocalTime begintijd = lessen.getTime(3).toLocalTime(); //begintijd
                             LocalTime eindtijd = lessen.getTime(4).toLocalTime(); //eindtijd
+                            int klasnummer = lessen.getInt(6); //klasnummer
 
                             Les les = new Les(lesnummer, lesnaam, datum, begintijd, eindtijd);
-                            les.setKlas(klas);
+                            for (Klas klas1 : alleKlassen){
+                                if (klasnummer == klas1.getKlasnummer()){
+                                    les.setKlas(klas1);
+                                }
+                            }
                             alleLessen.add(les);
                         }
 
@@ -278,7 +284,12 @@ public class LoginSchermController {
                         int i = 0;
                         while (docentles.next()) {
                             Les les = alleLessen.get(i);
-                            Klas klas1 = alleKlassen.get(i);
+                            Klas klas1 = null;
+                            for (Klas k : alleKlassen){
+                                if (les.getKlas().getKlasnummer() == k.getKlasnummer()){
+                                    klas1 = k;
+                                }
+                            }
 
                             les.setDocent(docent);
                             les.setKlas(klas1);
@@ -310,28 +321,26 @@ public class LoginSchermController {
 
                             }
                         }
-//                        for(Klas k : alleKlassen){
-//                            for(Student s : k.getStudenten()){
-//                                int studentnummer = s.getStudentennummer();
-//
-//                                ResultSet rollcallMaken = stmt.executeQuery("SELECT count(*) AS total FROM afwezigheid " +
-//                                        "WHERE studentnummer = " + studentnummer);
-//                                rollcallMaken.next();
-//
-//                                int aantallessen = rollcallMaken.getInt("total");
-//                                double totaal = 100 - (100 / s.getKlas().getTotaalAantalLessen()) * aantallessen;
-//
-//                                System.out.println(s.getNaam());
-//                                System.out.println("totale hoeveelheid lessen van de klas van de student : "+ k.getTotaalAantalLessen());
-//                                System.out.println("gesetten rollcall " + s.getRollCall());
-//                                System.out.println("aantal afwezig lessen " + aantallessen);
-//                                System.out.println("echte rollcall "+ totaal + "\n");
-//                                s.setRollCall(totaal);
-//                            }
-//                        }
+
+                        System.out.println(alleKlassen);
+                        for (Klas kl : alleKlassen){
+                            System.out.println(kl);
+                        }
 
 
+                        for(Klas k : alleKlassen){
+                            for(Student s : k.getStudenten()){
+                                int studentnummer = s.getStudentennummer();
 
+                                ResultSet rollcallMaken = stmt.executeQuery("SELECT count(*) AS total FROM afwezigheid " +
+                                        "WHERE studentnummer = " + studentnummer);
+                                rollcallMaken.next();
+
+                                int aantallessen = rollcallMaken.getInt("total");
+                                double totaal = 100 - (100 / s.getKlas().getTotaalAantalLessen()) * aantallessen;
+                                s.setRollCall(totaal);
+                            }
+                        }
                         try{
 
                             loginscherm.close();
@@ -358,17 +367,21 @@ public class LoginSchermController {
                         if (i == 3 || i == 4){
                             Waarschuwing.setText("Let op, je zit op " + i + " pogingen!\n" +
                                     "bij 5 wordt je geblokkerd!");
+                            wachtwoordVerzonden.setText("");
                         }
                         else if (i >= 5){
                             stmt.executeUpdate("UPDATE docent SET status = true WHERE docentnummer = " + docentnummer);
                             Waarschuwing.setText("Je bent geblokkeerd!\nStuur een mailtje naar de administrator!");
+                            wachtwoordVerzonden.setText("");
                         }else{
                             Waarschuwing.setText("Email of wachtwoord onjuist!");
+                            wachtwoordVerzonden.setText("");
                         }
                         break;
                     }
                     else {
                         Waarschuwing.setText("Email of wachtwoord onjuist!");
+                        wachtwoordVerzonden.setText("");
 
                     }
                 }
@@ -406,6 +419,13 @@ public class LoginSchermController {
                         String userwachtwoord = userGegevens.getString("wachtwoord");
 
                         new EmailSender(naam, "Wachtwoord vergeten", "Geachte " + usernaam + ", \n \nU heeft geklikt op 'wachtwoord vergeten', dit is uw wachtwoord :\n" + userwachtwoord);
+
+                        wachtwoordVerzonden.setText("Uw wachtwoord is naar uw email adres verzonden!");
+                        Waarschuwing.setText("");
+                    }
+                    else {
+                        Waarschuwing.setText("Dit Email-adres is niet bekend bij de hogeschool");
+                        wachtwoordVerzonden.setText("");
                     }
                 }
             }
@@ -425,10 +445,20 @@ public class LoginSchermController {
                         String userwachtwoord = userGegevens.getString("wachtwoord");
 
                         new EmailSender(naam, "Wachtwoord vergeten", "Geachte " + usernaam + ", \n \nU heeft geklikt op 'wachtwoord vergeten', dit is uw wachtwoord :\n" + userwachtwoord);
+
+                        wachtwoordVerzonden.setText("Uw wachtwoord is naar uw Email-adres verzonden!");
+                        Waarschuwing.setText("");
+                    }
+                    else {
+                        Waarschuwing.setText("Dit Email-adres is niet bekend bij de hogeschool");
+                        wachtwoordVerzonden.setText("");
                     }
                 }
             }
-        }catch (Exception e) {
-        }
+            else {
+                Waarschuwing.setText("Dit Email-adres hoort niet bij de hogeschool!");
+                wachtwoordVerzonden.setText("");
+            }
+        }catch (Exception ignored) {}
     }
 }

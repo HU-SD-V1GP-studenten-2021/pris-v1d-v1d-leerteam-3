@@ -1,4 +1,4 @@
-package userInterfaceLaag;
+package domeinLaag;
 
 
 import javax.mail.*;

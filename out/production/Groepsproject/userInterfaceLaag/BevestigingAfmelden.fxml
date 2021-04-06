@@ -3,11 +3,11 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
-<AnchorPane prefHeight="107.0" prefWidth="318.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="userInterfaceLaag.BevestigingAfmeldenController">
+<AnchorPane prefHeight="133.0" prefWidth="318.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="userInterfaceLaag.BevestigingAfmeldenController">
     <children>
-        <Button layoutX="54.0" layoutY="68.0" mnemonicParsing="false" text="Bevestiging" onAction="#bevestigingButten" />
-        <Button layoutX="179.0" layoutY="68.0" mnemonicParsing="false" text="Annuleren" onAction="#annulerenButten" />
-        <Label layoutX="17.0" layoutY="27.0" prefHeight="17.0" prefWidth="283.0" text="Weet u zeker dat u deze student(en) wilt afmelden?" />
+        <Button layoutX="54.0" layoutY="68.0" mnemonicParsing="false" onAction="#bevestigingButten" text="Bevestiging" />
+        <Button layoutX="179.0" layoutY="68.0" mnemonicParsing="false" onAction="#annulerenButten" text="Annuleren" />
+        <Label layoutX="20.0" layoutY="27.0" prefHeight="17.0" prefWidth="283.0" text="Weet u zeker dat u deze student(en) wilt afmelden?" />
+      <Label fx:id="waarschuwing" layoutX="54.0" layoutY="101.0" text="" textFill="RED" />
     </children>
 </AnchorPane>
