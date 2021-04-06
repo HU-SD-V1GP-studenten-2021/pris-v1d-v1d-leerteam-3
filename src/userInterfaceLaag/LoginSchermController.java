@@ -41,7 +41,7 @@ public class LoginSchermController {
         Stage loginscherm = (Stage) loginKnop.getScene().getWindow();
         String url = "jdbc:postgresql://localhost/SDGP";
         Properties props = new Properties();
-        props.setProperty("user","postgres");
+        props.setProperty("user","omara");
         props.setProperty("password","Omar1994");
         Connection conn = DriverManager.getConnection(url, props);
 
@@ -384,7 +384,7 @@ public class LoginSchermController {
         Stage loginscherm = (Stage) loginKnop.getScene().getWindow();
         String url = "jdbc:postgresql://localhost/SDGP";
         Properties props = new Properties();
-        props.setProperty("user","postgres");
+        props.setProperty("user","omara");
         props.setProperty("password","Omar1994");
         Connection conn = DriverManager.getConnection(url, props);
 

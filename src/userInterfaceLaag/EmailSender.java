@@ -1,8 +1,12 @@
 package userInterfaceLaag;
 
+import com.sun.jdi.connect.Transport;
+
 import javax.mail.*;
 import javax.mail.internet.*;
-import java.util.*;
+import java.net.Authenticator;
+import java.net.PasswordAuthentication;
+import java.util.Properties;
 
 public class EmailSender {
 
