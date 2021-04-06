@@ -9,46 +9,48 @@
 <?import javafx.scene.text.*?>
 
 <AnchorPane onMouseReleased="#getdatum" prefHeight="500.0" prefWidth="800.0" style="-fx-background-color: #ebe8e8;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="userInterfaceLaag.LeerlingHoofdschermController">
-   <children>
-      <Rectangle fx:id="rectangleBoven" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="32.0" smooth="false" stroke="#007bee" strokeType="OUTSIDE" width="800.0">
-         <effect>
-            <DropShadow />
-         </effect></Rectangle>
-      <Button fx:id="loguitKnop" cache="true" layoutX="733.0" layoutY="7.0" mnemonicParsing="false" onAction="#loguitEnSluiten" prefHeight="17.0" prefWidth="60.0" text="Loguit">
-         <font>
-            <Font size="9.0" />
-         </font>
-      </Button>
-      <Label fx:id="naamLabel" alignment="CENTER_RIGHT" contentDisplay="CENTER" ellipsisString="" layoutX="539.0" layoutY="7.0" prefHeight="17.0" prefWidth="182.0">
-         <font>
-            <Font name="System Bold" size="14.0" />
-         </font></Label>
-      <TableView fx:id="aanwezigheidsTabel" layoutX="39.0" layoutY="124.0" onMouseClicked="#popUpScherm" prefHeight="343.0" prefWidth="472.0">
-        <columns>
-          <TableColumn fx:id="lesid" prefWidth="74.0" text="Les" />
-          <TableColumn fx:id="datumid" prefWidth="96.0" text="Datum" />
-            <TableColumn fx:id="tijdid" prefWidth="61.0" text="Begin tijd" />
-            <TableColumn fx:id="docentid" prefWidth="134.0" text="Docent" />
-            <TableColumn fx:id="aanwezigid" prefWidth="106.0" text="Afwezig" />
-        </columns>
-      </TableView>
-      <PieChart fx:id="rollCallAttendance" cache="true" cacheShape="false" centerShape="false" focusTraversable="true" layoutX="533.0" layoutY="82.0" prefHeight="232.0" prefWidth="241.0" scaleShape="false" stylesheets="@../mystyle.css" title="Roll Call Attendance" />
-      <DatePicker fx:id="datepickerid" layoutX="188.0" layoutY="82.0" onAction="#getdatum" />
-      <Label layoutX="136.0" layoutY="82.0" text="Vanaf:">
-         <font>
-            <Font name="System Bold" size="17.0" />
-         </font>
-      </Label>
-      <Button fx:id="volgendeDagButton" layoutX="373.0" layoutY="82.0" mnemonicParsing="false" onAction="#toonVolgendeDag" text="&gt; &gt;" />
-      <Button fx:id="toonVorigeDagButton" layoutX="94.0" layoutY="82.0" mnemonicParsing="false" onAction="#toonVorigeDag" text="&lt; &lt;" />
-       <ImageView fx:id="magister200id" fitHeight="25.0" fitWidth="252.0" layoutX="9.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
-           <image>
-               <Image url="@../magister.png" />
-           </image></ImageView>
-      <Label layoutX="347.0" layoutY="7.0" text="Student">
-         <font>
-            <Font name="System Bold" size="14.0" />
-         </font>
-      </Label>
-   </children>
+    <children>
+        <Rectangle fx:id="rectangleBoven" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="32.0" smooth="false" stroke="#007bee" strokeType="OUTSIDE" width="800.0">
+            <effect>
+                <DropShadow />
+            </effect></Rectangle>
+        <Button fx:id="loguitKnop" cache="true" layoutX="733.0" layoutY="7.0" mnemonicParsing="false" onAction="#loguitEnSluiten" prefHeight="17.0" prefWidth="60.0" text="Loguit">
+            <font>
+                <Font size="9.0" />
+            </font>
+        </Button>
+        <Label fx:id="naamLabel" alignment="CENTER_RIGHT" contentDisplay="CENTER" ellipsisString="" layoutX="539.0" layoutY="7.0" prefHeight="17.0" prefWidth="182.0">
+            <font>
+                <Font name="System Bold" size="14.0" />
+            </font></Label>
+        <TableView fx:id="aanwezigheidsTabel" layoutX="39.0" layoutY="124.0" onMouseClicked="#popUpScherm" prefHeight="343.0" prefWidth="472.0" stylesheets="@../styleTableview.css">
+            <columns>
+                <TableColumn fx:id="lesid" prefWidth="74.0" text="Les" />
+                <TableColumn fx:id="datumid" prefWidth="96.0" text="Datum" />
+                <TableColumn fx:id="tijdid" prefWidth="61.0" text="Begin tijd" />
+                <TableColumn fx:id="docentid" prefWidth="134.0" text="Docent" />
+                <TableColumn fx:id="aanwezigid" prefWidth="106.0" text="Afwezig" />
+            </columns>
+        </TableView>
+        <PieChart fx:id="rollCallAttendance" cache="true" cacheShape="false" centerShape="false" focusTraversable="true" layoutX="533.0" layoutY="82.0" prefHeight="232.0" prefWidth="241.0" scaleShape="false" stylesheets="@../mystyle.css" title="Roll Call Attendance" />
+        <DatePicker fx:id="datepickerid" layoutX="188.0" layoutY="82.0" onAction="#getdatum" />
+        <Label layoutX="136.0" layoutY="82.0" text="Vanaf:">
+            <font>
+                <Font name="System Bold" size="17.0" />
+            </font>
+        </Label>
+        <Button fx:id="volgendeDagButton" layoutX="372.0" layoutY="82.0" mnemonicParsing="false" onAction="#toonVolgendeDag" text="&gt;" />
+        <Button fx:id="toonVorigeDagButton" layoutX="101.0" layoutY="82.0" mnemonicParsing="false" onAction="#toonVorigeDag" text="&lt;" />
+        <Button fx:id="volgendeWeekButton" layoutX="407.0" layoutY="82.0" mnemonicParsing="false" onAction="#toonVolgendeWeek" text="&gt;&gt;" />
+        <Button fx:id="vorigeWeekButton" layoutX="58.0" layoutY="82.0" mnemonicParsing="false" onAction="#toonVorigeWeek" text="&lt;&lt;" />
+        <ImageView fx:id="magister200id" fitHeight="25.0" fitWidth="252.0" layoutX="9.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../magister.png" />
+            </image></ImageView>
+        <Label layoutX="347.0" layoutY="7.0" text="Student">
+            <font>
+                <Font name="System Bold" size="14.0" />
+            </font>
+        </Label>
+    </children>
 </AnchorPane>

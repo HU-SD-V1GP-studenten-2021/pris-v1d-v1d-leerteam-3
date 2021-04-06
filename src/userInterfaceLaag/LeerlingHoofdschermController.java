@@ -18,6 +18,7 @@ import javafx.scene.chart.PieChart;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
+import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.Border;
@@ -82,8 +83,21 @@ public class LeerlingHoofdschermController {
         rollCallAttendance.setLegendVisible(true);
         rollCallAttendance.setStartAngle(90);
 
+        aanwezigheidsTabel.setRowFactory(tv -> new TableRow<Les>() {
+            @Override
+            protected void updateItem(Les item, boolean empty) {
+                super.updateItem(item, empty);
+                if (item == null || item.getAfwezigheid() == null)
+                    setStyle("");
+                else if (item.getAfwezigheid().equals("Afwezig"))
+                    setStyle("-fx-background-color: #ffd7d1;");
+                else
+                    setStyle("");
+            }
+        });
 
         aanwezigheidsTabel.refresh();
+
     }
 
     public ObservableList<Les> getLessen() throws SQLException {
@@ -134,26 +148,30 @@ public class LeerlingHoofdschermController {
     }
 
     public void popUpScherm(MouseEvent mouseEvent) throws IOException, SQLException{
-        try{
-            Les les = (Les) aanwezigheidsTabel.getSelectionModel().getSelectedItem();
-            this.lesnummer = les.getLesnummer();
-            this.les = les;
-            System.out.println(les.getAfwezigheid());
-            if(!les.getDatum().isBefore(LocalDate.now())){
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("AfmeldenScherm.fxml"));
-                Parent root = loader.load();
-                Stage newStage = new Stage();
-                newStage.setTitle("Afmelden");
-                newStage.setScene(new Scene(root));
-                newStage.getIcons().add(new Image("HU.png"));
-                newStage.initStyle(StageStyle.UNDECORATED);
-                newStage.initModality(Modality.APPLICATION_MODAL);
-                newStage.showAndWait();
-                initialize();
+        if (mouseEvent.getButton().equals(MouseButton.PRIMARY)){
+            if (mouseEvent.getClickCount() == 2){
+                try{
+                    Les les = (Les) aanwezigheidsTabel.getSelectionModel().getSelectedItem();
+                    this.lesnummer = les.getLesnummer();
+                    this.les = les;
+                    if(!les.getDatum().isBefore(LocalDate.now())){
+                        FXMLLoader loader = new FXMLLoader(getClass().getResource("AfmeldenScherm.fxml"));
+                        Parent root = loader.load();
+                        Stage newStage = new Stage();
+                        newStage.setTitle("Afmelden");
+                        newStage.setScene(new Scene(root));
+                        newStage.getIcons().add(new Image("HU.png"));
+                        newStage.initStyle(StageStyle.UNDECORATED);
+                        newStage.initModality(Modality.APPLICATION_MODAL);
+                        newStage.showAndWait();
+                        initialize();
+                    }
+                }
+                catch(Exception ignored){
+                }
             }
         }
-        catch(Exception ignored){
-        }
+
     }
 
     public void getdatum(Event event) throws NullPointerException, SQLException {
@@ -200,6 +218,15 @@ public class LeerlingHoofdschermController {
     public void toonVolgendeDag(ActionEvent actionEvent) {
         LocalDate dagLater = datepickerid.getValue().plusDays(1);
         datepickerid.setValue(dagLater);
+    }
+    public void toonVolgendeWeek(ActionEvent actionEvent) {
+        LocalDate weekLater = datepickerid.getValue().plusDays(7);
+        datepickerid.setValue(weekLater);
+    }
+
+    public void toonVorigeWeek(ActionEvent actionEvent) {
+        LocalDate weekEerder = datepickerid.getValue().minusDays(7);
+        datepickerid.setValue(weekEerder);
     }
 }
 
