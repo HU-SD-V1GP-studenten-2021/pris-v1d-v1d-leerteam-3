@@ -21,7 +21,7 @@
          <font>
             <Font name="System Bold" size="14.0" />
          </font></Label>
-      <TableView fx:id="tableView1" layoutX="281.0" layoutY="88.0" prefHeight="323.0" prefWidth="497.0">
+      <TableView fx:id="tableView1" layoutX="281.0" layoutY="88.0" prefHeight="323.0" prefWidth="497.0" stylesheets="@../styleTableview.css">
          <columns>
             <TableColumn fx:id="studentid" prefWidth="114.0" text="Studentnummer" />
             <TableColumn fx:id="naamid" prefWidth="92.4000244140625" text="Naam" />

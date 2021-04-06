@@ -18,6 +18,7 @@ import javafx.scene.chart.PieChart;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
+import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.Border;
@@ -30,7 +31,6 @@ import java.io.IOException;
 import java.sql.*;
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.Properties;
 
@@ -43,8 +43,6 @@ public class LeerlingHoofdschermController {
     public Button volgendeDagButton;
     public Button toonVorigeDagButton;
     public Label waarschuwingid;
-    public Button volgendeWeekButton;
-    public Button vorigeWeekButton;
     @FXML private Button loguitKnop;
     @FXML private Label naamLabel;
     @FXML private TableView aanwezigheidsTabel;
@@ -62,9 +60,9 @@ public class LeerlingHoofdschermController {
         String url = "jdbc:postgresql://localhost/SDGP";
         Properties props = new Properties();
         props.setProperty("user","postgres");
-        props.setProperty("password","united");
+        props.setProperty("password","ruben");
         Connection con = DriverManager.getConnection(url, props);
-        Statement stmt = con.createStatement();// Database
+        Statement stmt = con.createStatement();
         datepickerid.setValue(LocalDate.now());
         String s = student.getNaam();
         naamLabel.setText(s);   // in de klasse domeinLaag.Student de naam opvragen
@@ -74,6 +72,7 @@ public class LeerlingHoofdschermController {
         tijdid.setCellValueFactory(new PropertyValueFactory<>("begintijd"));
         aanwezigid.setCellValueFactory(new PropertyValueFactory<>("afwezigheid"));
         aanwezigheidsTabel.setEditable(true);
+
         aanwezigheidsTabel.setItems(getLessen());
 
         ObservableList<PieChart.Data> pieChartData = FXCollections.observableArrayList(
@@ -84,17 +83,30 @@ public class LeerlingHoofdschermController {
         rollCallAttendance.setLegendVisible(true);
         rollCallAttendance.setStartAngle(90);
 
-        System.out.println(aanwezigheidsTabel.getColumns().get(4));
+        aanwezigheidsTabel.setRowFactory(tv -> new TableRow<Les>() {
+            @Override
+            protected void updateItem(Les item, boolean empty) {
+                super.updateItem(item, empty);
+                if (item == null || item.getAfwezigheid() == null)
+                    setStyle("");
+                else if (item.getAfwezigheid().equals("Afwezig"))
+                    setStyle("-fx-background-color: #ffd7d1;");
+                else
+                    setStyle("");
+            }
+        });
+
         aanwezigheidsTabel.refresh();
+
     }
 
     public ObservableList<Les> getLessen() throws SQLException {
         String url = "jdbc:postgresql://localhost/SDGP";
         Properties props = new Properties();
         props.setProperty("user","postgres");
-        props.setProperty("password","united");
+        props.setProperty("password","ruben");
         Connection con = DriverManager.getConnection(url, props);
-        Statement stmt = con.createStatement();// Database
+        Statement stmt = con.createStatement();
         ObservableList<Les> lessen = FXCollections.observableArrayList();
         for(Les les : student.getKlas().getLessen()){
             boolean tikker = false;
@@ -136,27 +148,30 @@ public class LeerlingHoofdschermController {
     }
 
     public void popUpScherm(MouseEvent mouseEvent) throws IOException, SQLException{
-        try{
-//            System.out.println(aanwezigheidsTabel.getSelectionModel().getSelectedItem());
-            Les les = (Les) aanwezigheidsTabel.getSelectionModel().getSelectedItem();
-            this.lesnummer = les.getLesnummer();
-            this.les = les;
-            System.out.println(les.getAfwezigheid());
-            if(!les.getDatum().isBefore(LocalDate.now())){
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("AfmeldenScherm.fxml"));
-                Parent root = loader.load();
-                Stage newStage = new Stage();
-                newStage.setTitle("Afmelden");
-                newStage.setScene(new Scene(root));
-                newStage.getIcons().add(new Image("HU.png"));
-                newStage.initStyle(StageStyle.UNDECORATED);
-                newStage.initModality(Modality.APPLICATION_MODAL);
-                newStage.showAndWait();
-                initialize();
+        if (mouseEvent.getButton().equals(MouseButton.PRIMARY)){
+            if (mouseEvent.getClickCount() == 2){
+                try{
+                    Les les = (Les) aanwezigheidsTabel.getSelectionModel().getSelectedItem();
+                    this.lesnummer = les.getLesnummer();
+                    this.les = les;
+                    if(!les.getDatum().isBefore(LocalDate.now())){
+                        FXMLLoader loader = new FXMLLoader(getClass().getResource("AfmeldenScherm.fxml"));
+                        Parent root = loader.load();
+                        Stage newStage = new Stage();
+                        newStage.setTitle("Afmelden");
+                        newStage.setScene(new Scene(root));
+                        newStage.getIcons().add(new Image("HU.png"));
+                        newStage.initStyle(StageStyle.UNDECORATED);
+                        newStage.initModality(Modality.APPLICATION_MODAL);
+                        newStage.showAndWait();
+                        initialize();
+                    }
+                }
+                catch(Exception ignored){
+                }
             }
         }
-        catch(Exception ignored){
-        }
+
     }
 
     public void getdatum(Event event) throws NullPointerException, SQLException {
@@ -169,7 +184,7 @@ public class LeerlingHoofdschermController {
         String url = "jdbc:postgresql://localhost/SDGP";
         Properties props = new Properties();
         props.setProperty("user","postgres");
-        props.setProperty("password","united");
+        props.setProperty("password","ruben");
         Connection con = DriverManager.getConnection(url, props);
         Statement stmt = con.createStatement();
         ObservableList<Les> lessen = FXCollections.observableArrayList();
@@ -204,7 +219,6 @@ public class LeerlingHoofdschermController {
         LocalDate dagLater = datepickerid.getValue().plusDays(1);
         datepickerid.setValue(dagLater);
     }
-
     public void toonVolgendeWeek(ActionEvent actionEvent) {
         LocalDate weekLater = datepickerid.getValue().plusDays(7);
         datepickerid.setValue(weekLater);
@@ -215,3 +229,4 @@ public class LeerlingHoofdschermController {
         datepickerid.setValue(weekEerder);
     }
 }
+
