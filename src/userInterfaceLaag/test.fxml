@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="userInterfaceLaag.Test">
+   <children>
+      <TableView layoutX="41.0" layoutY="50.0" prefHeight="400.0" prefWidth="152.0">
+        <columns>
+          <TableColumn prefWidth="75.0" text="Klas naam" />
+          <TableColumn prefWidth="75.0" text="klasnummer" />
+        </columns>
+      </TableView>
+      <TableView layoutX="211.0" layoutY="50.0" prefHeight="191.0" prefWidth="561.0">
+        <columns>
+          <TableColumn prefWidth="117.0" text="Studentnummer" />
+          <TableColumn prefWidth="153.0" text="naam" />
+            <TableColumn prefWidth="194.0" text="E-mail" />
+            <TableColumn prefWidth="96.0" text="Aanwezigheid" />
+        </columns>
+      </TableView>
+      <TableView layoutX="211.0" layoutY="259.0" prefHeight="191.0" prefWidth="561.0">
+        <columns>
+          <TableColumn prefWidth="75.0" text="Lessen" />
+            <TableColumn prefWidth="75.0" text="Les nummer" />
+          <TableColumn prefWidth="75.0" text="Datum" />
+            <TableColumn prefWidth="88.0" text="Begin tijd" />
+            <TableColumn prefWidth="84.0" text="Eind tijd" />
+            <TableColumn prefWidth="163.0" text="Totaal aantal afmeldingen?" />
+        </columns>
+      </TableView>
+      <Label layoutX="41.0" layoutY="33.0" text="Klassen" />
+      <Label layoutX="211.0" layoutY="242.0" text="Lessen per klas" />
+      <Label layoutX="211.0" layoutY="33.0" text="Studenten per klas" />
+   </children>
+</AnchorPane>

@@ -48,18 +48,17 @@ public class DocentenSchermController {
     public void initialize() throws Exception {
         String s = docent.getNaam();
         naamLabel.setText(s);
+        /**Les selecteren TableView**/
         tableView1.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
         klasid.setCellValueFactory(new PropertyValueFactory<>("klas"));
         datumid.setCellValueFactory(new PropertyValueFactory<>("datum"));
         lesid.setCellValueFactory(new PropertyValueFactory<>("lesnaam"));
-
+        /**Student selecteren TableView **/
         naamid.setCellValueFactory(new PropertyValueFactory<>("naam"));
         studentid.setCellValueFactory(new PropertyValueFactory<>("studentennummer"));
         emailid.setCellValueFactory(new  PropertyValueFactory<>("email"));
         rollcall.setCellValueFactory(new PropertyValueFactory<>("rollCall"));
         aanwezigid.setCellValueFactory(new PropertyValueFactory<>("afwezigheid"));
-
-
 
         tableView2.setItems(getLessen());
         tableView1.setItems(getStudenten());
@@ -86,11 +85,13 @@ public class DocentenSchermController {
         for (Student student : les.getKlas().getStudenten()){
             boolean afwezig = false; // hiermee zet je de afwezigheid standaard op false (dus aanwezig).
             ResultSet rs = stmt.executeQuery("SELECT afwezig FROM afwezigheid WHERE studentnummer = " +
-                    student.getStudentennummer() + " AND lesnummer = " + les.getLesnummer()); //hiermee haal je voor elke
-            //leerling (de for loop) de afwezigheid op, als deze niet bestaat is de leerling dus aanwezig.
+                    student.getStudentennummer() + " AND lesnummer = " + les.getLesnummer());
+            /**hiermee haal je voor elke
+            leerling (de for loop) de afwezigheid op, als deze niet bestaat is de leerling dus aanwezig.**/
             while(rs.next()){
-                boolean afwezigbool = rs.getBoolean("afwezig"); //hier zet je mits je in de lijst voorkomt
-                // (dus in de while loop komt) wordt er een boolean aan toegekend.
+                boolean afwezigbool = rs.getBoolean("afwezig");
+                /**hier zet je mits je in de lijst voorkomt
+                (dus in de while loop komt) wordt er een boolean aan toegekend.**/
                 if (afwezigbool){
                     afwezig = true;
                 }
@@ -101,9 +102,6 @@ public class DocentenSchermController {
             }
             students.add(student);
         }
-        System.out.println(les);
-
-//        students.addAll(les.getKlas().getStudenten());
         return students;
     }
 
@@ -129,15 +127,15 @@ public class DocentenSchermController {
     public void loadDataPerLes(MouseEvent mouseEvent){
         try {
             Les les = (Les) tableView2.getSelectionModel().getSelectedItem();
-            System.out.println(les);
-            System.out.println(les.getLesnummer());
+            System.out.println(getStudentenLoad(les));
             tableView1.setItems(getStudentenLoad(les));
-            System.out.println("hoi" +les);
             this.les = les;
         }
         catch (NullPointerException | SQLException ignored){
         }
     }
+
+
     public ObservableList<Student> getStudentenLoad(Les les) throws SQLException {
         tableView1.refresh();
         waarschuwingid.setText("");
@@ -148,7 +146,6 @@ public class DocentenSchermController {
         Connection con = DriverManager.getConnection(url, props);
         Statement stmt = con.createStatement();
         ObservableList<Student> students = FXCollections.observableArrayList();
-        System.out.println("jkjsdl" + les);
         for (Student student : les.getKlas().getStudenten()){
             boolean afwezig = false;
             ResultSet rs = stmt.executeQuery("SELECT afwezig FROM afwezigheid WHERE studentnummer = " +
@@ -165,10 +162,10 @@ public class DocentenSchermController {
             }
             students.add(student);
         }
-
-//        students.addAll(les.getKlas().getStudenten());
         return students;
     }
+
+
     public void handleButtonAfmelden(ActionEvent actionEvent) throws SQLException {
         ObservableList<ObservableList> namen = FXCollections.observableArrayList();
 
@@ -182,14 +179,11 @@ public class DocentenSchermController {
         try {
             ObservableList<Student> student = tableView1.getSelectionModel().getSelectedItems();
             namen.addAll(student);
-
-
             for (Student i : student) {
                 int studentnummerNu = i.getStudentennummer();
                 int lesnummerNu = this.les.getLesnummer();
                 stmt.executeUpdate("INSERT INTO afwezigheid (lesnummer, studentnummer, afwezig) " +
                         "VALUES ("+ lesnummerNu + ", " + studentnummerNu + ", true )");
-
             }
             getStudentenLoad(this.les);
         }
@@ -216,25 +210,17 @@ public class DocentenSchermController {
         try {
             ObservableList<Student> student = tableView1.getSelectionModel().getSelectedItems();
             namen.addAll(student);
-            System.out.println(student);
-
             for (Student i : student) {
                 int studentnummerNu = i.getStudentennummer();
-
-
                 int lesnummerNu = this.les.getLesnummer();
-
                 stmt.executeUpdate("DELETE FROM afwezigheid " +
                         "WHERE studentnummer = " + studentnummerNu + " AND lesnummer = " + lesnummerNu);
-
             }
             getStudentenLoad(this.les);
-
         }
         catch (NullPointerException e){
             System.out.println(e);
         }
     }
-
 }
 

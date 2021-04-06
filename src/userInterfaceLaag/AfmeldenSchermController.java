@@ -64,6 +64,12 @@ public class AfmeldenSchermController {
         rollcallMaken.next();
         int aantal = rollcallMaken.getInt("total");
         double totaal = 100 - (100 / account.getKlas().getTotaalAantalLessen()) * aantal;
+
+        System.out.println(account.getNaam());
+        System.out.println("totale hoeveelheid lessen van de klas van de student : "+ account.getKlas().getTotaalAantalLessen());
+        System.out.println("gesetten rollcall " + account.getRollCall());
+        System.out.println("echte rollcall "+ totaal + "\n");
+
         account.setRollCall(totaal);
 
         Button source = (Button)actionEvent.getSource();

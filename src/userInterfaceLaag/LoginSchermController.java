@@ -157,7 +157,6 @@ public class LoginSchermController {
                         rollcallMaken.next();
                         int aantal = rollcallMaken.getInt("total");
                         double totaal = 100 - (100 / user.getKlas().getTotaalAantalLessen()) * aantal;
-
                         user.setRollCall(totaal);
 
                         try{
@@ -294,7 +293,6 @@ public class LoginSchermController {
                                     "where k.klasnummer = '" + k.getKlasnummer() + "'");
 
                             while (alleStudenten.next()) {
-//                                System.out.println(alleStudenten.getString("naam"));
                                 int studentnummer = alleStudenten.getInt("studentnummer");
                                 String naamStudent = alleStudenten.getString("naam");
                                 String email = alleStudenten.getString("email");
@@ -302,16 +300,32 @@ public class LoginSchermController {
                                 int pogingen = alleStudenten.getInt("pogingen");
                                 double rollcall = alleStudenten.getDouble("rollcall");
                                 String wachtwoordStudent = alleStudenten.getString("wachtwoord");
-
                                 Student student = new Student(naamStudent, studentnummer, email, status, pogingen, rollcall, wachtwoordStudent);
 
                                 student.setKlas(k);
                                 k.voegStudentToe(student);
-
                             }
                         }
 
+                        for(Klas k : alleKlassen){
+                            for(Student s : k.getStudenten()){
+                                int studentnummer = s.getStudentennummer();
 
+                                ResultSet rollcallMaken = stmt.executeQuery("SELECT count(*) AS total FROM afwezigheid " +
+                                        "WHERE studentnummer = " + studentnummer);
+                                rollcallMaken.next();
+
+                                int aantallessen = rollcallMaken.getInt("total");
+                                double totaal = 100 - (100 / s.getKlas().getTotaalAantalLessen()) * aantallessen;
+
+                                System.out.println(s.getNaam());
+                                System.out.println("totale hoeveelheid lessen van de klas van de student : "+ k.getTotaalAantalLessen());
+                                System.out.println("gesetten rollcall " + s.getRollCall());
+                                System.out.println("aantal afwezig lessen " + aantallessen);
+                                System.out.println("echte rollcall "+ totaal + "\n");
+                                s.setRollCall(totaal);
+                            }
+                        }
 
                         try{
 
