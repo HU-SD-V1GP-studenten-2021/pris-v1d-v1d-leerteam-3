@@ -137,7 +137,7 @@ public class LeerlingHoofdschermController {
             FXMLLoader loader = new FXMLLoader();
             Pane root = loader.load(getClass().getResource("/userInterfaceLaag/LoginScherm.fxml"));
             Scene scene = new Scene(root);
-            stage.setTitle("Login");
+            stage.setTitle("Login scherm");
             stage.setScene(scene);
             stage.getIcons().add(new Image("HU.png"));
             stage.show();
