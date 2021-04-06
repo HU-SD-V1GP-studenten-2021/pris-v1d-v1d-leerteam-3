@@ -23,7 +23,7 @@ public class Magister200app extends Application {
         Parent root = loader.load();
         stage.setTitle("Login scherm");
         stage.setScene(new Scene(root));
-        stage.getIcons().add(new Image("src/LogoManufactra500pxBeeldmerk.png"));
+        stage.getIcons().add(new Image("HU.png"));
         stage.show();
 
 //        Klas k1 = new Klas("V1D");
