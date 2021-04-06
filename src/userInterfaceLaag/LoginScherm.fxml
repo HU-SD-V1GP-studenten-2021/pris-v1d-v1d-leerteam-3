@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
@@ -25,7 +26,15 @@
             <Image url="@../hu-logo-nl.png" />
          </image>
       </ImageView>
-      <Label layoutX="188.0" layoutY="235.0" onMouseClicked="#handleMousClickWachtwoordVergeten" text="Wachtwoord vergeten?" textFill="#2244ee" />
+      <Label layoutX="188.0" layoutY="235.0" onMouseClicked="#handleMousClickWachtwoordVergeten" text="Wachtwoord vergeten?" textFill="#2244ee">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Label>
       <Label fx:id="Waarschuwing" layoutX="189.0" layoutY="243.0" textFill="RED" translateY="15.0" />
+      <Label fx:id="wachtwoordVerzonden" alignment="CENTER" contentDisplay="CENTER" layoutX="103.0" layoutY="333.0" prefHeight="19.0" prefWidth="293.0" textAlignment="CENTER" textFill="RED">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

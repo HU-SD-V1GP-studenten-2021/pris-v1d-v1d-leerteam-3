@@ -23,7 +23,7 @@
          <font>
             <Font name="System Bold" size="14.0" />
          </font></Label>
-      <TableView fx:id="aanwezigheidsTabel" layoutX="39.0" layoutY="124.0" onMouseClicked="#popUpScherm" prefHeight="343.0" prefWidth="472.0">
+      <TableView fx:id="aanwezigheidsTabel" layoutX="39.0" layoutY="124.0" onMouseClicked="#popUpScherm" prefHeight="343.0" prefWidth="472.0" stylesheets="@styleTableview.css">
         <columns>
           <TableColumn fx:id="lesid" prefWidth="74.0" text="Les" />
           <TableColumn fx:id="datumid" prefWidth="96.0" text="Datum" />

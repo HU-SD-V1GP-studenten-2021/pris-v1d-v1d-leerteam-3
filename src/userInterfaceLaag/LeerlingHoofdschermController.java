@@ -55,11 +55,12 @@ public class LeerlingHoofdschermController {
     private double xOffset;
     private double yOffset;
 
+
     public void initialize() throws SQLException {
         String url = "jdbc:postgresql://localhost/SDGP";
         Properties props = new Properties();
         props.setProperty("user","postgres");
-        props.setProperty("password","ruben");
+        props.setProperty("password","Password");
         Connection con = DriverManager.getConnection(url, props);
         Statement stmt = con.createStatement();
         datepickerid.setValue(LocalDate.now());
@@ -82,6 +83,18 @@ public class LeerlingHoofdschermController {
         rollCallAttendance.setLegendVisible(true);
         rollCallAttendance.setStartAngle(90);
 
+        aanwezigheidsTabel.setRowFactory(tv -> new TableRow<Les>() {
+            @Override
+            protected void updateItem(Les item, boolean empty) {
+                super.updateItem(item, empty);
+                if (item == null || item.getAfwezigheid() == null)
+                    setStyle("");
+                else if (item.getAfwezigheid().equals("Afwezig"))
+                    setStyle("-fx-background-color: #ffd7d1;");
+                else
+                    setStyle("");
+            }
+        });
 
         aanwezigheidsTabel.refresh();
     }

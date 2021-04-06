@@ -1,11 +1,7 @@
 package userInterfaceLaag;
 
-import domeinLaag.Docent;
-import domeinLaag.Klas;
-import domeinLaag.Les;
-import domeinLaag.Student;
+import domeinLaag.*;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -17,13 +13,11 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 
 import java.sql.*;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
-import java.util.Locale;
 import java.util.Properties;
 
 public class LoginSchermController {
@@ -31,6 +25,7 @@ public class LoginSchermController {
     @FXML private PasswordField wachtwoordVeld;
     @FXML private TextField naamVeld;
     @FXML private Label Waarschuwing;
+    @FXML private Label wachtwoordVerzonden;
 
     private Student account = Student.getAccount();
     private Object Klas;
@@ -42,11 +37,11 @@ public class LoginSchermController {
         String url = "jdbc:postgresql://localhost/SDGP";
         Properties props = new Properties();
         props.setProperty("user","postgres");
-        props.setProperty("password","ruben");
+        props.setProperty("password","Password");
         Connection conn = DriverManager.getConnection(url, props);
 
         if(!naam.contains("@student.hu.nl") &&!naam.contains("@hu.nl")){
-            Waarschuwing.setText("E-mailadres is onjuist.\nVolg het format: gebruiker@student.hu.nl");
+            Waarschuwing.setText("E-mailadres is onjuist.\nVolg het format: gebruiker@(student.)hu.nl");
         }
         else if(wachtwoord.equals("")){
             Waarschuwing.setText("Wachtwoordveld is verplicht");
@@ -385,7 +380,7 @@ public class LoginSchermController {
         String url = "jdbc:postgresql://localhost/SDGP";
         Properties props = new Properties();
         props.setProperty("user","postgres");
-        props.setProperty("password","ruben");
+        props.setProperty("password","Password");
         Connection conn = DriverManager.getConnection(url, props);
 
         // Student
@@ -406,6 +401,11 @@ public class LoginSchermController {
                         String userwachtwoord = userGegevens.getString("wachtwoord");
 
                         new EmailSender(naam, "Wachtwoord vergeten", "Geachte " + usernaam + ", \n \nU heeft geklikt op 'wachtwoord vergeten', dit is uw wachtwoord :\n" + userwachtwoord);
+
+                        wachtwoordVerzonden.setText("Uw wachtwoord is naar uw email adres verzonden!");
+                    }
+                    else {
+                        wachtwoordVerzonden.setText("Dit Email-adres is niet bekend bij de hogeschool");
                     }
                 }
             }
@@ -425,8 +425,16 @@ public class LoginSchermController {
                         String userwachtwoord = userGegevens.getString("wachtwoord");
 
                         new EmailSender(naam, "Wachtwoord vergeten", "Geachte " + usernaam + ", \n \nU heeft geklikt op 'wachtwoord vergeten', dit is uw wachtwoord :\n" + userwachtwoord);
+
+                        wachtwoordVerzonden.setText("Uw wachtwoord is naar uw Email-adres verzonden!");
+                    }
+                    else {
+                        wachtwoordVerzonden.setText("Dit Email-adres is niet bekend bij de hogeschool");
                     }
                 }
+            }
+            else {
+                wachtwoordVerzonden.setText("Dit Email-adres hoort niet bij de hogeschool!");
             }
         }catch (Exception e) {
         }
