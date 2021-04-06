@@ -30,7 +30,7 @@
             <TableColumn fx:id="aanwezigid" prefWidth="88.4000244140625" text="Aanwezigheid" />
          </columns>
       </TableView>
-      <TableView fx:id="tableView2" layoutX="21.0" layoutY="88.0" onMouseClicked="#loadDataPerLes" prefHeight="323.0" prefWidth="250.0">
+      <TableView fx:id="tableView2" layoutX="21.0" layoutY="88.0" onMouseClicked="#loadDataPerLes" prefHeight="323.0" prefWidth="250.0" stylesheets="@../styleTableview.css">
          <columns>
             <TableColumn fx:id="klasid" prefWidth="58.799983978271484" text="Klas" />
             <TableColumn fx:id="datumid" prefWidth="93.60000610351562" text="Datum" />
