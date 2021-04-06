@@ -1,7 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0b191512-30ba-4dda-83c1-1f32a0238d20" name="Default Changelist" comment="De laatste versie" />
+    <list default="true" id="0b191512-30ba-4dda-83c1-1f32a0238d20" name="Default Changelist" comment="De laatste versie">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/userInterfaceLaag/BevestigingAanmelden.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Groepsproject/userInterfaceLaag/BevestigingAanmelden.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/userInterfaceLaag/LoginScherm.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Groepsproject/userInterfaceLaag/LoginScherm.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/userInterfaceLaag/BevestigingAanmelden.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/userInterfaceLaag/BevestigingAanmelden.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/userInterfaceLaag/BevestigingAanmeldenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/userInterfaceLaag/BevestigingAanmeldenController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/userInterfaceLaag/BevestigingAfmeldenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/userInterfaceLaag/BevestigingAfmeldenController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/userInterfaceLaag/DocentenSchermController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/userInterfaceLaag/DocentenSchermController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/userInterfaceLaag/EmailSender.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/userInterfaceLaag/EmailSender.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/userInterfaceLaag/LeerlingHoofdschermController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/userInterfaceLaag/LeerlingHoofdschermController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/userInterfaceLaag/LoginScherm.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/userInterfaceLaag/LoginScherm.fxml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -125,6 +136,8 @@
       <workItem from="1617625936338" duration="183000" />
       <workItem from="1617695824178" duration="2242000" />
       <workItem from="1617700013846" duration="387000" />
+      <workItem from="1617700411305" duration="11106000" />
+      <workItem from="1617711966351" duration="1420000" />
     </task>
     <task id="LOCAL-00001" summary="Test Ruben 26-03-2021">
       <created>1616756891923</created>
@@ -308,7 +321,14 @@
       <option name="project" value="LOCAL" />
       <updated>1617700382251</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="De laatste versie">
+      <created>1617700428886</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1617700428886</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

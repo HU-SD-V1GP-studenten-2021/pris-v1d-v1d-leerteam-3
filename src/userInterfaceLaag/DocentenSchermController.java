@@ -9,6 +9,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -16,8 +17,11 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Rectangle;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+import javax.swing.*;
+import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.sql.*;
 import java.util.ArrayList;
@@ -26,15 +30,16 @@ import java.util.Properties;
 public class DocentenSchermController {
     public Label waarschuwingid;
     public ImageView magister200id;
+
     @FXML private Rectangle rectangleBoven;
     @FXML private Button loguitKnop;
     @FXML public Label naamLabel;
-    @FXML private TableView tableView2;
+    @FXML public TableView tableView2;
     @FXML private TableColumn<Les, String> klasid;
     @FXML private TableColumn<Les, String> datumid;
     @FXML private TableColumn<Les, String> lesid;
 
-    @FXML private TableView tableView1;
+    @FXML public TableView tableView1;
     @FXML private TableColumn<Student, String> naamid;
     @FXML private TableColumn<Student, String> studentid;
     @FXML private TableColumn<Student, String> emailid;
@@ -43,12 +48,17 @@ public class DocentenSchermController {
 
 
     private Docent docent = Docent.getAccount();
-    public Les les;
+    public static Les les;
+    public static TableView view1;
+    public TableView view2;
+
+
 
     public void initialize() throws Exception {
         String s = docent.getNaam();
         naamLabel.setText(s);
         tableView1.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+
         klasid.setCellValueFactory(new PropertyValueFactory<>("klas"));
         datumid.setCellValueFactory(new PropertyValueFactory<>("datum"));
         lesid.setCellValueFactory(new PropertyValueFactory<>("lesnaam"));
@@ -61,9 +71,15 @@ public class DocentenSchermController {
 
 
 
+
+
         tableView2.setItems(getLessen());
         tableView1.setItems(getStudenten());
+
+        this.view1 = tableView1;
     }
+
+
 
     public ObservableList<Les> getLessen(){
         ObservableList<Les> lessen = FXCollections.observableArrayList();
@@ -169,72 +185,33 @@ public class DocentenSchermController {
 //        students.addAll(les.getKlas().getStudenten());
         return students;
     }
-    public void handleButtonAfmelden(ActionEvent actionEvent) throws SQLException {
-        ObservableList<ObservableList> namen = FXCollections.observableArrayList();
-
-        String url = "jdbc:postgresql://localhost/SDGP";
-        Properties props = new Properties();
-        props.setProperty("user","omara");
-        props.setProperty("password","Omar1994");
-        Connection con = DriverManager.getConnection(url, props);
-        Statement stmt = con.createStatement();
-
-        try {
-            ObservableList<Student> student = tableView1.getSelectionModel().getSelectedItems();
-            namen.addAll(student);
+    public void handleButtonAfmelden(ActionEvent actionEvent) throws Exception {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("BevestigingAfmelden.fxml"));
+        Parent root = loader.load();
+        Stage newStage = new Stage();
+        newStage.setScene(new Scene(root));
+        newStage.initModality(Modality.APPLICATION_MODAL);
+        newStage.showAndWait();
+        getStudentenLoad(les);
 
 
-            for (Student i : student) {
-                int studentnummerNu = i.getStudentennummer();
-                int lesnummerNu = this.les.getLesnummer();
-                stmt.executeUpdate("INSERT INTO afwezigheid (lesnummer, studentnummer, afwezig) " +
-                        "VALUES ("+ lesnummerNu + ", " + studentnummerNu + ", true )");
-
-            }
-            getStudentenLoad(this.les);
-        }
-        catch (NullPointerException e){
-            System.out.println(e);
-        }
-        catch (Exception duplicateKey){
-            waarschuwingid.setText("Deze student(en) zijn al afwezig gemeld!");
-        }
 
     }
 
 
-    public void handleButtonAanmelden(ActionEvent actionEvent) throws SQLException {
-        ObservableList<ObservableList> namen = FXCollections.observableArrayList();
-
-        String url = "jdbc:postgresql://localhost/SDGP";
-        Properties props = new Properties();
-        props.setProperty("user","omara");
-        props.setProperty("password","Omar1994");
-        Connection con = DriverManager.getConnection(url, props);
-        Statement stmt = con.createStatement();
-
-        try {
-            ObservableList<Student> student = tableView1.getSelectionModel().getSelectedItems();
-            namen.addAll(student);
-            System.out.println(student);
-
-            for (Student i : student) {
-                int studentnummerNu = i.getStudentennummer();
+    public void handleButtonAanmelden(ActionEvent actionEvent) throws Exception {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("BevestigingAanmelden.fxml"));
+        Parent root = loader.load();
+        Stage newStage = new Stage();
+        newStage.setScene(new Scene(root));
+        newStage.initModality(Modality.APPLICATION_MODAL);
+        newStage.showAndWait();
+        getStudentenLoad(les);
 
 
-                int lesnummerNu = this.les.getLesnummer();
 
-                stmt.executeUpdate("DELETE FROM afwezigheid " +
-                        "WHERE studentnummer = " + studentnummerNu + " AND lesnummer = " + lesnummerNu);
-
-            }
-            getStudentenLoad(this.les);
-
-        }
-        catch (NullPointerException e){
-            System.out.println(e);
-        }
     }
+
 
 }
 

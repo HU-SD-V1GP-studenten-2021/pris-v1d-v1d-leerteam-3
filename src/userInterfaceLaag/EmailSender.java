@@ -1,17 +1,14 @@
 package userInterfaceLaag;
 
-import com.sun.jdi.connect.Transport;
 
 import javax.mail.*;
 import javax.mail.internet.*;
-import java.net.Authenticator;
-import java.net.PasswordAuthentication;
-import java.util.Properties;
+import java.util.*;
 
 public class EmailSender {
 
     final String senderEmailID = "sdgp.beheer@gmail.com";
-    final String senderPassword = "postgres";
+    final String senderPassword = "omara";
     final String emailSMTPserver = "smtp.gmail.com";
     final String emailServerPort = "465";
     String receiverEmailID = "jens.rijks@student.hu.nl";
