@@ -1,11 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0b191512-30ba-4dda-83c1-1f32a0238d20" name="Default Changelist" comment="De laatste versie">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/b191c624-c10f-4f34-b7e7-1d97578034fb/storage_v2/_src_/database/SDGP.-sImAA.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/b191c624-c10f-4f34-b7e7-1d97578034fb/storage_v2/_src_/database/SDGP.-sImAA/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/b191c624-c10f-4f34-b7e7-1d97578034fb/storage_v2/_src_/database/SDGP.-sImAA/schema/pg_catalog.0S1ZNQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/.idea/dataSources/25600afb-d0ef-44fc-847d-d3c868762ab4.xml" beforeDir="false" />
+    <list default="true" id="0b191512-30ba-4dda-83c1-1f32a0238d20" name="Default Changelist" comment="Update">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/activation.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Groepsproject.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Groepsproject.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/.idea/dataSources.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/.idea/dataSources/acad4403-7914-42e1-8902-522e3f11b626.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/.idea/dataSources/acad4403-7914-42e1-8902-522e3f11b626/storage_v2/_src_/database/SDGP.-sImAA.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/.idea/dataSources/acad4403-7914-42e1-8902-522e3f11b626/storage_v2/_src_/database/SDGP.-sImAA/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/.idea/dataSources/acad4403-7914-42e1-8902-522e3f11b626/storage_v2/_src_/database/SDGP.-sImAA/schema/pg_catalog.0S1ZNQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/.idea/dataSources/acad4403-7914-42e1-8902-522e3f11b626/storage_v2/_src_/database/SDGP.-sImAA/schema/public.abK9xQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/.idea/dbnavigator.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/.idea/libraries/org_openjfx_javafx_fxml_15_0_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/.idea/libraries/org_openjfx_javafx_fxml_15_0_11.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/.idea/pris-v1d-v1d-leerteam-3.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/.idea/sqldialects.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/Groepsproject.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/Sprint1.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/lib/javafx-base-15.0.1-win.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/lib/javafx-base-15.0.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/lib/javafx-controls-15.0.1-win.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/lib/javafx-controls-15.0.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/lib/javafx-fxml-15.0.1-win.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/lib/javafx-fxml-15.0.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/lib/javafx-graphics-15.0.1-win.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/lib/javafx-graphics-15.0.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/lib/postgresql-42.2.19.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/sprint1.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/src/HU.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/src/hu-logo-nl.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/src/magister.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/src/mystyle.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/src/userInterfaceLaag/AfmeldenScherm.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/src/userInterfaceLaag/DocentenScherm.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/src/userInterfaceLaag/LeerlingHoofdscherm.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/src/userInterfaceLaag/LoginScherm.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/untitled/untitled.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/userInterfaceLaag/LeerlingHoofdscherm.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Groepsproject/userInterfaceLaag/LeerlingHoofdscherm.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/userInterfaceLaag/LeerlingHoofdschermController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Groepsproject/userInterfaceLaag/LeerlingHoofdschermController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/userInterfaceLaag/LoginSchermController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Groepsproject/userInterfaceLaag/LoginSchermController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/userInterfaceLaag/LeerlingHoofdschermController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/userInterfaceLaag/LeerlingHoofdschermController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/userInterfaceLaag/LoginScherm.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/userInterfaceLaag/LoginScherm.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/userInterfaceLaag/LoginSchermController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/userInterfaceLaag/LoginSchermController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,15 +132,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -142,7 +184,6 @@
       <workItem from="1617378160374" duration="1480000" />
       <workItem from="1617625936338" duration="183000" />
       <workItem from="1617695824178" duration="2242000" />
-      <workItem from="1617698952094" duration="327000" />
     </task>
     <task id="LOCAL-00001" summary="Test Ruben 26-03-2021">
       <created>1616756891923</created>
@@ -298,14 +339,7 @@
       <option name="project" value="LOCAL" />
       <updated>1617378110016</updated>
     </task>
-    <task id="LOCAL-00023" summary="De laatste versie">
-      <created>1617699272910</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
-      <option name="project" value="LOCAL" />
-      <updated>1617699272910</updated>
-    </task>
-    <option name="localTasksCounter" value="24" />
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -337,8 +371,7 @@
     <MESSAGE value="UI updates" />
     <MESSAGE value="Update" />
     <MESSAGE value="update" />
-    <MESSAGE value="De laatste versie" />
-    <option name="LAST_COMMIT_MESSAGE" value="De laatste versie" />
+    <option name="LAST_COMMIT_MESSAGE" value="update" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

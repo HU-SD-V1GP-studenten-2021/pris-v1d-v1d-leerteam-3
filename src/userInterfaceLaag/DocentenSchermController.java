@@ -75,7 +75,7 @@ public class DocentenSchermController {
     public ObservableList<Student> getStudenten() throws SQLException {
         String url = "jdbc:postgresql://localhost/SDGP";
         Properties props = new Properties();
-        props.setProperty("user","Omar1994");
+        props.setProperty("user","postgres");
         props.setProperty("password","ruben");
         Connection con = DriverManager.getConnection(url, props);
         Statement stmt = con.createStatement();
@@ -143,8 +143,8 @@ public class DocentenSchermController {
         waarschuwingid.setText("");
         String url = "jdbc:postgresql://localhost/SDGP";
         Properties props = new Properties();
-        props.setProperty("user","omara");
-        props.setProperty("password","Omar1994");
+        props.setProperty("user","postgres");
+        props.setProperty("password","ruben");
         Connection con = DriverManager.getConnection(url, props);
         Statement stmt = con.createStatement();
         ObservableList<Student> students = FXCollections.observableArrayList();
@@ -174,8 +174,8 @@ public class DocentenSchermController {
 
         String url = "jdbc:postgresql://localhost/SDGP";
         Properties props = new Properties();
-        props.setProperty("user","omara");
-        props.setProperty("password","Omar1994");
+        props.setProperty("user","postgres");
+        props.setProperty("password","ruben");
         Connection con = DriverManager.getConnection(url, props);
         Statement stmt = con.createStatement();
 
@@ -208,8 +208,8 @@ public class DocentenSchermController {
 
         String url = "jdbc:postgresql://localhost/SDGP";
         Properties props = new Properties();
-        props.setProperty("user","omara");
-        props.setProperty("password","Omar1994");
+        props.setProperty("user","postgres");
+        props.setProperty("password","ruben");
         Connection con = DriverManager.getConnection(url, props);
         Statement stmt = con.createStatement();
 
