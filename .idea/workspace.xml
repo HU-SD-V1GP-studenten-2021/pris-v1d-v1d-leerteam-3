@@ -1,17 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0b191512-30ba-4dda-83c1-1f32a0238d20" name="Default Changelist" comment="2-4-2021, GUI aanpassingen">
-      <change afterPath="$PROJECT_DIR$/src/userInterfaceLaag/test.fxml" afterDir="false" />
+    <list default="true" id="0b191512-30ba-4dda-83c1-1f32a0238d20" name="Default Changelist" comment="Update">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/activation.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Groepsproject.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Groepsproject.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Groepsproject/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/src/userInterfaceLaag/LoginScherm.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Groepsproject/src/userInterfaceLaag/LoginScherm.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/userInterfaceLaag/DocentenSchermController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Groepsproject/userInterfaceLaag/DocentenSchermController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/userInterfaceLaag/LoginScherm.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Groepsproject/userInterfaceLaag/LoginScherm.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/.idea/dataSources.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/.idea/dataSources/acad4403-7914-42e1-8902-522e3f11b626.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/.idea/dataSources/acad4403-7914-42e1-8902-522e3f11b626/storage_v2/_src_/database/SDGP.-sImAA.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/.idea/dataSources/acad4403-7914-42e1-8902-522e3f11b626/storage_v2/_src_/database/SDGP.-sImAA/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/.idea/dataSources/acad4403-7914-42e1-8902-522e3f11b626/storage_v2/_src_/database/SDGP.-sImAA/schema/pg_catalog.0S1ZNQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/.idea/dataSources/acad4403-7914-42e1-8902-522e3f11b626/storage_v2/_src_/database/SDGP.-sImAA/schema/public.abK9xQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/.idea/dbnavigator.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/.idea/libraries/org_openjfx_javafx_fxml_15_0_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/.idea/libraries/org_openjfx_javafx_fxml_15_0_11.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/.idea/pris-v1d-v1d-leerteam-3.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/.idea/sqldialects.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/Groepsproject.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/Sprint1.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/lib/javafx-base-15.0.1-win.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/lib/javafx-base-15.0.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/lib/javafx-controls-15.0.1-win.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/lib/javafx-controls-15.0.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/lib/javafx-fxml-15.0.1-win.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/lib/javafx-fxml-15.0.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/lib/javafx-graphics-15.0.1-win.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/lib/javafx-graphics-15.0.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/lib/postgresql-42.2.19.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/sprint1.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/src/HU.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/src/hu-logo-nl.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/src/magister.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/src/mystyle.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/src/userInterfaceLaag/AfmeldenScherm.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/src/userInterfaceLaag/DocentenScherm.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/src/userInterfaceLaag/LeerlingHoofdscherm.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/src/userInterfaceLaag/LoginScherm.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/untitled/untitled.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/userInterfaceLaag/LeerlingHoofdscherm.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Groepsproject/userInterfaceLaag/LeerlingHoofdscherm.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/userInterfaceLaag/LeerlingHoofdschermController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Groepsproject/userInterfaceLaag/LeerlingHoofdschermController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/userInterfaceLaag/LoginSchermController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Groepsproject/userInterfaceLaag/LoginSchermController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/userInterfaceLaag/AfmeldenSchermController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/userInterfaceLaag/AfmeldenSchermController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/userInterfaceLaag/DocentenSchermController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/userInterfaceLaag/DocentenSchermController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/userInterfaceLaag/LeerlingHoofdschermController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/userInterfaceLaag/LeerlingHoofdschermController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/userInterfaceLaag/LoginScherm.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/userInterfaceLaag/LoginScherm.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/userInterfaceLaag/LoginSchermController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/userInterfaceLaag/LoginSchermController.java" afterDir="false" />
     </list>
@@ -23,9 +59,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="FxmlFile" />
         <option value="Class" />
         <option value="HTML File" />
-        <option value="FxmlFile" />
       </list>
     </option>
   </component>
@@ -71,10 +107,10 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="database.data.extractors.current.export.id" value="SQL Inserts" />
-    <property name="last_opened_file_path" value="D:/Downloads/javax.mail.jar" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Documents/javax.mail.jar" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Libraries" />
-    <property name="project.structure.proportion" value="0.15429688" />
+    <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
@@ -92,6 +128,17 @@
       <option name="MAIN_CLASS_NAME" value="Magister200app" />
       <module name="Groepsproject" />
       <option name="VM_PARAMETERS" value="--module-path lib --add-modules javafx.controls,javafx.fxml " />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -129,11 +176,14 @@
       <workItem from="1617286639542" duration="1145000" />
       <workItem from="1617351333096" duration="5845000" />
       <workItem from="1617349913715" duration="5125000" />
-      <workItem from="1617364578136" duration="9552000" />
-      <workItem from="1617438341783" duration="8120000" />
-      <workItem from="1617487278411" duration="1304000" />
-      <workItem from="1617694408366" duration="1941000" />
-      <workItem from="1617696959943" duration="1698000" />
+      <workItem from="1617364578136" duration="9358000" />
+      <workItem from="1617377316003" duration="84000" />
+      <workItem from="1617377479925" duration="38000" />
+      <workItem from="1617377531722" duration="100000" />
+      <workItem from="1617377646328" duration="497000" />
+      <workItem from="1617378160374" duration="1480000" />
+      <workItem from="1617625936338" duration="183000" />
+      <workItem from="1617695824178" duration="2242000" />
     </task>
     <task id="LOCAL-00001" summary="Test Ruben 26-03-2021">
       <created>1616756891923</created>
@@ -261,21 +311,35 @@
       <option name="project" value="LOCAL" />
       <updated>1617349706447</updated>
     </task>
-    <task id="LOCAL-00019" summary="2-4-2021, GUI aanpassingen">
-      <created>1617373995303</created>
+    <task id="LOCAL-00019" summary="update">
+      <created>1617377360461</created>
       <option name="number" value="00019" />
       <option name="presentableId" value="LOCAL-00019" />
       <option name="project" value="LOCAL" />
-      <updated>1617373995303</updated>
+      <updated>1617377360461</updated>
     </task>
-    <task id="LOCAL-00020" summary="2-4-2021, GUI aanpassingen">
-      <created>1617374046788</created>
+    <task id="LOCAL-00020" summary="update">
+      <created>1617377372344</created>
       <option name="number" value="00020" />
       <option name="presentableId" value="LOCAL-00020" />
       <option name="project" value="LOCAL" />
-      <updated>1617374046788</updated>
+      <updated>1617377372344</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="update">
+      <created>1617377682458</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1617377682458</updated>
+    </task>
+    <task id="LOCAL-00022" summary="update">
+      <created>1617378110016</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1617378110016</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -301,13 +365,13 @@
     <MESSAGE value="updates 30-03-2021" />
     <MESSAGE value="TableView LeerlingHoofdscherm" />
     <MESSAGE value="TableView LeerlingHoofdscherm ++" />
-    <MESSAGE value="update" />
     <MESSAGE value="Update database" />
     <MESSAGE value="selfupdate" />
     <MESSAGE value="Versie mvp HELEMAAL KLAAR" />
     <MESSAGE value="UI updates" />
-    <MESSAGE value="2-4-2021, GUI aanpassingen" />
-    <option name="LAST_COMMIT_MESSAGE" value="2-4-2021, GUI aanpassingen" />
+    <MESSAGE value="Update" />
+    <MESSAGE value="update" />
+    <option name="LAST_COMMIT_MESSAGE" value="update" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -316,11 +380,6 @@
           <properties class="java.lang.IllegalArgumentException" package="java.lang" />
           <option name="timeStamp" value="1" />
         </breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/userInterfaceLaag/AfmeldenSchermController.java</url>
-          <line>65</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
