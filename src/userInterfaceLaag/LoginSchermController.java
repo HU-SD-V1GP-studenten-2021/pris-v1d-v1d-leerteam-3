@@ -19,14 +19,12 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
-import java.beans.ExceptionListener;
 import java.sql.*;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Locale;
 import java.util.Properties;
-import java.util.*;
 
 public class LoginSchermController {
     @FXML private Button loginKnop;
@@ -37,7 +35,6 @@ public class LoginSchermController {
     private Student account = Student.getAccount();
     private Object Klas;
 
-
     public void loginAccount(ActionEvent actionEvent) throws Exception  {
         String naam = naamVeld.getText();
         String wachtwoord = wachtwoordVeld.getText();
@@ -45,7 +42,7 @@ public class LoginSchermController {
         String url = "jdbc:postgresql://localhost/SDGP";
         Properties props = new Properties();
         props.setProperty("user","postgres");
-        props.setProperty("password","Password");
+        props.setProperty("password","ruben");
         Connection conn = DriverManager.getConnection(url, props);
 
         if(!naam.contains("@student.hu.nl") &&!naam.contains("@hu.nl")){
@@ -57,7 +54,7 @@ public class LoginSchermController {
 
         else {
 
-            // Student
+
             if (naam.contains("@student.hu.nl")){
                 Statement stmt = conn.createStatement();
                 ResultSet rsHuidigeStudent = stmt.executeQuery("SELECT email, wachtwoord, pogingen, status, studentnummer, naam, pogingen, rollcall FROM student");
@@ -83,16 +80,19 @@ public class LoginSchermController {
                         int klasnummer = userGegevens.getInt("klasnummer");
                         String klasnaam = userGegevens.getString("klasnaam");
 
+
                         Klas klas = new Klas(klasnummer, klasnaam);
                         Student user = new Student(usernaam, userstudentnummer, email, status, pogingen, rollcall, userwachtwoord);
                         user.setKlas(klas);
                         klas.voegStudentToe(user);
+
 
                         Student.setAccount(user);
 
                         ResultSet lessen = stmt.executeQuery("SELECT l.lesnummer, l.datum, l.begintijd, l.eindtijd, l.docentnummer, l.lesnaam " +
                                 "FROM les l JOIN klas k on k.klasnummer = l.klasnummer " +
                                 "WHERE k.klasnummer = '" + klasnummer + "'");
+
 
                         int docentnummer = 0;
                         ArrayList<Les> alleLessen = new ArrayList<>();
@@ -110,9 +110,11 @@ public class LoginSchermController {
 
                         }
 
+
                         ResultSet docent = stmt.executeQuery("SELECT docent.docentnummer, naam, email, status, pogingen, wachtwoord from docent " +
                                 "join les l on docent.docentnummer = l.docentnummer " +
                                 "WHERE l.klasnummer = '" + klasnummer + "'");
+
 
                         int i = 0;
                         while (docent.next()) {
@@ -148,16 +150,23 @@ public class LoginSchermController {
                                 klas.voegStudentToe(s1);
 
                             }
-
                         }
+
+                        ResultSet rollcallMaken = stmt.executeQuery("SELECT count(*) AS total FROM afwezigheid " +
+                                "WHERE studentnummer = " + studentnummer);
+                        rollcallMaken.next();
+                        int aantal = rollcallMaken.getInt("total");
+                        double totaal = 100 - (100 / user.getKlas().getTotaalAantalLessen()) * aantal;
+
+                        user.setRollCall(totaal);
 
                         try{
                             loginscherm.close();
-                            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("leerlingHoofdscherm.fxml"));
+                            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("LeerlingHoofdscherm.fxml"));
                             Parent root = (Parent) fxmlLoader.load();
                             Stage stage = new Stage();
                             stage.setTitle("Lessen");
-                            stage.getIcons().add(new Image("src/LogoManufactra500pxBeeldmerk.png"));
+                            stage.getIcons().add(new Image("HU.png"));
                             stage.setScene(new Scene(root));
                             stage.show();
                         }
@@ -185,11 +194,10 @@ public class LoginSchermController {
                     }
                     else {
                         Waarschuwing.setText("Email of wachtwoord onjuist!");
+
                     }
                 }
             }
-
-            // Docent
             else if(naam.contains("@hu.nl")){
                 wachtwoord = wachtwoordVeld.getText();
                 Statement stmt = conn.createStatement();
@@ -218,6 +226,7 @@ public class LoginSchermController {
                                 "    join klas k on k.klasnummer = l.klasnummer " +
                                 "where docent.docentnummer = " + docentnummer);
 
+
                         Klas klas = null;
                         Docent docent = null;
                         while (userGegevens.next()) {
@@ -233,6 +242,8 @@ public class LoginSchermController {
                         }
 
                         Docent.setAccount(docent);
+
+
 
                         ResultSet lessen = stmt.executeQuery("SELECT l.lesnummer, l.datum, l.begintijd, l.eindtijd, l.lesnaam FROM les l " +
                                 "    JOIN klas k on k.klasnummer = l.klasnummer " +
@@ -253,10 +264,16 @@ public class LoginSchermController {
                             alleLessen.add(les);
                         }
 
+
+
+//                        }
+
+
                         ResultSet docentles = stmt.executeQuery("select docent.docentnummer, naam, email, status, pogingen, wachtwoord from docent" +
                                 "    join les l on docent.docentnummer = l.docentnummer " +
                                 "    join klas k on k.klasnummer = l.klasnummer " +
                                 "where docent.docentnummer = '" + docentnummer + "'");
+
 
                         int i = 0;
                         while (docentles.next()) {
@@ -270,12 +287,14 @@ public class LoginSchermController {
                             i++;
                         }
 
+
                         for (Klas k : alleKlassen) {
                             ResultSet alleStudenten = stmt.executeQuery("select studentnummer, naam, email, status, pogingen, rollcall, wachtwoord from student " +
                                     "    join klas k on k.klasnummer = student.klasnummer " +
                                     "where k.klasnummer = '" + k.getKlasnummer() + "'");
 
                             while (alleStudenten.next()) {
+//                                System.out.println(alleStudenten.getString("naam"));
                                 int studentnummer = alleStudenten.getInt("studentnummer");
                                 String naamStudent = alleStudenten.getString("naam");
                                 String email = alleStudenten.getString("email");
@@ -291,6 +310,27 @@ public class LoginSchermController {
 
                             }
                         }
+//                        for(Klas k : alleKlassen){
+//                            for(Student s : k.getStudenten()){
+//                                int studentnummer = s.getStudentennummer();
+//
+//                                ResultSet rollcallMaken = stmt.executeQuery("SELECT count(*) AS total FROM afwezigheid " +
+//                                        "WHERE studentnummer = " + studentnummer);
+//                                rollcallMaken.next();
+//
+//                                int aantallessen = rollcallMaken.getInt("total");
+//                                double totaal = 100 - (100 / s.getKlas().getTotaalAantalLessen()) * aantallessen;
+//
+//                                System.out.println(s.getNaam());
+//                                System.out.println("totale hoeveelheid lessen van de klas van de student : "+ k.getTotaalAantalLessen());
+//                                System.out.println("gesetten rollcall " + s.getRollCall());
+//                                System.out.println("aantal afwezig lessen " + aantallessen);
+//                                System.out.println("echte rollcall "+ totaal + "\n");
+//                                s.setRollCall(totaal);
+//                            }
+//                        }
+
+
 
                         try{
 
@@ -300,7 +340,7 @@ public class LoginSchermController {
                             Stage stage = new Stage();
                             stage.setTitle("Les presentie");
                             stage.setScene(new Scene(root));
-                            stage.getIcons().add(new Image("src/LogoManufactra500pxBeeldmerk.png"));
+                            stage.getIcons().add(new Image("HU.png"));
                             stage.show();
                         }
                         catch (Exception ignored){
@@ -329,6 +369,7 @@ public class LoginSchermController {
                     }
                     else {
                         Waarschuwing.setText("Email of wachtwoord onjuist!");
+
                     }
                 }
             }
@@ -337,7 +378,6 @@ public class LoginSchermController {
 
     public void setStatusDocent(ActionEvent actionEvent) {
     }
-
     public void handleMousClickWachtwoordVergeten(MouseEvent mouseEvent) throws Exception {
         String naam = naamVeld.getText();
         String wachtwoord = wachtwoordVeld.getText();
@@ -345,7 +385,7 @@ public class LoginSchermController {
         String url = "jdbc:postgresql://localhost/SDGP";
         Properties props = new Properties();
         props.setProperty("user","postgres");
-        props.setProperty("password","Password");
+        props.setProperty("password","ruben");
         Connection conn = DriverManager.getConnection(url, props);
 
         // Student
@@ -369,8 +409,8 @@ public class LoginSchermController {
                     }
                 }
             }
-        // Docent
-        else if (naam.contains("@hu.nl")) {
+            // Docent
+            else if (naam.contains("@hu.nl")) {
                 Statement stmt = conn.createStatement();
                 ResultSet rs = stmt.executeQuery("SELECT email, wachtwoord, pogingen, status, docentnummer FROM docent");
                 while (rs.next()) {
