@@ -1,16 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0b191512-30ba-4dda-83c1-1f32a0238d20" name="Default Changelist" comment="Commit 03-04 wachtwoord vergeten mail">
+    <list default="true" id="0b191512-30ba-4dda-83c1-1f32a0238d20" name="Default Changelist" comment="06-04">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Groepsproject/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/.idea/dataSources/fed9cdb0-cf32-48bd-9aa7-7f9d1639c40c.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/.idea/dataSources/fed9cdb0-cf32-48bd-9aa7-7f9d1639c40c/storage_v2/_src_/database/SDGP.-sImAA.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/.idea/dataSources/fed9cdb0-cf32-48bd-9aa7-7f9d1639c40c/storage_v2/_src_/database/SDGP.-sImAA/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/.idea/dataSources/fed9cdb0-cf32-48bd-9aa7-7f9d1639c40c/storage_v2/_src_/database/SDGP.-sImAA/schema/pg_catalog.0S1ZNQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/.idea/dataSources/fed9cdb0-cf32-48bd-9aa7-7f9d1639c40c/storage_v2/_src_/database/SDGP.-sImAA/schema/public.abK9xQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Groepsproject/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/src/userInterfaceLaag/DocentenScherm.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Groepsproject/src/userInterfaceLaag/DocentenScherm.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/userInterfaceLaag/ModelTable.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,9 +51,9 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="database.data.extractors.current.export.id" value="SQL Inserts" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../OOP/V1OOP" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
@@ -118,6 +111,7 @@
       <workItem from="1617349913715" duration="5125000" />
       <workItem from="1617471111769" duration="1443000" />
       <workItem from="1617536962675" duration="158000" />
+      <workItem from="1617695815960" duration="819000" />
     </task>
     <task id="LOCAL-00001" summary="Test Ruben 26-03-2021">
       <created>1616756891923</created>
@@ -252,7 +246,14 @@
       <option name="project" value="LOCAL" />
       <updated>1617464782433</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="06-04">
+      <created>1617696130641</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1617696130641</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -283,7 +284,8 @@
     <MESSAGE value="selfupdate" />
     <MESSAGE value="Versie mvp HELEMAAL KLAAR" />
     <MESSAGE value="Commit 03-04 wachtwoord vergeten mail" />
-    <option name="LAST_COMMIT_MESSAGE" value="Commit 03-04 wachtwoord vergeten mail" />
+    <MESSAGE value="06-04" />
+    <option name="LAST_COMMIT_MESSAGE" value="06-04" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
