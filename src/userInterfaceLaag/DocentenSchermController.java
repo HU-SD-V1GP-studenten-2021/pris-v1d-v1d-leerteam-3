@@ -92,8 +92,8 @@ public class DocentenSchermController {
     public ObservableList<Student> getStudenten() throws SQLException {
         String url = "jdbc:postgresql://localhost/SDGP";
         Properties props = new Properties();
-        props.setProperty("user","postgres");
-        props.setProperty("password","ruben");
+        props.setProperty("user","omara");
+        props.setProperty("password","Omar1994");
         Connection con = DriverManager.getConnection(url, props);
         Statement stmt = con.createStatement();
         ObservableList<Student> students = FXCollections.observableArrayList();
@@ -160,8 +160,8 @@ public class DocentenSchermController {
         waarschuwingid.setText("");
         String url = "jdbc:postgresql://localhost/SDGP";
         Properties props = new Properties();
-        props.setProperty("user","postgres");
-        props.setProperty("password","ruben");
+        props.setProperty("user","omara");
+        props.setProperty("password","Omar1994");
         Connection con = DriverManager.getConnection(url, props);
         Statement stmt = con.createStatement();
         ObservableList<Student> students = FXCollections.observableArrayList();
@@ -189,8 +189,8 @@ public class DocentenSchermController {
     public void handleButtonAfmelden(ActionEvent actionEvent) throws Exception {
         String url = "jdbc:postgresql://localhost/SDGP";
         Properties props = new Properties();
-        props.setProperty("user","postgres");
-        props.setProperty("password","ruben");
+        props.setProperty("user","omara");
+        props.setProperty("password","Omar1994");
         Connection con = DriverManager.getConnection(url, props);
         Statement stmt = con.createStatement();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("BevestigingAfmelden.fxml"));
@@ -216,8 +216,8 @@ public class DocentenSchermController {
     public void handleButtonAanmelden(ActionEvent actionEvent) throws SQLException, IOException {
         String url = "jdbc:postgresql://localhost/SDGP";
         Properties props = new Properties();
-        props.setProperty("user","postgres");
-        props.setProperty("password","ruben");
+        props.setProperty("user","omara");
+        props.setProperty("password","Omar1994");
         Connection con = DriverManager.getConnection(url, props);
         Statement stmt = con.createStatement();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("BevestigingAanmelden.fxml"));
