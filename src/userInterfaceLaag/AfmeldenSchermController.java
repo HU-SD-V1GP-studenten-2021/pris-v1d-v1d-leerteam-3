@@ -37,14 +37,12 @@ public class AfmeldenSchermController {
         String reden = redenid.getText();
         int studentnummer = account.getStudentennummer();
         Les les = LeerlingHoofdschermController.les;
-
-
         int lesnummer = LeerlingHoofdschermController.lesnummer;
 
         String url = "jdbc:postgresql://localhost/SDGP";
         Properties props = new Properties();
         props.setProperty("user","postgres");
-        props.setProperty("password","ruben");
+        props.setProperty("password","united");
         Connection conn = DriverManager.getConnection(url, props);
         try{
         Statement stmt = conn.createStatement();
@@ -57,21 +55,13 @@ public class AfmeldenSchermController {
                     "WHERE studentnummer = " + studentnummer + " AND lesnummer = " + lesnummer);
         }
 
-
         Statement stmt1 = conn.createStatement();
         ResultSet rollcallMaken = stmt1.executeQuery("SELECT count(*) AS total FROM afwezigheid " +
                 "WHERE studentnummer = " + studentnummer);
         rollcallMaken.next();
         int aantal = rollcallMaken.getInt("total");
         double totaal = 100 - (100 / account.getKlas().getTotaalAantalLessen()) * aantal;
-
-        System.out.println(account.getNaam());
-        System.out.println("totale hoeveelheid lessen van de klas van de student : "+ account.getKlas().getTotaalAantalLessen());
-        System.out.println("gesetten rollcall " + account.getRollCall());
-        System.out.println("echte rollcall "+ totaal + "\n");
-
         account.setRollCall(totaal);
-
         Button source = (Button)actionEvent.getSource();
         Stage stage = (Stage)source.getScene().getWindow();
         stage.close();
