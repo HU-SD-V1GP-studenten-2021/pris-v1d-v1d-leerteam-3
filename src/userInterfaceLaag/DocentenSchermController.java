@@ -9,6 +9,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -16,8 +17,10 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Rectangle;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.sql.*;
 import java.util.ArrayList;
@@ -169,7 +172,13 @@ public class DocentenSchermController {
 //        students.addAll(les.getKlas().getStudenten());
         return students;
     }
-    public void handleButtonAfmelden(ActionEvent actionEvent) throws SQLException {
+    public void handleButtonAfmelden(ActionEvent actionEvent) throws SQLException, IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("BevestigingAfmelden.fxml"));
+        Parent root = loader.load();
+        Stage newStage = new Stage();
+        newStage.setScene(new Scene(root));
+        newStage.initModality(Modality.APPLICATION_MODAL);
+        newStage.showAndWait();
         ObservableList<ObservableList> namen = FXCollections.observableArrayList();
 
         String url = "jdbc:postgresql://localhost/SDGP";
@@ -184,14 +193,24 @@ public class DocentenSchermController {
             namen.addAll(student);
 
 
-            for (Student i : student) {
-                int studentnummerNu = i.getStudentennummer();
+            for (Student studentInsert : student) {
+                int studentnummerNu = studentInsert.getStudentennummer();
                 int lesnummerNu = this.les.getLesnummer();
                 stmt.executeUpdate("INSERT INTO afwezigheid (lesnummer, studentnummer, afwezig) " +
                         "VALUES ("+ lesnummerNu + ", " + studentnummerNu + ", true )");
 
             }
             getStudentenLoad(this.les);
+            for (Student studentUpdate : student){
+                ResultSet rollcallMaken = stmt.executeQuery("SELECT count(*) AS total FROM afwezigheid " +
+                        "WHERE studentnummer = " + studentUpdate.getStudentennummer());
+                rollcallMaken.next();
+                int aantal = rollcallMaken.getInt("total");
+                double totaal = 100 - (100 / studentUpdate.getKlas().getTotaalAantalLessen()) * aantal;
+                studentUpdate.setRollCall(totaal);
+            }
+
+
         }
         catch (NullPointerException e){
             System.out.println(e);
@@ -203,7 +222,13 @@ public class DocentenSchermController {
     }
 
 
-    public void handleButtonAanmelden(ActionEvent actionEvent) throws SQLException {
+    public void handleButtonAanmelden(ActionEvent actionEvent) throws SQLException, IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("BevestigingAanmelden.fxml"));
+        Parent root = loader.load();
+        Stage newStage = new Stage();
+        newStage.setScene(new Scene(root));
+        newStage.initModality(Modality.APPLICATION_MODAL);
+        newStage.showAndWait();
         ObservableList<ObservableList> namen = FXCollections.observableArrayList();
 
         String url = "jdbc:postgresql://localhost/SDGP";
@@ -229,6 +254,14 @@ public class DocentenSchermController {
 
             }
             getStudentenLoad(this.les);
+            for (Student studentUpdate : student){
+                ResultSet rollcallMaken = stmt.executeQuery("SELECT count(*) AS total FROM afwezigheid " +
+                        "WHERE studentnummer = " + studentUpdate.getStudentennummer());
+                rollcallMaken.next();
+                int aantal = rollcallMaken.getInt("total");
+                double totaal = 100 - (100 / studentUpdate.getKlas().getTotaalAantalLessen()) * aantal;
+                studentUpdate.setRollCall(totaal);
+            }
 
         }
         catch (NullPointerException e){

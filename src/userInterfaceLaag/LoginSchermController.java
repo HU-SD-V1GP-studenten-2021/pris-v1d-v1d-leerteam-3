@@ -1,11 +1,7 @@
 package userInterfaceLaag;
 
-import domeinLaag.Docent;
-import domeinLaag.Klas;
-import domeinLaag.Les;
-import domeinLaag.Student;
+import domeinLaag.*;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -17,13 +13,11 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 
 import java.sql.*;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
-import java.util.Locale;
 import java.util.Properties;
 
 public class LoginSchermController {
@@ -218,7 +212,15 @@ public class LoginSchermController {
                             String klasnaam = klassengegevens.getString("klasnaam");
                             int klasnummer = klassengegevens.getInt("klasnummer");
                             Klas k10 = new Klas(klasnummer, klasnaam);
-                            alleKlassen.add(k10);
+                            boolean boool = false;
+                            for (Klas k : alleKlassen){
+                                if (k.getKlasnummer() == k10.getKlasnummer()){
+                                    boool = true;
+                                }
+                            }
+                            if (!boool){
+                                alleKlassen.add(k10);
+                            }
                         }
 
                         ResultSet userGegevens = stmt.executeQuery("select docent.docentnummer, naam, email, status, pogingen, wachtwoord, k.klasnummer, k.klasnaam from docent " +
@@ -227,7 +229,6 @@ public class LoginSchermController {
                                 "where docent.docentnummer = " + docentnummer);
 
 
-                        Klas klas = null;
                         Docent docent = null;
                         while (userGegevens.next()) {
                             String usernaam = userGegevens.getString("naam");
@@ -235,17 +236,14 @@ public class LoginSchermController {
                             boolean status = userGegevens.getBoolean("status");
                             int pogingen = userGegevens.getInt("pogingen");
                             String userwachtwoord = userGegevens.getString("wachtwoord");
-                            int klasnummer = userGegevens.getInt("klasnummer");
-                            String klasnaam = userGegevens.getString("klasnaam");
                             docent = new Docent(usernaam, docentnummer, email, status, pogingen,userwachtwoord);
-                            klas = new Klas(klasnummer, klasnaam);
                         }
 
                         Docent.setAccount(docent);
 
 
 
-                        ResultSet lessen = stmt.executeQuery("SELECT l.lesnummer, l.datum, l.begintijd, l.eindtijd, l.lesnaam FROM les l " +
+                        ResultSet lessen = stmt.executeQuery("SELECT l.lesnummer, l.datum, l.begintijd, l.eindtijd, l.lesnaam, l.klasnummer FROM les l " +
                                 "    JOIN klas k on k.klasnummer = l.klasnummer " +
                                 "    join docent d on d.docentnummer = l.docentnummer " +
                                 "WHERE l.docentnummer = '" + docentnummer + "'");
@@ -258,9 +256,14 @@ public class LoginSchermController {
                             LocalDate datum = lessen.getDate(2).toLocalDate(); //datum
                             LocalTime begintijd = lessen.getTime(3).toLocalTime(); //begintijd
                             LocalTime eindtijd = lessen.getTime(4).toLocalTime(); //eindtijd
+                            int klasnummer = lessen.getInt(6); //klasnummer
 
                             Les les = new Les(lesnummer, lesnaam, datum, begintijd, eindtijd);
-                            les.setKlas(klas);
+                            for (Klas klas1 : alleKlassen){
+                                if (klasnummer == klas1.getKlasnummer()){
+                                    les.setKlas(klas1);
+                                }
+                            }
                             alleLessen.add(les);
                         }
 
@@ -278,7 +281,12 @@ public class LoginSchermController {
                         int i = 0;
                         while (docentles.next()) {
                             Les les = alleLessen.get(i);
-                            Klas klas1 = alleKlassen.get(i);
+                            Klas klas1 = null;
+                            for (Klas k : alleKlassen){
+                                if (les.getKlas().getKlasnummer() == k.getKlasnummer()){
+                                    klas1 = k;
+                                }
+                            }
 
                             les.setDocent(docent);
                             les.setKlas(klas1);
@@ -310,25 +318,32 @@ public class LoginSchermController {
 
                             }
                         }
-//                        for(Klas k : alleKlassen){
-//                            for(Student s : k.getStudenten()){
-//                                int studentnummer = s.getStudentennummer();
-//
-//                                ResultSet rollcallMaken = stmt.executeQuery("SELECT count(*) AS total FROM afwezigheid " +
-//                                        "WHERE studentnummer = " + studentnummer);
-//                                rollcallMaken.next();
-//
-//                                int aantallessen = rollcallMaken.getInt("total");
-//                                double totaal = 100 - (100 / s.getKlas().getTotaalAantalLessen()) * aantallessen;
-//
+
+                        System.out.println(alleKlassen);
+                        for (Klas kl : alleKlassen){
+                            System.out.println(kl);
+                        }
+
+
+                        for(Klas k : alleKlassen){
+                            for(Student s : k.getStudenten()){
+                                int studentnummer = s.getStudentennummer();
+
+                                ResultSet rollcallMaken = stmt.executeQuery("SELECT count(*) AS total FROM afwezigheid " +
+                                        "WHERE studentnummer = " + studentnummer);
+                                rollcallMaken.next();
+
+                                int aantallessen = rollcallMaken.getInt("total");
+                                double totaal = 100 - (100 / s.getKlas().getTotaalAantalLessen()) * aantallessen;
+
 //                                System.out.println(s.getNaam());
 //                                System.out.println("totale hoeveelheid lessen van de klas van de student : "+ k.getTotaalAantalLessen());
 //                                System.out.println("gesetten rollcall " + s.getRollCall());
 //                                System.out.println("aantal afwezig lessen " + aantallessen);
 //                                System.out.println("echte rollcall "+ totaal + "\n");
-//                                s.setRollCall(totaal);
-//                            }
-//                        }
+                                s.setRollCall(totaal);
+                            }
+                        }
 
 
 

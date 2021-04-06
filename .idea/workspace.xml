@@ -1,54 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0b191512-30ba-4dda-83c1-1f32a0238d20" name="Default Changelist" comment="Update">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/activation.xml" afterDir="false" />
+    <list default="true" id="0b191512-30ba-4dda-83c1-1f32a0238d20" name="Default Changelist" comment="Update versie">
+      <change afterPath="$PROJECT_DIR$/src/userInterfaceLaag/BevestigingAanmelden.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/userInterfaceLaag/BevestigingAanmeldenController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/userInterfaceLaag/BevestigingAfmelden.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/userInterfaceLaag/BevestigingAfmeldenController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Groepsproject.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Groepsproject.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/.idea/compiler.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/.idea/dataSources.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/.idea/dataSources/acad4403-7914-42e1-8902-522e3f11b626.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/.idea/dataSources/acad4403-7914-42e1-8902-522e3f11b626/storage_v2/_src_/database/SDGP.-sImAA.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/.idea/dataSources/acad4403-7914-42e1-8902-522e3f11b626/storage_v2/_src_/database/SDGP.-sImAA/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/.idea/dataSources/acad4403-7914-42e1-8902-522e3f11b626/storage_v2/_src_/database/SDGP.-sImAA/schema/pg_catalog.0S1ZNQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/.idea/dataSources/acad4403-7914-42e1-8902-522e3f11b626/storage_v2/_src_/database/SDGP.-sImAA/schema/public.abK9xQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/.idea/dbnavigator.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/.idea/libraries/org_openjfx_javafx_fxml_15_0_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/.idea/libraries/org_openjfx_javafx_fxml_15_0_11.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/.idea/pris-v1d-v1d-leerteam-3.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/.idea/sqldialects.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/Groepsproject.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/Sprint1.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/lib/javafx-base-15.0.1-win.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/lib/javafx-base-15.0.1.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/lib/javafx-controls-15.0.1-win.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/lib/javafx-controls-15.0.1.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/lib/javafx-fxml-15.0.1-win.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/lib/javafx-fxml-15.0.1.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/lib/javafx-graphics-15.0.1-win.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/lib/javafx-graphics-15.0.1.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/lib/postgresql-42.2.19.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/sprint1.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/src/HU.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/src/hu-logo-nl.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/src/magister.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/src/mystyle.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/src/userInterfaceLaag/AfmeldenScherm.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/src/userInterfaceLaag/DocentenScherm.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/src/userInterfaceLaag/LeerlingHoofdscherm.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/src/userInterfaceLaag/LoginScherm.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/untitled/untitled.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/userInterfaceLaag/LeerlingHoofdscherm.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Groepsproject/userInterfaceLaag/LeerlingHoofdscherm.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/userInterfaceLaag/DocentenSchermController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Groepsproject/userInterfaceLaag/DocentenSchermController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/userInterfaceLaag/EmailSender$SMTPAuthenticator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/userInterfaceLaag/EmailSender.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/userInterfaceLaag/LeerlingHoofdschermController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Groepsproject/userInterfaceLaag/LeerlingHoofdschermController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/userInterfaceLaag/LoginScherm.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Groepsproject/userInterfaceLaag/LoginScherm.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/userInterfaceLaag/LoginSchermController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Groepsproject/userInterfaceLaag/LoginSchermController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/userInterfaceLaag/DocentenSchermController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/userInterfaceLaag/DocentenSchermController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/userInterfaceLaag/EmailSender.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/domeinLaag/EmailSender.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/userInterfaceLaag/LeerlingHoofdschermController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/userInterfaceLaag/LeerlingHoofdschermController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/userInterfaceLaag/LoginScherm.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/userInterfaceLaag/LoginScherm.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/userInterfaceLaag/LoginSchermController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/userInterfaceLaag/LoginSchermController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -107,7 +74,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="database.data.extractors.current.export.id" value="SQL Inserts" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Documents/javax.mail.jar" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/userInterfaceLaag" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
@@ -115,6 +82,9 @@
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\ruben\pris-v1d-v1d-leerteam-3\src\userInterfaceLaag" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Mr_Kaatjes\IdeaProjects\pris-v1d-v1d-leerteam-3\src" />
       <recent name="C:\Users\Mr_Kaatjes\IdeaProjects\pris-v1d-v1d-leerteam-3" />
@@ -183,7 +153,7 @@
       <workItem from="1617377646328" duration="497000" />
       <workItem from="1617378160374" duration="1480000" />
       <workItem from="1617625936338" duration="183000" />
-      <workItem from="1617695824178" duration="2242000" />
+      <workItem from="1617695824178" duration="7839000" />
     </task>
     <task id="LOCAL-00001" summary="Test Ruben 26-03-2021">
       <created>1616756891923</created>
@@ -339,7 +309,21 @@
       <option name="project" value="LOCAL" />
       <updated>1617378110016</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Update versie">
+      <created>1617698106703</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1617698106703</updated>
+    </task>
+    <task id="LOCAL-00024" summary="Update versie">
+      <created>1617699194413</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1617699194413</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -371,7 +355,8 @@
     <MESSAGE value="UI updates" />
     <MESSAGE value="Update" />
     <MESSAGE value="update" />
-    <option name="LAST_COMMIT_MESSAGE" value="update" />
+    <MESSAGE value="Update versie" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update versie" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
