@@ -7,10 +7,8 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.geometry.Side;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -20,8 +18,6 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.Border;
 import javafx.scene.layout.Pane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -30,8 +26,6 @@ import javafx.stage.StageStyle;
 import java.io.IOException;
 import java.sql.*;
 import java.time.LocalDate;
-import java.time.LocalTime;
-import java.util.Date;
 import java.util.Properties;
 
 public class LeerlingHoofdschermController {
@@ -42,8 +36,6 @@ public class LeerlingHoofdschermController {
     public DatePicker datepickerid;
     public Button volgendeDagButton;
     public Button toonVorigeDagButton;
-    public Label waarschuwingid;
-    @FXML private Button loguitKnop;
     @FXML private Label naamLabel;
     @FXML private TableView aanwezigheidsTabel;
     @FXML private TableColumn<Les, String> lesid;
@@ -53,16 +45,8 @@ public class LeerlingHoofdschermController {
     @FXML private TableColumn<Klas, String> aanwezigid;
     @FXML private PieChart rollCallAttendance;
     private Student student = Student.getAccount();
-    private double xOffset;
-    private double yOffset;
 
     public void initialize() throws SQLException {
-        String url = "jdbc:postgresql://localhost/SDGP";
-        Properties props = new Properties();
-        props.setProperty("user","omara");
-        props.setProperty("password","Omar1994");
-        Connection con = DriverManager.getConnection(url, props);
-        Statement stmt = con.createStatement();
         datepickerid.setValue(LocalDate.now());
         String s = student.getNaam();
         naamLabel.setText(s);   // in de klasse domeinLaag.Student de naam opvragen
@@ -103,8 +87,8 @@ public class LeerlingHoofdschermController {
     public ObservableList<Les> getLessen() throws SQLException {
         String url = "jdbc:postgresql://localhost/SDGP";
         Properties props = new Properties();
-        props.setProperty("user","omara");
-        props.setProperty("password","Omar1994");
+        props.setProperty("user","postgres");
+        props.setProperty("password","ruben");
         Connection con = DriverManager.getConnection(url, props);
         Statement stmt = con.createStatement();
         ObservableList<Les> lessen = FXCollections.observableArrayList();
@@ -134,26 +118,25 @@ public class LeerlingHoofdschermController {
         try {
             ((Node)actionEvent.getSource()).getScene().getWindow().hide();
             Stage stage = new Stage();
-            FXMLLoader loader = new FXMLLoader();
-            Pane root = loader.load(getClass().getResource("/userInterfaceLaag/LoginScherm.fxml"));
+            Pane root = FXMLLoader.load(getClass().getResource("/userInterfaceLaag/LoginScherm.fxml"));
             Scene scene = new Scene(root);
-            stage.setTitle("Login");
+            stage.setTitle("Login scherm");
             stage.setScene(scene);
             stage.getIcons().add(new Image("HU.png"));
             stage.show();
 
         } catch (Exception e) {
-            System.out.println(e);
+            System.out.println(e.getMessage());
         }
     }
 
-    public void popUpScherm(MouseEvent mouseEvent) throws IOException, SQLException{
+    public void popUpScherm(MouseEvent mouseEvent){
         if (mouseEvent.getButton().equals(MouseButton.PRIMARY)){
             if (mouseEvent.getClickCount() == 2){
                 try{
                     Les les = (Les) aanwezigheidsTabel.getSelectionModel().getSelectedItem();
-                    this.lesnummer = les.getLesnummer();
-                    this.les = les;
+                    lesnummer = les.getLesnummer();
+                    LeerlingHoofdschermController.les = les;
                     if(!les.getDatum().isBefore(LocalDate.now())){
                         FXMLLoader loader = new FXMLLoader(getClass().getResource("AfmeldenScherm.fxml"));
                         Parent root = loader.load();
@@ -174,17 +157,17 @@ public class LeerlingHoofdschermController {
 
     }
 
-    public void getdatum(Event event) throws NullPointerException, SQLException {
+    public void getdatum() throws NullPointerException, SQLException {
         LocalDate datum = datepickerid.getValue();
-        aanwezigheidsTabel.setItems(setLessen(datum));
+        aanwezigheidsTabel.setItems(setLessen());
         aanwezigheidsTabel.refresh();
     }
 
-    public ObservableList<Les> setLessen(LocalDate datum) throws SQLException {
+    public ObservableList<Les> setLessen() throws SQLException {
         String url = "jdbc:postgresql://localhost/SDGP";
         Properties props = new Properties();
-        props.setProperty("user","omara");
-        props.setProperty("password","Omar1994");
+        props.setProperty("user","postgres");
+        props.setProperty("password","ruben");
         Connection con = DriverManager.getConnection(url, props);
         Statement stmt = con.createStatement();
         ObservableList<Les> lessen = FXCollections.observableArrayList();
@@ -210,21 +193,21 @@ public class LeerlingHoofdschermController {
         return lessen;
     }
 
-    public void toonVorigeDag(ActionEvent actionEvent) {
+    public void toonVorigeDag() {
         LocalDate dagEerder = datepickerid.getValue().minusDays(1);
         datepickerid.setValue(dagEerder);
     }
 
-    public void toonVolgendeDag(ActionEvent actionEvent) {
+    public void toonVolgendeDag() {
         LocalDate dagLater = datepickerid.getValue().plusDays(1);
         datepickerid.setValue(dagLater);
     }
-    public void toonVolgendeWeek(ActionEvent actionEvent) {
+    public void toonVolgendeWeek() {
         LocalDate weekLater = datepickerid.getValue().plusDays(7);
         datepickerid.setValue(weekLater);
     }
 
-    public void toonVorigeWeek(ActionEvent actionEvent) {
+    public void toonVorigeWeek() {
         LocalDate weekEerder = datepickerid.getValue().minusDays(7);
         datepickerid.setValue(weekEerder);
     }
