@@ -83,8 +83,21 @@ public class LeerlingHoofdschermController {
         rollCallAttendance.setLegendVisible(true);
         rollCallAttendance.setStartAngle(90);
 
+        aanwezigheidsTabel.setRowFactory(tv -> new TableRow<Les>() {
+            @Override
+            protected void updateItem(Les item, boolean empty) {
+                super.updateItem(item, empty);
+                if (item == null || item.getAfwezigheid() == null)
+                    setStyle("");
+                else if (item.getAfwezigheid().equals("Afwezig"))
+                    setStyle("-fx-background-color: #ffd7d1;");
+                else
+                    setStyle("");
+            }
+        });
 
         aanwezigheidsTabel.refresh();
+
     }
 
     public ObservableList<Les> getLessen() throws SQLException {

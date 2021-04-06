@@ -25,6 +25,7 @@ public class LoginSchermController {
     @FXML private PasswordField wachtwoordVeld;
     @FXML private TextField naamVeld;
     @FXML private Label Waarschuwing;
+    @FXML private Label wachtwoordVerzonden;
 
     private Student account = Student.getAccount();
     private Object Klas;
@@ -40,7 +41,7 @@ public class LoginSchermController {
         Connection conn = DriverManager.getConnection(url, props);
 
         if(!naam.contains("@student.hu.nl") &&!naam.contains("@hu.nl")){
-            Waarschuwing.setText("E-mailadres is onjuist.\nVolg het format: gebruiker@student.hu.nl");
+            Waarschuwing.setText("E-mailadres is onjuist.\nVolg het format: gebruiker@(student.)hu.nl");
         }
         else if(wachtwoord.equals("")){
             Waarschuwing.setText("Wachtwoordveld is verplicht");
@@ -54,7 +55,7 @@ public class LoginSchermController {
                 ResultSet rsHuidigeStudent = stmt.executeQuery("SELECT email, wachtwoord, pogingen, status, studentnummer, naam, pogingen, rollcall FROM student");
                 while(rsHuidigeStudent.next()){
                     int studentnummer = rsHuidigeStudent.getInt("studentnummer");
-                    if(rsHuidigeStudent.getString("email").equals(naam) && rsHuidigeStudent.getString("wachtwoord").equals(wachtwoord) && !rsHuidigeStudent.getBoolean("status")){
+                    if(rsHuidigeStudent.getString("email").equalsIgnoreCase(naam) && rsHuidigeStudent.getString("wachtwoord").equals(wachtwoord) && !rsHuidigeStudent.getBoolean("status")){
                         int userstudentnummer = rsHuidigeStudent.getInt("studentnummer");
 
                         stmt.executeUpdate("UPDATE student SET pogingen = 0 WHERE studentnummer = " + studentnummer);
@@ -177,18 +178,21 @@ public class LoginSchermController {
                         if (i == 3 || i == 4){
                             Waarschuwing.setText("Let op, je zit op " + i + " pogingen!\n" +
                                     "bij 5 wordt je geblokkerd!");
+                            wachtwoordVerzonden.setText("");
                         }
                         else if (i >= 5){
                             stmt.executeUpdate("UPDATE student SET status = true WHERE studentnummer = " + studentnummer);
                             Waarschuwing.setText("Je bent geblokkeerd!\nStuur een mailtje naar de administrator!");
+                            wachtwoordVerzonden.setText("");
                         }else{
                             Waarschuwing.setText("Email of wachtwoord onjuist!");
+                            wachtwoordVerzonden.setText("");
                         }
                         break;
                     }
                     else {
                         Waarschuwing.setText("Email of wachtwoord onjuist!");
-
+                        wachtwoordVerzonden.setText("");
                     }
                 }
             }
@@ -198,7 +202,7 @@ public class LoginSchermController {
                 ResultSet rs = stmt.executeQuery("SELECT email, wachtwoord, pogingen, status, docentnummer FROM docent");
                 while(rs.next()){
                     int docentnummer = rs.getInt("docentnummer");
-                    if(rs.getString("email").equals(naam) && rs.getString(2).equals(wachtwoord) && !rs.getBoolean("status")){
+                    if(rs.getString("email").equalsIgnoreCase(naam) && rs.getString(2).equals(wachtwoord) && !rs.getBoolean("status")){
                         stmt.executeUpdate("UPDATE docent SET pogingen = 0 WHERE docentnummer = " + docentnummer);
 
 
@@ -335,18 +339,9 @@ public class LoginSchermController {
 
                                 int aantallessen = rollcallMaken.getInt("total");
                                 double totaal = 100 - (100 / s.getKlas().getTotaalAantalLessen()) * aantallessen;
-
-//                                System.out.println(s.getNaam());
-//                                System.out.println("totale hoeveelheid lessen van de klas van de student : "+ k.getTotaalAantalLessen());
-//                                System.out.println("gesetten rollcall " + s.getRollCall());
-//                                System.out.println("aantal afwezig lessen " + aantallessen);
-//                                System.out.println("echte rollcall "+ totaal + "\n");
                                 s.setRollCall(totaal);
                             }
                         }
-
-
-
                         try{
 
                             loginscherm.close();
@@ -373,17 +368,21 @@ public class LoginSchermController {
                         if (i == 3 || i == 4){
                             Waarschuwing.setText("Let op, je zit op " + i + " pogingen!\n" +
                                     "bij 5 wordt je geblokkerd!");
+                            wachtwoordVerzonden.setText("");
                         }
                         else if (i >= 5){
                             stmt.executeUpdate("UPDATE docent SET status = true WHERE docentnummer = " + docentnummer);
                             Waarschuwing.setText("Je bent geblokkeerd!\nStuur een mailtje naar de administrator!");
+                            wachtwoordVerzonden.setText("");
                         }else{
                             Waarschuwing.setText("Email of wachtwoord onjuist!");
+                            wachtwoordVerzonden.setText("");
                         }
                         break;
                     }
                     else {
                         Waarschuwing.setText("Email of wachtwoord onjuist!");
+                        wachtwoordVerzonden.setText("");
 
                     }
                 }
@@ -421,6 +420,13 @@ public class LoginSchermController {
                         String userwachtwoord = userGegevens.getString("wachtwoord");
 
                         new EmailSender(naam, "Wachtwoord vergeten", "Geachte " + usernaam + ", \n \nU heeft geklikt op 'wachtwoord vergeten', dit is uw wachtwoord :\n" + userwachtwoord);
+
+                        wachtwoordVerzonden.setText("Uw wachtwoord is naar uw email adres verzonden!");
+                        Waarschuwing.setText("");
+                    }
+                    else {
+                        Waarschuwing.setText("Dit Email-adres is niet bekend bij de hogeschool");
+                        wachtwoordVerzonden.setText("");
                     }
                 }
             }
@@ -440,10 +446,20 @@ public class LoginSchermController {
                         String userwachtwoord = userGegevens.getString("wachtwoord");
 
                         new EmailSender(naam, "Wachtwoord vergeten", "Geachte " + usernaam + ", \n \nU heeft geklikt op 'wachtwoord vergeten', dit is uw wachtwoord :\n" + userwachtwoord);
+
+                        wachtwoordVerzonden.setText("Uw wachtwoord is naar uw Email-adres verzonden!");
+                        Waarschuwing.setText("");
+                    }
+                    else {
+                        Waarschuwing.setText("Dit Email-adres is niet bekend bij de hogeschool");
+                        wachtwoordVerzonden.setText("");
                     }
                 }
             }
-        }catch (Exception e) {
-        }
+            else {
+                Waarschuwing.setText("Dit Email-adres hoort niet bij de hogeschool!");
+                wachtwoordVerzonden.setText("");
+            }
+        }catch (Exception ignored) {}
     }
 }

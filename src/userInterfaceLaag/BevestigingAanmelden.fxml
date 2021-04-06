@@ -3,10 +3,11 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="107.0" prefWidth="318.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="userInterfaceLaag.BevestigingAanmeldenController">
+<AnchorPane prefHeight="130.0" prefWidth="318.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="userInterfaceLaag.BevestigingAanmeldenController">
    <children>
-      <Button layoutX="54.0" layoutY="68.0" mnemonicParsing="false" text="Bevestigen" onAction="#bevestigenButten" />
-      <Button layoutX="179.0" layoutY="68.0" mnemonicParsing="false" text="Annuleren" onAction="#annulerenButten"/>
+      <Button fx:id="Bevestiging" layoutX="54.0" layoutY="68.0" mnemonicParsing="false" onAction="#bevestigenButten" text="Bevestigen" />
+      <Button fx:id="Annuleren" layoutX="179.0" layoutY="68.0" mnemonicParsing="false" onAction="#annulerenButten" text="Annuleren" />
       <Label layoutX="17.0" layoutY="27.0" prefHeight="17.0" prefWidth="283.0" text="Weet u zeker dat u deze student(en) wilt aanmelden?" />
+      <Label fx:id="waarschuwing" text="" layoutX="54.0" layoutY="98.0" />
    </children>
 </AnchorPane>

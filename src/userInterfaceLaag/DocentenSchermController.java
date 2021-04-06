@@ -44,9 +44,10 @@ public class DocentenSchermController {
     @FXML private TableColumn<Student, String> rollcall;
     @FXML private TableColumn<Student, String> aanwezigid;
 
-
     private Docent docent = Docent.getAccount();
-    public Les les;
+    public static Les les;
+    public static TableView view1;
+    public TableView view2;
 
     public void initialize() throws Exception {
         String s = docent.getNaam();
@@ -66,6 +67,7 @@ public class DocentenSchermController {
 
         tableView2.setItems(getLessen());
         tableView1.setItems(getStudenten());
+        this.view1 = tableView1;
     }
 
     public ObservableList<Les> getLessen(){
@@ -151,7 +153,6 @@ public class DocentenSchermController {
         Connection con = DriverManager.getConnection(url, props);
         Statement stmt = con.createStatement();
         ObservableList<Student> students = FXCollections.observableArrayList();
-        System.out.println("jkjsdl" + les);
         for (Student student : les.getKlas().getStudenten()){
             boolean afwezig = false;
             ResultSet rs = stmt.executeQuery("SELECT afwezig FROM afwezigheid WHERE studentnummer = " +
@@ -172,102 +173,58 @@ public class DocentenSchermController {
 //        students.addAll(les.getKlas().getStudenten());
         return students;
     }
-    public void handleButtonAfmelden(ActionEvent actionEvent) throws SQLException, IOException {
+
+    public void handleButtonAfmelden(ActionEvent actionEvent) throws Exception {
+        String url = "jdbc:postgresql://localhost/SDGP";
+        Properties props = new Properties();
+        props.setProperty("user","postgres");
+        props.setProperty("password","ruben");
+        Connection con = DriverManager.getConnection(url, props);
+        Statement stmt = con.createStatement();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("BevestigingAfmelden.fxml"));
         Parent root = loader.load();
         Stage newStage = new Stage();
         newStage.setScene(new Scene(root));
         newStage.initModality(Modality.APPLICATION_MODAL);
         newStage.showAndWait();
-        ObservableList<ObservableList> namen = FXCollections.observableArrayList();
 
+        ObservableList<Student> student = tableView1.getSelectionModel().getSelectedItems();
+        for (Student studentUpdate : student){
+            ResultSet rollcallMaken = stmt.executeQuery("SELECT count(*) AS total FROM afwezigheid " +
+                    "WHERE studentnummer = " + studentUpdate.getStudentennummer());
+            rollcallMaken.next();
+            int aantal = rollcallMaken.getInt("total");
+            double totaal = 100 - (100 / studentUpdate.getKlas().getTotaalAantalLessen()) * aantal;
+            studentUpdate.setRollCall(totaal);
+        }
+        getStudentenLoad(les);
+    }
+
+
+    public void handleButtonAanmelden(ActionEvent actionEvent) throws SQLException, IOException {
         String url = "jdbc:postgresql://localhost/SDGP";
         Properties props = new Properties();
         props.setProperty("user","postgres");
         props.setProperty("password","ruben");
         Connection con = DriverManager.getConnection(url, props);
         Statement stmt = con.createStatement();
-
-        try {
-            ObservableList<Student> student = tableView1.getSelectionModel().getSelectedItems();
-            namen.addAll(student);
-
-
-            for (Student studentInsert : student) {
-                int studentnummerNu = studentInsert.getStudentennummer();
-                int lesnummerNu = this.les.getLesnummer();
-                stmt.executeUpdate("INSERT INTO afwezigheid (lesnummer, studentnummer, afwezig) " +
-                        "VALUES ("+ lesnummerNu + ", " + studentnummerNu + ", true )");
-
-            }
-            getStudentenLoad(this.les);
-            for (Student studentUpdate : student){
-                ResultSet rollcallMaken = stmt.executeQuery("SELECT count(*) AS total FROM afwezigheid " +
-                        "WHERE studentnummer = " + studentUpdate.getStudentennummer());
-                rollcallMaken.next();
-                int aantal = rollcallMaken.getInt("total");
-                double totaal = 100 - (100 / studentUpdate.getKlas().getTotaalAantalLessen()) * aantal;
-                studentUpdate.setRollCall(totaal);
-            }
-
-
-        }
-        catch (NullPointerException e){
-            System.out.println(e);
-        }
-        catch (Exception duplicateKey){
-            waarschuwingid.setText("Deze student(en) zijn al afwezig gemeld!");
-        }
-
-    }
-
-
-    public void handleButtonAanmelden(ActionEvent actionEvent) throws SQLException, IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("BevestigingAanmelden.fxml"));
         Parent root = loader.load();
         Stage newStage = new Stage();
         newStage.setScene(new Scene(root));
         newStage.initModality(Modality.APPLICATION_MODAL);
         newStage.showAndWait();
-        ObservableList<ObservableList> namen = FXCollections.observableArrayList();
 
-        String url = "jdbc:postgresql://localhost/SDGP";
-        Properties props = new Properties();
-        props.setProperty("user","postgres");
-        props.setProperty("password","ruben");
-        Connection con = DriverManager.getConnection(url, props);
-        Statement stmt = con.createStatement();
-
-        try {
-            ObservableList<Student> student = tableView1.getSelectionModel().getSelectedItems();
-            namen.addAll(student);
-            System.out.println(student);
-
-            for (Student i : student) {
-                int studentnummerNu = i.getStudentennummer();
-
-
-                int lesnummerNu = this.les.getLesnummer();
-
-                stmt.executeUpdate("DELETE FROM afwezigheid " +
-                        "WHERE studentnummer = " + studentnummerNu + " AND lesnummer = " + lesnummerNu);
-
-            }
-            getStudentenLoad(this.les);
-            for (Student studentUpdate : student){
-                ResultSet rollcallMaken = stmt.executeQuery("SELECT count(*) AS total FROM afwezigheid " +
-                        "WHERE studentnummer = " + studentUpdate.getStudentennummer());
-                rollcallMaken.next();
-                int aantal = rollcallMaken.getInt("total");
-                double totaal = 100 - (100 / studentUpdate.getKlas().getTotaalAantalLessen()) * aantal;
-                studentUpdate.setRollCall(totaal);
-            }
-
+        ObservableList<Student> student = tableView1.getSelectionModel().getSelectedItems();
+        for (Student studentUpdate : student){
+            ResultSet rollcallMaken = stmt.executeQuery("SELECT count(*) AS total FROM afwezigheid " +
+                    "WHERE studentnummer = " + studentUpdate.getStudentennummer());
+            rollcallMaken.next();
+            int aantal = rollcallMaken.getInt("total");
+            double totaal = 100 - (100 / studentUpdate.getKlas().getTotaalAantalLessen()) * aantal;
+            studentUpdate.setRollCall(totaal);
         }
-        catch (NullPointerException e){
-            System.out.println(e);
-        }
+        getStudentenLoad(les);
     }
 
 }
-
