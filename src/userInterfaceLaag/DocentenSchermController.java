@@ -15,23 +15,17 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
-import javafx.scene.shape.Rectangle;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.lang.reflect.InvocationTargetException;
 import java.sql.*;
-import java.util.ArrayList;
 import java.util.Properties;
 
 public class DocentenSchermController {
     public Label waarschuwingid;
     public ImageView magister200id;
-    @FXML private Rectangle rectangleBoven;
-    @FXML private Button loguitKnop;
     @FXML public Label naamLabel;
     @FXML private TableView tableView2;
     @FXML private TableColumn<Les, String> klasid;
@@ -45,10 +39,9 @@ public class DocentenSchermController {
     @FXML private TableColumn<Student, String> rollcall;
     @FXML private TableColumn<Student, String> aanwezigid;
 
-    private Docent docent = Docent.getAccount();
+    private final Docent docent = Docent.getAccount();
     public static Les les;
     public static TableView view1;
-    public TableView view2;
 
     public void initialize() throws Exception {
         String s = docent.getNaam();
@@ -108,7 +101,7 @@ public class DocentenSchermController {
             //leerling (de for loop) de afwezigheid op, als deze niet bestaat is de leerling dus aanwezig.
             while(rs.next()){
                 boolean afwezigbool = rs.getBoolean("afwezig"); //hier zet je mits je in de lijst voorkomt
-                // (dus in de while loop komt) wordt er een boolean aan toegekend.
+                // (dus in de while loop komt) wordt er een boolean aan toegekend. */
                 if (afwezigbool){
                     afwezig = true;
                 }
@@ -119,40 +112,28 @@ public class DocentenSchermController {
             }
             students.add(student);
         }
-        System.out.println(les);
-
-//        students.addAll(les.getKlas().getStudenten());
         return students;
     }
 
 
 
 
-    public void loguitEnAfsluiten(ActionEvent actionEvent){
-        try {
-            ((Node)actionEvent.getSource()).getScene().getWindow().hide();
-            Stage primaryStage = new Stage();
-            FXMLLoader loader = new FXMLLoader();
-            Pane root = loader.load(getClass().getResource("/userInterfaceLaag/LoginScherm.fxml"));
-
-            Scene scene = new Scene(root);
-            primaryStage.setScene(scene);
-            primaryStage.setTitle("Login scherm");
-            primaryStage.getIcons().add(new Image("HU.png"));
-            primaryStage.show();
-
-        } catch (Exception e) {
-            System.out.println(e);
-        }
+    public void loguitEnAfsluiten(ActionEvent actionEvent) throws IOException {
+        ((Node)actionEvent.getSource()).getScene().getWindow().hide();
+        Stage primaryStage = new Stage();
+        FXMLLoader loader = new FXMLLoader();
+        Pane root = loader.load(getClass().getResource("/userInterfaceLaag/LoginScherm.fxml"));
+        Scene scene = new Scene(root);
+        primaryStage.setScene(scene);
+        primaryStage.setTitle("Login scherm");
+        primaryStage.getIcons().add(new Image("HU.png"));
+        primaryStage.show();
     }
 
-    public void loadDataPerLes(MouseEvent mouseEvent){
+    public void loadDataPerLes(){
         try {
             Les les = (Les) tableView2.getSelectionModel().getSelectedItem();
-            System.out.println(les);
-            System.out.println(les.getLesnummer());
             tableView1.setItems(getStudentenLoad(les));
-            System.out.println("hoi" +les);
             this.les = les;
         }
         catch (NullPointerException | SQLException ignored){
@@ -184,12 +165,10 @@ public class DocentenSchermController {
             }
             students.add(student);
         }
-
-//        students.addAll(les.getKlas().getStudenten());
         return students;
     }
 
-    public void handleButtonAfmelden(ActionEvent actionEvent) throws Exception {
+    public void handleButtonAfmelden() throws Exception {
         String url = "jdbc:postgresql://localhost/SDGP";
         Properties props = new Properties();
         props.setProperty("user","omara");
@@ -202,21 +181,20 @@ public class DocentenSchermController {
         newStage.setScene(new Scene(root));
         newStage.initModality(Modality.APPLICATION_MODAL);
         newStage.showAndWait();
-
         ObservableList<Student> student = tableView1.getSelectionModel().getSelectedItems();
         for (Student studentUpdate : student){
             ResultSet rollcallMaken = stmt.executeQuery("SELECT count(*) AS total FROM afwezigheid " +
                     "WHERE studentnummer = " + studentUpdate.getStudentennummer());
             rollcallMaken.next();
             int aantal = rollcallMaken.getInt("total");
-            double totaal = 100 - (100 / studentUpdate.getKlas().getTotaalAantalLessen()) * aantal;
+            double totaal = 100 - (100.0 / studentUpdate.getKlas().getTotaalAantalLessen()) * aantal;
             studentUpdate.setRollCall(totaal);
         }
         getStudentenLoad(les);
     }
 
 
-    public void handleButtonAanmelden(ActionEvent actionEvent) throws SQLException, IOException {
+    public void handleButtonAanmelden() throws SQLException, IOException {
         String url = "jdbc:postgresql://localhost/SDGP";
         Properties props = new Properties();
         props.setProperty("user","omara");
@@ -229,17 +207,15 @@ public class DocentenSchermController {
         newStage.setScene(new Scene(root));
         newStage.initModality(Modality.APPLICATION_MODAL);
         newStage.showAndWait();
-
         ObservableList<Student> student = tableView1.getSelectionModel().getSelectedItems();
         for (Student studentUpdate : student){
             ResultSet rollcallMaken = stmt.executeQuery("SELECT count(*) AS total FROM afwezigheid " +
                     "WHERE studentnummer = " + studentUpdate.getStudentennummer());
             rollcallMaken.next();
             int aantal = rollcallMaken.getInt("total");
-            double totaal = 100 - (100 / studentUpdate.getKlas().getTotaalAantalLessen()) * aantal;
+            double totaal = 100 - (100.0 / studentUpdate.getKlas().getTotaalAantalLessen()) * aantal;
             studentUpdate.setRollCall(totaal);
         }
         getStudentenLoad(les);
     }
-
 }

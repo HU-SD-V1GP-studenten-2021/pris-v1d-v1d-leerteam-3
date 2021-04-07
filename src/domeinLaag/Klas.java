@@ -38,24 +38,12 @@ public class Klas {
         return klasnummer;
     }
 
-    public void setKlasnummer(int klasnummer) {
-        this.klasnummer = klasnummer;
-    }
-
-    public void setNaam(String naam) {
-        this.naam = naam;
-    }
-
     public ArrayList<Les> getLessen() {
         return lessen;
     }
 
     public ArrayList<Student> getStudenten() {
         return studenten;
-    }
-
-    public int getAantalStudenten() {
-        return aantalStudenten;
     }
 
     public int getTotaalAantalLessen() {
