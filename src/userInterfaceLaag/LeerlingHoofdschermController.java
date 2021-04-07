@@ -87,8 +87,8 @@ public class LeerlingHoofdschermController {
     public ObservableList<Les> getLessen() throws SQLException {
         String url = "jdbc:postgresql://localhost/SDGP";
         Properties props = new Properties();
-        props.setProperty("user","postgres");
-        props.setProperty("password","ruben");
+        props.setProperty("user","omara");
+        props.setProperty("password","Omar1994");
         Connection con = DriverManager.getConnection(url, props);
         Statement stmt = con.createStatement();
         ObservableList<Les> lessen = FXCollections.observableArrayList();
@@ -166,8 +166,8 @@ public class LeerlingHoofdschermController {
     public ObservableList<Les> setLessen() throws SQLException {
         String url = "jdbc:postgresql://localhost/SDGP";
         Properties props = new Properties();
-        props.setProperty("user","postgres");
-        props.setProperty("password","ruben");
+        props.setProperty("user","omara");
+        props.setProperty("password","Omar1994");
         Connection con = DriverManager.getConnection(url, props);
         Statement stmt = con.createStatement();
         ObservableList<Les> lessen = FXCollections.observableArrayList();
