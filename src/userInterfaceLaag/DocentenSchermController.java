@@ -69,18 +69,7 @@ public class DocentenSchermController {
                     setStyle("");
             }
         });
-        tableView1.setRowFactory(tv -> new TableRow<Student>() {
-            @Override
-            protected void updateItem(Student    item, boolean empty) {
-                super.updateItem(item, empty);
-                if (item == null || item.getRollCall() > 60)
-                    setStyle("");
-                else if (item.getRollCall() <= 60)
-                    setStyle("-fx-text-color: #3271a8;");
-                else
-                    setStyle("");
-            }
-        });
+
 
         tableView2.setItems(getLessen());
         tableView1.setItems(getStudenten());
@@ -98,7 +87,7 @@ public class DocentenSchermController {
         String url = "jdbc:postgresql://localhost/SDGP";
         Properties props = new Properties();
         props.setProperty("user","postgres");
-        props.setProperty("password","united");
+        props.setProperty("password","ruben");
         Connection con = DriverManager.getConnection(url, props);
         Statement stmt = con.createStatement();
         ObservableList<Student> students = FXCollections.observableArrayList();
@@ -130,15 +119,15 @@ public class DocentenSchermController {
 
 
     public void loguitEnAfsluiten(ActionEvent actionEvent) throws IOException {
-            ((Node)actionEvent.getSource()).getScene().getWindow().hide();
-            Stage primaryStage = new Stage();
-            FXMLLoader loader = new FXMLLoader();
-            Pane root = loader.load(getClass().getResource("/userInterfaceLaag/LoginScherm.fxml"));
-            Scene scene = new Scene(root);
-            primaryStage.setScene(scene);
-            primaryStage.setTitle("Login scherm");
-            primaryStage.getIcons().add(new Image("HU.png"));
-            primaryStage.show();
+        ((Node)actionEvent.getSource()).getScene().getWindow().hide();
+        Stage primaryStage = new Stage();
+        FXMLLoader loader = new FXMLLoader();
+        Pane root = loader.load(getClass().getResource("/userInterfaceLaag/LoginScherm.fxml"));
+        Scene scene = new Scene(root);
+        primaryStage.setScene(scene);
+        primaryStage.setTitle("Login scherm");
+        primaryStage.getIcons().add(new Image("HU.png"));
+        primaryStage.show();
     }
 
     public void loadDataPerLes(){
@@ -156,7 +145,7 @@ public class DocentenSchermController {
         String url = "jdbc:postgresql://localhost/SDGP";
         Properties props = new Properties();
         props.setProperty("user","postgres");
-        props.setProperty("password","united");
+        props.setProperty("password","ruben");
         Connection con = DriverManager.getConnection(url, props);
         Statement stmt = con.createStatement();
         ObservableList<Student> students = FXCollections.observableArrayList();
@@ -183,7 +172,7 @@ public class DocentenSchermController {
         String url = "jdbc:postgresql://localhost/SDGP";
         Properties props = new Properties();
         props.setProperty("user","postgres");
-        props.setProperty("password","united");
+        props.setProperty("password","ruben");
         Connection con = DriverManager.getConnection(url, props);
         Statement stmt = con.createStatement();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("BevestigingAfmelden.fxml"));
@@ -209,7 +198,7 @@ public class DocentenSchermController {
         String url = "jdbc:postgresql://localhost/SDGP";
         Properties props = new Properties();
         props.setProperty("user","postgres");
-        props.setProperty("password","united");
+        props.setProperty("password","ruben");
         Connection con = DriverManager.getConnection(url, props);
         Statement stmt = con.createStatement();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("BevestigingAanmelden.fxml"));

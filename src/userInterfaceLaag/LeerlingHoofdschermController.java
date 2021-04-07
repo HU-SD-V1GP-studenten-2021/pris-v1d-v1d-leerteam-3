@@ -204,4 +204,3 @@ public class LeerlingHoofdschermController {
         datepickerid.setValue(weekEerder);
     }
 }
-

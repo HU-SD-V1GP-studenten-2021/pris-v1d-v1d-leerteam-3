@@ -1,6 +1,5 @@
 package userInterfaceLaag;
 
-
 import domeinLaag.Les;
 import domeinLaag.Student;
 import javafx.collections.FXCollections;
@@ -17,8 +16,6 @@ import java.util.Properties;
 
 public class BevestigingAanmeldenController {
     public Les les;
-
-
     public Button Bevestiging;
     public Button Annuleren;
 
@@ -28,7 +25,7 @@ public class BevestigingAanmeldenController {
         String url = "jdbc:postgresql://localhost/SDGP";
         Properties props = new Properties();
         props.setProperty("user","postgres");
-        props.setProperty("password","united");
+        props.setProperty("password","ruben");
         Connection con = DriverManager.getConnection(url, props);
         Statement stmt = con.createStatement();
 
@@ -43,13 +40,11 @@ public class BevestigingAanmeldenController {
 
                 stmt.executeUpdate("DELETE FROM afwezigheid " +
                         "WHERE studentnummer = " + studentnummerNu + " AND lesnummer = " + lesnummerNu);
-
             }
 
         }
         catch (NullPointerException ignored){
         }
-
         Button source = (Button)actionEvent.getSource();
         Stage stage = (Stage)source.getScene().getWindow();
         stage.close();

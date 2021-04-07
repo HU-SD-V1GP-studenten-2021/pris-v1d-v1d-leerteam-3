@@ -26,7 +26,7 @@ public class BevestigingAfmeldenController {
         String url = "jdbc:postgresql://localhost/SDGP";
         Properties props = new Properties();
         props.setProperty("user","postgres");
-        props.setProperty("password","united");
+        props.setProperty("password","ruben");
         Connection con = DriverManager.getConnection(url, props);
         Statement stmt = con.createStatement();
 
@@ -40,7 +40,6 @@ public class BevestigingAfmeldenController {
                     int lesnummerNu = DocentenSchermController.les.getLesnummer();
                     stmt.executeUpdate("INSERT INTO afwezigheid (lesnummer, studentnummer, afwezig) " +
                             "VALUES (" + lesnummerNu + ", " + studentnummerNu + ", true )");
-
                 }
                 Button source = (Button)actionEvent.getSource();
                 Stage stage = (Stage)source.getScene().getWindow();
