@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0b191512-30ba-4dda-83c1-1f32a0238d20" name="Default Changelist" comment="06-04">
+    <list default="true" id="0b191512-30ba-4dda-83c1-1f32a0238d20" name="Default Changelist" comment="VERSIE 06-04-2021 15:18 COMPLEET">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/userInterfaceLaag/DocentenScherm.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Groepsproject/userInterfaceLaag/DocentenScherm.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/userInterfaceLaag/LeerlingHoofdscherm.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Groepsproject/userInterfaceLaag/LeerlingHoofdscherm.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/userInterfaceLaag/DocentenSchermController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Groepsproject/userInterfaceLaag/DocentenSchermController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/userInterfaceLaag/LeerlingHoofdschermController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Groepsproject/userInterfaceLaag/LeerlingHoofdschermController$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/userInterfaceLaag/LeerlingHoofdschermController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Groepsproject/userInterfaceLaag/LeerlingHoofdschermController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styleTableview.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styleTableview.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/userInterfaceLaag/DocentenScherm.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/userInterfaceLaag/DocentenScherm.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/userInterfaceLaag/LeerlingHoofdschermController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/userInterfaceLaag/LeerlingHoofdschermController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,7 +68,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="database.data.extractors.current.export.id" value="SQL Inserts" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../OOP/V1OOP" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/userInterfaceLaag" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Libraries" />
@@ -72,6 +77,9 @@
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\ruben\pris-v1d-v1d-leerteam-3\src\userInterfaceLaag" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Mr_Kaatjes\IdeaProjects\pris-v1d-v1d-leerteam-3\src" />
       <recent name="C:\Users\Mr_Kaatjes\IdeaProjects\pris-v1d-v1d-leerteam-3" />
@@ -85,6 +93,19 @@
       <option name="MAIN_CLASS_NAME" value="Magister200app" />
       <module name="Groepsproject" />
       <option name="VM_PARAMETERS" value="--module-path lib --add-modules javafx.controls,javafx.fxml " />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -129,9 +150,8 @@
       <workItem from="1617377646328" duration="497000" />
       <workItem from="1617378160374" duration="1480000" />
       <workItem from="1617625936338" duration="183000" />
-      <workItem from="1617695824178" duration="2242000" />
-      <workItem from="1617699366806" duration="13963000" />
-      <workItem from="1617791587797" duration="612000" />
+      <workItem from="1617695824178" duration="8139000" />
+      <workItem from="1617703993474" duration="10991000" />
     </task>
     <task id="LOCAL-00001" summary="Test Ruben 26-03-2021">
       <created>1616756891923</created>
@@ -287,28 +307,49 @@
       <option name="project" value="LOCAL" />
       <updated>1617378110016</updated>
     </task>
-    <task id="LOCAL-00023" summary="06-04">
-      <created>1617699223336</created>
+    <task id="LOCAL-00023" summary="Update versie">
+      <created>1617698106703</created>
       <option name="number" value="00023" />
       <option name="presentableId" value="LOCAL-00023" />
       <option name="project" value="LOCAL" />
-      <updated>1617699223336</updated>
+      <updated>1617698106703</updated>
     </task>
-    <task id="LOCAL-00024" summary="06-04">
-      <created>1617699422356</created>
+    <task id="LOCAL-00024" summary="Update versie">
+      <created>1617699194413</created>
       <option name="number" value="00024" />
       <option name="presentableId" value="LOCAL-00024" />
       <option name="project" value="LOCAL" />
-      <updated>1617699422356</updated>
+      <updated>1617699194413</updated>
     </task>
-    <task id="LOCAL-00025" summary="06-04">
-      <created>1617712191599</created>
+    <task id="LOCAL-00025" summary="Update versie">
+      <created>1617703717474</created>
       <option name="number" value="00025" />
       <option name="presentableId" value="LOCAL-00025" />
       <option name="project" value="LOCAL" />
-      <updated>1617712191599</updated>
+      <updated>1617703717474</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="Update versie">
+      <created>1617713856139</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1617713856139</updated>
+    </task>
+    <task id="LOCAL-00027" summary="VERSIE 06-04-2021 15:18 COMPLEET">
+      <created>1617715081067</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1617715081067</updated>
+    </task>
+    <task id="LOCAL-00028" summary="VERSIE 06-04-2021 15:18 COMPLEET">
+      <created>1617715442868</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1617715442868</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -340,8 +381,9 @@
     <MESSAGE value="UI updates" />
     <MESSAGE value="Update" />
     <MESSAGE value="update" />
-    <MESSAGE value="06-04" />
-    <option name="LAST_COMMIT_MESSAGE" value="06-04" />
+    <MESSAGE value="Update versie" />
+    <MESSAGE value="VERSIE 06-04-2021 15:18 COMPLEET" />
+    <option name="LAST_COMMIT_MESSAGE" value="VERSIE 06-04-2021 15:18 COMPLEET" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
