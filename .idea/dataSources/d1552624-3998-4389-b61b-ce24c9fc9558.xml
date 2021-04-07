@@ -798,7 +798,7 @@ true posixrules
     <database id="4" parent="1" name="SDGP">
       <ObjectId>16780</ObjectId>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>2376</IntrospectionStateNumber>
+      <IntrospectionStateNumber>2413</IntrospectionStateNumber>
       <Current>1</Current>
       <Relations>sequence|table|16900|16902|1
 sequence|table|16911|16913|1
@@ -883,7 +883,7 @@ UC/10
 </Acl>
       <StateNumber>276</StateNumber>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>2377</IntrospectionStateNumber>
+      <IntrospectionStateNumber>2414</IntrospectionStateNumber>
       <Current>1</Current>
     </schema>
     <extension id="21" parent="4" name="plpgsql">
