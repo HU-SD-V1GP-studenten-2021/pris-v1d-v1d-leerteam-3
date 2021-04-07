@@ -16,17 +16,22 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.sql.*;
+import java.time.LocalDate;
 import java.util.Properties;
 
 public class DocentenSchermController {
     public Label waarschuwingid;
     public ImageView magister200id;
     @FXML public Label naamLabel;
+    public DatePicker datepicker;
+    public Button vorigeid;
+    public Button volgendeid;
     @FXML private TableView tableView2;
     @FXML private TableColumn<Les, String> klasid;
     @FXML private TableColumn<Les, String> datumid;
@@ -44,6 +49,7 @@ public class DocentenSchermController {
     public static TableView view1;
 
     public void initialize() throws Exception {
+        datepicker.setValue(LocalDate.now());
         String s = docent.getNaam();
         naamLabel.setText(s);
         tableView1.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
@@ -65,20 +71,33 @@ public class DocentenSchermController {
                     setStyle("");
                 else if (item.getAfwezigheid().equals("Afwezig"))
                     setStyle("-fx-background-color: #ffd7d1;");
+
                 else
                     setStyle("");
             }
         });
 
 
+
+
         tableView2.setItems(getLessen());
         tableView1.setItems(getStudenten());
         this.view1 = tableView1;
+        datumid.setSortType(TableColumn.SortType.ASCENDING);
+        tableView2.getSortOrder().add(datumid);
+        tableView2.sort();
+        naamid.setSortType(TableColumn.SortType.ASCENDING);
+        tableView1.getSortOrder().add(naamid);
+        tableView1.sort();
     }
 
     public ObservableList<Les> getLessen(){
         ObservableList<Les> lessen = FXCollections.observableArrayList();
-        lessen.addAll(docent.getLessen());
+        for(Les les : docent.getLessen()){
+            if (les.getDatum().isAfter(datepicker.getValue()) || les.getDatum().isEqual(datepicker.getValue())){
+                lessen.add(les);
+            }
+        }
         return lessen;
     }
 
@@ -135,6 +154,9 @@ public class DocentenSchermController {
             Les les = (Les) tableView2.getSelectionModel().getSelectedItem();
             tableView1.setItems(getStudentenLoad(les));
             this.les = les;
+            naamid.setSortType(TableColumn.SortType.ASCENDING);
+            tableView1.getSortOrder().add(naamid);
+            tableView1.sort();
         }
         catch (NullPointerException | SQLException ignored){
         }
@@ -217,5 +239,30 @@ public class DocentenSchermController {
             studentUpdate.setRollCall(totaal);
         }
         getStudentenLoad(les);
+    }
+
+        public void toonVorigeDag() {
+            LocalDate dagEerder = datepicker.getValue().minusDays(1);
+            datepicker.setValue(dagEerder);
+        }
+
+        public void toonVolgendeDag() {
+            LocalDate dagLater = datepicker.getValue().plusDays(1);
+            datepicker.setValue(dagLater);
+        }
+
+    public void getdatum() throws NullPointerException, SQLException {
+        tableView2.setItems(getLessen());
+        tableView2.refresh();
+        if(tableView2.getItems().size() == 0){
+            tableView1.getItems().clear();
+        }
+        datumid.setSortType(TableColumn.SortType.ASCENDING);
+        tableView2.getSortOrder().add(datumid);
+        tableView2.sort();
+        naamid.setSortType(TableColumn.SortType.ASCENDING);
+        tableView1.getSortOrder().add(naamid);
+        tableView1.sort();
+        tableView1.refresh();
     }
 }

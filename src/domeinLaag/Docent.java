@@ -34,14 +34,6 @@ public class Docent {
         return naam;
     }
 
-    public int getMedewerkersnummer() {
-        return docentnummer;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
     public ArrayList<Les> getLessen() {
         return lessen;
     }

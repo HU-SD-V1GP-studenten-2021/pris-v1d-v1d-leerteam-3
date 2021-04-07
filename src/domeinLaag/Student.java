@@ -10,10 +10,9 @@ public class Student {
     private String email;
     private boolean status;
     private int pogingen;
-    private int rollCall;
+    private double rollCall;
     private String wachtwoord;
     private Klas klas;
-    private ArrayList<AanwezigheidPerLesPerStudent> presentie = new ArrayList<>();
     private String afwezigheid;
 
 
@@ -28,7 +27,7 @@ public class Student {
 
     private static Student huidigeAccount;
 
-    public Student(String naam, int studentennummer, String email, boolean status, int pogingen, int rollCall, String wachtwoord){
+    public Student(String naam, int studentennummer, String email, boolean status, int pogingen, double rollCall, String wachtwoord){
         this.naam = naam;
         this.studentennummer = studentennummer;
         this.email = email;
@@ -46,14 +45,6 @@ public class Student {
         this.afwezigheid = afwezigheid;
     }
 
-    public ArrayList<AanwezigheidPerLesPerStudent> getPresentie() {
-        return presentie;
-    }
-
-    public void voegPresentieToe(AanwezigheidPerLesPerStudent enkeleLes){
-        presentie.add(enkeleLes);
-    }
-
     public void setKlas(Klas klas) {
         this.klas = klas;
     }
@@ -66,20 +57,22 @@ public class Student {
         return studentennummer;
     }
 
-    public String getEmail() {
-        return email;
-    }
-
     public Klas getKlas() {
         return klas;
     }
 
-    public int getRollCall() {
+    public double getRollCall() {
         return rollCall;
     }
 
-    public void setRollCall(int rollCall) {
-        this.rollCall = rollCall;
+    public String getEmail() {
+        return email;
+    }
+
+    public void setRollCall(double rollCall) {
+        String nu = String.format("%.2f", rollCall);
+        nu = nu.replace(",", ".");
+        this.rollCall = Double.parseDouble(nu);
     }
 
     public String toString(){

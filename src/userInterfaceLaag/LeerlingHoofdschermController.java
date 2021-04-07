@@ -74,8 +74,9 @@ public class LeerlingHoofdschermController {
                     setStyle("");
             }
         });
-
-        aanwezigheidsTabel.refresh();
+        datumid.setSortType(TableColumn.SortType.ASCENDING);
+        aanwezigheidsTabel.getSortOrder().add(datumid);
+        aanwezigheidsTabel.sort();
     }
 
     public ObservableList<Les> getLessen() throws SQLException {
@@ -152,6 +153,9 @@ public class LeerlingHoofdschermController {
 
     public void getdatum() throws NullPointerException, SQLException {
         aanwezigheidsTabel.setItems(setLessen());
+        datumid.setSortType(TableColumn.SortType.ASCENDING);
+        aanwezigheidsTabel.getSortOrder().add(datumid);
+        aanwezigheidsTabel.sort();
         aanwezigheidsTabel.refresh();
     }
 

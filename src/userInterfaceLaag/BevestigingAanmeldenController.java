@@ -1,6 +1,5 @@
 package userInterfaceLaag;
 
-import domeinLaag.Les;
 import domeinLaag.Student;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -15,7 +14,6 @@ import java.sql.Statement;
 import java.util.Properties;
 
 public class BevestigingAanmeldenController {
-    public Les les;
     public Button Bevestiging;
     public Button Annuleren;
 
