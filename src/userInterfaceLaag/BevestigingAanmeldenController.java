@@ -1,6 +1,6 @@
 package userInterfaceLaag;
 
-import domeinLaag.Docent;
+
 import domeinLaag.Les;
 import domeinLaag.Student;
 import javafx.collections.FXCollections;
@@ -16,8 +16,6 @@ import java.sql.Statement;
 import java.util.Properties;
 
 public class BevestigingAanmeldenController {
-    public DocentenSchermController docentenSchermController;
-    private Docent docent = Docent.getAccount();
     public Les les;
 
 
@@ -49,15 +47,15 @@ public class BevestigingAanmeldenController {
             }
 
         }
-        catch (NullPointerException e){
-            System.out.println(e);
+        catch (NullPointerException ignored){
         }
+
         Button source = (Button)actionEvent.getSource();
         Stage stage = (Stage)source.getScene().getWindow();
         stage.close();
     }
 
-    public void annulerenButten(ActionEvent actionEvent) {
+    public void annulerenButten() {
         Stage stage = (Stage) Annuleren.getScene().getWindow();
         stage.close();
     }

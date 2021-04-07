@@ -1,6 +1,5 @@
 package userInterfaceLaag;
 
-import domeinLaag.Docent;
 import domeinLaag.Les;
 import domeinLaag.Student;
 import javafx.collections.FXCollections;
@@ -19,8 +18,6 @@ import java.util.Properties;
 
 public class BevestigingAfmeldenController {
     @FXML private Label waarschuwing;
-    public DocentenSchermController docentenSchermController;
-    private Docent docent = Docent.getAccount();
     public Les les;
 
     public void bevestigingButten(ActionEvent actionEvent) throws SQLException {
@@ -52,11 +49,8 @@ public class BevestigingAfmeldenController {
                 waarschuwing.setText("Deze student(en) is/zijn reeds afgemeld!");
             }
         }
-        catch (NullPointerException e){
-            System.out.println(e);
+        catch (NullPointerException ignored ){
         }
-
-
     }
 
     public void annulerenButten(ActionEvent actionEvent) {

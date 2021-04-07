@@ -1,26 +1,21 @@
 package userInterfaceLaag;
 
-import domeinLaag.AanwezigheidPerLesPerStudent;
-import domeinLaag.Les;
+
 import domeinLaag.Student;
 import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.stage.Stage;
-
 import java.sql.*;
 import java.util.Properties;
-import java.util.concurrent.TimeUnit;
-
 
 public class AfmeldenSchermController {
     public Button Annuleren;
     public Button Afmelden;
     public TextArea redenid;
     public Label waarschuwingid;
-    private Student account = Student.getAccount();
+    private final Student account = Student.getAccount();
 
     public void initialize() {
     waarschuwingid.setText("");
@@ -32,11 +27,10 @@ public class AfmeldenSchermController {
         stage.close();
     }
 
-    public void afmelden(ActionEvent actionEvent) throws SQLException, InterruptedException {
+    public void afmelden(ActionEvent actionEvent) throws SQLException{
 
         String reden = redenid.getText();
         int studentnummer = account.getStudentennummer();
-        Les les = LeerlingHoofdschermController.les;
         int lesnummer = LeerlingHoofdschermController.lesnummer;
 
         String url = "jdbc:postgresql://localhost/SDGP";
@@ -60,7 +54,7 @@ public class AfmeldenSchermController {
                 "WHERE studentnummer = " + studentnummer);
         rollcallMaken.next();
         int aantal = rollcallMaken.getInt("total");
-        double totaal = 100 - (100 / account.getKlas().getTotaalAantalLessen()) * aantal;
+        double totaal = 100 - (100.0 / account.getKlas().getTotaalAantalLessen()) * aantal;
         account.setRollCall(totaal);
         Button source = (Button)actionEvent.getSource();
         Stage stage = (Stage)source.getScene().getWindow();
