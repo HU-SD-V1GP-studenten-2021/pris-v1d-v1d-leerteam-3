@@ -35,8 +35,6 @@ import java.util.Date;
 import java.util.Properties;
 
 public class LeerlingHoofdschermController {
-
-
     public static int lesnummer;
     public static Les les;
     public DatePicker datepickerid;
@@ -53,14 +51,13 @@ public class LeerlingHoofdschermController {
     @FXML private TableColumn<Klas, String> aanwezigid;
     @FXML private PieChart rollCallAttendance;
     private Student student = Student.getAccount();
-    private double xOffset;
-    private double yOffset;
+
 
     public void initialize() throws SQLException {
         String url = "jdbc:postgresql://localhost/SDGP";
         Properties props = new Properties();
         props.setProperty("user","postgres");
-        props.setProperty("password","ruben");
+        props.setProperty("password","united");
         Connection con = DriverManager.getConnection(url, props);
         Statement stmt = con.createStatement();
         datepickerid.setValue(LocalDate.now());
@@ -104,7 +101,7 @@ public class LeerlingHoofdschermController {
         String url = "jdbc:postgresql://localhost/SDGP";
         Properties props = new Properties();
         props.setProperty("user","postgres");
-        props.setProperty("password","ruben");
+        props.setProperty("password","united");
         Connection con = DriverManager.getConnection(url, props);
         Statement stmt = con.createStatement();
         ObservableList<Les> lessen = FXCollections.observableArrayList();
@@ -184,7 +181,7 @@ public class LeerlingHoofdschermController {
         String url = "jdbc:postgresql://localhost/SDGP";
         Properties props = new Properties();
         props.setProperty("user","postgres");
-        props.setProperty("password","ruben");
+        props.setProperty("password","united");
         Connection con = DriverManager.getConnection(url, props);
         Statement stmt = con.createStatement();
         ObservableList<Les> lessen = FXCollections.observableArrayList();
