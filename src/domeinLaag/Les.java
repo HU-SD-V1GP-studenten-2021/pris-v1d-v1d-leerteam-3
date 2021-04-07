@@ -17,6 +17,7 @@ public class Les {
     private Klas klas;
     private String afwezigheid;
 
+
     public Les(int lesnummer, String lesnaam, LocalDate datum, LocalTime begintijd, LocalTime eindtijd) {
         this.lesnummer = lesnummer;
         this.lesnaam = lesnaam;
@@ -24,7 +25,6 @@ public class Les {
         this.begintijd = begintijd;
         this.eindtijd = eindtijd;
     }
-
 
     public String getAfwezigheid() {
         return afwezigheid;

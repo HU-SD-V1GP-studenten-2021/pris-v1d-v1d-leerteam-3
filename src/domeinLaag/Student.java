@@ -14,6 +14,7 @@ public class Student {
     private String wachtwoord;
     private Klas klas;
     private String afwezigheid;
+    private String reden;
 
 
 
@@ -35,6 +36,14 @@ public class Student {
         this.rollCall = rollCall;
         this.pogingen = pogingen;
         this.wachtwoord = wachtwoord;
+    }
+
+    public String getReden() {
+        return reden;
+    }
+
+    public void setReden(String reden) {
+        this.reden = reden;
     }
 
     public String getAfwezigheid() {
