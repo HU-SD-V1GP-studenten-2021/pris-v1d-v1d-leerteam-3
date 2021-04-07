@@ -2,34 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0b191512-30ba-4dda-83c1-1f32a0238d20" name="Default Changelist" comment="Update">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/d1552624-3998-4389-b61b-ce24c9fc9558.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/d1552624-3998-4389-b61b-ce24c9fc9558/storage_v2/_src_/database/SDGP.-sImAA.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/d1552624-3998-4389-b61b-ce24c9fc9558/storage_v2/_src_/database/SDGP.-sImAA/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/d1552624-3998-4389-b61b-ce24c9fc9558/storage_v2/_src_/database/SDGP.-sImAA/schema/pg_catalog.0S1ZNQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/d1552624-3998-4389-b61b-ce24c9fc9558/storage_v2/_src_/database/SDGP.-sImAA/schema/public.abK9xQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/d48ffab7-ac58-44ff-a3e8-72056ad68bd2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/d48ffab7-ac58-44ff-a3e8-72056ad68bd2/storage_v2/_src_/database/SDGP.-sImAA.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/d48ffab7-ac58-44ff-a3e8-72056ad68bd2/storage_v2/_src_/database/SDGP.-sImAA/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/d48ffab7-ac58-44ff-a3e8-72056ad68bd2/storage_v2/_src_/database/SDGP.-sImAA/schema/pg_catalog.0S1ZNQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/d48ffab7-ac58-44ff-a3e8-72056ad68bd2/storage_v2/_src_/database/SDGP.-sImAA/schema/public.abK9xQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/activation.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/activation.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/styleTableview.css" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Groepsproject/styleTableview.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/userInterfaceLaag/AfmeldenSchermController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Groepsproject/userInterfaceLaag/AfmeldenSchermController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/userInterfaceLaag/BevestigingAanmeldenController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Groepsproject/userInterfaceLaag/BevestigingAanmeldenController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/userInterfaceLaag/BevestigingAfmeldenController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Groepsproject/userInterfaceLaag/BevestigingAfmeldenController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/userInterfaceLaag/DocentenScherm.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Groepsproject/userInterfaceLaag/DocentenScherm.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/userInterfaceLaag/DocentenSchermController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Groepsproject/userInterfaceLaag/DocentenSchermController$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/userInterfaceLaag/DocentenSchermController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Groepsproject/userInterfaceLaag/DocentenSchermController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/userInterfaceLaag/LeerlingHoofdschermController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Groepsproject/userInterfaceLaag/LeerlingHoofdschermController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/userInterfaceLaag/LoginScherm.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Groepsproject/userInterfaceLaag/LoginScherm.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Groepsproject/userInterfaceLaag/LoginSchermController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Groepsproject/userInterfaceLaag/LoginSchermController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/userInterfaceLaag/BevestigingAanmeldenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/userInterfaceLaag/BevestigingAanmeldenController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/userInterfaceLaag/BevestigingAfmeldenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/userInterfaceLaag/BevestigingAfmeldenController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/userInterfaceLaag/DocentenSchermController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/userInterfaceLaag/DocentenSchermController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/userInterfaceLaag/LeerlingHoofdschermController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/userInterfaceLaag/LeerlingHoofdschermController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/userInterfaceLaag/LoginSchermController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/userInterfaceLaag/LoginSchermController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -165,7 +140,7 @@
       <workItem from="1617785165121" duration="2099000" />
       <workItem from="1617787717471" duration="240000" />
       <workItem from="1617787971406" duration="5274000" />
-      <workItem from="1617794046394" duration="1667000" />
+      <workItem from="1617794046394" duration="6200000" />
     </task>
     <task id="LOCAL-00001" summary="Test Ruben 26-03-2021">
       <created>1616756891923</created>
@@ -384,7 +359,14 @@
       <option name="project" value="LOCAL" />
       <updated>1617787406047</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="Update">
+      <created>1617795747467</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1617795747467</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

@@ -102,34 +102,40 @@ public class DocentenSchermController {
     }
 
 
-    public ObservableList<Student> getStudenten() throws SQLException {
+    public ObservableList<Student> getStudenten(){
         String url = "jdbc:postgresql://localhost/SDGP";
         Properties props = new Properties();
         props.setProperty("user","postgres");
         props.setProperty("password","ruben");
-        Connection con = DriverManager.getConnection(url, props);
-        Statement stmt = con.createStatement();
         ObservableList<Student> students = FXCollections.observableArrayList();
+        try {
+            Connection con = DriverManager.getConnection(url, props);
+            Statement stmt = con.createStatement();
 
-        Les les = docent.getLessen().get(0);
-        this.les = les;
-        for (Student student : les.getKlas().getStudenten()){
-            boolean afwezig = false; // hiermee zet je de afwezigheid standaard op false (dus aanwezig).
-            ResultSet rs = stmt.executeQuery("SELECT afwezig FROM afwezigheid WHERE studentnummer = " +
-                    student.getStudentennummer() + " AND lesnummer = " + les.getLesnummer()); //hiermee haal je voor elke
-            //leerling (de for loop) de afwezigheid op, als deze niet bestaat is de leerling dus aanwezig.
-            while(rs.next()){
-                boolean afwezigbool = rs.getBoolean("afwezig"); //hier zet je mits je in de lijst voorkomt
-                // (dus in de while loop komt) wordt er een boolean aan toegekend. */
-                if (afwezigbool){
-                    afwezig = true;
+            Les les = docent.getLessen().get(0);
+            this.les = les;
+            for (Student student : les.getKlas().getStudenten()) {
+                boolean afwezig = false; // hiermee zet je de afwezigheid standaard op false (dus aanwezig).
+                ResultSet rs = stmt.executeQuery("SELECT afwezig, reden FROM afwezigheid WHERE studentnummer = " +
+                        student.getStudentennummer() + " AND lesnummer = " + les.getLesnummer()); //hiermee haal je voor elke
+                //leerling (de for loop) de afwezigheid op, als deze niet bestaat is de leerling dus aanwezig.
+                while (rs.next()) {
+                    boolean afwezigbool = rs.getBoolean("afwezig"); //hier zet je mits je in de lijst voorkomt
+                    // (dus in de while loop komt) wordt er een boolean aan toegekend. */
+                    String redenop = rs.getString("reden");
+                    System.out.println(redenop);
+                    if (afwezigbool) {
+                        afwezig = true;
+                    }
+                    System.out.println("joo");
                 }
+                student.setAfwezigheid("Aanwezig");
+                if (afwezig) {
+                    student.setAfwezigheid("Afwezig");
+                }
+                students.add(student);
             }
-            student.setAfwezigheid("Aanwezig");
-            if (afwezig){
-                student.setAfwezigheid("Afwezig");
-            }
-            students.add(student);
+        }catch (Exception ignored){
         }
         return students;
     }
