@@ -15,24 +15,23 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
-import javafx.scene.shape.Rectangle;
+import javafx.scene.paint.Color;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.lang.reflect.InvocationTargetException;
 import java.sql.*;
-import java.util.ArrayList;
+import java.time.LocalDate;
 import java.util.Properties;
 
 public class DocentenSchermController {
     public Label waarschuwingid;
     public ImageView magister200id;
-    @FXML private Rectangle rectangleBoven;
-    @FXML private Button loguitKnop;
     @FXML public Label naamLabel;
+    public DatePicker datepicker;
+    public Button vorigeid;
+    public Button volgendeid;
     @FXML private TableView tableView2;
     @FXML private TableColumn<Les, String> klasid;
     @FXML private TableColumn<Les, String> datumid;
@@ -45,12 +44,12 @@ public class DocentenSchermController {
     @FXML private TableColumn<Student, String> rollcall;
     @FXML private TableColumn<Student, String> aanwezigid;
 
-    private Docent docent = Docent.getAccount();
+    private final Docent docent = Docent.getAccount();
     public static Les les;
     public static TableView view1;
-    public TableView view2;
 
     public void initialize() throws Exception {
+        datepicker.setValue(LocalDate.now());
         String s = docent.getNaam();
         naamLabel.setText(s);
         tableView1.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
@@ -72,20 +71,33 @@ public class DocentenSchermController {
                     setStyle("");
                 else if (item.getAfwezigheid().equals("Afwezig"))
                     setStyle("-fx-background-color: #ffd7d1;");
+
                 else
                     setStyle("");
             }
         });
 
 
+
+
         tableView2.setItems(getLessen());
         tableView1.setItems(getStudenten());
         this.view1 = tableView1;
+        datumid.setSortType(TableColumn.SortType.ASCENDING);
+        tableView2.getSortOrder().add(datumid);
+        tableView2.sort();
+        naamid.setSortType(TableColumn.SortType.ASCENDING);
+        tableView1.getSortOrder().add(naamid);
+        tableView1.sort();
     }
 
     public ObservableList<Les> getLessen(){
         ObservableList<Les> lessen = FXCollections.observableArrayList();
-        lessen.addAll(docent.getLessen());
+        for(Les les : docent.getLessen()){
+            if (les.getDatum().isAfter(datepicker.getValue()) || les.getDatum().isEqual(datepicker.getValue())){
+                lessen.add(les);
+            }
+        }
         return lessen;
     }
 
@@ -108,7 +120,7 @@ public class DocentenSchermController {
             //leerling (de for loop) de afwezigheid op, als deze niet bestaat is de leerling dus aanwezig.
             while(rs.next()){
                 boolean afwezigbool = rs.getBoolean("afwezig"); //hier zet je mits je in de lijst voorkomt
-                // (dus in de while loop komt) wordt er een boolean aan toegekend.
+                // (dus in de while loop komt) wordt er een boolean aan toegekend. */
                 if (afwezigbool){
                     afwezig = true;
                 }
@@ -119,41 +131,32 @@ public class DocentenSchermController {
             }
             students.add(student);
         }
-        System.out.println(les);
-
-//        students.addAll(les.getKlas().getStudenten());
         return students;
     }
 
 
 
 
-    public void loguitEnAfsluiten(ActionEvent actionEvent){
-        try {
-            ((Node)actionEvent.getSource()).getScene().getWindow().hide();
-            Stage primaryStage = new Stage();
-            FXMLLoader loader = new FXMLLoader();
-            Pane root = loader.load(getClass().getResource("/userInterfaceLaag/LoginScherm.fxml"));
-
-            Scene scene = new Scene(root);
-            primaryStage.setScene(scene);
-            primaryStage.setTitle("Login scherm");
-            primaryStage.getIcons().add(new Image("HU.png"));
-            primaryStage.show();
-
-        } catch (Exception e) {
-            System.out.println(e);
-        }
+    public void loguitEnAfsluiten(ActionEvent actionEvent) throws IOException {
+        ((Node)actionEvent.getSource()).getScene().getWindow().hide();
+        Stage primaryStage = new Stage();
+        FXMLLoader loader = new FXMLLoader();
+        Pane root = loader.load(getClass().getResource("/userInterfaceLaag/LoginScherm.fxml"));
+        Scene scene = new Scene(root);
+        primaryStage.setScene(scene);
+        primaryStage.setTitle("Login scherm");
+        primaryStage.getIcons().add(new Image("HU.png"));
+        primaryStage.show();
     }
 
-    public void loadDataPerLes(MouseEvent mouseEvent){
+    public void loadDataPerLes(){
         try {
             Les les = (Les) tableView2.getSelectionModel().getSelectedItem();
-            System.out.println(les);
-            System.out.println(les.getLesnummer());
             tableView1.setItems(getStudentenLoad(les));
-            System.out.println("hoi" +les);
             this.les = les;
+            naamid.setSortType(TableColumn.SortType.ASCENDING);
+            tableView1.getSortOrder().add(naamid);
+            tableView1.sort();
         }
         catch (NullPointerException | SQLException ignored){
         }
@@ -184,12 +187,10 @@ public class DocentenSchermController {
             }
             students.add(student);
         }
-
-//        students.addAll(les.getKlas().getStudenten());
         return students;
     }
 
-    public void handleButtonAfmelden(ActionEvent actionEvent) throws Exception {
+    public void handleButtonAfmelden() throws Exception {
         String url = "jdbc:postgresql://localhost/SDGP";
         Properties props = new Properties();
         props.setProperty("user","postgres");
@@ -202,21 +203,20 @@ public class DocentenSchermController {
         newStage.setScene(new Scene(root));
         newStage.initModality(Modality.APPLICATION_MODAL);
         newStage.showAndWait();
-
         ObservableList<Student> student = tableView1.getSelectionModel().getSelectedItems();
         for (Student studentUpdate : student){
             ResultSet rollcallMaken = stmt.executeQuery("SELECT count(*) AS total FROM afwezigheid " +
                     "WHERE studentnummer = " + studentUpdate.getStudentennummer());
             rollcallMaken.next();
             int aantal = rollcallMaken.getInt("total");
-            double totaal = 100 - (100 / studentUpdate.getKlas().getTotaalAantalLessen()) * aantal;
+            double totaal = 100 - (100.0 / studentUpdate.getKlas().getTotaalAantalLessen()) * aantal;
             studentUpdate.setRollCall(totaal);
         }
         getStudentenLoad(les);
     }
 
 
-    public void handleButtonAanmelden(ActionEvent actionEvent) throws SQLException, IOException {
+    public void handleButtonAanmelden() throws SQLException, IOException {
         String url = "jdbc:postgresql://localhost/SDGP";
         Properties props = new Properties();
         props.setProperty("user","postgres");
@@ -229,17 +229,40 @@ public class DocentenSchermController {
         newStage.setScene(new Scene(root));
         newStage.initModality(Modality.APPLICATION_MODAL);
         newStage.showAndWait();
-
         ObservableList<Student> student = tableView1.getSelectionModel().getSelectedItems();
         for (Student studentUpdate : student){
             ResultSet rollcallMaken = stmt.executeQuery("SELECT count(*) AS total FROM afwezigheid " +
                     "WHERE studentnummer = " + studentUpdate.getStudentennummer());
             rollcallMaken.next();
             int aantal = rollcallMaken.getInt("total");
-            double totaal = 100 - (100 / studentUpdate.getKlas().getTotaalAantalLessen()) * aantal;
+            double totaal = 100 - (100.0 / studentUpdate.getKlas().getTotaalAantalLessen()) * aantal;
             studentUpdate.setRollCall(totaal);
         }
         getStudentenLoad(les);
     }
 
+        public void toonVorigeDag() {
+            LocalDate dagEerder = datepicker.getValue().minusDays(1);
+            datepicker.setValue(dagEerder);
+        }
+
+        public void toonVolgendeDag() {
+            LocalDate dagLater = datepicker.getValue().plusDays(1);
+            datepicker.setValue(dagLater);
+        }
+
+    public void getdatum() throws NullPointerException, SQLException {
+        tableView2.setItems(getLessen());
+        tableView2.refresh();
+        if(tableView2.getItems().size() == 0){
+            tableView1.getItems().clear();
+        }
+        datumid.setSortType(TableColumn.SortType.ASCENDING);
+        tableView2.getSortOrder().add(datumid);
+        tableView2.sort();
+        naamid.setSortType(TableColumn.SortType.ASCENDING);
+        tableView1.getSortOrder().add(naamid);
+        tableView1.sort();
+        tableView1.refresh();
+    }
 }

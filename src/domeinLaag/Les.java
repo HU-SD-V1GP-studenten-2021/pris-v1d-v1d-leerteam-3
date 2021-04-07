@@ -15,7 +15,6 @@ public class Les {
     private LocalTime eindtijd;
     private Docent docent;
     private Klas klas;
-    private ArrayList<AanwezigheidPerLesPerStudent> afwezigeVanDezeLes = new ArrayList<>();
     private String afwezigheid;
 
     public Les(int lesnummer, String lesnaam, LocalDate datum, LocalTime begintijd, LocalTime eindtijd) {
@@ -26,9 +25,6 @@ public class Les {
         this.eindtijd = eindtijd;
     }
 
-    public void voegafwezigeVanDezeLesToe(AanwezigheidPerLesPerStudent enkeleStudent){
-        afwezigeVanDezeLes.add(enkeleStudent);
-    }
 
     public String getAfwezigheid() {
         return afwezigheid;
@@ -50,24 +46,12 @@ public class Les {
         return lesnummer;
     }
 
-    public void setLesnummer(int lesnummer) {
-        this.lesnummer = lesnummer;
-    }
-
     public LocalDate getDatum() {
         return datum;
     }
 
     public LocalTime getBegintijd() {
         return begintijd;
-    }
-
-    public void setBegintijd(LocalTime begintijd) {
-        this.begintijd = begintijd;
-    }
-
-    public void setDatum(LocalDate datum) {
-        this.datum = datum;
     }
 
     public Docent getDocent() {

@@ -1,7 +1,5 @@
 package userInterfaceLaag;
 
-import domeinLaag.Docent;
-import domeinLaag.Les;
 import domeinLaag.Student;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -19,9 +17,6 @@ import java.util.Properties;
 
 public class BevestigingAfmeldenController {
     @FXML private Label waarschuwing;
-    public DocentenSchermController docentenSchermController;
-    private Docent docent = Docent.getAccount();
-    public Les les;
 
     public void bevestigingButten(ActionEvent actionEvent) throws SQLException {
         ObservableList<ObservableList> namen = FXCollections.observableArrayList();
@@ -43,7 +38,6 @@ public class BevestigingAfmeldenController {
                     int lesnummerNu = DocentenSchermController.les.getLesnummer();
                     stmt.executeUpdate("INSERT INTO afwezigheid (lesnummer, studentnummer, afwezig) " +
                             "VALUES (" + lesnummerNu + ", " + studentnummerNu + ", true )");
-
                 }
                 Button source = (Button)actionEvent.getSource();
                 Stage stage = (Stage)source.getScene().getWindow();
@@ -52,11 +46,8 @@ public class BevestigingAfmeldenController {
                 waarschuwing.setText("Deze student(en) is/zijn reeds afgemeld!");
             }
         }
-        catch (NullPointerException e){
-            System.out.println(e);
+        catch (NullPointerException ignored ){
         }
-
-
     }
 
     public void annulerenButten(ActionEvent actionEvent) {
