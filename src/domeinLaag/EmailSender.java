@@ -43,12 +43,11 @@ public class EmailSender {
             msg.addRecipient(Message.RecipientType.TO,
                     new InternetAddress(receiverEmailID));
             Transport.send(msg);
-            System.out.println("Message send Successfully:)"); }
+            }
 
         catch (Exception mex){
-            mex.printStackTrace();}
-
-
+            mex.printStackTrace();
+        }
     }
     public class SMTPAuthenticator extends javax.mail.Authenticator
     {
