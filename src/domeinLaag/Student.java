@@ -10,7 +10,7 @@ public class Student {
     private String email;
     private boolean status;
     private int pogingen;
-    private double rollCall;
+    private int rollCall;
     private String wachtwoord;
     private Klas klas;
     private ArrayList<AanwezigheidPerLesPerStudent> presentie = new ArrayList<>();
@@ -28,7 +28,7 @@ public class Student {
 
     private static Student huidigeAccount;
 
-    public Student(String naam, int studentennummer, String email, boolean status, int pogingen, double rollCall, String wachtwoord){
+    public Student(String naam, int studentennummer, String email, boolean status, int pogingen, int rollCall, String wachtwoord){
         this.naam = naam;
         this.studentennummer = studentennummer;
         this.email = email;
@@ -74,11 +74,11 @@ public class Student {
         return klas;
     }
 
-    public double getRollCall() {
+    public int getRollCall() {
         return rollCall;
     }
 
-    public void setRollCall(double rollCall) {
+    public void setRollCall(int rollCall) {
         this.rollCall = rollCall;
     }
 

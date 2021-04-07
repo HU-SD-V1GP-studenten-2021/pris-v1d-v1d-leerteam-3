@@ -63,7 +63,7 @@ public class LoginSchermController {
                         String email = userGegevens.getString("email");
                         boolean status = userGegevens.getBoolean("status");
                         int pogingen = userGegevens.getInt("pogingen");
-                        double rollcall = userGegevens.getDouble("rollcall");
+                        int rollcall = userGegevens.getInt("rollcall");
                         String userwachtwoord = userGegevens.getString("wachtwoord");
                         int klasnummer = userGegevens.getInt("klasnummer");
                         String klasnaam = userGegevens.getString("klasnaam");
@@ -124,7 +124,7 @@ public class LoginSchermController {
                                 String emailNu = alleStudenten.getString("email");
                                 boolean statusNu = alleStudenten.getBoolean(4);//status
                                 int pogingenNu = alleStudenten.getInt("pogingen");
-                                double rollcallNu = alleStudenten.getDouble("rollcall");
+                                int rollcallNu = alleStudenten.getInt("rollcall");
                                 String wachtwoordNu = alleStudenten.getString("wachtwoord");
                                 Student s1 = new Student(naamNu, studentnummerNu, emailNu, statusNu, pogingenNu, rollcallNu,wachtwoordNu);
                                 s1.setKlas(klas);
@@ -138,7 +138,7 @@ public class LoginSchermController {
                         rollcallMaken.next();
 
                         int aantal = rollcallMaken.getInt("total");
-                        double totaal = 100 - (100.0 / user.getKlas().getTotaalAantalLessen()) * aantal;
+                        int totaal = 100 - (100 / user.getKlas().getTotaalAantalLessen()) * aantal;
 
                         user.setRollCall(totaal);
 
@@ -285,7 +285,7 @@ public class LoginSchermController {
                                 String email = alleStudenten.getString("email");
                                 boolean status = alleStudenten.getBoolean(4);//status
                                 int pogingen = alleStudenten.getInt("pogingen");
-                                double rollcall = alleStudenten.getDouble("rollcall");
+                                int rollcall = alleStudenten.getInt("rollcall");
                                 String wachtwoordStudent = alleStudenten.getString("wachtwoord");
                                 Student student = new Student(naamStudent, studentnummer, email, status, pogingen, rollcall, wachtwoordStudent);
                                 student.setKlas(k);
@@ -300,7 +300,7 @@ public class LoginSchermController {
                                         "WHERE studentnummer = " + studentnummer);
                                 rollcallMaken.next();
                                 int aantallessen = rollcallMaken.getInt("total");
-                                double totaal = 100 - (100.0 / s.getKlas().getTotaalAantalLessen()) * aantallessen;
+                                int totaal = 100 - (100 / s.getKlas().getTotaalAantalLessen()) * aantallessen;
                                 s.setRollCall(totaal);
                             }
                         }

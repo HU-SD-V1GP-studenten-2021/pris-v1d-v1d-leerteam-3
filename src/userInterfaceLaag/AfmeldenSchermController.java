@@ -59,7 +59,7 @@ public class AfmeldenSchermController {
                 "WHERE studentnummer = " + studentnummer);
         rollcallMaken.next();
         int aantal = rollcallMaken.getInt("total");
-        double totaal = 100 - (100.0 / account.getKlas().getTotaalAantalLessen()) * aantal;
+        int totaal = 100 - (100 / account.getKlas().getTotaalAantalLessen()) * aantal;
         account.setRollCall(totaal);
         Button source = (Button)actionEvent.getSource();
         Stage stage = (Stage)source.getScene().getWindow();

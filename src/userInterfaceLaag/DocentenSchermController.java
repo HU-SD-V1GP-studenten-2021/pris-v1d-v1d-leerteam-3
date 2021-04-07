@@ -187,7 +187,7 @@ public class DocentenSchermController {
                     "WHERE studentnummer = " + studentUpdate.getStudentennummer());
             rollcallMaken.next();
             int aantal = rollcallMaken.getInt("total");
-            double totaal = 100 - (100.0 / studentUpdate.getKlas().getTotaalAantalLessen()) * aantal;
+            int totaal = 100 - (100 / studentUpdate.getKlas().getTotaalAantalLessen()) * aantal;
             studentUpdate.setRollCall(totaal);
         }
         getStudentenLoad(les);
@@ -213,7 +213,7 @@ public class DocentenSchermController {
                     "WHERE studentnummer = " + studentUpdate.getStudentennummer());
             rollcallMaken.next();
             int aantal = rollcallMaken.getInt("total");
-            double totaal = 100 - (100.0 / studentUpdate.getKlas().getTotaalAantalLessen()) * aantal;
+            int totaal = 100 - (100 / studentUpdate.getKlas().getTotaalAantalLessen()) * aantal;
             studentUpdate.setRollCall(totaal);
         }
         getStudentenLoad(les);
