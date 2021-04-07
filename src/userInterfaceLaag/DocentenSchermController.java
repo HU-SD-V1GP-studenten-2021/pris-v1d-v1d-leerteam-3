@@ -43,6 +43,7 @@ public class DocentenSchermController {
     @FXML private TableColumn<Student, String> emailid;
     @FXML private TableColumn<Student, String> rollcall;
     @FXML private TableColumn<Student, String> aanwezigid;
+    @FXML private TableColumn<Student, String> redenid;
 
     private final Docent docent = Docent.getAccount();
     public static Les les;
@@ -62,6 +63,7 @@ public class DocentenSchermController {
         emailid.setCellValueFactory(new  PropertyValueFactory<>("email"));
         rollcall.setCellValueFactory(new PropertyValueFactory<>("rollCall"));
         aanwezigid.setCellValueFactory(new PropertyValueFactory<>("afwezigheid"));
+        redenid.setCellValueFactory(new PropertyValueFactory<>("reden"));
 
         tableView1.setRowFactory(tv -> new TableRow<Student>() {
             @Override
@@ -113,21 +115,29 @@ public class DocentenSchermController {
 
         Les les = docent.getLessen().get(0);
         this.les = les;
+        String redenString = "";
+
         for (Student student : les.getKlas().getStudenten()){
             boolean afwezig = false; // hiermee zet je de afwezigheid standaard op false (dus aanwezig).
-            ResultSet rs = stmt.executeQuery("SELECT afwezig FROM afwezigheid WHERE studentnummer = " +
+            ResultSet rs = stmt.executeQuery("SELECT afwezig, reden FROM afwezigheid WHERE studentnummer = " +
                     student.getStudentennummer() + " AND lesnummer = " + les.getLesnummer()); //hiermee haal je voor elke
             //leerling (de for loop) de afwezigheid op, als deze niet bestaat is de leerling dus aanwezig.
             while(rs.next()){
                 boolean afwezigbool = rs.getBoolean("afwezig"); //hier zet je mits je in de lijst voorkomt
+                redenString = rs.getString(2);
+                System.out.println(redenString);
+
                 // (dus in de while loop komt) wordt er een boolean aan toegekend. */
                 if (afwezigbool){
                     afwezig = true;
                 }
             }
             student.setAfwezigheid("Aanwezig");
+            student.setReden("");
+
             if (afwezig){
                 student.setAfwezigheid("Afwezig");
+                student.setReden(redenString);
             }
             students.add(student);
         }
@@ -171,12 +181,15 @@ public class DocentenSchermController {
         Connection con = DriverManager.getConnection(url, props);
         Statement stmt = con.createStatement();
         ObservableList<Student> students = FXCollections.observableArrayList();
+        String redenString = "";
         for (Student student : les.getKlas().getStudenten()){
             boolean afwezig = false;
-            ResultSet rs = stmt.executeQuery("SELECT afwezig FROM afwezigheid WHERE studentnummer = " +
+            ResultSet rs = stmt.executeQuery("SELECT afwezig, reden FROM afwezigheid WHERE studentnummer = " +
                     student.getStudentennummer() + " AND lesnummer = " + les.getLesnummer());
             while(rs.next()){
                 boolean afwezigbool = rs.getBoolean("afwezig");
+                redenString = rs.getString(2);
+                System.out.println(redenString);
                 if (afwezigbool){
                     afwezig = true;
                 }
@@ -184,6 +197,7 @@ public class DocentenSchermController {
             student.setAfwezigheid("Aanwezig");
             if (afwezig){
                 student.setAfwezigheid("Afwezig");
+                student.setReden(redenString);
             }
             students.add(student);
         }
@@ -237,6 +251,7 @@ public class DocentenSchermController {
             int aantal = rollcallMaken.getInt("total");
             double totaal = 100 - (100.0 / studentUpdate.getKlas().getTotaalAantalLessen()) * aantal;
             studentUpdate.setRollCall(totaal);
+            studentUpdate.setReden("");
         }
         getStudentenLoad(les);
     }
