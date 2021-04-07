@@ -1,0 +1,9 @@
+.table-row-cell:selected .text {-fx-fill: black;}
+.table-row-cell:selected .text {-fx-font-weight: bold;}
+
+.table-view:focused .table-row-cell:filled:selected {
+    -fx-background-color: white;
+    -fx-background-insets: 0.0, 0.0 0.0 0.0 0.0;
+    -fx-text-fill: -fx-selection-bar-text;
+    -fx-table-cell-border-color: white;
+}
