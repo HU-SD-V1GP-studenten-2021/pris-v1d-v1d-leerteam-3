@@ -108,7 +108,7 @@ false America/Asuncion
 false America/Atikokan
 true America/Atka
 false America/Bahia
-false America/Bahia_Banderas
+true America/Bahia_Banderas
 false America/Barbados
 false America/Belem
 false America/Belize
@@ -125,7 +125,7 @@ false America/Catamarca
 false America/Cayenne
 false America/Cayman
 true America/Chicago
-false America/Chihuahua
+true America/Chihuahua
 false America/Coral_Harbour
 false America/Cordoba
 false America/Costa_Rica
@@ -186,15 +186,15 @@ false America/Manaus
 false America/Marigot
 false America/Martinique
 true America/Matamoros
-false America/Mazatlan
+true America/Mazatlan
 false America/Mendoza
 true America/Menominee
-false America/Merida
+true America/Merida
 true America/Metlakatla
-false America/Mexico_City
+true America/Mexico_City
 true America/Miquelon
 true America/Moncton
-false America/Monterrey
+true America/Monterrey
 false America/Montevideo
 true America/Montreal
 false America/Montserrat
@@ -227,7 +227,7 @@ false America/Rio_Branco
 false America/Rosario
 true America/Santa_Isabel
 false America/Santarem
-true America/Santiago
+false America/Santiago
 false America/Santo_Domingo
 false America/Sao_Paulo
 true America/Scoresbysund
@@ -255,12 +255,12 @@ true America/Yellowknife
 false Antarctica/Casey
 false Antarctica/Davis
 false Antarctica/DumontDUrville
-true Antarctica/Macquarie
+false Antarctica/Macquarie
 false Antarctica/Mawson
-true Antarctica/McMurdo
+false Antarctica/McMurdo
 false Antarctica/Palmer
 false Antarctica/Rothera
-true Antarctica/South_Pole
+false Antarctica/South_Pole
 false Antarctica/Syowa
 true Antarctica/Troll
 false Antarctica/Vostok
@@ -376,29 +376,29 @@ false Atlantic/Reykjavik
 false Atlantic/South_Georgia
 false Atlantic/St_Helena
 false Atlantic/Stanley
-true Australia/ACT
-true Australia/Adelaide
+false Australia/ACT
+false Australia/Adelaide
 false Australia/Brisbane
-true Australia/Broken_Hill
-true Australia/Canberra
-true Australia/Currie
+false Australia/Broken_Hill
+false Australia/Canberra
+false Australia/Currie
 false Australia/Darwin
 false Australia/Eucla
-true Australia/Hobart
-true Australia/LHI
+false Australia/Hobart
+false Australia/LHI
 false Australia/Lindeman
-true Australia/Lord_Howe
-true Australia/Melbourne
-true Australia/NSW
+false Australia/Lord_Howe
+false Australia/Melbourne
+false Australia/NSW
 false Australia/North
 false Australia/Perth
 false Australia/Queensland
-true Australia/South
-true Australia/Sydney
-true Australia/Tasmania
-true Australia/Victoria
+false Australia/South
+false Australia/Sydney
+false Australia/Tasmania
+false Australia/Victoria
 false Australia/West
-true Australia/Yancowinna
+false Australia/Yancowinna
 true BDST
 false BDT
 false BNT
@@ -425,7 +425,7 @@ false CHAST
 false CHUT
 false CKT
 true CLST
-true CLT
+false CLT
 false COT
 false CST
 true CST6CDT
@@ -438,13 +438,13 @@ true Canada/Newfoundland
 true Canada/Pacific
 false Canada/Saskatchewan
 false Canada/Yukon
-true Chile/Continental
-true Chile/EasterIsland
+false Chile/Continental
+false Chile/EasterIsland
 true Cuba
 false DAVT
 false DDUT
-true EASST
-true EAST
+false EASST
+false EAST
 false EAT
 true EDT
 true EEST
@@ -612,7 +612,7 @@ false KRAST
 false KRAT
 false KST
 false Kwajalein
-true LHDT
+false LHDT
 false LHST
 false LIGT
 false LINT
@@ -640,8 +640,8 @@ false MUT
 false MVT
 false MYT
 true Mexico/BajaNorte
-false Mexico/BajaSur
-false Mexico/General
+true Mexico/BajaSur
+true Mexico/General
 true NDT
 false NFT
 false NOVST
@@ -649,8 +649,8 @@ false NOVT
 false NPT
 false NST
 false NUT
-true NZ
-true NZ-CHAT
+false NZ
+false NZ-CHAT
 true NZDT
 false NZST
 false NZT
@@ -675,12 +675,12 @@ true PST8PDT
 false PWT
 true PYST
 false PYT
-true Pacific/Apia
-true Pacific/Auckland
+false Pacific/Apia
+false Pacific/Auckland
 false Pacific/Bougainville
-true Pacific/Chatham
+false Pacific/Chatham
 false Pacific/Chuuk
-true Pacific/Easter
+false Pacific/Easter
 false Pacific/Efate
 false Pacific/Enderbury
 false Pacific/Fakaofo
@@ -700,7 +700,7 @@ false Pacific/Marquesas
 false Pacific/Midway
 false Pacific/Nauru
 false Pacific/Niue
-true Pacific/Norfolk
+false Pacific/Norfolk
 false Pacific/Noumea
 false Pacific/Pago_Pago
 false Pacific/Palau
@@ -785,7 +785,7 @@ false Z
 false Zulu
 true posixrules
 </TimeZones>
-      <StartupTime>1617309611</StartupTime>
+      <StartupTime>1617793099</StartupTime>
     </root>
     <database id="2" parent="1" name="GP">
       <ObjectId>24942</ObjectId>
@@ -794,7 +794,7 @@ true posixrules
     <database id="3" parent="1" name="SDGP">
       <ObjectId>25506</ObjectId>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>1447</IntrospectionStateNumber>
+      <IntrospectionStateNumber>1834</IntrospectionStateNumber>
       <Current>1</Current>
       <Relations>sequence|table|25580|25582|1
 sequence|table|25591|25593|1
@@ -875,7 +875,7 @@ UC/10
 </Acl>
       <StateNumber>276</StateNumber>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>1448</IntrospectionStateNumber>
+      <IntrospectionStateNumber>1835</IntrospectionStateNumber>
       <Current>1</Current>
     </schema>
     <extension id="19" parent="3" name="plpgsql">

@@ -8,7 +8,7 @@
 
 <AnchorPane prefHeight="435.0" prefWidth="499.0" style="-fx-background-color: #ebe8e8;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="userInterfaceLaag.LoginSchermController">
    <children>
-      <TextField fx:id="naamVeld" layoutX="189.0" layoutY="169.0" text="Jos.vanEgmond@hu.nl" />
+      <TextField fx:id="naamVeld" layoutX="189.0" layoutY="169.0" text="jos.vanegmond@hu.nl" />
       <PasswordField fx:id="wachtwoordVeld" layoutX="189.0" layoutY="207.0" text="wachtwoord" />
       <Button fx:id="loginKnop" layoutX="215.0" layoutY="301.0" mnemonicParsing="false" onAction="#loginAccount" prefHeight="25.0" prefWidth="71.0" text="Login" />
       <Label fx:id="wachtwoordLabel" layoutX="102.0" layoutY="209.0" text="Wachtwoord:">
