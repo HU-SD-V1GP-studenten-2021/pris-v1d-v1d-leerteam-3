@@ -26,7 +26,6 @@ public class LoginSchermController {
     @FXML private Label wachtwoordVerzonden;
 
 
-
     public void loginAccount() throws Exception  {
         String naam = naamVeld.getText();
         String wachtwoord = wachtwoordVeld.getText();
@@ -34,7 +33,7 @@ public class LoginSchermController {
         String url = "jdbc:postgresql://localhost/SDGP";
         Properties props = new Properties();
         props.setProperty("user","postgres");
-        props.setProperty("password","united");
+        props.setProperty("password","ruben");
         Connection conn = DriverManager.getConnection(url, props);
 
         if(!naam.contains("@student.hu.nl") &&!naam.contains("@hu.nl")){
@@ -45,8 +44,6 @@ public class LoginSchermController {
         }
 
         else {
-
-
             if (naam.contains("@student.hu.nl")){
                 Statement stmt = conn.createStatement();
                 ResultSet rsHuidigeStudent = stmt.executeQuery("SELECT email, wachtwoord, pogingen, status, studentnummer, naam, pogingen, rollcall FROM student");
@@ -71,19 +68,15 @@ public class LoginSchermController {
                         int klasnummer = userGegevens.getInt("klasnummer");
                         String klasnaam = userGegevens.getString("klasnaam");
 
-
                         Klas klas = new Klas(klasnummer, klasnaam);
                         Student user = new Student(usernaam, studentnummer, email, status, pogingen, rollcall, userwachtwoord);
                         user.setKlas(klas);
                         klas.voegStudentToe(user);
-
-
                         Student.setAccount(user);
 
                         ResultSet lessen = stmt.executeQuery("SELECT l.lesnummer, l.datum, l.begintijd, l.eindtijd, l.docentnummer, l.lesnaam " +
                                 "FROM les l JOIN klas k on k.klasnummer = l.klasnummer " +
                                 "WHERE k.klasnummer = '" + klasnummer + "'");
-
 
                         int docentnummer = 0;
                         ArrayList<Les> alleLessen = new ArrayList<>();
@@ -98,14 +91,11 @@ public class LoginSchermController {
                             Les les = new Les(lesnummer, lesnaam, datum, begintijd, eindtijd);
                             les.setKlas(klas);
                             alleLessen.add(les);
-
                         }
-
 
                         ResultSet docent = stmt.executeQuery("SELECT docent.docentnummer, naam, email, status, pogingen, wachtwoord from docent " +
                                 "join les l on docent.docentnummer = l.docentnummer " +
                                 "WHERE l.klasnummer = '" + klasnummer + "'");
-
 
                         int i = 0;
                         while (docent.next()) {
@@ -139,13 +129,14 @@ public class LoginSchermController {
                                 Student s1 = new Student(naamNu, studentnummerNu, emailNu, statusNu, pogingenNu, rollcallNu,wachtwoordNu);
                                 s1.setKlas(klas);
                                 klas.voegStudentToe(s1);
-
                             }
                         }
 
                         ResultSet rollcallMaken = stmt.executeQuery("SELECT count(*) AS total FROM afwezigheid " +
                                 "WHERE studentnummer = " + studentnummer);
+
                         rollcallMaken.next();
+
                         int aantal = rollcallMaken.getInt("total");
                         double totaal = 100 - (100.0 / user.getKlas().getTotaalAantalLessen()) * aantal;
 
@@ -200,7 +191,6 @@ public class LoginSchermController {
                     if(rs.getString("email").equalsIgnoreCase(naam) && rs.getString(2).equals(wachtwoord) && !rs.getBoolean("status")){
                         stmt.executeUpdate("UPDATE docent SET pogingen = 0 WHERE docentnummer = " + docentnummer);
 
-
                         ResultSet klassengegevens = stmt.executeQuery("SELECT k.klasnummer, k.klasnaam FROM les " +
                                 "    join docent d on d.docentnummer = les.docentnummer " +
                                 "    join klas k on k.klasnummer = les.klasnummer " +
@@ -228,7 +218,6 @@ public class LoginSchermController {
                                 "    join klas k on k.klasnummer = l.klasnummer " +
                                 "where docent.docentnummer = " + docentnummer);
 
-
                         Docent docent = null;
                         while (userGegevens.next()) {
                             String usernaam = userGegevens.getString("naam");
@@ -245,7 +234,6 @@ public class LoginSchermController {
                                 "    JOIN klas k on k.klasnummer = l.klasnummer " +
                                 "    join docent d on d.docentnummer = l.docentnummer " +
                                 "WHERE l.docentnummer = '" + docentnummer + "'");
-
 
                         ArrayList<Les> alleLessen = new ArrayList<>();
                         while (lessen.next()){
@@ -265,12 +253,10 @@ public class LoginSchermController {
                             alleLessen.add(les);
                         }
 
-
                         ResultSet docentles = stmt.executeQuery("select docent.docentnummer, naam, email, status, pogingen, wachtwoord from docent" +
                                 "    join les l on docent.docentnummer = l.docentnummer " +
                                 "    join klas k on k.klasnummer = l.klasnummer " +
                                 "where docent.docentnummer = '" + docentnummer + "'");
-
 
                         int i = 0;
                         while (docentles.next()) {
@@ -281,14 +267,12 @@ public class LoginSchermController {
                                     klas1 = k;
                                 }
                             }
-
                             les.setDocent(docent);
                             les.setKlas(klas1);
                             klas1.voegLesToe(les);
                             docent.addLes(les);
                             i++;
                         }
-
 
                         for (Klas k : alleKlassen) {
                             ResultSet alleStudenten = stmt.executeQuery("select studentnummer, naam, email, status, pogingen, rollcall, wachtwoord from student " +
@@ -306,7 +290,6 @@ public class LoginSchermController {
                                 Student student = new Student(naamStudent, studentnummer, email, status, pogingen, rollcall, wachtwoordStudent);
                                 student.setKlas(k);
                                 k.voegStudentToe(student);
-
                             }
                         }
 
@@ -370,7 +353,7 @@ public class LoginSchermController {
         String url = "jdbc:postgresql://localhost/SDGP";
         Properties props = new Properties();
         props.setProperty("user","postgres");
-        props.setProperty("password","united");
+        props.setProperty("password","ruben");
         Connection conn = DriverManager.getConnection(url, props);
 
         // Student

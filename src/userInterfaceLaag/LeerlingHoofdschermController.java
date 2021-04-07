@@ -26,13 +26,6 @@ import java.time.LocalDate;
 import java.util.Properties;
 
 public class LeerlingHoofdschermController {
-
-
-    public static int lesnummer;
-    public static Les les;
-    public DatePicker datepickerid;
-    public Button volgendeDagButton;
-    public Button toonVorigeDagButton;
     @FXML private Label naamLabel;
     @FXML private TableView aanwezigheidsTabel;
     @FXML private TableColumn<Les, String> lesid;
@@ -41,7 +34,12 @@ public class LeerlingHoofdschermController {
     @FXML private TableColumn<Klas, String> tijdid;
     @FXML private TableColumn<Klas, String> aanwezigid;
     @FXML private PieChart rollCallAttendance;
-    private Student student = Student.getAccount();
+    private final Student student = Student.getAccount();
+    public static int lesnummer;
+    public static Les les;
+    public DatePicker datepickerid;
+    public Button volgendeDagButton;
+    public Button toonVorigeDagButton;
 
     public void initialize() throws SQLException {
         datepickerid.setValue(LocalDate.now());
@@ -78,7 +76,6 @@ public class LeerlingHoofdschermController {
         });
 
         aanwezigheidsTabel.refresh();
-
     }
 
     public ObservableList<Les> getLessen() throws SQLException {
@@ -151,11 +148,9 @@ public class LeerlingHoofdschermController {
                 }
             }
         }
-
     }
 
     public void getdatum() throws NullPointerException, SQLException {
-        LocalDate datum = datepickerid.getValue();
         aanwezigheidsTabel.setItems(setLessen());
         aanwezigheidsTabel.refresh();
     }
@@ -177,7 +172,7 @@ public class LeerlingHoofdschermController {
                     boolean afwezigbool = rs.getBoolean("afwezig");
                     if (afwezigbool){
                         tikker = true;
-                     }
+                    }
                 }
                 if (tikker){
                     les.setAfwezigheid("Afwezig");
@@ -209,4 +204,3 @@ public class LeerlingHoofdschermController {
         datepickerid.setValue(weekEerder);
     }
 }
-
