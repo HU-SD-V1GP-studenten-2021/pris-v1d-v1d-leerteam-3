@@ -74,15 +74,16 @@ public class LeerlingHoofdschermController {
                     setStyle("");
             }
         });
-
-        aanwezigheidsTabel.refresh();
+        datumid.setSortType(TableColumn.SortType.ASCENDING);
+        aanwezigheidsTabel.getSortOrder().add(datumid);
+        aanwezigheidsTabel.sort();
     }
 
     public ObservableList<Les> getLessen() throws SQLException {
         String url = "jdbc:postgresql://localhost/SDGP";
         Properties props = new Properties();
         props.setProperty("user","postgres");
-        props.setProperty("password","united");
+        props.setProperty("password","ruben");
         Connection con = DriverManager.getConnection(url, props);
         Statement stmt = con.createStatement();
         ObservableList<Les> lessen = FXCollections.observableArrayList();
@@ -152,6 +153,9 @@ public class LeerlingHoofdschermController {
 
     public void getdatum() throws NullPointerException, SQLException {
         aanwezigheidsTabel.setItems(setLessen());
+        datumid.setSortType(TableColumn.SortType.ASCENDING);
+        aanwezigheidsTabel.getSortOrder().add(datumid);
+        aanwezigheidsTabel.sort();
         aanwezigheidsTabel.refresh();
     }
 
@@ -159,7 +163,7 @@ public class LeerlingHoofdschermController {
         String url = "jdbc:postgresql://localhost/SDGP";
         Properties props = new Properties();
         props.setProperty("user","postgres");
-        props.setProperty("password","united");
+        props.setProperty("password","ruben");
         Connection con = DriverManager.getConnection(url, props);
         Statement stmt = con.createStatement();
         ObservableList<Les> lessen = FXCollections.observableArrayList();

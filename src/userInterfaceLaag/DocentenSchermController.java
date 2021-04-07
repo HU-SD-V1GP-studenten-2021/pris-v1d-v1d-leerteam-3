@@ -83,6 +83,12 @@ public class DocentenSchermController {
         tableView2.setItems(getLessen());
         tableView1.setItems(getStudenten());
         this.view1 = tableView1;
+        datumid.setSortType(TableColumn.SortType.ASCENDING);
+        tableView2.getSortOrder().add(datumid);
+        tableView2.sort();
+        naamid.setSortType(TableColumn.SortType.ASCENDING);
+        tableView1.getSortOrder().add(naamid);
+        tableView1.sort();
     }
 
     public ObservableList<Les> getLessen(){
@@ -100,7 +106,7 @@ public class DocentenSchermController {
         String url = "jdbc:postgresql://localhost/SDGP";
         Properties props = new Properties();
         props.setProperty("user","postgres");
-        props.setProperty("password","united");
+        props.setProperty("password","ruben");
         Connection con = DriverManager.getConnection(url, props);
         Statement stmt = con.createStatement();
         ObservableList<Student> students = FXCollections.observableArrayList();
@@ -148,6 +154,9 @@ public class DocentenSchermController {
             Les les = (Les) tableView2.getSelectionModel().getSelectedItem();
             tableView1.setItems(getStudentenLoad(les));
             this.les = les;
+            naamid.setSortType(TableColumn.SortType.ASCENDING);
+            tableView1.getSortOrder().add(naamid);
+            tableView1.sort();
         }
         catch (NullPointerException | SQLException ignored){
         }
@@ -158,7 +167,7 @@ public class DocentenSchermController {
         String url = "jdbc:postgresql://localhost/SDGP";
         Properties props = new Properties();
         props.setProperty("user","postgres");
-        props.setProperty("password","united");
+        props.setProperty("password","ruben");
         Connection con = DriverManager.getConnection(url, props);
         Statement stmt = con.createStatement();
         ObservableList<Student> students = FXCollections.observableArrayList();
@@ -185,7 +194,7 @@ public class DocentenSchermController {
         String url = "jdbc:postgresql://localhost/SDGP";
         Properties props = new Properties();
         props.setProperty("user","postgres");
-        props.setProperty("password","united");
+        props.setProperty("password","ruben");
         Connection con = DriverManager.getConnection(url, props);
         Statement stmt = con.createStatement();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("BevestigingAfmelden.fxml"));
@@ -211,7 +220,7 @@ public class DocentenSchermController {
         String url = "jdbc:postgresql://localhost/SDGP";
         Properties props = new Properties();
         props.setProperty("user","postgres");
-        props.setProperty("password","united");
+        props.setProperty("password","ruben");
         Connection con = DriverManager.getConnection(url, props);
         Statement stmt = con.createStatement();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("BevestigingAanmelden.fxml"));
@@ -248,6 +257,12 @@ public class DocentenSchermController {
         if(tableView2.getItems().size() == 0){
             tableView1.getItems().clear();
         }
+        datumid.setSortType(TableColumn.SortType.ASCENDING);
+        tableView2.getSortOrder().add(datumid);
+        tableView2.sort();
+        naamid.setSortType(TableColumn.SortType.ASCENDING);
+        tableView1.getSortOrder().add(naamid);
+        tableView1.sort();
         tableView1.refresh();
     }
 }
