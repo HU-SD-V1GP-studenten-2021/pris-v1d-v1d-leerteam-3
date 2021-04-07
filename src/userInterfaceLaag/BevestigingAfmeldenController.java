@@ -1,6 +1,5 @@
 package userInterfaceLaag;
 
-import domeinLaag.Les;
 import domeinLaag.Student;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -18,7 +17,6 @@ import java.util.Properties;
 
 public class BevestigingAfmeldenController {
     @FXML private Label waarschuwing;
-    public Les les;
 
     public void bevestigingButten(ActionEvent actionEvent) throws SQLException {
         ObservableList<ObservableList> namen = FXCollections.observableArrayList();

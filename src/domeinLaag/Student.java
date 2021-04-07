@@ -13,7 +13,6 @@ public class Student {
     private double rollCall;
     private String wachtwoord;
     private Klas klas;
-    private ArrayList<AanwezigheidPerLesPerStudent> presentie = new ArrayList<>();
     private String afwezigheid;
 
 
@@ -46,14 +45,6 @@ public class Student {
         this.afwezigheid = afwezigheid;
     }
 
-    public ArrayList<AanwezigheidPerLesPerStudent> getPresentie() {
-        return presentie;
-    }
-
-    public void voegPresentieToe(AanwezigheidPerLesPerStudent enkeleLes){
-        presentie.add(enkeleLes);
-    }
-
     public void setKlas(Klas klas) {
         this.klas = klas;
     }
@@ -66,10 +57,6 @@ public class Student {
         return studentennummer;
     }
 
-    public String getEmail() {
-        return email;
-    }
-
     public Klas getKlas() {
         return klas;
     }
@@ -78,8 +65,14 @@ public class Student {
         return rollCall;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
     public void setRollCall(double rollCall) {
-        this.rollCall = rollCall;
+        String nu = String.format("%.2f", rollCall);
+        nu = nu.replace(",", ".");
+        this.rollCall = Double.parseDouble(nu);
     }
 
     public String toString(){

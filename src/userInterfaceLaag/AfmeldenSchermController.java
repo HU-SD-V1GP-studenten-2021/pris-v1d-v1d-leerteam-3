@@ -1,19 +1,13 @@
 package userInterfaceLaag;
 
-import domeinLaag.AanwezigheidPerLesPerStudent;
-import domeinLaag.Les;
 import domeinLaag.Student;
 import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.stage.Stage;
-
 import java.sql.*;
 import java.util.Properties;
-import java.util.concurrent.TimeUnit;
-
 
 public class AfmeldenSchermController {
     public Button Annuleren;
