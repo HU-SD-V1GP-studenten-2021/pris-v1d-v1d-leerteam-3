@@ -28,6 +28,7 @@
             <TableColumn fx:id="emailid" prefWidth="146.79998779296875" text="E-mail" />
             <TableColumn fx:id="rollcall" prefWidth="52.800048828125" text="Roll Call" />
             <TableColumn fx:id="aanwezigid" prefWidth="88.4000244140625" text="Aanwezigheid" />
+            <TableColumn fx:id="redenid" minWidth="190.0" prefWidth="88.4000244140625" text="Reden" />
          </columns>
       </TableView>
       <TableView fx:id="tableView2" layoutX="21.0" layoutY="88.0" onMouseClicked="#loadDataPerLes" prefHeight="323.0" prefWidth="250.0" stylesheets="@../styleTableview.css">
