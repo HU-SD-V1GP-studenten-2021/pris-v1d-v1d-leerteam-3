@@ -1,7 +1,6 @@
 package userInterfaceLaag;
 
 import domeinLaag.*;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -11,7 +10,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
-import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 import java.sql.*;
@@ -27,17 +25,16 @@ public class LoginSchermController {
     @FXML private Label Waarschuwing;
     @FXML private Label wachtwoordVerzonden;
 
-    private Student account = Student.getAccount();
-    private Object Klas;
 
-    public void loginAccount(ActionEvent actionEvent) throws Exception  {
+
+    public void loginAccount() throws Exception  {
         String naam = naamVeld.getText();
         String wachtwoord = wachtwoordVeld.getText();
         Stage loginscherm = (Stage) loginKnop.getScene().getWindow();
         String url = "jdbc:postgresql://localhost/SDGP";
         Properties props = new Properties();
         props.setProperty("user","postgres");
-        props.setProperty("password","ruben");
+        props.setProperty("password","united");
         Connection conn = DriverManager.getConnection(url, props);
 
         if(!naam.contains("@student.hu.nl") &&!naam.contains("@hu.nl")){
@@ -150,14 +147,14 @@ public class LoginSchermController {
                                 "WHERE studentnummer = " + studentnummer);
                         rollcallMaken.next();
                         int aantal = rollcallMaken.getInt("total");
-                        double totaal = 100 - (100 / user.getKlas().getTotaalAantalLessen()) * aantal;
+                        double totaal = 100 - (100.0 / user.getKlas().getTotaalAantalLessen()) * aantal;
 
                         user.setRollCall(totaal);
 
                         try{
                             loginscherm.close();
                             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("LeerlingHoofdscherm.fxml"));
-                            Parent root = (Parent) fxmlLoader.load();
+                            Parent root = fxmlLoader.load();
                             Stage stage = new Stage();
                             stage.setTitle("Lessen");
                             stage.getIcons().add(new Image("HU.png"));
@@ -165,12 +162,11 @@ public class LoginSchermController {
                             stage.show();
                         }
                         catch (Exception ignored){
-                            System.out.println(ignored);
                         }
                         break;
 
                     }
-                    else if (rsHuidigeStudent.getString("email").equals(naam)){
+                    else if (rsHuidigeStudent.getString("email").equalsIgnoreCase(naam)){
                         int i = rsHuidigeStudent.getInt("pogingen");
                         i ++;
                         stmt.executeUpdate("UPDATE student SET pogingen =" + i + " WHERE studentnummer = " + studentnummer);
@@ -215,13 +211,14 @@ public class LoginSchermController {
                             String klasnaam = klassengegevens.getString("klasnaam");
                             int klasnummer = klassengegevens.getInt("klasnummer");
                             Klas k10 = new Klas(klasnummer, klasnaam);
-                            boolean boool = false;
+                            boolean toevoegen = false;
                             for (Klas k : alleKlassen){
-                                if (k.getKlasnummer() == k10.getKlasnummer()){
-                                    boool = true;
+                                if (k.getKlasnummer() == k10.getKlasnummer()) {
+                                    toevoegen = true;
+                                    break;
                                 }
                             }
-                            if (!boool){
+                            if (!toevoegen){
                                 alleKlassen.add(k10);
                             }
                         }
@@ -243,8 +240,6 @@ public class LoginSchermController {
                         }
 
                         Docent.setAccount(docent);
-
-
 
                         ResultSet lessen = stmt.executeQuery("SELECT l.lesnummer, l.datum, l.begintijd, l.eindtijd, l.lesnaam, l.klasnummer FROM les l " +
                                 "    JOIN klas k on k.klasnummer = l.klasnummer " +
@@ -269,10 +264,6 @@ public class LoginSchermController {
                             }
                             alleLessen.add(les);
                         }
-
-
-
-//                        }
 
 
                         ResultSet docentles = stmt.executeQuery("select docent.docentnummer, naam, email, status, pogingen, wachtwoord from docent" +
@@ -305,7 +296,6 @@ public class LoginSchermController {
                                     "where k.klasnummer = '" + k.getKlasnummer() + "'");
 
                             while (alleStudenten.next()) {
-//                                System.out.println(alleStudenten.getString("naam"));
                                 int studentnummer = alleStudenten.getInt("studentnummer");
                                 String naamStudent = alleStudenten.getString("naam");
                                 String email = alleStudenten.getString("email");
@@ -313,31 +303,21 @@ public class LoginSchermController {
                                 int pogingen = alleStudenten.getInt("pogingen");
                                 double rollcall = alleStudenten.getDouble("rollcall");
                                 String wachtwoordStudent = alleStudenten.getString("wachtwoord");
-
                                 Student student = new Student(naamStudent, studentnummer, email, status, pogingen, rollcall, wachtwoordStudent);
-
                                 student.setKlas(k);
                                 k.voegStudentToe(student);
 
                             }
                         }
 
-                        System.out.println(alleKlassen);
-                        for (Klas kl : alleKlassen){
-                            System.out.println(kl);
-                        }
-
-
                         for(Klas k : alleKlassen){
                             for(Student s : k.getStudenten()){
                                 int studentnummer = s.getStudentennummer();
-
                                 ResultSet rollcallMaken = stmt.executeQuery("SELECT count(*) AS total FROM afwezigheid " +
                                         "WHERE studentnummer = " + studentnummer);
                                 rollcallMaken.next();
-
                                 int aantallessen = rollcallMaken.getInt("total");
-                                double totaal = 100 - (100 / s.getKlas().getTotaalAantalLessen()) * aantallessen;
+                                double totaal = 100 - (100.0 / s.getKlas().getTotaalAantalLessen()) * aantallessen;
                                 s.setRollCall(totaal);
                             }
                         }
@@ -345,7 +325,7 @@ public class LoginSchermController {
 
                             loginscherm.close();
                             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("DocentenScherm.fxml"));
-                            Parent root = (Parent) fxmlLoader.load();
+                            Parent root = fxmlLoader.load();
                             Stage stage = new Stage();
                             stage.setTitle("Les presentie");
                             stage.setScene(new Scene(root));
@@ -353,16 +333,13 @@ public class LoginSchermController {
                             stage.show();
                         }
                         catch (Exception ignored){
-                            System.out.println(ignored);
                         }
                         break;
 
                     }
-                    else if (rs.getString("email").equals(naam)){
+                    else if (rs.getString("email").equalsIgnoreCase(naam)){
                         int i = rs.getInt("pogingen");
-                        System.out.println(i);
                         i ++;
-                        System.out.println(i);
                         stmt.executeUpdate("UPDATE docent SET pogingen =" + i + " WHERE docentnummer = " + docentnummer);
                         if (i == 3 || i == 4){
                             Waarschuwing.setText("Let op, je zit op " + i + " pogingen!\n" +
@@ -388,17 +365,12 @@ public class LoginSchermController {
             }
         }
     }
-
-    public void setStatusDocent(ActionEvent actionEvent) {
-    }
-    public void handleMousClickWachtwoordVergeten(MouseEvent mouseEvent) throws Exception {
+    public void handleMousClickWachtwoordVergeten() throws Exception {
         String naam = naamVeld.getText();
-        String wachtwoord = wachtwoordVeld.getText();
-        Stage loginscherm = (Stage) loginKnop.getScene().getWindow();
         String url = "jdbc:postgresql://localhost/SDGP";
         Properties props = new Properties();
         props.setProperty("user","postgres");
-        props.setProperty("password","ruben");
+        props.setProperty("password","united");
         Connection conn = DriverManager.getConnection(url, props);
 
         // Student
